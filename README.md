@@ -2,6 +2,12 @@
 
 😎Awesome list of papers about knowledge-enhanced Question generation with notes.
 
+:white_check_mark: : already reading carefully
+
+:fire:: high citation in recent years
+
+:hammer_and_wrench:: available code
+
 ---
 
 ## :grey_question: Question Generation

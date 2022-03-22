@@ -20,6 +20,23 @@
   * 将端到端训练的神经网络应用于问题生成
   * 采用seq2seq+attention模型架构
   * 摆脱了转换规则与模版的局限，取得了相比于传统方法更好的性能。
+
+```mermaid
+graph LR
+任务难点 --更加接近于人类--> 同义词替换+知识引入 --> 相关工作 --> 过去:rule-based 
+相关工作 --> 其他数据映射自然语言
+
+Seq2Seq --> en((encoder)) --bidirectional--> soft计算注意力分数 --> lstm((LSTM))  --> only-sentence
+lstm --> sentence+paragraph --> truncate截断,当然更好的方法是切片
+
+Seq2Seq --> de((decoder)) --word-level-prediction--> LSTM((LSTM)) --> 隐藏层初始化 --basic-model --> 句子encoder的最后隐藏层
+LSTM --ours--> 句子+段落的encoder输出
+
+
+```
+
+
+
 * :fire: **Neural question generation from text: A preliminary study**, in EMNLP 2017. [[pdf](https://arxiv.org/abs/1704.01792)] 
   * 在编码时额外考虑了答案位置与语法信息，取得了更好的性能。
 

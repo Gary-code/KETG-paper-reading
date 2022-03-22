@@ -19,7 +19,7 @@
 * :white_check_mark::fire: :hammer_and_wrench: **Learning to Ask: Neural Question Generation for Reading Comprehension**, in ACL 2017. [[pdf]](https://arxiv.org/abs/1705.00106) [[official code (torch)](https://github.com/xinyadu/nqg)]
   * 将端到端训练的神经网络应用于问题生成
   * 采用seq2seq+attention模型架构
-  * 摆脱了转换规则与模版的局限，取得了相比于传统方法更好的性能。
+  * 摆脱了转换规则与模版的局限，取得了相比于传统方法更好的性能
 
 ```mermaid
 graph LR

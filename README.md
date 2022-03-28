@@ -30,17 +30,35 @@ Seq2Seq --> en((encoder)) --bidirectional--> soft计算注意力分数 --> lstm(
 lstm --> sentence+paragraph --> truncate截断,当然更好的方法是切片
 
 Seq2Seq --> de((decoder)) --word-level-prediction--> LSTM((LSTM)) --> 隐藏层初始化 --basic-model --> 句子encoder的最后隐藏层
-LSTM --ours--> 句子+段落的encoder输出
+LSTM --oours--> 句子+段落的encoder输出
 
 
 ```
 
 
 
-* :fire: **Neural question generation from text: A preliminary study**, in EMNLP 2017. [[pdf](https://arxiv.org/abs/1704.01792)] 
+* :white_check_mark: :fire: **Neural question generation from text: A preliminary study**, in EMNLP 2017. [[pdf](https://arxiv.org/abs/1704.01792)] 
   * 在编码时额外考虑了答案位置与语法信息，取得了更好的性能。
 
+```mermaid
+graph LR
+en((encoder)) --bi-GRU--> fe((feature-Rich)) --> word-vecotr
+fe --> lexcial-feature-embedding-vectors --> POS+NER
+fe --> answer-position-embedding --> BIO-tagging
 
+word-vecotr --> 双向的隐藏层
+POS+NER --> 双向的隐藏层
+BIO-tagging --> 双向的隐藏层
+
+de((decoder)) --带注意力机制,使用加性注意力--> maxout-hidden+具体需要看reference论文
+de --> GRU
+
+de --> Copy-Mechanism,一样使用加性注意力 --> 计算出概率从source句子中直接copy单词
+```
+
+
+
+* :hammer_and_wrench: **Mixture Content Selection for Diverse Sequence Generation**, in EMNLP 2019.[[pdf](https://arxiv.org/abs/1909.01953)] [[torch](https://github.com/clovaai/FocusSeq2Seq)]
 
 ## :bookmark_tabs: Question Answering
 

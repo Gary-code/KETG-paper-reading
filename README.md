@@ -59,6 +59,7 @@ de --> Copy-Mechanism,一样使用加性注意力 --> 计算出概率从source�
 
 
 * :white_check_mark: :hammer_and_wrench: **Mixture Content Selection for Diverse Sequence Generation**, in EMNLP 2019.[[pdf](https://arxiv.org/abs/1909.01953)] [[torch](https://github.com/clovaai/FocusSeq2Seq)]
+* :hammer_and_wrench: **Radial Graph Convolutional Network for Visual Question Generation**, in IEEE Transactions on Neural Networks and Learning Systems 2020. [[pdf](https://ieeexplore.ieee.org/document/9079208)] [[torch](https://github.com/Wangt-CN/VQG-GCN)]
 
 ## :bookmark_tabs: Question Answering
 

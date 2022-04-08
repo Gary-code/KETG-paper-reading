@@ -74,7 +74,7 @@ de --> Copy-Mechanism,一样使用加性注意力 --> 计算出概率从source�
 
 
 
-## :book: Rewriting
+## :book: Image Caption
 
 ---
 

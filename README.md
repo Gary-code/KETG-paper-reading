@@ -74,7 +74,7 @@ de --> Copy-Mechanism,一样使用加性注意力 --> 计算出概率从source�
 
 
 
-## :book: Image Caption
+## :book: Other Related Topic
 
 ---
 
@@ -84,4 +84,18 @@ de --> Copy-Mechanism,一样使用加性注意力 --> 计算出概率从source�
     <img src="https://s2.loli.net/2022/04/09/COnvomETrl6GRf2.png" width = "50%" alt="***" align=left />
     <img src="https://s2.loli.net/2022/04/09/7ASmXcCazOh9GsU.png" width = "50%"  alt="***" align=right />
     <center>
+
+
+
+
+
+
+
+
+
+
+
+* :hammer_and_wrench:**[Sentence Discrimination] Learning Semantic Sentence Embeddings using Sequential Pair-wise Discriminator**,in COLING 2018. [[pdf](https://aclanthology.org/C18-1230/)] [[torch](https://github.com/badripatro/PQG)]
+
+
 

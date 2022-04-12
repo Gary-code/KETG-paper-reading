@@ -78,12 +78,12 @@ de --> Copy-Mechanism,一样使用加性注意力 --> 计算出概率从source�
 
 ---
 
-* :fire: :hammer_and_wrench:**[Text Generation & Image Caption] Show, Control and Tell: A Framework for Generating Controllable and Grounded Captions**, in CVPR 2019. [[pdf](https://openaccess.thecvf.com/content_CVPR_2019/html/Cornia_Show_Control_and_Tell_A_Framework_for_Generating_Controllable_and_CVPR_2019_paper.html)] [[torch](https://github.com/aimagelab/show-control-and-tell)]
 
-  * <center class="half">
-    <img src="https://s2.loli.net/2022/04/09/COnvomETrl6GRf2.png" width = "50%" alt="***" align=left />
-    <img src="https://s2.loli.net/2022/04/09/7ASmXcCazOh9GsU.png" width = "50%"  alt="***" align=right />
-    <center>
+
+* <center class="half">
+  <img src="https://s2.loli.net/2022/04/09/COnvomETrl6GRf2.png" width = "50%" alt="***" align=left />
+  <img src="https://s2.loli.net/2022/04/09/7ASmXcCazOh9GsU.png" width = "50%"  alt="***" align=right />
+  <center>
 
 
 
@@ -98,4 +98,11 @@ de --> Copy-Mechanism,一样使用加性注意力 --> 计算出概率从source�
 * :hammer_and_wrench:**[Sentence Discrimination] Learning Semantic Sentence Embeddings using Sequential Pair-wise Discriminator**,in COLING 2018. [[pdf](https://aclanthology.org/C18-1230/)] [[torch](https://github.com/badripatro/PQG)]
 
 
+
+
+
+## :framed_picture: Image Caption
+
+* :hammer_and_wrench:**[Image Caption] Generating Diverse and Descriptive Image Captions Using Visual Paraphrases**, in ICCV 2019. [[pdf](https://ieeexplore.ieee.org/document/9010984)] [[torch](https://github.com/pkuliu/visual-paraphrases-captioning)]
+* :fire: :hammer_and_wrench:**[Text Generation & Image Caption] Show, Control and Tell: A Framework for Generating Controllable and Grounded Captions**, in CVPR 2019. [[pdf](https://openaccess.thecvf.com/content_CVPR_2019/html/Cornia_Show_Control_and_Tell_A_Framework_for_Generating_Controllable_and_CVPR_2019_paper.html)] [[torch](https://github.com/aimagelab/show-control-and-tell)]
 

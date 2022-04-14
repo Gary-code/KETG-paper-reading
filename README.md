@@ -137,6 +137,8 @@ de --> Copy-Mechanism,一样使用加性注意力 --> 计算出概率从source�
       graph LR
       选择视觉复述caption对 --> 评分函数 --> 设计三个Attention操作,学习到多模态知识 --> 最后softmax输出
       ```
+  
+  * 更多细节可见[slide](https://kdocs.cn/l/conDzdschwAn)
 
 
 * :fire: :hammer_and_wrench:**[Text Generation & Image Caption] Show, Control and Tell: A Framework for Generating Controllable and Grounded Captions**, in CVPR 2019. [[pdf](https://openaccess.thecvf.com/content_CVPR_2019/html/Cornia_Show_Control_and_Tell_A_Framework_for_Generating_Controllable_and_CVPR_2019_paper.html)] [[torch](https://github.com/aimagelab/show-control-and-tell)]

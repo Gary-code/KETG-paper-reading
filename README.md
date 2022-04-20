@@ -129,7 +129,7 @@ de --> Copy-Mechanism,一样使用加性注意力 --> 计算出概率从source�
 * :fire: :hammer_and_wrench:**[Text Generation & Image Caption] Show, Control and Tell: A Framework for Generating Controllable and Grounded Captions**, in CVPR 2019. [[pdf](https://openaccess.thecvf.com/content_CVPR_2019/html/Cornia_Show_Control_and_Tell_A_Framework_for_Generating_Controllable_and_CVPR_2019_paper.html)] [[torch](https://github.com/aimagelab/show-control-and-tell)]
 
   
-  * <center class="half">
+  * center class="half">
     <img src="https://s2.loli.net/2022/04/09/COnvomETrl6GRf2.png" width = "50%" alt="***" align=left />
     <img src="https://s2.loli.net/2022/04/09/7ASmXcCazOh9GsU.png" width = "50%"  alt="***" align=right />
     <center>
@@ -150,6 +150,5 @@ de --> Copy-Mechanism,一样使用加性注意力 --> 计算出概率从source�
     每个区域集的特征映射为N维向量,然后拼接在一起 --测试匈牙利算法进行匹配--> 软置换矩阵转化为最终的置换,以此来对R进行排序
     ```
   
-    
+  * [详细讲解](https://zhuanlan.zhihu.com/p/150667499)
 
-​	

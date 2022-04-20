@@ -2,11 +2,11 @@
 
 😎Awesome list of papers about knowledge-enhanced Question generation with notes.
 
-:white_check_mark: : already reading carefully
+:white_check_mark: : **already reading carefully**
 
-:fire:: high citation in recent years
+:fire:: **high citation in recent years**
 
-:hammer_and_wrench:: available code
+:hammer_and_wrench:: **available code**
 
 ---
 
@@ -80,21 +80,6 @@ de --> Copy-Mechanism,一样使用加性注意力 --> 计算出概率从source�
 
 
 
-* <center class="half">
-  <img src="https://s2.loli.net/2022/04/09/COnvomETrl6GRf2.png" width = "50%" alt="***" align=left />
-  <img src="https://s2.loli.net/2022/04/09/7ASmXcCazOh9GsU.png" width = "50%"  alt="***" align=right />
-  <center>
-
-
-
-
-
-
-
-
-
-
-
 * :hammer_and_wrench:**[Sentence Discrimination] Learning Semantic Sentence Embeddings using Sequential Pair-wise Discriminator**,in COLING 2018. [[pdf](https://aclanthology.org/C18-1230/)] [[torch](https://github.com/badripatro/PQG)]
 
 
@@ -143,3 +128,28 @@ de --> Copy-Mechanism,一样使用加性注意力 --> 计算出概率从source�
 
 * :fire: :hammer_and_wrench:**[Text Generation & Image Caption] Show, Control and Tell: A Framework for Generating Controllable and Grounded Captions**, in CVPR 2019. [[pdf](https://openaccess.thecvf.com/content_CVPR_2019/html/Cornia_Show_Control_and_Tell_A_Framework_for_Generating_Controllable_and_CVPR_2019_paper.html)] [[torch](https://github.com/aimagelab/show-control-and-tell)]
 
+  
+  * <center class="half">
+    <img src="https://s2.loli.net/2022/04/09/COnvomETrl6GRf2.png" width = "50%" alt="***" align=left />
+    <img src="https://s2.loli.net/2022/04/09/7ASmXcCazOh9GsU.png" width = "50%"  alt="***" align=right />
+    <center>
+  
+  * 
+  
+    ```mermaid
+    graph LR
+    外部信号控制 --> 图像中的一组区域块 --> core((核心))
+    core --> 改变chunk的顺序
+    core --> 改变图像的区域
+    model((模型)) --基于区域的特征与状态--> LSTM((LanguageModel,两层LSTM)) --第一层--> 计算attention --注意--> 所有区域的特征向量进行mean-pooling作为图像的总体特征I
+    LSTM --第二层--> 预测下一个单词
+    model --何时切换到下一个图像区域--> 块转移门 --计算gt--> 基于第一层LSTM的状态设立一个chunk-sentinel --> 类似计算ht对sc_t-rt的attention
+    model --视觉词or文本次--> AdaptiveAttention --> 设置一个visual-sentinel --> 类似计算ht对sv_t-rt的attention --> attention的结果,可以计算出当前时刻模型正在关注的上下文特征ct
+    model --无序集合排序--> 排序网络 --> R中包含N个区域集 --全连接层--> 每个区域集的特征映射为N维向量,然后拼接在一起 --Sinkhorn算子--> 软置换矩阵 
+    每个区域集的特征映射为N维向量,然后拼接在一起 --> 最小化软置换与真实结果之间的均方误差
+    每个区域集的特征映射为N维向量,然后拼接在一起 --测试匈牙利算法进行匹配--> 软置换矩阵转化为最终的置换,以此来对R进行排序
+    ```
+  
+    
+
+​	

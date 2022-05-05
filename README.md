@@ -74,7 +74,7 @@ de --> Copy-Mechanism,一样使用加性注意力 --> 计算出概率从source�
 
 
 
-## :book: Other Related Topic
+## :book: Multimodel Paraphrase
 
 ---
 
@@ -123,17 +123,18 @@ de --> Copy-Mechanism,一样使用加性注意力 --> 计算出概率从source�
       选择视觉复述caption对 --> 评分函数 --> 设计三个Attention操作,学习到多模态知识 --> 最后softmax输出
       ```
   
-  * 更多细节可见[slide](https://kdocs.cn/l/conDzdschwAn)
+  * 更多细节可见我个人的[slide](https://kdocs.cn/l/conDzdschwAn)
 
 
 * :fire: :hammer_and_wrench:**[Text Generation & Image Caption] Show, Control and Tell: A Framework for Generating Controllable and Grounded Captions**, in CVPR 2019. [[pdf](https://openaccess.thecvf.com/content_CVPR_2019/html/Cornia_Show_Control_and_Tell_A_Framework_for_Generating_Controllable_and_CVPR_2019_paper.html)] [[torch](https://github.com/aimagelab/show-control-and-tell)]
 
   
-  * center class="half">
+  * 
     <img src="https://s2.loli.net/2022/04/09/COnvomETrl6GRf2.png" width = "50%" alt="***" align=left />
     <img src="https://s2.loli.net/2022/04/09/7ASmXcCazOh9GsU.png" width = "50%"  alt="***" align=right />
+    
     <center>
-  
+    
   * 
   
     ```mermaid

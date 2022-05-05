@@ -1,6 +1,6 @@
 # Knowledge-enriched Text Generation paper reading
 
-😎Awesome list of papers about knowledge-enhanced Question generation with notes.
+😎 Awesome list of papers about knowledge-enhanced Question generation with notes.
 
 :white_check_mark: : **already reading carefully**
 

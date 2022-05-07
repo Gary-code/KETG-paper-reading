@@ -153,4 +153,10 @@ de --> Copy-Mechanism,一样使用加性注意力 --> 计算出概率从source�
     ```
   
   * [详细讲解](https://zhuanlan.zhihu.com/p/150667499)
+  
+* **[Video Caption] Video Question Generation via Semantic Rich Cross-Modal Self-Attention Networks Learning**, in ICASSP 2020. [[pdf](https://ieeexplore.ieee.org/document/9053476)]
+
+
+  * 使用了**[TVQA](https://paperswithcode.com/dataset/tvqa)**数据集，is based on 6 popular TV shows and consists of **152,545 QA pairs** from **21,793 clips**.
+
 

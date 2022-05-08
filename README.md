@@ -89,45 +89,49 @@ de --> Copy-Mechanism,一样使用加性注意力 --> 计算出概率从source�
 
 ## :framed_picture: Image Caption
 
-* :hammer_and_wrench: **[Image Caption] Generating Diverse and Descriptive Image Captions Using Visual Paraphrases**, in ICCV 2019. [[pdf](https://ieeexplore.ieee.org/document/9010984)] [[torch](https://github.com/pkuliu/visual-paraphrases-captioning)]
+* :white_check_mark: :hammer_and_wrench: **[Image Caption] Generating Diverse and Descriptive Image Captions Using Visual Paraphrases**, in ICCV 2019. [[pdf](https://ieeexplore.ieee.org/document/9010984)] [[torch](https://github.com/pkuliu/visual-paraphrases-captioning)]
+
   * 该论文研究了目前图像的文本描述的**多样性**和**具体性**缺乏的问题，提出了一种基于视觉复述的两阶段解码的模型。
     * 给定图像输入，该模型首先生成初步的句子，再将其改写为内容更加多样和丰富的描述。在MS COCO图像描述数据集上的实验显示，方法可以显著提升文本描述的**多样性**和**具体性**。
-  
-  * 重点探索**visual paraphrases** 角色 + **scoring function**
-  
-    * ```mermaid
-      graph LR
-      与人类相比 --文章中有example--> 缺少多样性和具体性 --> 两阶段视觉复述方法 --> MSCOCO数据集
-      ```
-  
-  * 故事展开:
-  
-    * ```mermaid
-      graph LR
-      标准 -->流畅+相关+多样+具体 --多样性--> 形容词
-      流畅+相关+多样+具体 --多样性--> 细节,with
-      形容词 --> Pa((Paraphrase))
-      细节,with --> Pa
-      Pa --> visual-paraphrase
-      visual-paraphrase --> sentence_pairs --> 两阶段编码
-      ```
-  
-    * ```mermaid
-      graph LR
-      相关工作 --caption--> 多caption.vs.单caption --paraphrases--> 未处理特征和视觉信息 --两阶段编码--> 中间seq.vs.2captions 
-      ```
-  
-  * 模型方法：
-  
-    * ```mermaid
-      graph LR
-      选择视觉复述caption对 --> 评分函数 --> 设计三个Attention操作,学习到多模态知识 --> 最后softmax输出
-      ```
-  
+
+    * 重点探索**visual paraphrases** 角色 + **scoring function**
+    
+      * ```mermaid
+        graph LR
+        与人类相比 --文章中有example--> 缺少多样性和具体性 --> 两阶段视觉复述方法 --> MSCOCO数据集
+        ```
+    
+    
+    * 故事展开:
+    
+      * ```mermaid
+        graph LR
+        标准 -->流畅+相关+多样+具体 --多样性--> 形容词
+        流畅+相关+多样+具体 --多样性--> 细节,with
+        形容词 --> Pa((Paraphrase))
+        细节,with --> Pa
+        Pa --> visual-paraphrase
+        visual-paraphrase --> sentence_pairs --> 两阶段编码
+        ```
+    
+      * ```mermaid
+        graph LR
+        相关工作 --caption--> 多caption.vs.单caption --paraphrases--> 未处理特征和视觉信息 --两阶段编码--> 中间seq.vs.2captions 
+        ```
+    
+    
+    * 模型方法：
+    
+      * ```mermaid
+        graph LR
+        选择视觉复述caption对 --> 评分函数 --> 设计三个Attention操作,学习到多模态知识 --> 最后softmax输出
+        ```
+    
+
   * 更多细节可见我个人的[slide](https://kdocs.cn/l/conDzdschwAn)
 
 
-* :fire: :hammer_and_wrench:**[Text Generation & Image Caption] Show, Control and Tell: A Framework for Generating Controllable and Grounded Captions**, in CVPR 2019. [[pdf](https://openaccess.thecvf.com/content_CVPR_2019/html/Cornia_Show_Control_and_Tell_A_Framework_for_Generating_Controllable_and_CVPR_2019_paper.html)] [[torch](https://github.com/aimagelab/show-control-and-tell)]
+* :white_check_mark: ::fire: :hammer_and_wrench: **[Text Generation & Image Caption] Show, Control and Tell: A Framework for Generating Controllable and Grounded Captions**, in CVPR 2019. [[pdf](https://openaccess.thecvf.com/content_CVPR_2019/html/Cornia_Show_Control_and_Tell_A_Framework_for_Generating_Controllable_and_CVPR_2019_paper.html)] [[torch](https://github.com/aimagelab/show-control-and-tell)]
 
   
   * 
@@ -157,6 +161,6 @@ de --> Copy-Mechanism,一样使用加性注意力 --> 计算出概率从source�
 * **[Video Caption] Video Question Generation via Semantic Rich Cross-Modal Self-Attention Networks Learning**, in ICASSP 2020. [[pdf](https://ieeexplore.ieee.org/document/9053476)]
 
 
-  * 使用了**[TVQA](https://paperswithcode.com/dataset/tvqa)**数据集，is based on 6 popular TV shows and consists of **152,545 QA pairs** from **21,793 clips**.
+    * 使用了**[TVQA](https://paperswithcode.com/dataset/tvqa)**数据集，is based on 6 popular TV shows and consists of **152,545 QA pairs** from **21,793 clips**.
 
 

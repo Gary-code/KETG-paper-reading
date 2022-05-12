@@ -126,7 +126,7 @@ de --> Copy-Mechanism,一样使用加性注意力 --> 计算出概率从source�
         graph LR
         选择视觉复述caption对 --> 评分函数 --> 设计三个Attention操作,学习到多模态知识 --> 最后softmax输出
         ```
-    
+  
 * 更多细节可见我个人的[slide](https://kdocs.cn/l/conDzdschwAn)
 
 
@@ -158,7 +158,8 @@ de --> Copy-Mechanism,一样使用加性注意力 --> 计算出概率从source�
 * **[Video Caption] Video Question Generation via Semantic Rich Cross-Modal Self-Attention Networks Learning**, in ICASSP 2020. [[pdf](https://ieeexplore.ieee.org/document/9053476)]
 
 
-  * 使用了**[TVQA](https://paperswithcode.com/dataset/tvqa)**数据集，is based on 6 popular TV shows and consists of **152,545 QA pairs** from **21,793 clips**.
+    * 使用了**[TVQA](https://paperswithcode.com/dataset/tvqa)**数据集，is based on 6 popular TV shows and consists of **152,545 QA pairs** from **21,793 clips**.
+
 
 
 * **[Video Caption] VX2TEXT: End-to-End Learning of Video-Based Text Generation From Multimodal Inputs**, in CVPR 2021. [[pdf](https://arxiv.org/abs/2101.12059)]

@@ -74,13 +74,14 @@ de --> Copy-Mechanism,一样使用加性注意力 --> 计算出概率从source�
 
 
 
-## :book: Multimodal Paraphrase
+## :book: Paraphrase
 
 ---
 
 
 
 * :hammer_and_wrench: **[Sentence Discrimination] Learning Semantic Sentence Embeddings using Sequential Pair-wise Discriminator**,in COLING 2018. [[pdf](https://aclanthology.org/C18-1230/)] [[torch](https://github.com/badripatro/PQG)]
+* :hammer_and_wrench: **[Hierarchical Sketch&Paraphrase Generation] Hierarchical Sketch Induction for Paraphrase Generation**, in ACL 2022.[[pdf](https://aclanthology.org/2022.acl-long.178.pdf)] [[torch](https://github.com/tomhosking/hrq-vae)]
 
 ### :whale2: Related Big Model
 

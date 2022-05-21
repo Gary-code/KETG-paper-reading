@@ -8,6 +8,14 @@
 
 :hammer_and_wrench:: **available code**
 
+
+
+> Content
+
+[TOC]
+
+
+
 ---
 
 ## :grey_question: Question Generation
@@ -58,6 +66,19 @@ de --> Copy-Mechanism,一样使用加性注意力 --> 计算出概率从source�
 
 
 
+### :video_camera: Video QG
+
+* **Video Question Generation via Semantic Rich Cross-Modal Self-Attention Networks Learning**, in ICASSP 2020. [[pdf](https://ieeexplore.ieee.org/document/9053476)]
+  * 使用了**[TVQA](https://paperswithcode.com/dataset/tvqa)**数据集，is based on 6 popular TV shows and consists of **152,545 QA pairs** from **21,793 clips**.
+  * 总体没什么创新的
+* **Multi-Turn Video Question Generation via Reinforced Multi-Choice Attention Network**, in T-CSVT 2021.[[pdf](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9161024)]
+  * Multi-Turn（M-VQG）：结合多轮对话+视频信息
+  * 优点： 利用动态场景信息，问题可回答性，对话记录信息抽取
+  * 方法：baseline方法，强化学习（看不懂）
+* **End-to-End Video Question-Answer Generation with Generator-Pretester Network**, in T-CSVT 2021. [[pdf](https://arxiv.org/pdf/2101.01447.pdf)]
+  * 引入一问一答的形式，生成问题和答案，然后测试答案是否正确
+  * 硬件平台：NVIDIA DGX-1（8 * V100）
+
 ### :sun_with_face: QG examples
 
 * :white_check_mark:  :hammer_and_wrench:  **Mixture Content Selection for Diverse Sequence Generation**, in EMNLP 2019.[[pdf](https://arxiv.org/abs/1909.01953)] [[torch](https://github.com/clovaai/FocusSeq2Seq)]
@@ -89,6 +110,10 @@ de --> Copy-Mechanism,一样使用加性注意力 --> 计算出概率从source�
 * :hammer_and_wrench: **[MultiModal] UniT: Multimodal Multitask Learning with a Unified Transformer**, ICCV 2021. [[pdf](https://openaccess.thecvf.com/content/ICCV2021/papers/Hu_UniT_Multimodal_Multitask_Learning_With_a_Unified_Transformer_ICCV_2021_paper.pdf)] [[project from Fair](https://mmf.sh/)]
 
 ## :framed_picture: Image Caption
+
+---
+
+
 
 * :white_check_mark: :hammer_and_wrench: **[Image Caption] Generating Diverse and Descriptive Image Captions Using Visual Paraphrases**, in ICCV 2019. [[pdf](https://ieeexplore.ieee.org/document/9010984)] [[torch](https://github.com/pkuliu/visual-paraphrases-captioning)]
 
@@ -156,9 +181,5 @@ de --> Copy-Mechanism,一样使用加性注意力 --> 计算出概率从source�
   
   * [详细讲解](https://zhuanlan.zhihu.com/p/150667499)
   
-* **[Video Caption] Video Question Generation via Semantic Rich Cross-Modal Self-Attention Networks Learning**, in ICASSP 2020. [[pdf](https://ieeexplore.ieee.org/document/9053476)]
-
-  * 使用了**[TVQA](https://paperswithcode.com/dataset/tvqa)**数据集，is based on 6 popular TV shows and consists of **152,545 QA pairs** from **21,793 clips**.
-
 * **[Video Caption] VX2TEXT: End-to-End Learning of Video-Based Text Generation From Multimodal Inputs**, in CVPR 2021. [[pdf](https://arxiv.org/abs/2101.12059)]
 

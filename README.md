@@ -185,15 +185,9 @@ de --> Copy-Mechanism,一样使用加性注意力 --> 计算出概率从source�
 
 * :hammer_and_wrench: :fire: **[Video Caption] Robust Change Captioning**, in ICCV 2019. [[pdf](https://arxiv.org/pdf/1901.02527.pdf)] [[torch](https://github.com/Seth-Park/RobustChangeCaptioning)]
 
-
-    * 输入为前后图像对，五种变化类型（color/material change,adding/dropping/moving an object）
-
-
-    * 提出一个有视点变化的数据集[CLEVR-Change](https://cs.stanford.edu/people/jcjohns/clevr/)（80K图片对），并在无视点变化的数据集[Spot-the-Diff](https://github.com/harsh19/spot-the-diff)取得SOTA效果。
-
-
-    * 模型：Dual 注意力， 分辨**视点变化**![image-20220522213419579](https://s2.loli.net/2022/05/22/fiUArgZIjlzw4p1.png)
-
+  * 输入为前后图像对，五种变化类型（color/material change,adding/dropping/moving an object）
+  * 提出一个有视点变化的数据集[CLEVR-Change](https://cs.stanford.edu/people/jcjohns/clevr/)（80K图片对），并在无视点变化的数据集[Spot-the-Diff](https://github.com/harsh19/spot-the-diff)取得SOTA效果。
+  * 模型：Dual 注意力， 分辨**视点变化**![image-20220522213419579](https://s2.loli.net/2022/05/22/fiUArgZIjlzw4p1.png)
 
 
 

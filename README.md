@@ -162,13 +162,13 @@ de --> Copy-Mechanism,一样使用加性注意力 --> 计算出概率从source�
 
 * :white_check_mark: ::fire: :hammer_and_wrench: **[Text Generation & Image Caption] Show, Control and Tell: A Framework for Generating Controllable and Grounded Captions**, in CVPR 2019. [[pdf](https://openaccess.thecvf.com/content_CVPR_2019/html/Cornia_Show_Control_and_Tell_A_Framework_for_Generating_Controllable_and_CVPR_2019_paper.html)] [[torch](https://github.com/aimagelab/show-control-and-tell)]
 
-  
+
   * ![](https://s2.loli.net/2022/04/09/COnvomETrl6GRf2.png)
     
   * ![](https://s2.loli.net/2022/04/09/7ASmXcCazOh9GsU.png)
     
   * 
-  
+
     ```mermaid
     graph LR
     外部信号控制 --> 图像中的一组区域块 --> core((核心))
@@ -182,9 +182,9 @@ de --> Copy-Mechanism,一样使用加性注意力 --> 计算出概率从source�
     每个区域集的特征映射为N维向量,然后拼接在一起 --> 最小化软置换与真实结果之间的均方误差
     每个区域集的特征映射为N维向量,然后拼接在一起 --测试匈牙利算法进行匹配--> 软置换矩阵转化为最终的置换,以此来对R进行排序
     ```
-  
+
   * [详细讲解](https://zhuanlan.zhihu.com/p/150667499)
-  
+
 * **[Video Caption] VX2TEXT: End-to-End Learning of Video-Based Text Generation From Multimodal Inputs**, in CVPR 2021. [[pdf](https://arxiv.org/abs/2101.12059)]
 
 * :hammer_and_wrench: :fire: **[Video Caption] Robust Change Captioning**, in ICCV 2019. [[pdf](https://arxiv.org/pdf/1901.02527.pdf)] [[torch](https://github.com/Seth-Park/RobustChangeCaptioning)]
@@ -192,6 +192,25 @@ de --> Copy-Mechanism,一样使用加性注意力 --> 计算出概率从source�
   * 输入为前后图像对，五种变化类型（color/material change,adding/dropping/moving an object）
   * 提出一个有视点变化的数据集[CLEVR-Change](https://cs.stanford.edu/people/jcjohns/clevr/)（80K图片对），并在无视点变化的数据集[Spot-the-Diff](https://github.com/harsh19/spot-the-diff)取得SOTA效果。
   * 模型：Dual 注意力， 分辨**视点变化**![image-20220522213419579](https://s2.loli.net/2022/05/22/fiUArgZIjlzw4p1.png)
+
+* :hammer_and_wrench: :fire: **[Video Caption] Semantic Grouping Network for Video Captioning**, in AAAI 2021. [[pdf](https://arxiv.org/pdf/2102.00831.pdf)] [[torch](https://github.com/hobincar/SGN)]
+
+
+  * ![image-20220621204108736](https://s2.loli.net/2022/06/21/DMmzxs7dKwyU6BE.png)
+
+  * ```mermaid
+    graph LR
+    SG(Semantic-Grouping) --去掉冗余phrase--> 相似度计算
+    SG --attention机制 --> 对其phrase和frame --> 加入对比损失,计算没有包含negative的概率
+    ```
+
+  * **对比损失**$\mathcal{L}_{c a}=\sum_{(V, Y) \in \mathcal{D}} \sum_{t} \sum_{i}^{M_{t}}\left(-\log p_{c a}\left(s_{i, t}\right)\right)$, $p_{c a}\left(s_{i, t}\right)=\sum_{j=1}^{N} \alpha_{i, j, t}^{p o s}$
+
+
+    * $\alpha^{pos}$ 为正样本时候对齐注意力的权重 
+
+
+  
 
 
 

@@ -68,7 +68,9 @@ de --> Copy-Mechanism,一样使用加性注意力 --> 计算出概率从source�
 
 ### :sunrise: Visual QG
 
-* **Entity Guided Question Generation with Contextual Structure and Sequence Information Capturing**, in AAAI 2021. [[pdf](https://ojs.aaai.org/index.php/AAAI/article/view/17544)] [[torch](https://github.com/VISLANG-Lab/EGSS)]
+* **[No Visual] Entity Guided Question Generation with Contextual Structure and Sequence Information Capturing**, in AAAI 2021. [[pdf](https://ojs.aaai.org/index.php/AAAI/article/view/17544)] [[torch](https://github.com/VISLANG-Lab/EGSS)]
+  * Multi-feature Encoder: 使用了POS（词性标注）+ NER（关系抽取）
+
 
 ### :video_camera: Video QG
 
@@ -207,10 +209,10 @@ de --> Copy-Mechanism,一样使用加性注意力 --> 计算出概率从source�
   * **对比损失**$\mathcal{L}_{c a}=\sum_{(V, Y) \in \mathcal{D}} \sum_{t} \sum_{i}^{M_{t}}\left(-\log p_{c a}\left(s_{i, t}\right)\right)$, $p_{c a}\left(s_{i, t}\right)=\sum_{j=1}^{N} \alpha_{i, j, t}^{p o s}$
 
 
-    * $\alpha^{pos}$ 为正样本时候对齐注意力的权重 
+    *  $\alpha^{pos}$ 为正样本时候对齐注意力的权重 
 
 
-  
+
 
 
 

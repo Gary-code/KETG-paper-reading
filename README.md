@@ -71,7 +71,7 @@ de --> Copy-Mechanism,一样使用加性注意力 --> 计算出概率从source�
 * **[No Visual] Entity Guided Question Generation with Contextual Structure and Sequence Information Capturing**, in AAAI 2021. [[pdf](https://ojs.aaai.org/index.php/AAAI/article/view/17544)] [[torch](https://github.com/VISLANG-Lab/EGSS)]
   * Multi-feature Encoder: 使用了POS（词性标注）+ NER（关系抽取）
 
-* :hammer_and_wrench: **Multiple Objects-Aware Visual Question Generation**, in ACM MM 2021. [[pdf](Multiple Objects-Aware Visual Question Generation)]
+* :hammer_and_wrench: **Multiple Objects-Aware Visual Question Generation**, in ACM MM 2021. [[pdf](https://dl.acm.org/doi/abs/10.1145/3474085.3476969)]
   * **写作上写得很实在，很容易懂**，有很多承上启下的句子。
   * 首次将**对象**融入到问题生成任务当中
 

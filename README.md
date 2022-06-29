@@ -70,8 +70,22 @@ de --> Copy-Mechanism,一样使用加性注意力 --> 计算出概率从source�
 
 * **[No Visual] Entity Guided Question Generation with Contextual Structure and Sequence Information Capturing**, in AAAI 2021. [[pdf](https://ojs.aaai.org/index.php/AAAI/article/view/17544)] [[torch](https://github.com/VISLANG-Lab/EGSS)]
   * Multi-feature Encoder: 使用了POS（词性标注）+ NER（关系抽取）
-* **Multiple Objects-Aware Visual Question Generation**, in ACM MM 2021. [[pdf](Multiple Objects-Aware Visual Question Generation)]
-  * **写作上写得很实在，很容易懂**，有很多呈上启下的句子。
+
+* :hammer_and_wrench: **Multiple Objects-Aware Visual Question Generation**, in ACM MM 2021. [[pdf](Multiple Objects-Aware Visual Question Generation)]
+  * **写作上写得很实在，很容易懂**，有很多承上启下的句子。
+  * 首次将**对象**融入到问题生成任务当中
+
+  ![image-20220629230122528](https://s2.loli.net/2022/06/29/6Mn4HPG9ZiCjOqv.png)
+
+* :hammer_and_wrench:  **Difficulty-Controllable Visual Question Generation**, in APWeb-WAIM 2021. [[pdf](https://link.springer.com/content/pdf/10.1007/978-3-030-85896-4_26.pdf)]
+
+  * **难度可控**的问题生成：采用了教育学领域收集好的问题难度标签(DIF), 详见[链接](https://www.apims.net/index.php/apims/article/view/9)
+  * 在VQA2.0数据集的基础上构建了一个包含区分为容易和难的问题数据集
+    * 引入两个VQA的模型来进行回答，都回答对的为容易，都回答错误就是难的
+
+  * ![image-20220629231350190](https://s2.loli.net/2022/06/29/POftb69si7hnINX.png)
+    * 其中Difficulty Variable就是$\{0, 1\}$
+
 
 
 
@@ -212,7 +226,10 @@ de --> Copy-Mechanism,一样使用加性注意力 --> 计算出概率从source�
   * **对比损失**$\mathcal{L}_{c a}=\sum_{(V, Y) \in \mathcal{D}} \sum_{t} \sum_{i}^{M_{t}}\left(-\log p_{c a}\left(s_{i, t}\right)\right)$, $p_{c a}\left(s_{i, t}\right)=\sum_{j=1}^{N} \alpha_{i, j, t}^{p o s}$
 
 
-    *  $\alpha^{pos}$ 为正样本时候对齐注意力的权重 
+    * $\alpha^{pos}$ 为正样本时候对齐注意力的权重 
+
+
+
 
 
 

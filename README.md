@@ -24,10 +24,38 @@
 
 ### :mountain_snow: Ground Breaking Work
 
+* :white_check_mark: :fire: **Neural question generation from text: A preliminary study**, in EMNLP 2017. [[pdf](https://arxiv.org/abs/1704.01792)] 
+
+  * 在编码时额外考虑了答案位置与语法信息，取得了更好的性能。(现在来看非常**basic**重要的信息！)
+    * word case 做训练时候的teacher forcing
+    * answer position feature
+    * lexical features
+      * **POS**
+      * **NER**
+
+  ```mermaid
+  graph LR
+  en((encoder)) --bi-GRU--> fe((feature-Rich)) --> word-vecotr
+  fe --> lexcial-feature-embedding-vectors --> POS+NER
+  fe --> answer-position-embedding --> BIO-tagging
+  
+  word-vecotr --> 双向的隐藏层
+  POS+NER --> 双向的隐藏层
+  BIO-tagging --> 双向的隐藏层
+  
+  de((decoder)) --带注意力机制,使用加性注意力--> maxout-hidden+具体需要看reference论文
+  de --> GRU
+  
+  de --> Copy-Mechanism,一样使用加性注意力 --> 计算出概率从source句子中直接copy单词
+  ```
+
+  
+
 * :white_check_mark::fire: :hammer_and_wrench: **Learning to Ask: Neural Question Generation for Reading Comprehension**, in ACL 2017. [[pdf]](https://arxiv.org/abs/1705.00106) [[official code (torch)](https://github.com/xinyadu/nqg)]
   * 将端到端训练的神经网络应用于问题生成
   * 采用seq2seq+attention模型架构
   * 摆脱了转换规则与模版的局限，取得了相比于传统方法更好的性能
+  * 加入了paragraph-level
 
 ```mermaid
 graph LR
@@ -44,25 +72,6 @@ LSTM --oours--> 句子+段落的encoder输出
 ```
 
 
-
-* :white_check_mark: :fire: **Neural question generation from text: A preliminary study**, in EMNLP 2017. [[pdf](https://arxiv.org/abs/1704.01792)] 
-  * 在编码时额外考虑了答案位置与语法信息，取得了更好的性能。
-
-```mermaid
-graph LR
-en((encoder)) --bi-GRU--> fe((feature-Rich)) --> word-vecotr
-fe --> lexcial-feature-embedding-vectors --> POS+NER
-fe --> answer-position-embedding --> BIO-tagging
-
-word-vecotr --> 双向的隐藏层
-POS+NER --> 双向的隐藏层
-BIO-tagging --> 双向的隐藏层
-
-de((decoder)) --带注意力机制,使用加性注意力--> maxout-hidden+具体需要看reference论文
-de --> GRU
-
-de --> Copy-Mechanism,一样使用加性注意力 --> 计算出概率从source句子中直接copy单词
-```
 
 
 
@@ -227,7 +236,6 @@ de --> Copy-Mechanism,一样使用加性注意力 --> 计算出概率从source�
 
 
     * $\alpha^{pos}$ 为正样本时候对齐注意力的权重 
-
 
 
 

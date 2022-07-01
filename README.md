@@ -235,7 +235,23 @@ LSTM --oours--> 句子+段落的encoder输出
   * **对比损失**$\mathcal{L}_{c a}=\sum_{(V, Y) \in \mathcal{D}} \sum_{t} \sum_{i}^{M_{t}}\left(-\log p_{c a}\left(s_{i, t}\right)\right)$, $p_{c a}\left(s_{i, t}\right)=\sum_{j=1}^{N} \alpha_{i, j, t}^{p o s}$
 
 
-    * $\alpha^{pos}$ 为正样本时候对齐注意力的权重 
+    *  $\alpha^{pos}$ 为正样本时候对齐注意力的权重 
+
+
+
+
+## :abc: Scene Text Recognization
+
+**From Two to One: A New Scene Text Recognizer with Visual Language Modeling Network**, in ICCV 2021. [[pdf](https://link.zhihu.com/?target=https%3A//arxiv.org/abs/2108.09661)] [[torch](https://link.zhihu.com/?target=https%3A//github.com/wangyuxin87/VisionLAN)]
+
+* 过去的场景文本识别需要：视觉特征抽取器 + 语言模型
+* 本文直接在视觉空间进行语言建模（类似人类，语言信息是可以学习的）
+  * 对字符级别的Mask操作![image-20220701212346925](https://s2.loli.net/2022/07/01/ZLFUIkb41S782GD.png)
+  * 训练过程，采用弱监督互补学习![image-20220701212430601](https://s2.loli.net/2022/07/01/kc3K7XxAN6SfRut.png)
+
+**Visual Semantics Allow for Textual Reasoning Better in Scene Text Recognition**, in AAAI 2022.  [[pdf]([https://arxiv.org/abs/2112.12916](https://link.zhihu.com/?target=https%3A//arxiv.org/abs/2112.12916))] [[torch]([https://github.com/adeline-cs/GTR](https://link.zhihu.com/?target=https%3A//github.com/adeline-cs/GTR))]
+
+* 加入一个GCN强化了视觉学习的过程，并且做了一个fusion
 
 
 

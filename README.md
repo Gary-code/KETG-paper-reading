@@ -132,7 +132,7 @@ LSTM --oours--> 句子+段落的encoder输出
 
 ### :sunrise: Visual QG
 
-* **[No Visual] Entity Guided Question Generation with Contextual Structure and Sequence Information Capturing**, in AAAI 2021. [[pdf](https://ojs.aaai.org/index.php/AAAI/article/view/17544)] [[torch](https://github.com/VISLANG-Lab/EGSS)]
+* :hammer_and_wrench: **[No Visual] Entity Guided Question Generation with Contextual Structure and Sequence Information Capturing**, in AAAI 2021. [[pdf](https://ojs.aaai.org/index.php/AAAI/article/view/17544)] [[torch](https://github.com/VISLANG-Lab/EGSS)]
   
   * Multi-feature Encoder: 使用了POS（词性标注）+ NER（关系抽取）
   
@@ -247,48 +247,59 @@ LSTM --oours--> 句子+段落的encoder输出
 * :white_check_mark: ::fire: :hammer_and_wrench: **[Text Generation & Image Caption] Show, Control and Tell: A Framework for Generating Controllable and Grounded Captions**, in CVPR 2019. [[pdf](https://openaccess.thecvf.com/content_CVPR_2019/html/Cornia_Show_Control_and_Tell_A_Framework_for_Generating_Controllable_and_CVPR_2019_paper.html)] [[torch](https://github.com/aimagelab/show-control-and-tell)]
 
 
-  * ![](https://s2.loli.net/2022/04/09/COnvomETrl6GRf2.png)
-    
-  * ![](https://s2.loli.net/2022/04/09/7ASmXcCazOh9GsU.png)
-    
-  * 
-
-    ```mermaid
-    graph LR
-    外部信号控制 --> 图像中的一组区域块 --> core((核心))
-    core --> 改变chunk的顺序
-    core --> 改变图像的区域
-    model((模型)) --基于区域的特征与状态--> LSTM((LanguageModel,两层LSTM)) --第一层--> 计算attention --注意--> 所有区域的特征向量进行mean-pooling作为图像的总体特征I
-    LSTM --第二层--> 预测下一个单词
-    model --何时切换到下一个图像区域--> 块转移门 --计算gt--> 基于第一层LSTM的状态设立一个chunk-sentinel --> 类似计算ht对sc_t-rt的attention
-    model --视觉词or文本次--> AdaptiveAttention --> 设置一个visual-sentinel --> 类似计算ht对sv_t-rt的attention --> attention的结果,可以计算出当前时刻模型正在关注的上下文特征ct
-    model --无序集合排序--> 排序网络 --> R中包含N个区域集 --全连接层--> 每个区域集的特征映射为N维向量,然后拼接在一起 --Sinkhorn算子--> 软置换矩阵 
-    每个区域集的特征映射为N维向量,然后拼接在一起 --> 最小化软置换与真实结果之间的均方误差
-    每个区域集的特征映射为N维向量,然后拼接在一起 --测试匈牙利算法进行匹配--> 软置换矩阵转化为最终的置换,以此来对R进行排序
-    ```
-
-  * [详细讲解](https://zhuanlan.zhihu.com/p/150667499)
-
-* **[Video Caption] VX2TEXT: End-to-End Learning of Video-Based Text Generation From Multimodal Inputs**, in CVPR 2021. [[pdf](https://arxiv.org/abs/2101.12059)]
-
-* :hammer_and_wrench: :fire: **[Video Caption] Robust Change Captioning**, in ICCV 2019. [[pdf](https://arxiv.org/pdf/1901.02527.pdf)] [[torch](https://github.com/Seth-Park/RobustChangeCaptioning)]
-
-  * 输入为前后图像对，五种变化类型（color/material change,adding/dropping/moving an object）
-  * 提出一个有视点变化的数据集[CLEVR-Change](https://cs.stanford.edu/people/jcjohns/clevr/)（80K图片对），并在无视点变化的数据集[Spot-the-Diff](https://github.com/harsh19/spot-the-diff)取得SOTA效果。
-  * 模型：Dual 注意力， 分辨**视点变化**![image-20220522213419579](https://s2.loli.net/2022/05/22/fiUArgZIjlzw4p1.png)
-
-* :hammer_and_wrench: :fire: **[Video Caption] Semantic Grouping Network for Video Captioning**, in AAAI 2021. [[pdf](https://arxiv.org/pdf/2102.00831.pdf)] [[torch](https://github.com/hobincar/SGN)]
+    * ![](https://s2.loli.net/2022/04/09/COnvomETrl6GRf2.png)
+      
 
 
-  * ![image-20220621204108736](https://s2.loli.net/2022/06/21/DMmzxs7dKwyU6BE.png)
+    * ![](https://s2.loli.net/2022/04/09/7ASmXcCazOh9GsU.png)
+      
 
-  * ```mermaid
-    graph LR
-    SG(Semantic-Grouping) --去掉冗余phrase--> 相似度计算
-    SG --attention机制 --> 对其phrase和frame --> 加入对比损失,计算没有包含negative的概率
-    ```
 
-  * **对比损失**$\mathcal{L}_{c a}=\sum_{(V, Y) \in \mathcal{D}} \sum_{t} \sum_{i}^{M_{t}}\left(-\log p_{c a}\left(s_{i, t}\right)\right)$, $p_{c a}\left(s_{i, t}\right)=\sum_{j=1}^{N} \alpha_{i, j, t}^{p o s}$    ($\alpha^{pos}$ 为正样本时候对齐注意力的权重) 
+    * 
+
+      ```mermaid
+      graph LR
+      外部信号控制 --> 图像中的一组区域块 --> core((核心))
+      core --> 改变chunk的顺序
+      core --> 改变图像的区域
+      model((模型)) --基于区域的特征与状态--> LSTM((LanguageModel,两层LSTM)) --第一层--> 计算attention --注意--> 所有区域的特征向量进行mean-pooling作为图像的总体特征I
+      LSTM --第二层--> 预测下一个单词
+      model --何时切换到下一个图像区域--> 块转移门 --计算gt--> 基于第一层LSTM的状态设立一个chunk-sentinel --> 类似计算ht对sc_t-rt的attention
+      model --视觉词or文本次--> AdaptiveAttention --> 设置一个visual-sentinel --> 类似计算ht对sv_t-rt的attention --> attention的结果,可以计算出当前时刻模型正在关注的上下文特征ct
+      model --无序集合排序--> 排序网络 --> R中包含N个区域集 --全连接层--> 每个区域集的特征映射为N维向量,然后拼接在一起 --Sinkhorn算子--> 软置换矩阵 
+      每个区域集的特征映射为N维向量,然后拼接在一起 --> 最小化软置换与真实结果之间的均方误差
+      每个区域集的特征映射为N维向量,然后拼接在一起 --测试匈牙利算法进行匹配--> 软置换矩阵转化为最终的置换,以此来对R进行排序
+      ```
+
+
+        * [详细讲解](https://zhuanlan.zhihu.com/p/150667499)
+
+
+
+  * **[Video Caption] VX2TEXT: End-to-End Learning of Video-Based Text Generation From Multimodal Inputs**, in CVPR 2021. [[pdf](https://arxiv.org/abs/2101.12059)]
+
+  * :hammer_and_wrench: :fire: **[Video Caption] Robust Change Captioning**, in ICCV 2019. [[pdf](https://arxiv.org/pdf/1901.02527.pdf)] [[torch](https://github.com/Seth-Park/RobustChangeCaptioning)]
+
+    * 输入为前后图像对，五种变化类型（color/material change,adding/dropping/moving an object）
+    * 提出一个有视点变化的数据集[CLEVR-Change](https://cs.stanford.edu/people/jcjohns/clevr/)（80K图片对），并在无视点变化的数据集[Spot-the-Diff](https://github.com/harsh19/spot-the-diff)取得SOTA效果。
+    * 模型：Dual 注意力， 分辨**视点变化**![image-20220522213419579](https://s2.loli.net/2022/05/22/fiUArgZIjlzw4p1.png)
+
+
+  * :hammer_and_wrench: :fire: **[Video Caption] Semantic Grouping Network for Video Captioning**, in AAAI 2021. [[pdf](https://arxiv.org/pdf/2102.00831.pdf)] [[torch](https://github.com/hobincar/SGN)]
+
+      * ![image-20220621204108736](https://s2.loli.net/2022/06/21/DMmzxs7dKwyU6BE.png)
+
+
+
+    * ```mermaid
+      graph LR
+      SG(Semantic-Grouping) --去掉冗余phrase--> 相似度计算
+      SG --attention机制 --> 对其phrase和frame --> 加入对比损失,计算没有包含negative的概率
+      ```
+
+
+    * **对比损失**$\mathcal{L}_{c a}=\sum_{(V, Y) \in \mathcal{D}} \sum_{t} \sum_{i}^{M_{t}}\left(-\log p_{c a}\left(s_{i, t}\right)\right)$, $p_{c a}\left(s_{i, t}\right)=\sum_{j=1}^{N} \alpha_{i, j, t}^{p o s}$    ($\alpha^{pos}$ 为正样本时候对齐注意力的权重) 
+
 
 
 
@@ -297,16 +308,17 @@ LSTM --oours--> 句子+段落的encoder输出
 
 ## :abc: Scene Text Recognization
 
-**From Two to One: A New Scene Text Recognizer with Visual Language Modeling Network**, in ICCV 2021. [[pdf](https://link.zhihu.com/?target=https%3A//arxiv.org/abs/2108.09661)] [[torch](https://link.zhihu.com/?target=https%3A//github.com/wangyuxin87/VisionLAN)]
+* :hammer_and_wrench: **From Two to One: A New Scene Text Recognizer with Visual Language Modeling Network**, in ICCV 2021. [[pdf](https://link.zhihu.com/?target=https%3A//arxiv.org/abs/2108.09661)] [[torch](https://link.zhihu.com/?target=https%3A//github.com/wangyuxin87/VisionLAN)]
 
-* 过去的场景文本识别需要：视觉特征抽取器 + 语言模型
-* 本文直接在视觉空间进行语言建模（类似人类，语言信息是可以学习的）
-  * 对字符级别的Mask操作![image-20220701212346925](https://s2.loli.net/2022/07/01/ZLFUIkb41S782GD.png)
-  * 训练过程，采用弱监督互补学习![image-20220701212430601](https://s2.loli.net/2022/07/01/kc3K7XxAN6SfRut.png)
+  * 过去的场景文本识别需要：视觉特征抽取器 + 语言模型
 
-**Visual Semantics Allow for Textual Reasoning Better in Scene Text Recognition**, in AAAI 2022.  [[pdf]([https://arxiv.org/abs/2112.12916](https://link.zhihu.com/?target=https%3A//arxiv.org/abs/2112.12916))] [[torch]([https://github.com/adeline-cs/GTR](https://link.zhihu.com/?target=https%3A//github.com/adeline-cs/GTR))]
+  * 本文直接在视觉空间进行语言建模（类似人类，语言信息是可以学习的）
+    * 对字符级别的Mask操作![image-20220701212346925](https://s2.loli.net/2022/07/01/ZLFUIkb41S782GD.png)
+      * 训练过程，采用弱监督互补学习![image-20220701212430601](https://s2.loli.net/2022/07/01/kc3K7XxAN6SfRut.png)
 
-* 加入一个GCN强化了视觉学习的过程，并且做了一个fusion
+
+* :hammer_and_wrench: **Visual Semantics Allow for Textual Reasoning Better in Scene Text Recognition**, in AAAI 2022.  [[pdf]([https://arxiv.org/abs/2112.12916](https://link.zhihu.com/?target=https%3A//arxiv.org/abs/2112.12916))] [[torch]([https://github.com/adeline-cs/GTR](https://link.zhihu.com/?target=https%3A//github.com/adeline-cs/GTR))]
+  * 加入一个GCN强化了视觉学习的过程，并且做了一个fusion
 
 
 

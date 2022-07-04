@@ -22,7 +22,11 @@
 
 ---
 
-### :mountain_snow: Ground Breaking Work
+### :mountain_snow: **Textual Question Generating Crosstalk**
+
+**一、利用答案和语言特征**
+
+1. **两篇Ground Breaking Work**
 
 * :white_check_mark: :fire: **Neural question generation from text: A preliminary study**, in EMNLP 2017. [[pdf](https://arxiv.org/abs/1704.01792)] 
 
@@ -51,11 +55,12 @@
 
   
 
-* :white_check_mark::fire: :hammer_and_wrench: **Learning to Ask: Neural Question Generation for Reading Comprehension**, in ACL 2017. [[pdf]](https://arxiv.org/abs/1705.00106) [[official code (torch)](https://github.com/xinyadu/nqg)]
-  * 将端到端训练的神经网络应用于问题生成
-  * 采用seq2seq+attention模型架构
-  * 摆脱了转换规则与模版的局限，取得了相比于传统方法更好的性能
-  * 加入了paragraph-level
+  * :white_check_mark::fire: :hammer_and_wrench: **Learning to Ask: Neural Question Generation for Reading Comprehension**, in ACL 2017. [[pdf]](https://arxiv.org/abs/1705.00106) [[official code (torch)](https://github.com/xinyadu/nqg)]
+    * 将端到端训练的神经网络应用于问题生成
+    * 采用seq2seq+attention模型架构
+    * 摆脱了转换规则与模版的局限，取得了相比于传统方法更好的性能
+    * 加入了paragraph-level
+
 
 ```mermaid
 graph LR
@@ -71,15 +76,47 @@ LSTM --oours--> 句子+段落的encoder输出
 
 ```
 
+2. 答案编码
 
+* :white_check_mark: :fire: **Improving Neural Question Generation using Answer Separation**, in AAAI 2019.  [[pdf](https://arxiv.org/abs/1809.02393)] 
+  * 很多基础操作
+  * 在答案上做了简单高效的预处理
+    * Mask 原文中的答案
+    * 对答案中的关键信息做抽取，计算attention
 
+3. 语言特征强化
 
+* 传统的有**POS**（词性标注）和**NER**（命名实体识别）。后续还有一些更加细微的处理
+
+* :fire: **Learning to Generate Questions by Learning What not to Generate**, in WWW 2019.  [[pdf](https://arxiv.org/pdf/1902.10418.pdf)] 
+
+  * clue 和 copy的机制![image-20220703112845472](https://s2.loli.net/2022/07/03/hoa1kTVzIpXGeQK.png)
+  * ![image-20220703113749291](https://s2.loli.net/2022/07/03/bdToKkIADvemV6B.png)
+  * 文章贡献
+    * 帮助模型决策什么时候生成，什么时候copy
+    * 生成多个问题
+
+  4. 疑问词类型（question type）
+
+  * :fire: **Question Generation for Question Answering**, in EMNLP 2017.  [[pdf](https://aclanthology.org/D17-1090.pdf)]
+
+  * **Question-type Driven Question Generation**, in EMNLP 2019.  [[pdf](https://arxiv.org/pdf/1909.00140.pdf)]
+
+    * 引入对疑问词的预测模块，并且加入对应的损失函数
+    * ![image-20220703121312077](https://s2.loli.net/2022/07/03/uhcs1erWpQ9UFKL.png)
+    * ![image-20220703121503229](https://s2.loli.net/2022/07/03/GTO7j5c1AkXNnqY.png)![image-20220703121520488](https://s2.loli.net/2022/07/03/seIfghRSbvpO68a.png)
+    * [损失函数引文](https://aclanthology.org/P17-1099.pdf)： <img src="https://s2.loli.net/2022/07/03/UZv17XkMyLRPOgd.png" alt="image-20220703122045296" style="zoom: 50%;" />
+
+  * :hammer_and_wrench:  **Inquisitive Question Generation for High Level Text Comprehension**, in EMNLP 2020. [[pdf](https://aclanthology.org/2020.emnlp-main.530.pdf)]
+
+    ****
 
 ### :sunrise: Visual QG
 
 * **[No Visual] Entity Guided Question Generation with Contextual Structure and Sequence Information Capturing**, in AAAI 2021. [[pdf](https://ojs.aaai.org/index.php/AAAI/article/view/17544)] [[torch](https://github.com/VISLANG-Lab/EGSS)]
+  
   * Multi-feature Encoder: 使用了POS（词性标注）+ NER（关系抽取）
-
+  
 * :hammer_and_wrench: **Multiple Objects-Aware Visual Question Generation**, in ACM MM 2021. [[pdf](https://dl.acm.org/doi/abs/10.1145/3474085.3476969)]
   * **写作上写得很实在，很容易懂**，有很多承上启下的句子。
   * 首次将**对象**融入到问题生成任务当中

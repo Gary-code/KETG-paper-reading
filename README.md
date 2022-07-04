@@ -99,17 +99,36 @@ LSTM --oours--> 句子+段落的encoder输出
   4. 疑问词类型（question type）
 
   * :fire: **Question Generation for Question Answering**, in EMNLP 2017.  [[pdf](https://aclanthology.org/D17-1090.pdf)]
-
   * **Question-type Driven Question Generation**, in EMNLP 2019.  [[pdf](https://arxiv.org/pdf/1909.00140.pdf)]
-
+  
     * 引入对疑问词的预测模块，并且加入对应的损失函数
     * ![image-20220703121312077](https://s2.loli.net/2022/07/03/uhcs1erWpQ9UFKL.png)
     * ![image-20220703121503229](https://s2.loli.net/2022/07/03/GTO7j5c1AkXNnqY.png)![image-20220703121520488](https://s2.loli.net/2022/07/03/seIfghRSbvpO68a.png)
     * [损失函数引文](https://aclanthology.org/P17-1099.pdf)： <img src="https://s2.loli.net/2022/07/03/UZv17XkMyLRPOgd.png" alt="image-20220703122045296" style="zoom: 50%;" />
-
   * :hammer_and_wrench:  **Inquisitive Question Generation for High Level Text Comprehension**, in EMNLP 2020. [[pdf](https://aclanthology.org/2020.emnlp-main.530.pdf)]
 
-    ****
+**二、段落级别**
+
+* :fire: :hammer_and_wrench: **Paragraph-level Neural Question Generation with Maxout Pointer and Gated Self-attention Networks**, in EMNLP 2018. [[pdf](https://github.com/seanie12/neural-question-generation)] [[torch](https://github.com/seanie12/neural-question-generation)]
+
+  * 主要贡献都在模型上面，基于seq2seq设计：![image-20220704150006013](https://s2.loli.net/2022/07/04/trhe5uTRkUqyfsx.png)
+
+    * gate self-attention: 个人觉得是一套很常用的框架，可以学习一下，也非常简单
+
+    * Maxout ==**Pointer**== & Decoding **全新的处理 copy 机制**  (有空可以自行去看看代码！)
+
+      * 之前copy得分：$\operatorname{sc}^{\text {copy }}\left(y_{t}\right)=\left\{\begin{array}{l}\sum_{k, \text { where } x_{k}=y_{t}} r_{t, k}, \quad y_{t} \in \chi \\ -i n f, \text{otherwise}\end{array} \quad\right.$ , 问题在于若文章中某个单词重复出现多次，则对该单词copy也会多，影响语句通顺。
+
+      * 为此改进为Maxout Pointer：
+        $$
+        \operatorname{sc}^{\text {copy }}\left(y_{t}\right)= \begin{cases}\max _{k, \text { where } x_{k}=y_{t}} r_{t, k}, & y_{t} \in \chi \\ -i n f, & \text { otherwise }\end{cases}
+        $$
+
+* :fire: **Capturing Greater Context for Question Generation**, in AAAI 2020.  [[pdf](https://arxiv.org/pdf/1910.10274.pdf)]
+
+  * 阶段的注意力机制模型（multi-stage attention mechanism）,使生成的问题更加复杂
+
+****
 
 ### :sunrise: Visual QG
 
@@ -269,10 +288,9 @@ LSTM --oours--> 句子+段落的encoder输出
     SG --attention机制 --> 对其phrase和frame --> 加入对比损失,计算没有包含negative的概率
     ```
 
-  * **对比损失**$\mathcal{L}_{c a}=\sum_{(V, Y) \in \mathcal{D}} \sum_{t} \sum_{i}^{M_{t}}\left(-\log p_{c a}\left(s_{i, t}\right)\right)$, $p_{c a}\left(s_{i, t}\right)=\sum_{j=1}^{N} \alpha_{i, j, t}^{p o s}$
+  * **对比损失**$\mathcal{L}_{c a}=\sum_{(V, Y) \in \mathcal{D}} \sum_{t} \sum_{i}^{M_{t}}\left(-\log p_{c a}\left(s_{i, t}\right)\right)$, $p_{c a}\left(s_{i, t}\right)=\sum_{j=1}^{N} \alpha_{i, j, t}^{p o s}$    ($\alpha^{pos}$ 为正样本时候对齐注意力的权重) 
 
 
-    *  $\alpha^{pos}$ 为正样本时候对齐注意力的权重 
 
 
 

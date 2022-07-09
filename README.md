@@ -308,7 +308,50 @@ LSTM --oours--> 句子+段落的encoder输出
 
  [详细讲解](https://zhuanlan.zhihu.com/p/150667499)
 
+## :sunglasses: Video Understanding
 
+### :video_camera: Features Fusion
+
+:white_check_mark: :fire: :hammer_and_wrench: **[TSN] Temporal Segment Networks: Towards Good Practices for Deep Action Recognition**, in ECCV 2016.  [[pdf](https://arxiv.org/abs/1608.00859)]  [[torch](https://github.com/yjxiong/temporal-segment-networks)]
+
+* 抽取所有帧是不现实的，TSN将其**等间隔分**为$K$个片段（i.e., $K=16$）,在每个片段中谁寄抽取一帧作为输入
+
+* 提供了非常常用的数据争强方式和一些训练时候的trick（主要包括location jittering, horizontal flipping, corner cropping, and scale jittering）
+
+* 仍然利用双流的思路，让每个片段信息最后通过一个共识网络再Fusion
+
+  ![](https://pic4.zhimg.com/80/v2-67b66b3618606af8b81d1f77b1f92a3b_1440w.jpg)
+
+:white_check_mark: :fire: :hammer_and_wrench: **[TRN] Temporal Relation Reasoning in Videos**, in ECCV 2018.  [[pdf]()] [[torch](https://github.com/zhoubolei/TRN-pytorch)]
+
+![img](https://pic4.zhimg.com/80/v2-86fa6c271c9d2dfad07d4603ed457a83_1440w.jpg)
+
+* 融合尺度确定 (需要多少个视频帧来融合)【如图所示】有2，3，4这三种尺度
+* 每个尺度下需要多少组视频帧
+* 在应用多尺度TRN的时候，一般会额外增加一个全帧的尺度，即12帧特征全部concat到一起，以充分利用有效信息。
+* **平衡**效果和计算速度，**简单好用**
+
+:white_check_mark: :fire: :hammer_and_wrench: **[TSM] TSM: Temporal Shift Module for Efficient Video Understanding**, in ICCV 2019.  [[pdf](https://arxiv.org/abs/1811.08383)] [[torch](https://github.com/mit-han-lab/temporal-shift-module)]
+
+* 对某些通道shift，得到前一帧或者后一帧的特征
+
+  ![image-20220709174802714](https://s2.loli.net/2022/07/09/cb1f8LWpV9JotO3.png)
+
+* 由于shift是有损失的，为此设计残差来进行弥补（原来的与残差的对比）
+
+![image-20220709174842935](https://s2.loli.net/2022/07/09/2dTjLBJwQ5FUber.png)
+
+:white_check_mark: :fire: :hammer_and_wrench: **[LRCN] Long-term Recurrent Convolutional Networks for Visual Recognition and Description**, in CVPR 2015.  [[pdf](https://www.cv-foundation.org/openaccess/content_cvpr_2015/papers/Donahue_Long-Term_Recurrent_Convolutional_2015_CVPR_paper.pdf)] [[torch](https://github.com/garythung/torch-lrcn)
+
+* CNN抽出来的帧特征再放进去`LSTM`得到每帧的时序特征
+
+> 关于视频特征抽取，下面讲一下`netvlad`系列的结构,NextVlad就是专门针对视频帧融合来做的优化。
+>
+> [相关博客链接](https://zhuanlan.zhihu.com/p/385512915)
+>
+> * 同时，还有[关于多模态（视频-文本）Transformer模型的博客链接](https://zhuanlan.zhihu.com/p/388361095)
+
+### :writing_hand: Video Caption
 
 **[Video Caption] VX2TEXT: End-to-End Learning of Video-Based Text Generation From Multimodal Inputs**, in CVPR 2021. [[pdf](https://arxiv.org/abs/2101.12059)]
 

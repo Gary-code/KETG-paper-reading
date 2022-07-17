@@ -74,7 +74,7 @@ LSTM --oours--> 句子+段落的encoder输出
 
 ```
 
-2. 答案编码
+2. **答案编码**
 
 :white_check_mark: :fire: **Improving Neural Question Generation using Answer Separation**, in AAAI 2019.  [[pdf](https://arxiv.org/abs/1809.02393)] 
 * 很多基础操作
@@ -82,7 +82,7 @@ LSTM --oours--> 句子+段落的encoder输出
   * Mask 原文中的答案
   * 对答案中的关键信息做抽取，计算attention
 
-3. 语言特征强化
+3. **语言特征强化**
 
 > 传统的有**POS**（词性标注）和**NER**（命名实体识别）。后续还有一些更加细微的处理
 
@@ -97,8 +97,6 @@ LSTM --oours--> 句子+段落的encoder输出
 
 4. 疑问词类型（question type）
 
-:fire: **Question Generation for Question Answering**, in EMNLP 2017.  [[pdf](https://aclanthology.org/D17-1090.pdf)]
-
 **Question-type Driven Question Generation**, in EMNLP 2019.  [[pdf](https://arxiv.org/pdf/1909.00140.pdf)]
 
 * 引入对疑问词的预测模块，并且加入对应的损失函数
@@ -107,11 +105,9 @@ LSTM --oours--> 句子+段落的encoder输出
 * ![image-20220703121520488](https://s2.loli.net/2022/07/03/seIfghRSbvpO68a.png)
 * [损失函数引文](https://aclanthology.org/P17-1099.pdf)： <img src="https://s2.loli.net/2022/07/03/UZv17XkMyLRPOgd.png" alt="image-20220703122045296" style="zoom: 50%;" />
 
-* :hammer_and_wrench:  **Inquisitive Question Generation for High Level Text Comprehension**, in EMNLP 2020. [[pdf](https://aclanthology.org/2020.emnlp-main.530.pdf)]
-
 **二、段落级别特征**
 
-1. 强化段落级别文本的特征
+1. **强化段落级别文本的特征**
 
 :fire: :hammer_and_wrench: **Paragraph-level Neural Question Generation with Maxout Pointer and Gated Self-attention Networks**, in EMNLP 2018. [[pdf](https://github.com/seanie12/neural-question-generation)] [[torch](https://github.com/seanie12/neural-question-generation)]
 
@@ -128,22 +124,17 @@ LSTM --oours--> 句子+段落的encoder输出
       \operatorname{sc}^{\text {copy }}\left(y_{t}\right)= \begin{cases}\max _{k, \text { where } x_{k}=y_{t}} r_{t, k}, & y_{t} \in \chi \\ -i n f, & \text { otherwise }\end{cases}
       $$
 
-:fire: **Capturing Greater Context for Question Generation**, in AAAI 2020.  [[pdf](https://arxiv.org/pdf/1910.10274.pdf)]
-
-* 阶段的注意力机制模型（multi-stage attention mechanism）,使生成的问题更加复杂
-
-:fire: **Neural Models for Key Phrase Extraction and Question Generation**,in ACL 2018 Workshop. [[pdf](https://aclanthology.org/W18-2609/)]
+:fire: **Natural Question Generation with Reinforcement Learning Based Graph-to-Sequence Model**,in ICLR 2020. [[pdf](https://arxiv.org/abs/1908.04942)] [[torch](https://github.com/hugochan/RL-based-Graph2Seq-for-NQG.)]
 
 * 将passage和answer的表示（包含bert向量，glove向量，词汇特征等）进行多次反复的交互进行编码（**非常细节**的deep alignment network）
 * 利用GNN来编码（使用了两种方式）：
-  * 对sentence做dependency parsing，然后相邻的句子链接得到passage的图
+  * 对sentence做**dependency parsing**，然后相邻的句子链接得到passage的图
   * 通过self attention的方式得到passage 的图（权值矩阵）
 
 :fire: **Improving Question Generation With to the Point Context**, in EMNLP 2019.  [[pdf](https://aclanthology.org/D19-1317.pdf)]
 
 * 联合建模非结构化句子（原文）和结构化答案相关关系（ answer-relevant relation 预先从句子中提取）以生成问题(**抓取重点上下文**)
-
-
+* 作者发现上下文中，距离ansewr比较远的词并不一定不重要，相对的跟answer紧贴的词也有很多无关的，为了捕捉这种关系，作者使用**OpenIE**这个工具抽取上下文中存在的**关系三元组**。
 
 **三、多任务训练**
 
@@ -154,11 +145,19 @@ LSTM --oours--> 句子+段落的encoder输出
 
 :fire: **Improving Question Generation with Sentence-level Semantic Matching and Answer Position Inferring**, in AAAI 2019.  [[pdf](https://arxiv.org/abs/1912.00879)]
 
-* 作者认为生成错误词的原因是没有正确的利用answer positon信息，copy无关词的原因是缺乏局部语义信息。
+* 出发点是是**解决生成错误的疑问词**和**copy原文中无关词**的问题
+
+* 作者认为生成错误词的原因是没有正确的利用**answer position**信息，copy无关词的原因是缺乏**局部语义信息**。
 
 * 为了分别缓解这两个问题，作者也是设计了两个辅助任务：
 
+  * 语义匹配分类：这个任务的设计出发点也是SQuAD的数据特点，对于一个passage存在多个answer-question训练数据，模型对这样的数据容易产生一些宽泛不具体的问题。所以作者把passage-question作为正样本，passage-random selected question， random selected passage-question作为负样本进行分类任务。
+
   ![img](https://pic3.zhimg.com/80/v2-6e137d01fd833693fcc6cf526a39fb8e_720w.jpg)
+
+  * answer-postion位置预测：了让模型更好的利用answer信息，设计了一个预测answer在上下文中start和end位置的模型（pointer network），其中基础的编码部分采用BiDAF的方式。
+  * 然后**QG和这两个辅助任务一起训练**，效果可。
+
 
 ****
 

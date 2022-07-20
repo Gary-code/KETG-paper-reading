@@ -369,6 +369,42 @@ LSTM --oours--> 句子+段落的encoder输出
 
 > 同时，还有[关于多模态（视频-文本）Transformer模型的博客链接](https://zhuanlan.zhihu.com/p/388361095)
 
+
+
+### :timer_clock: Temporal Grounding
+
+> 我们使用一个十分经典的人物来看看视频的特征是如何利用的
+
+**Negative Sample Matters: A Renaissance of Metric Learning for Temporal Grounding**, in AAAI 2022. [[pdf](https://arxiv.org/abs/2109.04872)] [[torch](https://github.com/MCG-NJU/MMN)] [[blog](https://zhuanlan.zhihu.com/p/446203594)]
+
+* 主干网络是沿用王利民老师组的[TDN](https://arxiv.org/abs/2012.10071)
+
+* 使用了**metric learning**的方法并且引入**负样本**来做Temporal Grounding的任务
+
+* 贡献
+
+  * 构造了新的监督信号：视频间的正负样本(`IoU`来采样)， 句子和视频对应的正负样本（负样本句子从别的视频抽取过来）
+  * 一个视频只需要建模一次，大大节省训练时间，以往的fusion方法都是要文本-视频帧对来建模
+
+* Trick
+
+  * 为了编码公平，使用预训练好的`DistilBERT`来进行编码句子
+
+* 损失函数计算
+
+  * 和`TDN`一样的`BCE_loss`
+  * 类似于`InfoNCE loss`的设计对比损失
+
+  $$
+  \begin{aligned}
+  &p\left(i_{s} \mid v\right)=\frac{\exp \left(\left(\mathbf{f}_{i}^{S T} \mathbf{f}^{V}-m\right) / \tau_{v}\right)}{\exp \left(\left(\mathbf{f}_{i}^{S T} \mathbf{f}^{V}-m\right) / \tau_{v}\right)+\sum_{j \neq i}^{N_{s}} \exp \left(\mathbf{f}_{j}^{S T} \mathbf{f}^{V} / \tau_{v}\right)} \\
+  &p\left(i_{v} \mid s\right)=\frac{\exp \left(\left(\mathbf{f}_{i}^{V T} \mathbf{f}^{S}-m\right) / \tau_{s}\right)}{\exp \left(\left(\mathbf{f}_{i}^{V T} \mathbf{f}^{S}-m\right) / \tau_{s}\right)+\sum_{j \neq i}^{N_{v}} \exp \left(\mathbf{f}_{j}^{V T} \mathbf{f}^{S} / \tau_{s}\right)} \\
+  &L_{m m}=-\left(\sum_{i=1}^{N} \log p\left(i_{v} \mid s_{i}\right)+\sum_{i=1}^{N} \log p\left(i_{s} \mid v_{i}\right)\right)
+  \end{aligned}
+  $$
+
+  
+
 ### :writing_hand: Video Caption
 
 **[Video Caption] VX2TEXT: End-to-End Learning of Video-Based Text Generation From Multimodal Inputs**, in CVPR 2021. [[pdf](https://arxiv.org/abs/2101.12059)]

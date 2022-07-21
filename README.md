@@ -405,6 +405,15 @@ LSTM --oours--> 句子+段落的encoder输出
 
   
 
+### :man_student: Video Question Answer
+
+**Invariant Grounding for Video Question Answering**, in CVPR 2022.  [[pdf](https://openaccess.thecvf.com/content/CVPR2022/papers/Li_Invariant_Grounding_for_Video_Question_Answering_CVPR_2022_paper.pdf)] [[torch](https://github.com/yl3800/IGV)]
+
+> 这篇文章感觉是一篇很标准的`CVPR`的中规中矩文章，写作上挺出色的
+
+* 先做了Grounding的检测，检测出问题相关帧（有因果关系`Casual`）还有无关帧（补偿帧`Complement`）
+* 构建负样本到无关帧当中
+
 ### :writing_hand: Video Caption
 
 **[Video Caption] VX2TEXT: End-to-End Learning of Video-Based Text Generation From Multimodal Inputs**, in CVPR 2021. [[pdf](https://arxiv.org/abs/2101.12059)]

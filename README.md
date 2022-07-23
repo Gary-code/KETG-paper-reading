@@ -371,15 +371,52 @@ LSTM --oours--> 句子+段落的encoder输出
 
 
 
+
+
 ### :timer_clock: Temporal Grounding
 
-> 我们使用一个十分经典的人物来看看视频的特征是如何利用的
+> 我们使用一个十分经典的任务（Temporal Grounding）来看看视频的特征是如何利用的
 
-**Negative Sample Matters: A Renaissance of Metric Learning for Temporal Grounding**, in AAAI 2022. [[pdf](https://arxiv.org/abs/2109.04872)] [[torch](https://github.com/MCG-NJU/MMN)] [[blog](https://zhuanlan.zhihu.com/p/446203594)]
+:fire::hammer_and_wrench: **[Video-NLP] Learning 2D Temporal Adjacent Networks for Moment Localization with Natural Language**, in AAAI 2020.  [[pdf](https://arxiv.org/pdf/1912.03590.pdf)] [[torch](https://github.com/microsoft/VideoX)]
 
-* 主干网络是沿用王利民老师组的[TDN](https://arxiv.org/abs/2012.10071)
+> extend version: **MS-2D-TAN**, in TPAMI 2021.  [[pdf](https://arxiv.org/pdf/2012.02646.pdf)]  [[torch](https://github.com/microsoft/VideoX)]
+
+* 2D: start time & end time 构成的邻接矩阵
+
+![image-20220723153302775](https://s2.loli.net/2022/07/23/lUBL6uPHRFCzvxt.png)
+
+* **核心思想**：
+
+  * 使用max pooling （本文使用） 或者 stack convolution的获取moment feature，如上图`2D Temporal Feature Map Extraction`所示
+  * 由于这样子的计算开销太大了，使用**特定的采样方式**进行调整，详见论文！（距离近的采样多一点，远的采样少一点）
+  * 多模态融合（`Hadamard product`）
+
+  $$
+  \mathbf{F}=\left\|\left(\mathbf{w}^{S} \cdot \mathbf{f}^{S} \cdot \mathbb{1}^{T}\right) \odot\left(\mathbf{W}^{M} \cdot \mathbf{F}^{M}\right)\right\|_{F}
+  $$
+
+  * 损失计算时候，对`IoU`进行一个scale变成监督信号
+
+  $$
+  y_{i}= \begin{cases}0 & o_{i} \leq t_{\min } \\ \frac{o_{i}-t_{\min }}{t_{\max }-t_{\min }} & t_{\min }<o_{i}<t_{\max } \\ 1 & o_{i} \geq t_{\max }\end{cases}
+  $$
+
+  * BCE loss:
+
+  $$
+  L o s s=\frac{1}{C} \sum_{i=1}^{C} y_{i} \log p_{i}+\left(1-y_{i}\right) \log \left(1-p_{i}\right)
+  $$
+
+  
+
+:fire: :hammer_and_wrench: **Negative Sample Matters: A Renaissance of Metric Learning for Temporal Grounding**, in AAAI 2022. [[pdf](https://arxiv.org/abs/2109.04872)] [[torch](https://github.com/MCG-NJU/MMN)] [[blog](https://zhuanlan.zhihu.com/p/446203594)]
+
+* 主干网络是沿用[TDN](https://arxiv.org/abs/2012.10071)
 
 * 使用了**metric learning**的方法并且引入**负样本**来做Temporal Grounding的任务
+
+  * 视频间的负样本（`IoU`来标定监督信号`yi`，与`2D-TAN`一样处理得来的，记得`scale`一下）
+  * 文本中的负样本，从其他视频的文本语句当中选取出来
 
 * 贡献
 
@@ -392,7 +429,7 @@ LSTM --oours--> 句子+段落的encoder输出
 
 * 损失函数计算
 
-  * 和`TDN`一样的`BCE_loss`
+  * 和`2D-TDN`一样的`BCE_loss`
   * 类似于`InfoNCE loss`的设计对比损失
 
   $$
@@ -412,7 +449,7 @@ LSTM --oours--> 句子+段落的encoder输出
 > 这篇文章感觉是一篇很标准的`CVPR`的中规中矩文章，写作上挺出色的
 
 * 先做了Grounding的检测，检测出问题相关帧（有因果关系`Casual`）还有无关帧（补偿帧`Complement`）
-* 构建负样本到无关帧当中
+* 构建负样本到无关帧当中，使用`memory bank`来存储所有样本 (因此要注意存储的特征维度不能太大)
 
 ### :writing_hand: Video Caption
 

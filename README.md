@@ -444,9 +444,9 @@ LSTM --oours--> 句子+段落的encoder输出
 
 ### :man_student: Video Question Answer
 
-**Invariant Grounding for Video Question Answering**, in CVPR 2022.  [[pdf](https://openaccess.thecvf.com/content/CVPR2022/papers/Li_Invariant_Grounding_for_Video_Question_Answering_CVPR_2022_paper.pdf)] [[torch](https://github.com/yl3800/IGV)]
+**Invariant Grounding for Video Question Answering**, in CVPR 2022 oral.  [[pdf](https://openaccess.thecvf.com/content/CVPR2022/papers/Li_Invariant_Grounding_for_Video_Question_Answering_CVPR_2022_paper.pdf)] [[torch](https://github.com/yl3800/IGV)]
 
-> 这篇文章感觉是一篇很标准的`CVPR`的中规中矩文章，写作上挺出色的
+> 这篇文章感觉是一篇很标准的`CVPR`的中规中矩文章，写作用词上非常出色的
 
 * 先做了Grounding的检测，检测出问题相关帧（有因果关系`Casual`）还有无关帧（补偿帧`Complement`）
 * 构建负样本到无关帧当中，使用`memory bank`来存储所有样本 (因此要注意存储的特征维度不能太大)
@@ -464,6 +464,16 @@ LSTM --oours--> 句子+段落的encoder输出
 :hammer_and_wrench: :fire: **[Video Caption] Semantic Grouping Network for Video Captioning**, in AAAI 2021. [[pdf](https://arxiv.org/pdf/2102.00831.pdf)] [[torch](https://github.com/hobincar/SGN)]
 
 * ![image-20220621204108736](https://s2.loli.net/2022/06/21/DMmzxs7dKwyU6BE.png)
+
+:hammer_and_wrench: :fire: **Hierarchical Context-aware Network for Dense Video Event Captioning**, in ACL 2021. [[pdf](https://aclanthology.org/2021.acl-long.156/)] [[torch](https://github.com/KirkGuo/HCN)]
+
+* **局部信息**+**全局信息**结合生成dense caption （输入包括**video** 和 **transcript**）
+* 为此设计了两套`Attention`机制
+  * falt attention + cross attention
+
+![image-20220820000708776](https://s2.loli.net/2022/08/20/wdO5eWZcxgqsItT.png)
+
+* 设计了门机制来decode（之前的文本信息与未来的文本信息）
 
 
 

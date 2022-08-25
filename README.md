@@ -506,7 +506,114 @@ LSTM --oours--> 句子+段落的encoder输出
 
 
 
+## :label: NER
+
+>  Named Entity Recognition
+
+**当前竞赛NER任务的baseline：**
+
+- BERT + BILSTM + CRF
+- [博客连接 NER铁打的baseline](https://zhuanlan.zhihu.com/p/166496466)
+
+:fire: **Bidirectional LSTM-CRF Models for Sequence Tagging**, in 2015. [[pdf](https://arxiv.org/pdf/1508.01991v1.pdf)] [[code](https://paperswithcode.com/paper/bidirectional-lstm-crf-models-for-sequence)
+
+* 使用BiLSTM+CRF做NER的开山之作
+* [相关博客连接](https://zhuanlan.zhihu.com/p/166496466)
+
+:hammer_and_wrench: :fire: **Fast and Accurate Entity Recognition with Iterated Dilated Convolutions**, in EMNLP 2017.  [[pdf](https://arxiv.org/pdf/1702.02098.pdf)] [[tensorflow](https://github.com/iesl/dilated-cnn-ner)]
+
+* Iterated Dilated Convolutions 空洞卷积 
+
+
+![image-20220825002628063](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20220825002628063.png)
+
+* 核心思想
+
+  * 传统卷积的问题：pooling层会**损失信息**，降低精度。那么不加pooling层会使**感受野变小**，学不到全局的特征。如果单纯的去掉pooling层、扩大卷积核的话，这样纯粹的扩大卷积核势必导致**计算量的增大**。
+  * CNN也可以解决长距离依赖问题
+
+![image-20220825004251541](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20220825004251541.png)
+
+* 速度比以前的`Bi-LSTM-CRF`快了非常多，而且精度没有下滑
+
+:hammer_and_wrench: :fire: **BOND: BERT-Assisted Open-Domain Named Entity Recognition with Distant Supervision** , in KDD 2020.  [[pdf](https://arxiv.org/pdf/2006.15509.pdf)] [[torch](https://github.com/cliang1453/BOND)]
+
+* 远距离监督的问题
+
+  * 噪声，负样本不好生成
+  * 完整性不足
+  * `trade-off` 在标注准确度和覆盖范围之间
+
+* 想法
+
+  * 第一阶段使用`RoBERTa`微调，适应`NER`任务
+
+    * 使用`Early stopping` 方法防止数据过拟合还有对**未知数据增强泛化能力**
+    * 首先通过`POS`识别潜在实体，然后通过语料库计算最小损失确定实体
+
+    ![img](https://pic2.zhimg.com/80/v2-0951f0afefa53b2efc269f92136a3ae9_720w.jpg)
+
+  * 第二阶段自我学习框架 （teacher-student模型2）
+
+    * 应对**嘈杂和不完整标注**的挑战
+    * teacher生成伪标签交给student去预测
+    * **重新加权的高置信度软标签**
+    * ==第二阶段的核心就是增强数据的置信程度！==
+
+![img](https://pic4.zhimg.com/80/v2-8788aa61ea19b041e763b597d844ebcb_720w.jpg)
+
+两阶段的BOND框架
+
+* 在阶段I中，经过预训练的BERT用于早停的远距离NER任务
+* 在阶段II中，首先从阶段I中学习的模型初始化student模型和teacher模型。然后使用teacher模型生成的伪标签对student模型进行训练。同时，由早停的student迭代更新teacher模型。
+
+
+
+:hammer_and_wrench: :fire: **[A Boundary-aware Neural Model for Nested Named Entity Recognition](https://aclanthology.org/D19-1034.pdf)** , in EMNLP 2019.  [[pdf](https://aclanthology.org/D19-1034.pdf)] [[torch](https://github.com/thecharm/boundary-aware-nested-ner)]
+
+* 解决`Nested NER`的问题
+* 使用多任务学习方法
+  * 预测边界
+  * 预测实体分类
+
+:hammer_and_wrench: :fire: **Cross-Domain NER using Cross-Domain Language** , in ACL 2020.  [[pdf](https://aclanthology.org/P19-1236/)] [[torch](https://github.com/jiachenwestlake/Cross-Domain_NER)]
+
+* 解决**跨领域无监督**的标注问题
+* 核心思想
+
+![img](https://pic4.zhimg.com/80/v2-52cb3242e0a708e48b29ab2f8d81e027_720w.jpg)
+
+最底下的一层是数据层，标准情况一下总共有四份语料，分别对应**两个domain下的两个task（NER和语言建模）**。其中Source Domain（即保证有标记数据用于NER的domain）对应之前提到的News Domain，因为论文中Source Domain使用的是新闻数据。另外如果是无监督抽取Target Domain数据则只有三份语料。
+
+由底向上第二层是Word Embedding层，论文中的Word Embedding结合了词级别和字符级别的向量表示。即把词向量和一个词的字符序列形成的矩阵经过CNN处理后的**向量concatenate起来**。
+
+第三层是双向LSTM，用于序列处理第二层的数据，生成前后向hidden state。
+
+第四层LM和CRF，即task model层。我们可以看到第四层有三个模块，两个是用于NER的CRF模型，分别对应Source Domain和Target Domain。另一个是基于第三层BiLSTM的语言模型，NSSoftmax是指这个语言模型利用**Negative Sampling Softmax的方式进行训练**。
+
+
+
+* 最关键的地方就是`Bi-LSTM`的参数是生成的，不同domain的不同task需要的LSTM的参数和$I$有关
+
+$$
+\begin{equation}
+\theta_{\mathrm{LSTM}}^{d, t}=\mathbf{W} \otimes \mathbf{I}_{d}^{D} \otimes \mathbf{I}_{t}^{T},
+\end{equation}
+$$
 
 
 
 
+
+**NER的未来**
+
+既然模型打不动了，然后我找了找 ACL2020做NER的论文，看看现在的NER还在做哪些事情，主要分几个方面
+
+1. **多特征**：实体识别不是一个特别复杂的任务，不需要太深入的模型，那么就是加特征，特征越多效果越好，所以字特征、词特征、词性特征、句法特征、KG表征等等的就一个个加吧，甚至有些中文 NER 任务里还加入了拼音特征、笔画特征...... 心有多大，特征就有多多
+2. **多任务**：很多时候做 NER 的目的并不仅是为了 NER，而是服务于一个更大的目标或系统，比如信息抽取、问答系统等等。如果把整个大任务做一个端到端的模型，就需要做成一个多任务模型，把 NER 作为其中一个子任务；另外，单纯的 NER 也可以做成多任务，比如实体类型过多时，仅用一个序列标注任务来同时抽取实体与判断实体类型，会有些力不从心，就可以拆成两个子任务来做
+3. **时令大杂烩**：把当下比较流行的深度学习话题或方法跟 NER 结合一下，比如结合强化学习的 NER、结合 **few-shot learning** 的 NER、结合多模态信息的 NER、结合跨语种学习的 NER 等等的，具体就不提了 (Few-shot + Cross-domain是个不错的选项！)
+
+作者：王岳王院长
+链接：https://zhuanlan.zhihu.com/p/166496466
+来源：知乎
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。

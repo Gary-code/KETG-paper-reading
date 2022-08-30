@@ -307,6 +307,14 @@ LSTM --oours--> 句子+段落的encoder输出
 
  [详细讲解](https://zhuanlan.zhihu.com/p/150667499)
 
+
+
+:hammer_and_wrench: **Injecting Semantic Concepts into End-to-End Image Captioning**, in CVPR 2022.  [[pdf](https://arxiv.org/abs/2112.05230)]  [[torch](https://github.com/jacobswan1/ViTCAP)]
+
+* 端到端的训练，detector-free
+* 加入Concept
+  * 通过抽取caption中的动名词或者通过知识蒸馏得到一些图像标签
+
 ## :sunglasses: Video Understanding
 
 ### :video_camera: Features Fusion

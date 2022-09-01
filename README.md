@@ -184,6 +184,10 @@ LSTM --oours--> 句子+段落的encoder输出
 
 
 
+:hammer_and_wrench: **Learning to Caption Images Through a Lifetime by Asking Questions**, in ICCV 2019.  [[pdf](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9009050)] [[torch](https://github.com/fidler-lab/Caption-Lifetime-by-Asking-Questions)]
+
+* 将Caption 和 VQG 一起来做，提升生成的性能
+
 
 ### :video_camera: Video QG
 
@@ -221,7 +225,10 @@ LSTM --oours--> 句子+段落的encoder输出
 
 :fire: :hammer_and_wrench: **[Question Answering] ** **Improving Multi-hop Question Answering over Knowledge Graphs usingKnowledge Base Embeddings**, in ACL 2020. [[pdf](https://aclanthology.org/2020.acl-main.412/)] [[torch](https://github.com/malllabiisc/EmbedKGQA)]
 
+:hammer_and_wrench: **Found a Reason for me? Weakly-supervised Grounded Visual Question Answering using Capsules**, in CVPR 2021.  [[pdf](https://openaccess.thecvf.com/content/CVPR2021/papers/Urooj_Found_a_Reason_for_me_Weakly-supervised_Grounded_Visual_Question_Answering_CVPR_2021_paper.pdf)] [[torch](https://github.com/aurooj/ WeakGroundedVQA_Capsules.git)]
 
+* 不用faster-rcnn
+* 训练输入是问题和答案，输出是预测答案对应的**grouding area**。
 
 ## :book: Paraphrase
 
@@ -307,13 +314,195 @@ LSTM --oours--> 句子+段落的encoder输出
 
  [详细讲解](https://zhuanlan.zhihu.com/p/150667499)
 
+:hammer_and_wrench: **Length-Controllable Image Captioning**, in ECCV 2020 by [Qi Wu](https://arxiv.org/search/cs?searchtype=author&query=Wu%2C+Q) and  Mingkui Tan.  [[pdf](https://arxiv.org/abs/2007.09580)] [[torch](https://github.com/bearcatt/LaBERT)]
 
+* 动机
+  * 为了让句子更加粗略或者细节，提出**长度可控**的caption生成
+  * 过去由于方法是自回归的，所以计算复杂度会随着句子长度上升而上升。（模型上的创新）
+
+![image-20220831210727673](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20220831210727673.png)
+
+之前的SOTA方法可能会遗漏一些关键的信息，如果我想要更加细节点的描述，他们无法生成。
+
+* 方法
+
+  > 过去由于方法是自回归的，所以计算复杂度会随着句子长度上升而上升。在这里提出了 non-autoregressive的方法。
+
+  * 获取句子长度信息（level -> $[L_{low}, L_{high}]$）做embedding
+
+  * 提出Decode 阶段 (non-autoregressive) **LaBERT**
+
+    * 使用位置信息来预测mask
+
+    * 使用长度信息来预测unmask
+
+    * 推理的时候鼓励生成**更长的句子**
+
+      * exponentially decay: $p_i\left(s_i=[\mathrm{EOS}]\right) \leftarrow \gamma^{L_{\text {high }}-i} p_i\left(s_i=[\mathrm{EOS}]\right), \forall i \in\left[L_{\text {low }}, L_{\text {high }}\right]$
+
+        ![image-20220831212334860](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20220831212334860.png)
+
+      * 每一步都会对最低置信度的单词进行mask
+
+:hammer_and_wrench: **Human-like Controllable Image Captioning with Verb-specific Semantic Roles**, in CVPR 2021.  [[pdf](https://openaccess.thecvf.com/content/CVPR2021/papers/Chen_Human-Like_Controllable_Image_Captioning_With_Verb-Specific_Semantic_Roles_CVPR_2021_paper.pdf)] [[torch](https://github.com/mad-red/VSR-guided-CIC)]
+
+* 与上面两篇工作可控性的对比
+
+![image-20220831213129731](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20220831213129731.png)
+
+* 动机
+
+  * 事件兼容性，两个不兼容的事件不应该合在一起
+
+  * 采样的兼容性，不合理的采样不应该出现在句子当中
+
+  * 对于上面的case： 
+
+    ```python
+    verb=sit, Arg1="thing sitting", Arg2="sitting position" 
+    verb=read, Arg0="reader", Arg1="thing read"
+    ```
+
+* 方法上是先抽取出来约束的标签，再decoder
+
+![image-20220831213747447](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20220831213747447.png)
+
+
+
+:hammer_and_wrench: :fire: **Show, Edit and Tell: A Framework for Editing Image Captions**, in CVPR 2020.  [[pdf](https://arxiv.org/abs/2003.03107)] [[torch](https://github.com/fawazsammani/show-edit-tell)]
+
+* 直接对生成的caption进行编辑修改
+
+:hammer_and_wrench: **Towards Accurate Text-based Image Captioning with Content Diversity Exploration**, in CVPR 2021. [[pdf](https://openaccess.thecvf.com/content/CVPR2021/papers/Xu_Towards_Accurate_Text-Based_Image_Captioning_With_Content_Diversity_Exploration_CVPR_2021_paper.pdf)]  [[torch](https://github.com/guanghuixu/AnchorCaptioner)]
+
+* 动机
+  * Caption生成的多样性
+  * 挑战
+    * 不知道应该如何选择文本信息
+    * 文本和图片之间的关系
+    * 多样性caption的生成
+
+![image-20220831221056898](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20220831221056898.png)
+
+
+
+* 模型方法
+
+![image-20220831221253743](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20220831221253743.png)
+
+
+
+**Improving OCR-based Image Captioning by Incorporating Geometrical Relationship**, in CVPR 2021.  [[pdf](https://openaccess.thecvf.com/content/CVPR2021/papers/Wang_Improving_OCR-Based_Image_Captioning_by_Incorporating_Geometrical_Relationship_CVPR_2021_paper.pdf)]
+
+* 动机
+  * 无法建立OCR抽出来东西之间的关系
+* 方法
+  * 通过高度，宽度、距离、IoU和方向构建相应的OCR
+
+![image-20220831223252058](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20220831223252058.png)
+
+
+
+ :hammer_and_wrench: **Towards Unique and Informative Captioning of Images**, in ECCV 2020.  [[pdf](https://link.springer.com/content/pdf/10.1007/978-3-030-58571-6_37.pdf)] [[torch](https://github.com/princetonvisualai/SPICE-U)]
+
+* 目前问题：
+
+![image-20220901103845451](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20220901103845451.png)
+
+* 关键贡献，做了一个**新的评价指标**
+
+:hammer_and_wrench: **Comprehensive Image Captioning via Scene Graph Decomposition**, in ECCV 2020.  [[pdf](https://link.springer.com/content/pdf/10.1007/978-3-030-58568-6_13.pdf)] [[torch](https://pages.cs.wisc.edu/~yiwuzhong/Sub-GC.html)]
+
+* 场景图分解来实现多样性
+
+![image-20220901104357419](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20220901104357419.png)
+
+![image-20220901104406842](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20220901104406842.png)
+
+:hammer_and_wrench: **In Defense of Scene Graphs for Image Captioning**, in ICCV 2021.  [[pdf](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9710596)]  [[torch](https://github.com/ Kien085/SG2Caps)]
+
+* 动机
+  * 弥补文本场景图还有视觉场景图直接的Gap
+  * 以往的工作在训练captioner时，往往用**TSG作为输入**，测试时再换成VSG
+  * VG数据集上学得的场景图中relationship多是has, on这类**无意义的关系**
+  * VSG与TSG并不兼容  （两个场景图之间）
+
+![image-20220831224945278](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20220831224945278.png)
+
+* 基本思想
+  *  close the **semantic gap** between the two scene graphs
+  * 使用**HOI信息增强VSG**，并引入object location信息提升VSG的表达能力
+
+![image-20220831224458911](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20220831224458911.png)
+
+* 具体方法
+
+  * VSG构建
+    * VG数据集训练一个VSG generator，同以往工作一样对MSCOCO中的图片生成VSG。与此同时，作者又在MSCOCO上训练了一个object detector，对图片检测出一系列的物体。
+  * VSG编码
+    * 随后使用HOI inference对与人相关的物体进行关系及属性的预测。最后取原始VSG与HOI (检测到的物体) graph的并集作为最终VSG。
+    * 使用多个GCN对其进行编码，不同类型的节点使用不同的GCN参数。
+  * decode阶段 (Up-down)
+    * 仅仅使用scene graph，不使用任何视觉特征，SG2Caps模型便可以取得有竞争力的描述生成结果。
+  * case展示
+
+  ![image-20220831230157943](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20220831230157943.png)
+
+
+
+:hammer_and_wrench: **Beyond a Pre-Trained Object Detector: Cross-Modal Textual and Visual Context for Image Captioning**, in CVPR 2022. [[pdf]()] [[torch](https://github.com/GT-RIPL/Xmodal-Ctx)]
+
+* 关注到更多级别的信息
+
+![image-20220901105828069](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20220901105828069.png)
+
+* 方法上主要加入了Crop
+
+![image-20220901105902348](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20220901105902348.png)
+
+:hammer_and_wrench: **Comprehending and Ordering Semantics for Image Captioning**, in CVPR. [[pdf](https://arxiv.org/pdf/2206.06930.pdf)] [[torch](https://github.com/YehLi/xmodaler/tree/master/configs/image_caption/cosnet)]
+
+* **语义的语言排序**（不单单是对象）同样很重要
+
+![image-20220901111757395](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20220901111757395.png)
+
+* 方法
+
+![image-20220901111817536](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20220901111817536.png)
+
+:hammer_and_wrench: **DIFNet: Boosting Visual Information Flow for Image Captioning**, in CVPR 2022.  [[pdf](DIFNet: Boosting Visual Information Flow for Image Captioning)] [[torch](https://github.com/mrwu-mac/DIFNet)]
+
+* 考虑了信息流的信息
+
+![image-20220901111002940](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20220901111002940.png)
+
+![image-20220901111014355](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20220901111014355.png)
 
 :hammer_and_wrench: **Injecting Semantic Concepts into End-to-End Image Captioning**, in CVPR 2022.  [[pdf](https://arxiv.org/abs/2112.05230)]  [[torch](https://github.com/jacobswan1/ViTCAP)]
 
-* 端到端的训练，detector-free
+* 端到端的训练，detector-free 和加入语义concept
+* 过去的工作
+
+![image-20220901104826507](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20220901104826507.png)
+
 * 加入Concept
-  * 通过抽取caption中的动名词或者通过知识蒸馏得到一些图像标签
+  * 通过抽取caption中的动名词或者通过知识蒸馏得到一些concept作为**伪标签**做分类
+
+![image-20220901104847149](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20220901104847149.png)
+
+
+
+:hammer_and_wrench: **[未开源] Show, Deconfound and Tell: Image Captioning with Causal Inference**, in CVPR 2022.  [[pdf](https://openaccess.thecvf.com/content/CVPR2022/papers/Liu_Show_Deconfound_and_Tell_Image_Captioning_With_Causal_Inference_CVPR_2022_paper.pdf)] [[torch](https: //github.com/CUMTGG/CIIC)]
+
+* 解决数据集中大量出现了，模型**short-cut path** 的问题
+
+![image-20220901110327977](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20220901110327977.png)
+
+* 考虑因果推理
+
+![image-20220901110456322](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20220901110456322.png)
+
+
 
 ## :sunglasses: Video Understanding
 

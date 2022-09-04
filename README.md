@@ -367,6 +367,20 @@ LSTM --oours--> 句子+段落的encoder输出
 
 ![image-20220831213747447](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20220831213747447.png)
 
+:star: **MAGIC: Multimodal relAtional Graph adversarIal inferenCe for Diverse and Unpaired Text-Based Image Captioning**, in AAAI 2022.  [[pdf](https://ojs.aaai.org/index.php/AAAI/article/view/20243)]
+
+* 动机
+  * 为了caption的生成更加丰富多样，并且**无需过多的标注数据**！
+  * caption直接做到**场景文本**级别
+* 方法
+  * Unpired Captioning的方法（其实就是`GAN`的思想）
+  * 学到了模态内部，跨模态之间的关系
+  * Unpaired 学习的范式，无需过多监督信号
+
+![image-20220904163643769](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20220904163643769.png)
+
+
+
 
 
 :hammer_and_wrench: :fire: **Show, Edit and Tell: A Framework for Editing Image Captions**, in CVPR 2020.  [[pdf](https://arxiv.org/abs/2003.03107)] [[torch](https://github.com/fawazsammani/show-edit-tell)]

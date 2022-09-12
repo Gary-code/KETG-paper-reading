@@ -269,6 +269,17 @@ machine reading comprehension (**MRC**)和question answering (QA)的关系其实
 * 不用faster-rcnn
 * 训练输入是问题和答案，输出是预测答案对应的**grouding area**。
 
+**KQA Pro: A Dataset with Explicit Compositional Programs for Complex Question Answering over Knowledge Base**, in ACL 2022. [[pdf](https://aclanthology.org/2022.acl-long.422.pdf)] [[project](https://github.com/shijx12/ KQAPro_Baselines)]
+
+* 更加复杂的数据量更大的引入知识的数据集
+  * 并且给出了两种reasoning的过程
+  * 可以做QA和**语义解析**服务
+  * 利用更加复杂的模版和知识生成问题
+
+![image-20220912160811327](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20220912160811327.png)
+
+* [详细介绍的blog](https://blog.csdn.net/weixin_47903246/article/details/124649493)
+
 ## :book: Paraphrase
 
 ---
@@ -710,6 +721,15 @@ machine reading comprehension (**MRC**)和question answering (QA)的关系其实
 * 构建**图神经网络**来模拟这些level思考的过程
 
 ![image-20220910231620242](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20220910231620242.png)
+
+**[交通事故QA数据集] SUTD-TraffificQA: A Question Answering Benchmark and an Effificient Network for Video Reasoning over Traffific Events**, in CVPR 2021. [[pdf](https://openaccess.thecvf.com/content/CVPR2021/papers/Xu_SUTD-TrafficQA_A_Question_Answering_Benchmark_and_an_Efficient_Network_for_CVPR_2021_paper.pdf)] [[project](https://github.com/SUTDCV/SUTD-TrafficQA[)]
+
+* 对比起其他QA数据集
+  * 需要模型有因果推理和认知发展（cognitive development）
+* 处理方法
+  * 对粗细两种粒度进行识别和计算（不同的CNN网络），大大加快了模型的运算时间
+
+![image-20220912152326067](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20220912152326067.png)
 
 ### :writing_hand: Video Caption
 

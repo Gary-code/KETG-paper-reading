@@ -217,9 +217,48 @@ LSTM --oours--> 句子+段落的encoder输出
 
 ---
 
-:fire:  :hammer_and_wrench: **[Question Answering] Commonsense for Generative Multi-Hop Question Answering Tasks**, in EMNLP 2018. [[pdf\]](https://arxiv.org/abs/1809.06309) [[code (tf)\]](https://github.com/yicheng-w/CommonSenseMultiHopQA)
+### :sunflower: Visual
 
-:hammer_and_wrench: **[Dialogue System] Improving Knowledge-aware Dialogue Generation via Knowledge Base Question Answering**, in AAAI 2020. [[pdf\]](https://arxiv.org/abs/1912.07491) [[code (torch)\]](https://github.com/siat-nlp/TransDG)
+> 在2022年的今天，VQA任务不太可能从刷分的角度来入手了 [[Blog链接](https://www.zhihu.com/question/419828408/answer/1595386400)]
+>
+> - VQA任务是什么
+>
+> - 介绍之前的模型和方法
+>
+> - 欢迎来到Transformer的时代
+>
+> - - 2019：尝试多模态表征
+>   - 2020：拥抱多模态表征
+>   - 2021：统一构架的探索
+
+machine reading comprehension (**MRC**)和question answering (QA)的关系其实是相对独立的。Pure VQA任务一般是没有引入额外的**文本内容**，只是单纯的有$\{图， 问句， 回答\}$。而Multimodal MRC任务，实际上就只是引入了**额外的context**作为VQA任务的知识，并且更加注重于自然语言的理解。MRC的主要**任务类型**一共有四种，分别为:
+
+* 完形填空（Cloze Style）
+* 多项选择（Multiple Choice）
+* 片段抽取（Span Prediction）
+* 自由作答（Free-form Answer）
+
+**[非深度学习方法] Answer-Type Prediction for Visual Question Answering**，in CVPR 2016. [[pdf](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=7780907)]
+
+* 预测问题类别（人为标定）的概率再回答问题
+* 利用**贝叶斯算法**对目标的空间关系进行建模，计算出每个答案的概率
+* 其有效性不如简单的基线模型；部分原因在于其**依赖语义分割的结果**
+
+
+
+**Differential Attention for Visual Question Answering**, in CVPR 2018. [[pdf](https://arxiv.org/pdf/1804.00298.pdf)]
+
+* 解决为了让模型更加关注到**人类所关注**的区域
+
+![image-20220910151132747](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20220910151132747.png)
+
+
+
+### :sunny: Textual
+
+:fire:  :hammer_and_wrench: **[Question Answering] Commonsense for Generative Multi-Hop Question Answering Tasks**, in EMNLP 2018. [[pdf]](https://arxiv.org/abs/1809.06309) [[tensorflow]](https://github.com/yicheng-w/CommonSenseMultiHopQA)
+
+:hammer_and_wrench: **[Dialogue System] Improving Knowledge-aware Dialogue Generation via Knowledge Base Question Answering**, in AAAI 2020. [[pdf]](https://arxiv.org/abs/1912.07491) [[torch]](https://github.com/siat-nlp/TransDG)
 
 **[Question Answering] Using Local Knowledge Graph Construction to Scale Seq2Seq Models to Multi-Document Inputs**, in EMNLP 2019. [[pdf\]](https://arxiv.org/abs/1910.08435)
 
@@ -661,6 +700,16 @@ LSTM --oours--> 句子+段落的encoder输出
 
 * 先做了Grounding的检测，检测出问题相关帧（有因果关系`Casual`）还有无关帧（补偿帧`Complement`）
 * 构建负样本到无关帧当中，使用`memory bank`来存储所有样本 (因此要注意存储的特征维度不能太大)
+
+**Video as Conditional Graph Hierarchy for Multi-Granular Question Answering**，in AAAI 2022. [[pdf](https://arxiv.org/abs/2112.06197)] [[torch](https://arxiv.org/abs/2112.06197)]
+
+* 现有的方法对视频问题的回答缺乏**可解释性**
+* 构建了两种视角来看问题
+  * bottom-up， 不同的视频特征决定了不同的属性level（实体，原子，动作，事件）
+  * up-bottom，问题中的不同单词，关联了不同的level
+* 构建**图神经网络**来模拟这些level思考的过程
+
+![image-20220910231620242](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20220910231620242.png)
 
 ### :writing_hand: Video Caption
 

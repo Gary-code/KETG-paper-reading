@@ -254,6 +254,69 @@ machine reading comprehension (**MRC**)和question answering (QA)的关系其实
 
 
 
+:fire: :hammer_and_wrench: **[因果关系] Visual Commonsense R-CNN**, in CVPR 2020. [[pdf](https://arxiv.org/abs/2002.12204)] [[torch](https://github.com/Wangt-CN/VC-R-CNN)] [[blog](https://zhuanlan.zhihu.com/p/111306353)]
+
+> 出自[MReal](https://mreallab.github.io/)， 张含望老师团队的工作，非常Solid的一篇工作
+>
+> * 目标是训练基于`Faster-RCNN`训练一个更强的`feature extractor`可以捕获视觉上的常识信息。
+> * 这篇论文实在**太多细节和推理**了，建议看我自己的**GoodNote上的笔记**！
+
+* 动机
+
+  * 现在的模型无法学习到视觉常识（**Commonsense**）：人和椅子 -> 人可以坐在椅子上。但在NLP中，常识的信息已经放在特征里面了
+
+    ![image-20220913155431514](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20220913155431514.png)
+
+  * 数据集的偏差会导致无法捕捉到常识信息
+    * 真正的**视觉关系**无法描述（左图）
+    * 给出的**解释**不够正确（右图）
+
+  **因果理论就是用来发现==现象背后的不变规律==的，是一种鲁棒的预测。这与常识本身不就很相似吗，我们人类也是从生活中不断总结积累这些不变的、鲁棒的经验或者因果规律，并把他们叫做常识。** 比如，看见凳子知道可以坐，看见pizza知道可以吃。
+
+**Association 和 Intervention（分层）的计算**
+$$
+\begin{gathered}
+P(Y \mid X)=\sum_z P(Y \mid X, z) P(z \mid X)=\frac{P(Y, X)}{P(X)} \\
+P(Y \mid d o(X))=\sum_z P(Y \mid X, z) P(z)=\sum_z \frac{P(Y, X, z) P(z)}{P(X, z)}
+\end{gathered}
+$$
+其中 $X, Y, z$分别代表了图片中的object label，同时这里我们用物体出现的频率来代替概率，比如 $P(Sink|Hair drier)$就是用“含有$Sink$和$Hair drier$两者的图片数”比上“只含有Hair drier的图片数”计算得到的。画出两者计算结果差异的对比图（只标明了20类）：
+
+![img](https://pic2.zhimg.com/80/v2-ddffe6ddaaf70839faa1d62a9ef25291_720w.jpg)
+
+* 两个Case的分析
+  * $Sink 和 drier$，想要探寻在**已知吹风机**的情况下，去预测水池的可能性大小 $P(Sink|drier)$
+    * **场景因素**考虑在内，对不同的场景进行分层（因为场景就是由object组成的），得到实际的因果效应，比单纯Association算的数值要低
+  * 人和马桶，探寻“马桶”和“人”之间可能存在的因果效应
+    * 数据集中人和马桶一起出现的样本其实不多（也不会有很多人在马桶旁边拍照）
+    * 如果想要做出更robust的预测，我们就需要考虑混杂因子**confounder**， 比如瓶子、水池、杯子等等。按照confounder 行**分层计算**，最后再加权求和。
+
+* 方法（因果干预**Intervention**）
+
+  * 代理任务（无监督学习）：**给定RoI X的feature去预测RoI Y的类别**
+
+  * 包括很多潜在的**混杂因子**，如果直接预测周围物体Y就不可避免的会被上文提到的混杂因子**confounder**所影响。根据我们刚刚介绍的**“do算子”**的理论，解决的办法也不难，只要能找到confounder然后对他们使用**backdoor理论**进行控制即可。
+
+  * 混杂因子是什么？ 我们直接把整个数据集上的**object RoI特征（Faster RCNN中来）在每个类别上取平均**，当作这个类别的表示，进而构建出一个 **类别数x1024** 的confounder字典作为$Z$（比如MSCOCO有80类，就是 80x1024），它包含着所有可能的混杂因子。
+
+  * 后门调整
+
+    ![img](https://raw.githubusercontent.com/Gary-code/pic/main/img/v2-514061ff24e803c016324ead8bcf84b1_720w.jpg)
+
+    * 我们把confounder dictionary $Z$中的物体$z_i$“borrow”到当前图片中，注意这里的物体$z_i$不需要是当前图片中存在的，所以是一种global层面的定义。
+    * 然后把借来的$z_i$“put”到$X, Y$周围和$X, Y$对比，例如上图中的把 sink、handbag、chair等等移到 toilet 和 person 周围进行backdoor的计算。
+
+  * 模型
+
+    * 整个intervention整合成一路context predictor。
+    * 同时为了不让网络忘掉识别RoI本身类别的能力，context predictor的基础上又保留了原先的自身类别预测**self predictor**。
+
+  ![img](https://pic2.zhimg.com/80/v2-d3a05b26274f54a8bd785209f1b6a4c1_720w.jpg)
+
+  注意：VC R-CNN的实现和原先的Faster R-CNN相比，**去除了RPN网络**（Region Proposal Network），不再训练网络propose边界框，而是直接将数据集**ground-truth的bounding box坐标输入到其中**，直接提取region的特征。而在训练完成后的feature提取阶段，相对应的，只要给定图片和bounding box坐标，都可以获得对应的VC特征。就这样，我们利用bottomup特征已有的边界框坐标提取VC特征后，将其并在先前的bottomup特征上作为新的特征。我们在传统的 Vision&Language 三大任务上挑选了经典model和SOTA model进行了测试，发现在各个任务上都取得了明显的提升，尤其是在image captioning上的提升尤其大。同时为了验证性能的提升不是由于参数增多带来的，我们还在原有特征上并上了ablative的特征（单独object特征，用correlation计算的特征），具体可以参考论文的实验部分。
+
+
+
 ### :sunny: Textual
 
 :fire:  :hammer_and_wrench: **[Question Answering] Commonsense for Generative Multi-Hop Question Answering Tasks**, in EMNLP 2018. [[pdf]](https://arxiv.org/abs/1809.06309) [[tensorflow]](https://github.com/yicheng-w/CommonSenseMultiHopQA)
@@ -722,7 +785,7 @@ machine reading comprehension (**MRC**)和question answering (QA)的关系其实
 
 ![image-20220910231620242](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20220910231620242.png)
 
-**[交通事故QA数据集] SUTD-TraffificQA: A Question Answering Benchmark and an Effificient Network for Video Reasoning over Traffific Events**, in CVPR 2021. [[pdf](https://openaccess.thecvf.com/content/CVPR2021/papers/Xu_SUTD-TrafficQA_A_Question_Answering_Benchmark_and_an_Efficient_Network_for_CVPR_2021_paper.pdf)] [[project](https://github.com/SUTDCV/SUTD-TrafficQA[)]
+:fire: :hammer_and_wrench: **[交通事故QA数据集] SUTD-TraffificQA: A Question Answering Benchmark and an Effificient Network for Video Reasoning over Traffific Events**, in CVPR 2021. [[pdf](https://openaccess.thecvf.com/content/CVPR2021/papers/Xu_SUTD-TrafficQA_A_Question_Answering_Benchmark_and_an_Efficient_Network_for_CVPR_2021_paper.pdf)] [[project](https://github.com/SUTDCV/SUTD-TrafficQA[)]
 
 * 对比起其他QA数据集
   * 需要模型有因果推理和认知发展（cognitive development）
@@ -730,6 +793,30 @@ machine reading comprehension (**MRC**)和question answering (QA)的关系其实
   * 对粗细两种粒度进行识别和计算（不同的CNN网络），大大加快了模型的运算时间
 
 ![image-20220912152326067](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20220912152326067.png)
+
+**Cross-Modal Causal Relational Reasoning for Event-Level Visual Question Answering**, in TPAMI 2022. [[pdf](https://arxiv.org/pdf/2207.12647.pdf)]
+
+> 这篇论文模型较为复杂，所以这里只讲诉其核心思想
+
+* 动机
+
+  * 现有方法只关注了很简单的事件，比如说看电影，无法关注真正事件级的因果关系
+
+    ![image-20220912224156198](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20220912224156198.png)
+
+  * 语言和图像当中的干扰因素（Confounder）
+
+    * 过于关注一些显式的东西，忽略了一些很重要的东西
+
+  ![image-20220912224356724](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20220912224356724.png)
+
+* 方法
+
+![image-20220912224635966](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20220912224635966.png)
+
+* 详细细节见论文！
+
+
 
 ### :writing_hand: Video Caption
 

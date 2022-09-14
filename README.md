@@ -631,6 +631,18 @@ $$
 
 
 
+**[因果关系 + 强化学习] Dependent Multi-Task Learning with Causal Intervention for Image Captioning**, in IJCAI 2021.  [[pdf](https://www.ijcai.org/proceedings/2021/0312.pdf)] 
+
+* 解决caption生成**反事实**与**不够详细**的问题
+
+![image-20220914112625963](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20220914112625963.png)
+
+* **因果干预分析过程比较复杂，详见论文**
+
+![image-20220914112637246](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20220914112637246.png)
+
+
+
 ## :sunglasses: Video Understanding
 
 ### :video_camera: Features Fusion

@@ -619,19 +619,38 @@ $$
 
 
 
-:hammer_and_wrench: **[未开源] Show, Deconfound and Tell: Image Captioning with Causal Inference**, in CVPR 2022.  [[pdf](https://openaccess.thecvf.com/content/CVPR2022/papers/Liu_Show_Deconfound_and_Tell_Image_Captioning_With_Causal_Inference_CVPR_2022_paper.pdf)] [[torch](https: //github.com/CUMTGG/CIIC)]
+:hammer_and_wrench: **Show, Deconfound and Tell: Image Captioning with Causal Inference**, in CVPR 2022.  [[pdf](https://openaccess.thecvf.com/content/CVPR2022/papers/Liu_Show_Deconfound_and_Tell_Image_Captioning_With_Causal_Inference_CVPR_2022_paper.pdf)] [[torch](https: //github.com/CUMTGG/CIIC)]
 
 * 解决数据集中大量出现了，模型**short-cut path** 的问题
 
 ![image-20220901110327977](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20220901110327977.png)
 
-* 考虑因果推理
+* 主要为了解决两个Caption存在的问题
+  * 识别**对象错误**（长头发的男人识别成了女人）
+  * 描述得**不够关键和详细**
+
+* Encoder阶段（解决分类准确性的问题）
+  * 基于Faster-RCNN得到无偏的物体分类
 
 ![image-20220901110456322](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20220901110456322.png)
+
+![image-20220915113730411](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20220915113730411.png)
+
+![image-20220915113654808](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20220915113654808.png)
+
+* decoder阶段考虑生成单词的bias
+
+![image-20220915114452498](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20220915114452498.png)
+
+
+
+![image-20220915114520789](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20220915114520789.png)
 
 
 
 **[因果关系 + 强化学习] Dependent Multi-Task Learning with Causal Intervention for Image Captioning**, in IJCAI 2021.  [[pdf](https://www.ijcai.org/proceedings/2021/0312.pdf)] 
+
+> 说实话这篇论文写作**有点太复杂了，很难看懂**
 
 * 解决caption生成**反事实**与**不够详细**的问题
 

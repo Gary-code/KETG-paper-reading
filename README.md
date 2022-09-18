@@ -885,7 +885,36 @@ $$
 
 
 
+##  :apple: Causality Learning
 
+:fire: :hammer_and_wrench: **Distilling Causal Effect of Data in Class-Incremental Learning**, in CVPR 2021. [[pdf](https://arxiv.org/abs/2103.01737)] [[torch](https://github.com/JoyHuYY1412/DDE_CIL)]
+
+* [[模型公式解释](https://zhuanlan.zhihu.com/p/358340627)]  [[论文介绍](https://www.163.com/dy/article/G4OHT10U0511DPVD.html)]
+
+* 动机
+
+  * 对撞节点的存在使得模型对新数据会产生灾难性遗忘
+
+  * 过去的方法当中
+
+    ![image-20220918101920897](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20220918101920897.png)
+
+    ![img](https://pic1.zhimg.com/80/v2-0a7452df24b00f8e7d186f0dcf0c0680_720w.jpg)
+
+    
+
+    		* **data reply**: 需要较大的**存储**空间；**distillation**: 不是**端到端**的表示学习。因此作者考虑吧是否存在一种端到端影响的蒸馏方法。
+
+* 思路
+
+  1. 构建**因果角度下的类别增量学习**过程
+  2. 分析**灾难性遗忘发生的原因**（**causal effect** lost）
+  3. 分析现有工作如何实现有效的抗遗忘。 在这些基础上，我们发现**控制对撞节点**是一种尚未利用、但非常有效的抗遗忘方法，在各种类别增量学习的设定上取得了稳定的提升。
+  4. 同时解决了数据（新旧类别）采样分布**不均匀**导致的**bias**问题。
+
+* **文章细节详见开头的博客链接**
+
+  
 
 
 

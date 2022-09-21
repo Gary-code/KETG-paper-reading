@@ -343,6 +343,18 @@ $$
 
 * [详细介绍的blog](https://blog.csdn.net/weixin_47903246/article/details/124649493)
 
+
+
+:hammer_and_wrench: **Heterogeneous Graph Learning for Visual Commonsense Reasoning**, in NIPS 2019. [[pdf](https://arxiv.org/abs/1910.11475)] [[torch](https://github.com/yuweijiang/HGL-pytorch)]
+
+* 与传统的`VQA`不太一样，R: 解释（Reason）
+  * 三个子任务分别是: $Q \rightarrow A$, $QA \rightarrow R$, $Q \rightarrow AR$
+* 方法：构建异构图
+
+![image-20220921151513456](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20220921151513456.png)
+
+![image-20220921151544188](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20220921151544188.png)
+
 ## :book: Paraphrase
 
 ---

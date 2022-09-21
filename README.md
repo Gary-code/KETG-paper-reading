@@ -345,7 +345,7 @@ $$
 
 
 
-:hammer_and_wrench: **Heterogeneous Graph Learning for Visual Commonsense Reasoning**, in NIPS 2019. [[pdf](https://arxiv.org/abs/1910.11475)] [[torch](https://github.com/yuweijiang/HGL-pytorch)]
+:hammer_and_wrench: **[VCR] Heterogeneous Graph Learning for Visual Commonsense Reasoning**, in NIPS 2019. [[pdf](https://arxiv.org/abs/1910.11475)] [[torch](https://github.com/yuweijiang/HGL-pytorch)]
 
 * 与传统的`VQA`不太一样，R: 解释（Reason）
   * 三个子任务分别是: $Q \rightarrow A$, $QA \rightarrow R$, $Q \rightarrow AR$
@@ -354,6 +354,24 @@ $$
 ![image-20220921151513456](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20220921151513456.png)
 
 ![image-20220921151544188](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20220921151544188.png)
+
+
+
+:hammer_and_wrench: **[VCR] Connective Cognition Network for Directional Visual Commonsense Reasoning**，in NIPS 2019.  [[pdf](https://proceedings.neurips.cc/paper/2019/file/8a56257ea05c74018291954fc56fc448-Paper.pdf)] [[torch](https://github.com/AmingWu/CCN)]
+
+* 与上一篇论文思想比较类似，参考神经科学当中将神经元整合起来的思想
+
+* 做法
+
+![image-20220921171105320](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20220921171105320.png)
+
+* 模型相关细节
+
+![image-20220921171210400](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20220921171210400.png)
+
+* 第一part中**连接**的构建
+
+![image-20220921171342266](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20220921171342266.png)
 
 ## :book: Paraphrase
 

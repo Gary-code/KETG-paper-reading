@@ -315,7 +315,22 @@ $$
 
   注意：VC R-CNN的实现和原先的Faster R-CNN相比，**去除了RPN网络**（Region Proposal Network），不再训练网络propose边界框，而是直接将数据集**ground-truth的bounding box坐标输入到其中**，直接提取region的特征。而在训练完成后的feature提取阶段，相对应的，只要给定图片和bounding box坐标，都可以获得对应的VC特征。就这样，我们利用bottomup特征已有的边界框坐标提取VC特征后，将其并在先前的bottomup特征上作为新的特征。我们在传统的 Vision&Language 三大任务上挑选了经典model和SOTA model进行了测试，发现在各个任务上都取得了明显的提升，尤其是在image captioning上的提升尤其大。同时为了验证性能的提升不是由于参数增多带来的，我们还在原有特征上并上了ablative的特征（单独object特征，用correlation计算的特征），具体可以参考论文的实验部分。
 
+:hammer_and_wrench: **MuKEA: Multimodal Knowledge Extraction and Accumulation for Knowledge-based Visual Question Answering**, in CVPR 2022.  [[pdf](https://arxiv.org/pdf/2203.09138.pdf)] [[torch](https://github.com/AndersonStra/MuKEA.)]
 
+* 动机
+
+  * 过去基于知识的，都只是考虑了文本上的知识，缺乏对多模态知识的理解
+
+  ![image-20220901165323764](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20220901165323764.png)
+
+* 主要贡献
+
+  * **end-to-end** multimodal knowledge representation learning framework
+  * pre-training and fine-tuning strategy to accumulate both **out-domain and in-domain** knowledge
+
+![image-20220901165520112](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20220901165520112.png)
+
+![image-20220901170039718](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20220901170039718.png)
 
 ### :sunny: Textual
 

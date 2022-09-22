@@ -325,10 +325,50 @@ $$
 
 * 主要贡献
 
-  * **end-to-end** multimodal knowledge representation learning framework
-  * pre-training and fine-tuning strategy to accumulate both **out-domain and in-domain** knowledge
+  * 端到端的多模态知识表示 $(Entity, relation, answer)$
+  * **pre-training and fine-tuning** strategy to accumulate both **out-domain and in-domain** knowledge
 
 ![image-20220901165520112](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20220901165520112.png)
+
+* 细节
+
+  * 三个**损失函数**的设计
+
+    * `Triplet TransE Loss`: 保持embedding的结构（通过对比学习）
+
+    $$
+    \mathcal{L}_{\text {TransE }}=\sum_{t^{+} \in \mathcal{A}^{+}} \sum_{t^{-} \in \mathcal{A}^{-}}\left[\gamma+\mathrm{d}\left(h+\boldsymbol{h}, \boldsymbol{t}^{+}\right)-\mathrm{d}\left(\boldsymbol{h}+\boldsymbol{r}, \boldsymbol{t}^{-}\right)\right]_{+}
+    $$
+
+    * `Triplet Consistency Loss`： 保证严格的**拓扑关系**
+
+    $$
+    \mathcal{L}_{\mathrm{Tri}}=\operatorname{MSE}\left(h+r, t^{+}\right)
+    $$
+
+    * `Semantic Consistency Loss`: 保持在语义空间中的表达一致性
+
+    $$
+    {P\left(t^{+}\right)=\operatorname{softmax}\left((T)^{T}(h+r)\right)} \\{\mathcal{L}_{\mathrm{Sem}}=-\log \left(P\left(t^{+}\right)\right)}
+    $$
+
+    
+
+  * 预训练和微调策略
+
+    * 先在`VQA 2.0`数据集上进行预训练来收集视觉主导的知识
+    * 在`KB-VQA`数据集上进行微调
+
+  * 关于尾部`Entity`
+
+    * 训练的时候直接做`teacher-forcing`
+    * 推理的时候计算$\mathbf{h}_{inf}+\mathbf{r}_{inf}$ 与 `look up` table $\mathbf{T}$的最小距离
+
+    $$
+    \boldsymbol{t}_{\inf f}=\underset{\boldsymbol{t}_i \in T}{\arg \min } \mathrm{d}\left(\boldsymbol{h}_{\text {inf } f}+\boldsymbol{r}_{\text {inf } f}, \boldsymbol{t}_{\mathrm{i}}\right)
+    $$
+
+    
 
 ![image-20220901170039718](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20220901170039718.png)
 

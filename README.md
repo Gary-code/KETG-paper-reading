@@ -372,6 +372,19 @@ $$
 
 ![image-20220901170039718](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20220901170039718.png)
 
+**[VCR] Explicit Cross-Modal Representation Learning for Visual Commonsense Reasoning**, in TMM 2022. [[pdf](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9465732)
+
+* 动机：为了加强`VCR`任务的**reasoning**过程，不再那么隐式
+* 方法
+
+![image-20220923223408003](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20220923223408003.png)
+
+* 例子
+
+![image-20220923223502035](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20220923223502035.png)
+
+
+
 ### :sunny: Textual
 
 :fire:  :hammer_and_wrench: **[Question Answering] Commonsense for Generative Multi-Hop Question Answering Tasks**, in EMNLP 2018. [[pdf]](https://arxiv.org/abs/1809.06309) [[tensorflow]](https://github.com/yicheng-w/CommonSenseMultiHopQA)

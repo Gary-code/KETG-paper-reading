@@ -1014,6 +1014,11 @@ $$
 
   
 
+**Learning Causal Effects on Hypergraphs**, Best Paper of KDD 2022. [[pdf](https://arxiv.org/pdf/2207.04049.pdf)]
+
+* **超图**上进行因果影响分析，对比传统的以**两两节点**为图的更加有意义。
+* [[博客链接](https://zhuanlan.zhihu.com/p/564481108)] [[方法细节](https://zhuanlan.zhihu.com/p/567996036)]
+
 
 
 ## :abc: Scene Text Recognization

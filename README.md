@@ -385,6 +385,22 @@ $$
 
 
 
+**[Viisual Explanation]  Chunk-aware Alignment and Lexical Constraint for VisualEntailment with Natural Language Explanations**, in MM 2022. [[pdf](https://arxiv.org/abs/2207.11401)] [[Talk](https://www.youtube.com/watch?v=nAHIZOQSiXg)]
+
+* 任务介绍
+  * 给定一个图片文本对 ----> 关系（**entailment或者答案**）+ 解释
+
+![image-20220930221347803](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20220930221347803.png)
+
+* 动机
+
+  * 缺少对Chunk级别的高层语义信息的理解
+  * 没有决策的过程，只是简单的融合特征
+
+* 方法（注意：使用了**Oscar**这个预训练模型）
+
+  ![image-20220930221438196](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20220930221438196.png)
+
 ### :sunny: Textual
 
 :fire:  :hammer_and_wrench: **[Question Answering] Commonsense for Generative Multi-Hop Question Answering Tasks**, in EMNLP 2018. [[pdf]](https://arxiv.org/abs/1809.06309) [[tensorflow]](https://github.com/yicheng-w/CommonSenseMultiHopQA)

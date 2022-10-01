@@ -385,8 +385,36 @@ $$
 
 
 
+:hammer_and_wrench: **NLX-GPT: A Model for Natural Language Explanations in Vision and Vision-Language Tasks**, in CVPR 2022. [[pdf](https://arxiv.org/abs/2203.05081)] [[pdf](https://github.com/fawazsammani/nlxgpt)]
+
+* 动机
+  * 之前方法分为先生成`A`再生成`E`两步走, 缺乏对reasoning过程的考虑
+  * 缺少一些对E和A相关性还有对bias程度估计的评价指标
+  * 过去和文章方法上的对比
+
+![image-20221001182330655](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221001182330655.png)
+
+* 方法（及其简单）
+  * GPT-2模型是在大规模的image-caption数据集中蒸馏出来的
+  * Vision Encoder 使用了`CLIP`
+
+![image-20221001182426390](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221001182426390.png)
+
+* 新的自动化评价指标
+
+  * 评估`E`和`A`的相关性
+
+  ![image-20221001182614962](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221001182614962.png)
+
+  * 评估模型Bias程度
+
+  ![image-20221001182654034](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221001182654034.png)
+
+  红色为小于0的值，都置为0，然后计算distance的平均值，**值越小，模型的Bias越小**
+
 **[Viisual Explanation]  Chunk-aware Alignment and Lexical Constraint for VisualEntailment with Natural Language Explanations**, in MM 2022. [[pdf](https://arxiv.org/abs/2207.11401)] [[Talk](https://www.youtube.com/watch?v=nAHIZOQSiXg)]
 
+* 是上面一篇工作的进一步研究
 * 任务介绍
   * 给定一个图片文本对 ----> 关系（**entailment或者答案**）+ 解释
 

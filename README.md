@@ -802,7 +802,43 @@ $$
 
 ![image-20220914112637246](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20220914112637246.png)
 
+**NOC-REK: Novel Object Captioning with Retrieved Vocabulary from External Knowledge**, in CVPR 2022. [[pdf](https://arxiv.org/pdf/2203.14499.pdf)]
 
+* 任务描述
+
+  * 新物体描述(novel object captioning)，即让模型描述出训练**描述语料中没有出现过的物体**。
+  * 如图，传统的caption训练如左下框所示，训练语料里没有ramp这个词，测试时自然也不会生成含有**ramp**的句子。
+
+  ![img](https://raw.githubusercontent.com/Gary-code/pic/main/img/v2-f66020b9a4dad5f7a4ef1108c57468f5_720w.webp)
+
+  * 在实际场景中，模型往往会见到在训练数据中没见过的新物体，此时传统的方法不能做到对新物体生成描述，不符合我们对模型应用的期待。
+
+* 当前的方法
+
+  * **采集更多的数据**，让训练语料包含尽可能多的物体并重新训练。然而数据的采集和标注是麻烦且昂贵的，并且每次加入新物体，模型需都需要**重新训练**，很不优雅。
+  * 如先对图片做物体检测，获得ROI和object tags，再结合其训练caption模型。（当前**主流方法**）
+  * 然而，所用物体检测模型的能力也是有限的，见到的**新物体极有可能超出检测模型的能力范围**。
+
+* 动机
+
+  * 人类认知物体有两种方式，一是靠**外观的匹配**，见过即认识；二是靠定义，哪怕没见过一个物体，**凭借物体的定义**，我们往往也能理解识别。
+  * 本文设计了一个词语检索模块，将**==新物体定义作为外部知识==**引入caption模型，与caption模块一起端到端地训练。
+
+* 方法
+
+  ![image-20221005102539630](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221005102539630.png)
+
+  * 匹配`loss`的计算
+
+    * 为了鼓励模型引入新的类，我们将padding（和Region feature数量一致）的空类的15%随机替换成从外部知识库中随机挑选的词作为GT
+
+    * 计算$Hungarian$ loss (匈牙利损失)
+      $$
+      \mathcal{L}_{\mathrm{H}}(\mathcal{Y}, \mathcal{V})=\sum_{i=1}^K-\log \operatorname{sim}\left(\mathbf{y}_i, \hat{\mathbf{v}}_{\hat{\sigma}(i)}\right)
+      $$
+      
+
+  
 
 ## :sunglasses: Video Understanding
 

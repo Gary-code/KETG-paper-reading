@@ -838,7 +838,28 @@ $$
       $$
       
 
-  
+
+**Image Captioning with Novel Topics Guidance and Retrieval-based Topics Re-weighting**, in TMM 2022. [[pdf](https://ieeexplore.ieee.org/document/9869686)]
+
+* 利用主题(**Topic**)模型来做image caption
+
+  * 探索图片对象和Topic之间的关系
+
+* 什么是主题 [链接](https://zhuanlan.zhihu.com/p/41683009)
+
+  * 三个list：【鸡胸肉，蛋白粉，饮食控制】、【跑步机，椭圆机，龙门架】、【减肥，体重下降，精神状态】。那么，我们也能大概知道每个词背后的主题是什么了。
+  * 我们可以将Topic Model 看待为一个**Cluster问题**。而我们要做的就是将一些特征明显的词抓取出来。
+
+* 方法
+
+  ![截屏2022-10-08 19.14.43](https://raw.githubusercontent.com/Gary-code/pic/main/img/%E6%88%AA%E5%B1%8F2022-10-08%2019.14.43.png)
+
+  * Topic是通过`NMF`(NLTK中有)来从caption中提前获取的，数量为200。
+  * RTR是推理时候才使用的，为了让**主题和图像信息更加相关**
+  * ETP学习对象和主题之间的相似度
+  * STP模块嵌入在每个LSTMCell上面，为了在对应的时间步选择合适的主题进行caption
+
+
 
 ## :sunglasses: Video Understanding
 
@@ -846,7 +867,7 @@ $$
 
 :white_check_mark: :fire: :hammer_and_wrench: **[TSN] Temporal Segment Networks: Towards Good Practices for Deep Action Recognition**, in ECCV 2016.  [[pdf](https://arxiv.org/abs/1608.00859)]  [[torch](https://github.com/yjxiong/temporal-segment-networks)]
 
-* 抽取所有帧是不现实的，TSN将其**等间隔分**为$K$个片段（i.e., $K=16$）,在每个片段中谁寄抽取一帧作为输入
+* 抽取所有帧是不现实的，TSN将其**等间隔分**为$K$个片段（i.e., $K=16$),在每个片段中谁寄抽取一帧作为输入
 
 * 提供了非常常用的数据争强方式和一些训练时候的trick（主要包括location jittering, horizontal flipping, corner cropping, and scale jittering）
 

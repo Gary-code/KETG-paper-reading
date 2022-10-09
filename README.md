@@ -1086,6 +1086,60 @@ $$
 
 ##  :apple: Causality Learning
 
+:fire: :hammer_and_wrench:  **Unbiased Scene Graph Generation from Biased Training**, in CVPR 2020. [[pdf](https://arxiv.org/abs/2002.11949)] [[torch](https://github.com/KaihuaTang/Scene-Graph-Benchmark.pytorch)] [[zhihu](https://zhuanlan.zhihu.com/p/109657521)]
+
+* 动机
+
+  * 期望从**有偏见的训练中（Biased Training）利用无偏预测获得无偏见的场景图（Unbiased Scene Graph）**
+  * 现有方法问题
+    * human **walk on/ sit on/ lay on** beach等包含丰富信息的谓语简单“概括”为human **on** beach或将**behind/ in front of**“概括”为**near**
+    * 无法很好应用到下游任务上面
+
+* 贡献
+
+  * 设计了一个无偏预测的推理算法**Causal TDE Inference**（非训练方法，模型“不可见”，适用于任何SGG模型）
+  * 设计了一个新的通用SGG框架**[Scene-Graph-Benchmark.pytorch](https://link.zhihu.com/?target=https%3A//github.com/KaihuaTang/Scene-Graph-Benchmark.pytorch)**，其使用[maskrcnn-benchmark](https://link.zhihu.com/?target=https%3A//github.com/facebookresearch/maskrcnn-benchmark)进行底层目标检测，集成了目前最全的SG metrics（包括Recall、Mean Recall、No Graph Constraint Recall、Zero Shot Recall等）。该框架提供重写的各种SGG baseline模型（如MOTIFS、VTranE、VCTree），有着当之无愧的State-of-The-Art SGCls和SGGen结果。
+
+  ![img](https://pic4.zhimg.com/80/v2-f0657ac8afb0b8fbcbe0fcf65e4944f3_720w.webp)
+
+* 问题定义（**有偏见的数据标注的原因**）
+
+  * **the long-tail theory：person** carry bag确实比**dog** carry bag的数量多
+  * **bounded rationality（有限理性）：**在人类标注关系时，更倾向于标注简单的关系，即标注person **beside** table而不是person **eating on** table
+  * **language or reporting bias：**我们更喜欢说person **on** bike，而不是person **ride on** bike
+
+* 无偏的思想（**content：内因，context：外因**）
+
+  * **人类**在有偏见的大自然中生长，在拥抱好的context的同时，避免不好的context，并与content一起做出无偏见的决定。
+
+  * 其潜在的机制是**基于因果关系的（causality-based）：**决策是通过追求由**content引起的主要因果效应**，而不是追求由**context引起的副作用**来做出的。然而，**机器**是基于可能性的（likelihood-based），会产生有偏结果。
+
+  * 故论文认为，无偏预测的关键是教会机器如何区分主要作用（main effect）和副作用
+
+    * **content**：object和subject的**visual features**
+    * **context**：object-subject union regions的**visual features**以及object、subject的**类别标签**
+
+  * 为了在无偏预测中追求主要作用，论文提出赋予机器**反事实思维（counterfactual thinking）:**
+    ***If i had not seen** the content, would I still make the same prediction?*
+
+  * **反事实思维**：**事实与反事实之间的比较，将会自然地消除context偏差的影响，因为context是两者之间唯一不变的东西**。
+
+  * 如图，左侧图片是所谓的**事实场景**，也可以说是**原始场景**；右侧图片是**反事实场景**，就是**将原始场景中content（狗和冲浪板的视觉特征）去除，其他部分（如scene和object classes）保持不变，就像object的视觉特征从未出现过。**通过这两者的比较，我们可以专注于关系的主要视觉影响，同时也不丢失context。
+
+     ![img](https://pic2.zhimg.com/80/v2-d811612b212103ed4852016136302139_720w.webp)
+
+* 方法
+
+  * **有偏**训练架构
+
+  ![image-20221009153731849](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221009153731849.png)
+
+  * 无偏见+反事实的因果图构建
+
+  ![image-20221009153828669](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221009153828669.png)
+
+TDE（Total Direct Effect）方法**没有引入任何额外的参数**，也可以说没有针对模型的有偏训练进行任何改动，其使用原始SGG模型进行了两次预测，将两次预测的结果进行**差值运算**，最终得到无偏见的预测。所以**TDE方法是模型“不可见”的，广泛适用于各种SGG模型**。
+
 :fire: :hammer_and_wrench: **Distilling Causal Effect of Data in Class-Incremental Learning**, in CVPR 2021. [[pdf](https://arxiv.org/abs/2103.01737)] [[torch](https://github.com/JoyHuYY1412/DDE_CIL)]
 
 * [[模型公式解释](https://zhuanlan.zhihu.com/p/358340627)]  [[论文介绍](https://www.163.com/dy/article/G4OHT10U0511DPVD.html)]

@@ -1105,8 +1105,8 @@ $$
 * 问题定义（**有偏见的数据标注的原因**）
 
   * **the long-tail theory：person** carry bag确实比**dog** carry bag的数量多
-  * **bounded rationality（有限理性）：**在人类标注关系时，更倾向于标注简单的关系，即标注person **beside** table而不是person **eating on** table
-  * **language or reporting bias：**我们更喜欢说person **on** bike，而不是person **ride on** bike
+  * **bounded rationality（有限理性）：**在人类标注关系时，更倾向于标注简单的关系，即标注person **beside** table而不是person **eating on** table（**关系不够准确层面**）
+  * **language or reporting bias：**我们更喜欢说person **on** bike，而不是person **ride on** bike（**只是简单描述了真实事件的一部分**）
 
 * 无偏的思想（**content：内因，context：外因**）
 
@@ -1156,7 +1156,7 @@ TDE（Total Direct Effect）方法**没有引入任何额外的参数**，也可
 
     
 
-    		* **data reply**: 需要较大的**存储**空间；**distillation**: 不是**端到端**的表示学习。因此作者考虑吧是否存在一种端到端影响的蒸馏方法。
+    * **data reply**: 需要较大的**存储**空间；**distillation**: 不是**端到端**的表示学习。因此作者考虑吧是否存在一种端到端影响的蒸馏方法。
 
 * 思路
 
@@ -1302,3 +1302,10 @@ $$
 链接：https://zhuanlan.zhihu.com/p/166496466
 来源：知乎
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+
+
+## :world_map: Knowledge Graph
+
+:fire: **[多模态知识图谱综述] Multi-Modal Knowledge Graph Construction and Application: A Survey**, in 2022. [[pdf](https://arxiv.org/pdf/2202.05786.pdf)] [[zhihu](https://zhuanlan.zhihu.com/p/484096631)]
+

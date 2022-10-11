@@ -1167,7 +1167,27 @@ TDE（Total Direct Effect）方法**没有引入任何额外的参数**，也可
 
 * **文章细节详见开头的博客链接**
 
-  
+:fire: :hammer_and_wrench: **Causal Attention for Vision-Language Tasks**, in CVPR 2021. [[pdf](https://arxiv.org/pdf/2103.03493.pdf)] [[torch](https://github.com/yangxuntu/catt)]
+
+* 动机：解决当前`VL`模型当中训练数据集当中bias
+
+  ![截屏2022-10-11 11.09.42](https://raw.githubusercontent.com/Gary-code/pic/main/img/%E6%88%AA%E5%B1%8F2022-10-11%2011.09.42.png)
+
+* 思想
+
+  * 构建因果图
+
+  ![image-20221011111108239](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221011111108239.png)
+
+  * 方法（**前门调整机制**做**Causal Attention**，此处不做展开讨论，详见论文）
+
+    ![截屏2022-10-11 11.12.27](https://raw.githubusercontent.com/Gary-code/pic/main/img/%E6%88%AA%E5%B1%8F2022-10-11%2011.12.27.png)
+
+    ![截屏2022-10-11 11.12.56](https://raw.githubusercontent.com/Gary-code/pic/main/img/%E6%88%AA%E5%B1%8F2022-10-11%2011.12.56.png)
+
+* 结果case
+
+  ![截屏2022-10-11 11.13.42](https://raw.githubusercontent.com/Gary-code/pic/main/img/%E6%88%AA%E5%B1%8F2022-10-11%2011.13.42.png)
 
 **Learning Causal Effects on Hypergraphs**, Best Paper of KDD 2022. [[pdf](https://arxiv.org/pdf/2207.04049.pdf)]
 

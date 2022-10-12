@@ -861,6 +861,34 @@ $$
 
 
 
+:hammer_and_wrench: **Explicit Image Caption Editing**, in ECCV 2022. [[pdf](https://arxiv.org/pdf/2207.09625.pdf)] [[torch](https://github.com/baaaad/ECE)]
+
+* 任务：Image Caption编辑，修改得更加合理
+
+  * 过去的方法都是隐式的修改，缺少可解释性，更像是re-writing的任务，句子的结构也容易被破坏
+
+  ![image-20221012105504301](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221012105504301.png)
+
+* 数据集构建
+
+  * Ref-Cap和GT-Cap都需要是人工标记的（以前的方法Ref-Cap是模型生成的）
+  * COCO数据集
+    * 每张图的5个cap都作为GT，然后根据通过图像和cap计算和其他（不是这张图）caption相似度计算，选择最相关的
+  * e-SNLI-VE（Flicker30K）数据集
+    * contradiction和entailment分别作为Ref和GT即可
+
+* 方法 (模型是基于**BERT**)
+
+  * 引入编辑算子`<ADD>, <DELETE>, <KEEP>`
+
+    ![image-20221012110107268](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221012110107268.png)
+
+    ![](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221012110107268.png)
+
+* Case Study
+
+![image-20221012110327880](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221012110327880.png)
+
 ## :sunglasses: Video Understanding
 
 ### :video_camera: Features Fusion

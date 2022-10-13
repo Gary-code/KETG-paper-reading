@@ -889,6 +889,13 @@ $$
 
 ![image-20221012110327880](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221012110327880.png)
 
+:hammer_and_wrench: **Object-Centric Unsupervised Image Captioning**, in ECCV 2022.  [[pdf](https://arxiv.org/abs/2112.00969)] [[torch](https://github.com/zihangm/obj-centric-unsup-caption)]
+
+* 主要动机
+  * 人工标注的image caption annotation太浪费时间了
+* 贡献
+  * **无监督**的Image Caption + **多语言**
+
 ## :sunglasses: Video Understanding
 
 ### :video_camera: Features Fusion

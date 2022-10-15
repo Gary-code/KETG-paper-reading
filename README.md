@@ -189,6 +189,27 @@ LSTM --oours--> 句子+段落的encoder输出
 * 将Caption 和 VQG 一起来做，提升生成的性能
 
 
+
+:hammer_and_wrench: **Inferential Visual Question Generation**, in MM 2022.  [[pdf](https://dl.acm.org/doi/10.1145/3503161.3548055)] [[dataset & code](https://github.com/bcxbg/InVQG)]
+
+* 动机
+  * 过去VQG的方法生成问题不够challenge 或者依赖于人工标记
+* 过去的VQG
+  * 只是简单的反转一下VQA
+  * 数据集当中有很多long tail和语义联系太弱了
+  * 生成问题太过普通，而且缺少关键信息
+  * 与Caption不同的是，VQG需要生成具有挑战性的问题
+* 方法
+
+![image-20221015215029327](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221015215029327.png)
+
+* 例子
+  * 增加可交互性
+
+![image-20221015215356890](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221015215356890.png)
+
+![截屏2022-10-15 21.54.35](https://raw.githubusercontent.com/Gary-code/pic/main/img/%E6%88%AA%E5%B1%8F2022-10-15%2021.54.35.png)
+
 ### :video_camera: Video QG
 
 **Video Question Generation via Semantic Rich Cross-Modal Self-Attention Networks Learning**, in ICASSP 2020. [[pdf](https://ieeexplore.ieee.org/document/9053476)]

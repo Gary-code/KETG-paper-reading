@@ -190,26 +190,6 @@ LSTM --oours--> 句子+段落的encoder输出
 
 
 
-:hammer_and_wrench: **Inferential Visual Question Generation**, in MM 2022.  [[pdf](https://dl.acm.org/doi/10.1145/3503161.3548055)] [[dataset & code](https://github.com/bcxbg/InVQG)]
-
-* 动机
-  * 过去VQG的方法生成问题不够challenge 或者依赖于人工标记
-* 过去的VQG
-  * 只是简单的反转一下VQA
-  * 数据集当中有很多long tail和语义联系太弱了
-  * 生成问题太过普通，而且缺少关键信息
-  * 与Caption不同的是，VQG需要生成具有挑战性的问题
-* 方法
-
-![image-20221015215029327](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221015215029327.png)
-
-* 例子
-  * 增加可交互性
-
-![image-20221015215356890](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221015215356890.png)
-
-![截屏2022-10-15 21.54.35](https://raw.githubusercontent.com/Gary-code/pic/main/img/%E6%88%AA%E5%B1%8F2022-10-15%2021.54.35.png)
-
 ### :video_camera: Video QG
 
 **Video Question Generation via Semantic Rich Cross-Modal Self-Attention Networks Learning**, in ICASSP 2020. [[pdf](https://ieeexplore.ieee.org/document/9053476)]
@@ -859,7 +839,6 @@ $$
       $$
       
 
-
 **Image Captioning with Novel Topics Guidance and Retrieval-based Topics Re-weighting**, in TMM 2022. [[pdf](https://ieeexplore.ieee.org/document/9869686)]
 
 * 利用主题(**Topic**)模型来做image caption
@@ -881,6 +860,20 @@ $$
   * STP模块嵌入在每个LSTMCell上面，为了在对应的时间步选择合适的主题进行caption
 
 
+
+**[主题 + Image Caption] Show, Rethink, And Tell: Image Caption Generation With Hierarchical Topic Cues**, in ICME 2021. [[pdf](https://ieeexplore.ieee.org/document/9428353)]
+
+* 动机（caption本身就具备多个或者一个主题的特征）【目前觉得topic的作用就是生成更加多语义信息+生成更加精确】
+
+  * 之前方法没有建立不同类型图片特征的联系，caption不够准确
+  * decoder时候注意力机制对于每个单词只会操作一次
+
+* 方法
+
+  * 根据Faster-RCNN特征构建出主题->关键词级别的特征（每个检测区域都会检索出对应的主题）
+  * decoder时候加入对主题的attention操作（可以生成一些不常用的描述，如little boy中的little）
+
+  ![截屏2022-10-17 16.08.26](https://raw.githubusercontent.com/Gary-code/pic/main/img/%E6%88%AA%E5%B1%8F2022-10-17%2016.08.26.png)
 
 :hammer_and_wrench: **Explicit Image Caption Editing**, in ECCV 2022. [[pdf](https://arxiv.org/pdf/2207.09625.pdf)] [[torch](https://github.com/baaaad/ECE)]
 
@@ -916,6 +909,30 @@ $$
   * 人工标注的image caption annotation太浪费时间了
 * 贡献
   * **无监督**的Image Caption + **多语言**
+
+:hammer_and_wrench: **Inferential Visual Question Generation**, in MM 2022.  [[pdf](https://dl.acm.org/doi/10.1145/3503161.3548055)] [[dataset & code](https://github.com/bcxbg/InVQG)]
+
+> 无需模型训练的，就是人为**规定函数模版**规则的方法生成的。
+
+* 动机
+  * 过去VQG的方法生成问题不够challenge 或者依赖于人工标记
+* 过去的VQG
+  * 只是简单的反转一下VQA
+  * 数据集当中有很多long tail和语义联系太弱了
+  * 生成问题太过普通，而且缺少关键信息
+  * 与Caption不同的是，VQG需要生成具有挑战性的问题
+* 方法
+
+![image-20221015215029327](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221015215029327.png)
+
+* 例子
+  * 增加可交互性
+
+![image-20221015215356890](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221015215356890.png)
+
+![截屏2022-10-15 21.54.35](https://raw.githubusercontent.com/Gary-code/pic/main/img/%E6%88%AA%E5%B1%8F2022-10-15%2021.54.35.png)
+
+
 
 ## :sunglasses: Video Understanding
 

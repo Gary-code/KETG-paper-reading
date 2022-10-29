@@ -1309,7 +1309,25 @@ TDE（Total Direct Effect）方法**没有引入任何额外的参数**，也可
 * **超图**上进行因果影响分析，对比传统的以**两两节点**为图的更加有意义。
 * [[博客链接](https://zhuanlan.zhihu.com/p/564481108)] [[方法细节](https://zhuanlan.zhihu.com/p/567996036)]
 
+**Entropic Causal Inference: Graph Identifiability**, in ICML 2022. [[pdf](https://proceedings.mlr.press/v162/compton22a.html)]
 
+> 新的**因果推断架构**，可以**不借助intervention**
+>
+> 理论性很强的一篇文章
+
+* 熵因果推断：
+
+  * 通过寻找数据的信息-理论上最简单的结构解释，即**最小熵模型**，从观测数据中学习两个变量之间的因果图。
+
+  * **在这个工作中，首先推广了松弛假设下的因果图可辨识性结果**。
+
+  * 然后，我们展示了第一个可识别的结果，使用熵的方法学习**超过两个节点的因果图**。
+
+    * 该方法利用了一个属性，即一个源节点和它的后代节点之间的祖先关系可以用二元熵测试来确定。
+    * 提供了一种基于此特性的普通图的**有序剥离算法**。我们还提出了一个**启发式算法**，小图显示了较强的经验性能。
+    * 最后，在真实的数据集上测试的算法。
+
+    ![img](https://pic4.zhimg.com/80/v2-05352bd30cf8d5f8373c2ae67c3203c3_720w.webp)
 
 ## :abc: Scene Text Recognization
 

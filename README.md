@@ -1462,3 +1462,16 @@ $$
 
 :fire: **[多模态知识图谱综述] Multi-Modal Knowledge Graph Construction and Application: A Survey**, in 2022. [[pdf](https://arxiv.org/pdf/2202.05786.pdf)] [[zhihu](https://zhuanlan.zhihu.com/p/484096631)]
 
+
+
+## :framed_picture: Topic 
+
+:fire: **[层次化主题] Deep Latent Dirichlet Allocation with Topic-Layer-Adaptive Stochastic Gradient Riemannian MCMC**, in ICML 2017. [[pdf](https://proceedings.mlr.press/v70/cong17a.html)]
+
+> 理论性非常强的论文
+>
+> * 详细的理论推导请见原文。
+
+* case展示
+
+![image-20221031220028391](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221031220028391.png)

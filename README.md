@@ -450,6 +450,35 @@ $$
 
   ![image-20220930221438196](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20220930221438196.png)
 
+:hammer_and_wrench: **SwapMix: Diagnosing and Regularizing the Over-Reliance on Visual Context in Visual Question Answering**, in CVPR 2022. [[pdf](https://arxiv.org/abs/2204.02285)] [[torch](https://github.com/vipulgupta1011/swapmix/)]
+
+* 动机
+
+  * 作者从一个新的角度来研究 VQA 模型的鲁棒性：visual context。并表示，这些模型过度依赖visual context，即图像中不相关的物体，来进行预测。
+
+  ![img](https://pic2.zhimg.com/80/v2-184656fad6e2bfbecb20726736d1283d_720w.webp)
+
+* 发现
+
+  * 虽然之前的工作从**语言上下文**的角度研究了VQA鲁棒性，但在这项工作中，我们从另一个角度研究了VQA模型的鲁棒性：**视觉上下文**。
+  * 通过**扰乱不相关的上下文**，超过45%的预测的正确答案都会被改变。表明VQA模型高度依赖图像中的上下文，因此容易受到上下文干扰的影响。
+  * 过度依赖上下文在**很大程度上取决于视觉表征**的质量
+    * 个完美的视觉模型对上下文的依赖要小得多。我们通过使用**groundtruth对象和属性编码**替换视觉表征来实现这一点
+
+* 贡献
+
+  * 是第一个从视觉上下文的角度研究VQA稳健性的人，通过简单的**上下文扰动策略SwapMix**，对两个有代表性的VQA模型的健壮性进行了基准测试，并发现它们过度依赖视觉上下文。
+  * 发现一个完美的视觉模型对视觉上下文的依赖要小得多，为模型提供**完美的视觉编码**，并观察模型稳健性的改善。
+  * 定义了**两个指标**，**上下文依赖性和有效准确性**，并通过使用SwapMix作为数据增强技术显示了改进。
+
+* 方法
+
+  ![image-20221103155743460](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221103155743460.png)
+
+  
+
+
+
 ### :sunny: Textual
 
 :fire:  :hammer_and_wrench: **[Question Answering] Commonsense for Generative Multi-Hop Question Answering Tasks**, in EMNLP 2018. [[pdf]](https://arxiv.org/abs/1809.06309) [[tensorflow]](https://github.com/yicheng-w/CommonSenseMultiHopQA)

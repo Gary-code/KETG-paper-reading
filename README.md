@@ -956,8 +956,16 @@ $$
 
 * 主要动机
   * 人工标注的image caption annotation太浪费时间了
+
 * 贡献
   * **无监督**的Image Caption + **多语言**
+
+* 如何无监督
+
+  * 使用网络爬下来的语料库，还有数据集中固有的图像信息来做
+  * 但`BLEU4`很低，只有6左右
+
+  ![image-20221105204258603](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221105204258603.png)
 
 :hammer_and_wrench: **Human-Centric Image Captioning**, in PR 2022. [[pdf](https://pdf.sciencedirectassets.com/272206/1-s2.0-S0031320322X00034/1-s2.0-S0031320322000267/main.pdf?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEGoaCXVzLWVhc3QtMSJIMEYCIQDGI9Pe2Vg29Uf127g8bgoLH2in5NivB%2FYNbpJFB7t6pwIhAIJI6BJ3FO8IVZf7anhzx1JlrQnoA%2BvNPnTnFXynNyuLKswECEMQBRoMMDU5MDAzNTQ2ODY1IgyuR0sHCTJ7ZSggWKQqqQRnRT7Gv%2F7BVa9ChvOv%2Bv5L7LGF8GiKDTAVH%2FlK624uvf7X%2B8Rb0sn9tn7aGPgMwDLI8wG3Xu0uZKtLTtWkTE8zzNxzxDCTkNqLc7ePo3gd5kKdrjOCgXRyPF3K%2FKu%2FHiy5b%2FkKhvaXoSIv49WpU4Mw3jduHux0yg74CmV3I087VDVR6y0Z%2Fn1MGartEpeGdbwBoy%2F0Z59JHQF7rjquT4cG5isYwRK0nnr%2B79L%2BtWkL6uIaFyYk%2Bi%2B9GtknfOyGpuOQ4aF%2FVoFmdAzCsqwJAGjqS30nAaK7SiiiFtIoYpRPT5woODRU8SJ68UI4nHt0Es%2FEQJWTF59qx%2Fpl8SlN2sI%2FDIfN4aBDgwtF7ZPC3vgpwmcxBg67LjXS5Lwsha0Ui1PlDfo4EyrzzBHnE2wimBvn%2BU5L4xokqI246LjOALNUEUH8fPRm3ZnN9b2IWKqDFkJWwQ76T7FN2hnGPu%2F3JYf%2FX6mOJXaSVsumevPlqTn4oE1gQHZ%2FmP8uNc2feI36D4y17pFycY3HBZp5COJ3XlrSmGIBTFQFmXwt7JxQ14peTqI1GFR%2FTNZqTP9Uv6UkfQCdhYkK7dkemhKJpKtALjJz%2F0J1RIwaetYxcSMo%2F4kQDowiRJpQY7Y6OsRqgz7aqxCxPp9PNVIR64T9p%2Bj4VJdzsLs7B6%2BDWHoq0Sz99UQhVWupnVDXjH%2F8HLIaWQq5l6soAeVRmG8Z8t28pXM1pzgaoPzY%2Fdvl36r0MNqIv5oGOqgB8Mx5pBXQYDZWHBBnVJkdllGOlXSy8W7DgEygt929CiDsF%2F%2Fz4aCPqCmaN8WERin7vVZgIAwGD8dyHFgfCKJ0wY8%2BxnqhtHVeRq4FHknBpQJlBc50wlk9Jd4H4SIl%2FqASs5J7ssdt7UqhLhim%2FEosHKxTPOhVlHkd7HlgjOYebUvlAnxsOuqyy9LoMtdnpRwnCaCzqdOahqTFZ0bY1KoGgjLvfX306cS0&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20221019T105552Z&X-Amz-SignedHeaders=host&X-Amz-Expires=300&X-Amz-Credential=ASIAQ3PHCVTYV2BRT6MM%2F20221019%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=cdb598601cea787f991b427a00715b9977c06eb5ca33f744d087db73f1e3f9d3&hash=4a2e7e1603daf30647f492f3181b0a0e2260dc043d979436c01ef5d645e16465&host=68042c943591013ac2b2430a89b270f6af2c76d8dfd086a07176afe7c76c2c61&pii=S0031320322000267&tid=spdf-176b5542-edc3-49a9-b2fd-3d5bf73304c5&sid=19abb8f59650524d941be66636a7de94bc37gxrqb&type=client&ua=51570d5e09030508575a&rr=75c8fbdf599b8b41)] [[code & dataset](https://github.com/JohnDreamer/HCCM/)]
 

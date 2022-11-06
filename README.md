@@ -234,7 +234,7 @@ LSTM --oours--> 句子+段落的encoder输出
 
 :hammer_and_wrench: **Radial Graph Convolutional Network for Visual Question Generation**, in IEEE Transactions on Neural Networks and Learning Systems 2020. [[pdf](https://ieeexplore.ieee.org/document/9079208)] [[torch](https://github.com/Wangt-CN/VQG-GCN)]
 
-## :bookmark_tabs: Question Answering
+## :bookmark_tabs: Question Answering & Reasoning
 
 ---
 
@@ -586,6 +586,37 @@ $$
 * 第一part中**连接**的构建
 
 ![image-20220921171342266](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20220921171342266.png)
+
+**[自然语言推理] Generated Knowledge Prompting for Commonsense Reasoning**, in ACL 2022. [[pdf](https://aclanthology.org/2022.acl-long.225.pdf)] [[torch](https://github.com/liujch1998/GKP)
+
+> 这篇论文的思想和`few-shot` COT很像 
+
+* 动机
+
+  * 探索LM对知识的理解能力来回答逻辑推理的问题
+  * **不再需要**外部知识库进行检索，或者根据特定任务的监督信号进行知识的融合
+
+* 方法
+
+  * 让LM在few-shot情况下来生成解释的`prompt`
+
+    * 首先根据任务规定一下prompt模版，每个任务五个模板（few-shot）
+
+    ![image-20221106225100256](/Users/gary/Library/Application Support/typora-user-images/image-20221106225100256.png)
+
+    * 继续输入问题到那个占位符当中，LM自动生成知识，扔回去作为样本集合$K_q=\{k_1, k2, ..., k_M\}$
+
+  * 知识融合
+
+    * 问题和每个样本集合中的知识$k$进行融合, `concat`操作
+
+    $$
+    q_0=q, q_1=\left[k_1 \| q\right], \ldots, q_M=\left[k_M \| q\right]
+    $$
+
+  * 最后选择最合适的对，扔进去下一个LM进行推理，最后生成答案
+
+  
 
 ## :book: Paraphrase
 

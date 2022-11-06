@@ -477,7 +477,59 @@ $$
 
   
 
+**Weakly Supervised Relative Spatial Reasoning for Visual Question Answering**, in ICCV 2021. [[pdf](https://arxiv.org/abs/2109.01934)]
 
+> [博客链接](https://www.cnblogs.com/lhiker/articles/15630482.html)
+
+* 动机
+
+  * 视觉推理的一个关键方面是**空间理解**，它涉及到理解对象的相对位置，即隐式地学习场景的几何形状。
+  * 过去的预训练大模型在推理时候，都无法理解2D图像当中的**空间信息**。
+  * 为此设计了两个目标作为空间推理（SR）的代理
+    * 对象质心估计
+    * 相对位置估计
+
+  ![image-20221106145708208](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221106145708208.png)
+
+* 贡献
+
+  * 提出两个子任务，理解2D图像当中的几何信息
+  * 展现了强大的`zero-shot`能力，只需要10%的训练数据进行训练
+  * OOD（Out of Distribution）的泛化能力也很强
+
+* 方法
+
+  * 预处理工作
+
+    * 抽取图像的深度（预训练好的`AdaBins`模型）
+
+      * 质心表示$(x_c, y_c, z_c),$ $z_c代表深度$
+      * 相对位置表示: 质心之间向量的减法，同时$dist(A，B)=−dist(B，A)$
+
+    * 在上述两个任务中，预测都是**实值向量**。评估了这些任务的两个变体：
+
+      * 一个**回归任务**，其中模型预测$\mathbb{R}^{3}_{[-1, 1]}$中的实值向量
+      * **bin分类**，为此，我们将所有三个维度的实值范围划分为C个log-scale bins。第c个bin的bin宽由下式（使用超参数$\lambda=1.5$)给出：
+
+      $$
+      b_c=\frac{1}{\lambda^{C-\left|c-\frac{C}{2}\right|+1}}-\frac{1}{\lambda^{C-\left|c-\frac{C}{2}\right|+2}} \forall c \in\{0 . . C-1\}
+      $$
+
+      * 对数尺度的bins对更近的距离有更高的分辨率（更多的bins），对更远的距离有更低的分辨率（更少的bins）
+      * 最简单的bin分类形式是一个具有bin间隔的三类分类任务$[−1,0)、[0]、(0,1]$
+
+  * 弱监督代理任务 $SR$
+
+    * 质心预测: $\mathcal{L}_{S R-r e g}=\mathcal{L}_{M S E}\left(f_{r e g}(v), y_{r e g}\right)$
+      * 将视觉信息压缩为$36 \times 3$来和`gt`(预处理得到的) 进行计算
+    * 相对位置评估: $\mathcal{L}_{S R \text {-bin }}=\mathcal{L}_{C E}\left(f_{\text {bin }}(V), y_{b i n}\right)$
+      * 训练一个两层前馈网络$f_bin$来预测每个维度上每个对象的$36\times C \times D$个$bin$类，其中$C$是类的数量，$D$为3
+
+  * Patches视觉信息
+
+    * 能更好利用空间信息(这里说的是平面空间信息，有位置编码)
+
+    ![image-20221106152759382](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221106152759382.png)
 
 ### :sunny: Textual
 

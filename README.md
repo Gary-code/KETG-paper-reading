@@ -531,6 +531,31 @@ $$
 
     ![image-20221106152759382](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221106152759382.png)
 
+:fire: :hammer_and_wrench: **An Empirical Study of GPT-3 for Few-Shot Knowledge-Based VQA**, in AAAI 2022. [[pdf](https://arxiv.org/abs/2109.05014)] [[torch](https://github.com/microsoft/PICa)] [[博客链接](https://zhuanlan.zhihu.com/p/433110834)]
+
+![image-20221108163040036](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221108163040036.png)
+
+* 探索`PLM`对知识的理解能力做VQA，不需要根据知识库进行检索
+* `few-shot`的形式
+
+:fire:  **KRISP: Integrating Implicit and Symbolic Knowledge for Open-Domain Knowledge-Based VQA**, in CVPR 2021. [[pdf](https://arxiv.org/abs/2012.11014)] [[博客链接](https://zhuanlan.zhihu.com/p/392431083)]
+
+* 利用了显式知识（外部知识图谱）+ 隐式知识（大规模预训练的语言模型）
+
+![image-20221108163853956](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221108163853956.png)
+
+* 方法（很简单的）
+
+![image-20221108163913649](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221108163913649.png)
+
+
+
+* Case Study
+
+![image-20221108164020337](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221108164020337.png)
+
+
+
 ### :sunny: Textual
 
 :fire:  :hammer_and_wrench: **[Question Answering] Commonsense for Generative Multi-Hop Question Answering Tasks**, in EMNLP 2018. [[pdf]](https://arxiv.org/abs/1809.06309) [[tensorflow]](https://github.com/yicheng-w/CommonSenseMultiHopQA)
@@ -602,7 +627,7 @@ $$
 
     * 首先根据任务规定一下prompt模版，每个任务五个模板（few-shot）
 
-    ![image-20221106225100256](/Users/gary/Library/Application Support/typora-user-images/image-20221106225100256.png)
+    ![image-20221106225100256](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221106225100256.png)
 
     * 继续输入问题到那个占位符当中，LM自动生成知识，扔回去作为样本集合$K_q=\{k_1, k2, ..., k_M\}$
 

@@ -556,6 +556,29 @@ $$
 
 
 
+:fire: :hammer_and_wrench: **A-OKVQA: A Benchmark for Visual Question Answering using World Knowledge**, in ECCV 2022. [[home page](https://allenai.org/project/a-okvqa/home)]
+
+> OK-VQA的升级版本
+
+* 动机
+
+  * 过往的数据集顶多就是检索数据库里面的知识，没有做到对图片常识的推理（更加丰富的知识）
+  * 我们实际上需要，识别图片，理解问题，找到知识，**推理**出对应的答案
+  * 过去的数据集
+    * FVQA：缺乏推理的过程，而且和图片不怎么相关
+    * KVQA：通常是实体的知识，在维基百科上面的知识，而且主要是问任务方面的，没有常识的知识
+    * OK- VQA：有bias，知识太过简单（e.g., What is the capital of this country?）, 而且缺乏推理
+    * VCR：重点是电影场景中人的意图
+
+* 数据集知识类型
+
+  ![image-20221110165948489](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221110165948489.png)
+
+  * **Commonsense** - learn from social behavior, 有点**推理**的意思 (e.g., many donuts being made in a cart implies they are for sale rather than for personal consumption).
+  * **Visual** - Knowledge of concepts represented visually， 和**图片相关** (e.g., muted color pallets are associated with the 1950s).
+  * **Knowledge bases** - **检索知识库的知识**, Knowledge obtained from textbooks, Wikipedia and other textual sources (e.g., hot dogs were invented in Austria).
+  * **Physical** - **日常生活的知识，Fact**, Knowledge about the physics of the world (e.g., shaded areas have a lower temperature than other areas)
+
 ### :sunny: Textual
 
 :fire:  :hammer_and_wrench: **[Question Answering] Commonsense for Generative Multi-Hop Question Answering Tasks**, in EMNLP 2018. [[pdf]](https://arxiv.org/abs/1809.06309) [[tensorflow]](https://github.com/yicheng-w/CommonSenseMultiHopQA)

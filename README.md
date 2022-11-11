@@ -163,6 +163,22 @@ LSTM --oours--> 句子+段落的encoder输出
 
 ### :sunrise: Visual QG
 
+:fire: **Generating Natural Questions About an Image**, in ACL 2022.
+
+> 第一篇VQG的工作
+
+* 动机
+
+  * 与caption相比，VQG更希望稳一些超出语言表达本身，具有逻辑推理，**常识知识**的一些问题
+
+  ![image-20221111221831899](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221111221831899.png)
+
+  ![image-20221111221858832](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221111221858832.png)
+
+* 方法
+
+  * 很简单的方法，就是一些简单的baseline尝试
+
 :hammer_and_wrench: **[No Visual] Entity Guided Question Generation with Contextual Structure and Sequence Information Capturing**, in AAAI 2021. [[pdf](https://ojs.aaai.org/index.php/AAAI/article/view/17544)] [[torch](https://github.com/VISLANG-Lab/EGSS)]
 
 * Multi-feature Encoder: 使用了POS（词性标注）+ NER（关系抽取）

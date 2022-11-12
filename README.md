@@ -595,34 +595,6 @@ $$
   * **Knowledge bases** - **检索知识库的知识**, Knowledge obtained from textbooks, Wikipedia and other textual sources (e.g., hot dogs were invented in Austria).
   * **Physical** - **日常生活的知识，Fact**, Knowledge about the physics of the world (e.g., shaded areas have a lower temperature than other areas)
 
-### :sunny: Textual
-
-:fire:  :hammer_and_wrench: **[Question Answering] Commonsense for Generative Multi-Hop Question Answering Tasks**, in EMNLP 2018. [[pdf]](https://arxiv.org/abs/1809.06309) [[tensorflow]](https://github.com/yicheng-w/CommonSenseMultiHopQA)
-
-:hammer_and_wrench: **[Dialogue System] Improving Knowledge-aware Dialogue Generation via Knowledge Base Question Answering**, in AAAI 2020. [[pdf]](https://arxiv.org/abs/1912.07491) [[torch]](https://github.com/siat-nlp/TransDG)
-
-**[Question Answering] Using Local Knowledge Graph Construction to Scale Seq2Seq Models to Multi-Document Inputs**, in EMNLP 2019. [[pdf\]](https://arxiv.org/abs/1910.08435)
-
-:fire: :hammer_and_wrench: **[Question Answering] ** **Improving Multi-hop Question Answering over Knowledge Graphs usingKnowledge Base Embeddings**, in ACL 2020. [[pdf](https://aclanthology.org/2020.acl-main.412/)] [[torch](https://github.com/malllabiisc/EmbedKGQA)]
-
-:hammer_and_wrench: **Found a Reason for me? Weakly-supervised Grounded Visual Question Answering using Capsules**, in CVPR 2021.  [[pdf](https://openaccess.thecvf.com/content/CVPR2021/papers/Urooj_Found_a_Reason_for_me_Weakly-supervised_Grounded_Visual_Question_Answering_CVPR_2021_paper.pdf)] [[torch](https://github.com/aurooj/ WeakGroundedVQA_Capsules.git)]
-
-* 不用faster-rcnn
-* 训练输入是问题和答案，输出是预测答案对应的**grouding area**。
-
-**KQA Pro: A Dataset with Explicit Compositional Programs for Complex Question Answering over Knowledge Base**, in ACL 2022. [[pdf](https://aclanthology.org/2022.acl-long.422.pdf)] [[project](https://github.com/shijx12/ KQAPro_Baselines)]
-
-* 更加复杂的数据量更大的引入知识的数据集
-  * 并且给出了两种reasoning的过程
-  * 可以做QA和**语义解析**服务
-  * 利用更加复杂的模版和知识生成问题
-
-![image-20220912160811327](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20220912160811327.png)
-
-* [详细介绍的blog](https://blog.csdn.net/weixin_47903246/article/details/124649493)
-
-
-
 :hammer_and_wrench: **[VCR] Heterogeneous Graph Learning for Visual Commonsense Reasoning**, in NIPS 2019. [[pdf](https://arxiv.org/abs/1910.11475)] [[torch](https://github.com/yuweijiang/HGL-pytorch)]
 
 * 与传统的`VQA`不太一样，R: 解释（Reason）
@@ -650,6 +622,64 @@ $$
 * 第一part中**连接**的构建
 
 ![image-20220921171342266](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20220921171342266.png)
+
+
+
+:fire: **[Knowledge-Based] KRISP: Integrating Implicit and Symbolic Knowledge for Open-Domain Knowledge-Based VQA**, in CVPR 2021. [[pdf](https://arxiv.org/abs/2012.11014)]
+
+* 动机
+
+  * 验证利用**外部知识+隐式知识**结合的做`QA`的能力
+
+  * **隐式知识**可以从基于大规模语料预训练的模型有效地学习。
+
+  * 而**显示的知识**可以从知识库中的明确的、符号化的知识中学习。
+
+  * 将两种模型进行集成，即可同时结合隐式知识与显式知识进行推理。
+
+    ![image-20221112091608964](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221112091608964.png)
+
+* 方法
+
+  * 构建外部知识库，由于原来的知识太多了，根据规则对知识进行一定的筛选
+
+    * DBPedia, ConceptNet , VisualGenome and hasPart KB ，进行节点过滤，只保留包含图像目标检测label的节点，最后的知识图包含8000节点和36000条边，采用RGCN作为卷积模型
+
+      ![img](https://pic4.zhimg.com/80/v2-4299f57ff66a828d0cf5e5eb869e5f17_1440w.webp)
+
+  * 模型设计（很简单）
+
+  ![截屏2022-11-12 09.18.44](https://raw.githubusercontent.com/Gary-code/pic/main/img/%E6%88%AA%E5%B1%8F2022-11-12%2009.18.44.png)
+
+
+
+
+
+### :sunny: Textual
+
+:fire:  :hammer_and_wrench: **[Question Answering] Commonsense for Generative Multi-Hop Question Answering Tasks**, in EMNLP 2018. [[pdf]](https://arxiv.org/abs/1809.06309) [[tensorflow]](https://github.com/yicheng-w/CommonSenseMultiHopQA)
+
+:hammer_and_wrench: **[Dialogue System] Improving Knowledge-aware Dialogue Generation via Knowledge Base Question Answering**, in AAAI 2020. [[pdf]](https://arxiv.org/abs/1912.07491) [[torch]](https://github.com/siat-nlp/TransDG)
+
+**[Question Answering] Using Local Knowledge Graph Construction to Scale Seq2Seq Models to Multi-Document Inputs**, in EMNLP 2019. [[pdf\]](https://arxiv.org/abs/1910.08435)
+
+:fire: :hammer_and_wrench: **[Question Answering] ** **Improving Multi-hop Question Answering over Knowledge Graphs usingKnowledge Base Embeddings**, in ACL 2020. [[pdf](https://aclanthology.org/2020.acl-main.412/)] [[torch](https://github.com/malllabiisc/EmbedKGQA)]
+
+:hammer_and_wrench: **Found a Reason for me? Weakly-supervised Grounded Visual Question Answering using Capsules**, in CVPR 2021.  [[pdf](https://openaccess.thecvf.com/content/CVPR2021/papers/Urooj_Found_a_Reason_for_me_Weakly-supervised_Grounded_Visual_Question_Answering_CVPR_2021_paper.pdf)] [[torch](https://github.com/aurooj/ WeakGroundedVQA_Capsules.git)]
+
+* 不用faster-rcnn
+* 训练输入是问题和答案，输出是预测答案对应的**grouding area**。
+
+**KQA Pro: A Dataset with Explicit Compositional Programs for Complex Question Answering over Knowledge Base**, in ACL 2022. [[pdf](https://aclanthology.org/2022.acl-long.422.pdf)] [[project](https://github.com/shijx12/ KQAPro_Baselines)]
+
+* 更加复杂的数据量更大的引入知识的数据集
+  * 并且给出了两种reasoning的过程
+  * 可以做QA和**语义解析**服务
+  * 利用更加复杂的模版和知识生成问题
+
+![image-20220912160811327](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20220912160811327.png)
+
+* [详细介绍的blog](https://blog.csdn.net/weixin_47903246/article/details/124649493)
 
 **[自然语言推理] Generated Knowledge Prompting for Commonsense Reasoning**, in ACL 2022. [[pdf](https://aclanthology.org/2022.acl-long.225.pdf)] [[torch](https://github.com/liujch1998/GKP)
 

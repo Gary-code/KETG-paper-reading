@@ -158,6 +158,18 @@ LSTM --oours--> 句子+段落的encoder输出
   * answer-postion位置预测：了让模型更好的利用answer信息，设计了一个预测answer在上下文中start和end位置的模型（pointer network），其中基础的编码部分采用BiDAF的方式。
   * 然后**QG和这两个辅助任务一起训练**，效果可。
 
+:hammer_and_wrench: **Varifocal Question Generation for Fact-checking**, in EMNLP 2022. [[pdf](https://arxiv.org/abs/2210.12400)] [[torch]()]
+
+> 使用QG辅助做Fact-checking任务（很有用的一个应用场景），也有对应的数据集
+
+![image-20221113161641588](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221113161641588.png)
+
+
+
+
+
+
+
 
 ****
 
@@ -554,22 +566,6 @@ $$
 * 探索`PLM`对知识的理解能力做VQA，不需要根据知识库进行检索
 * `few-shot`的形式
 
-:fire:  **KRISP: Integrating Implicit and Symbolic Knowledge for Open-Domain Knowledge-Based VQA**, in CVPR 2021. [[pdf](https://arxiv.org/abs/2012.11014)] [[博客链接](https://zhuanlan.zhihu.com/p/392431083)]
-
-* 利用了显式知识（外部知识图谱）+ 隐式知识（大规模预训练的语言模型）
-
-![image-20221108163853956](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221108163853956.png)
-
-* 方法（很简单的）
-
-![image-20221108163913649](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221108163913649.png)
-
-
-
-* Case Study
-
-![image-20221108164020337](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221108164020337.png)
-
 
 
 :fire: :hammer_and_wrench: **A-OKVQA: A Benchmark for Visual Question Answering using World Knowledge**, in ECCV 2022. [[home page](https://allenai.org/project/a-okvqa/home)]
@@ -625,7 +621,7 @@ $$
 
 
 
-:fire: **[Knowledge-Based] KRISP: Integrating Implicit and Symbolic Knowledge for Open-Domain Knowledge-Based VQA**, in CVPR 2021. [[pdf](https://arxiv.org/abs/2012.11014)]
+:fire: **[Knowledge-Based] KRISP: Integrating Implicit and Symbolic Knowledge for Open-Domain Knowledge-Based VQA**, in CVPR 2021. [[pdf](https://arxiv.org/abs/2012.11014)] [[博客链接](https://zhuanlan.zhihu.com/p/392431083)]
 
 * 动机
 

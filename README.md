@@ -168,7 +168,23 @@ LSTM --oours--> 句子+段落的encoder输出
 
 
 
+:fire: :hammer_and_wrench: **Generative Language Models for Paragraph-Level Question Generation**, in EMNLP 2022 oral. [[pdf](https://arxiv.org/abs/2210.03992)] [[demo](https://autoqg.net/#/)]
 
+> 大模型做QG的Benchmark
+>
+> * 非常solid的一项工作
+
+* 动机
+  * 之前都是基于评价指标来进行计算的，如`BLEU`等
+  * 存在很多方面的约束，比如可回答性，输入不一样等
+* 贡献
+  * 统一到一个benchmark当中
+    * 特定领域的dataset
+    * 多种语言（8种）
+  * 在LM中进行微调，在上一点提到的数据中进行验证
+  * 多方面验证
+    * 自动评价指标
+    * 人工评价指标
 
 
 ****

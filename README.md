@@ -187,6 +187,20 @@ LSTM --oours--> 句子+段落的encoder输出
     * 人工评价指标
 
 
+
+:hammer_and_wrench: **Educational Question Generation of Children Storybooks via Question Type Distribution Learning and Event-Centric Summarization**, in ACL 2022. [[pdf](https://arxiv.org/abs/2203.14187)] [[torch](https://github.com/zhaozj89/Educational-Question-Generation)]
+
+* 动机
+
+  * 从童话故事当中生成`hugh-cognitive-demand`的问题很有意义
+  * 过去都是`low-dognitive-demand (LCD)` 问题描述，比如说 他是谁？
+  * 故事的事件之间是有联系的，需要问出action，causal relationship的问题
+
+* 方法
+
+  ![image-20221114170953173](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221114170953173.png)
+
+
 ****
 
 ### :sunrise: Visual QG

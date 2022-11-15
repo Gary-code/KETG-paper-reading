@@ -201,6 +201,39 @@ LSTM --oours--> 句子+段落的encoder输出
   ![image-20221114170953173](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221114170953173.png)
 
 
+
+:hammer_and_wrench: **CQG: A Simple and Effective Controlled Generation Framework for Multi-hop Question Generation**, in ACL 2022.  [[pdf](https://aclanthology.org/2022.acl-long.475.pdf)] [[torch](https://github.com/sion-zcfei/CQG)]
+
+* 动机
+
+  * 过去的多挑QG方法无法保证问题的**复杂程度**（complexity）
+  * 两大挑战
+    * 建立不同文档信息的联系
+    * complex chains of entities
+
+  ![image-20221115112431373](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221115112431373.png)
+
+* 方法
+
+  * 先试用GAT抽取多文档之间联系，`Standford corenlp toolkit`来建立实体图
+
+    * 重点在于找到关键的实体，和gt进行loss的计算
+
+  * 设计flag tag来约束chain of entities，保证问题生成的复杂程度（注意：并不是`teacher forcig`）
+    $$
+    \operatorname{flag}_i^t= \begin{cases}0 & x_i \text { is not a constrain } \\ 1 & x_i \text { does not appear in } y_{1: t} \\ 2 & x_i \text { appear in } y_{1: t}\end{cases}
+    $$
+    
+
+    ![image-20221115112909494](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221115112909494.png)
+
+  * 模型图
+
+  ![image-20221115155002446](/Users/gary/Library/Application Support/typora-user-images/image-20221115155002446.png)
+
+  
+
+
 ****
 
 ### :sunrise: Visual QG

@@ -229,7 +229,7 @@ LSTM --oours--> 句子+段落的encoder输出
 
   * 模型图
 
-  ![image-20221115155002446](/Users/gary/Library/Application Support/typora-user-images/image-20221115155002446.png)
+  ![image-20221115155002446](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221115155002446.png)
 
   
 
@@ -494,6 +494,30 @@ $$
 * 例子
 
 ![image-20220923223502035](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20220923223502035.png)
+
+
+
+:hammer_and_wrench:  **Knowledge-Grounded Self-Rationalization via Extractive and Natural Language Explanations**, in ICML 2022. [[pdf](https://arxiv.org/abs/2106.13876)] [[code (not released in 2022/11/20)](https://github.com/majumderb/rexc)]
+
+> 注意这篇论文早于👇下面的两篇论文，所以结果上和下面两篇论文有明显的差距
+
+* 动机
+
+  * 借助**关键信息抽取**还有**解释生成**的方法来预测答案会更好
+
+* 方法（这篇论文方法上文章没有做很详细的，描述，具体代码也没有公开，所以无法很详细的解析）
+
+  ![image-20221120100005850](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221120100005850.png)
+
+  * 抽取关键元素
+    * 使用`HardKuma`吩咐的方法来学习latent selectors 选择合适的元素
+  * 知识抽取
+  * 知识选择（方法和第一点一致）
+  * 生成解释+预测答案（**先**生成解释**后**预测答案）
+
+  ![image-20221120100330138](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221120100330138.png)
+
+  
 
 
 

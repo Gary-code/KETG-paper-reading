@@ -736,6 +736,57 @@ $$
 
 
 
+:hammer_and_wrench: :fire: **[多模态版本COT]** **Learn to Explain: Multimodal Reasoning via *Thought Chains for Science Question Answering**, in NIPS 2022. [[pdf](https://arxiv.org/abs/2209.09513)] [[博客](https://blog.csdn.net/EasyAIForum/article/details/127627611)] [[data&code](https://scienceqa.github.io.)]
+
+> 手速实在太快了
+
+* 动机
+
+  * AI做问题回答的时候应该具有类似人的思考方式，当下的大语言模型更多是黑盒
+    * 链式思维方式
+    * few-shot的迁移能力
+
+* 贡献
+
+  * 提出一个多模态的包含多步解释的数据集（科学问题，21,208个例子）
+  * COT的方式生成解释
+  * 结合语言模型探索GPT+COT的上限
+
+  ![image-20221122112213974](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221122112213974.png)
+
+* 数据集特点
+
+![image-20221122112301059](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221122112301059.png)
+
+![image-20221122112322813](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221122112322813.png)
+
+* 方法
+
+  * 图像处理就简单的转成Caption，作为visual context
+
+  * 使用COT改进UnifiedQA (微调)
+
+    * 原来：->A
+    * 改进后: -> ALE (Answer, Lecture, Explanation) 
+
+  * 使用GPT-3+COT
+
+    * 设计Prompt（few-shot的方式）
+
+    ![image-20221122112544202](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221122112544202.png)
+
+    
+
+* 实验结果（具体结果可以看论文或者博客）
+
+  * 解释生成的效果（是不是写错了？？？）
+
+  ![image-20221122112645359](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221122112645359.png)
+
+  * 模型上限探索+不同的ALE位置探索
+
+  ![image-20221122112715645](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221122112715645.png)
+
 
 
 ### :sunny: Textual

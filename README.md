@@ -1549,6 +1549,42 @@ $$
 
 ##  :apple: Causality Learning
 
+:fire: :hammer_and_wrench: **Two Causal Principles for Improving Visual Dialog**, in CVPR 2020. [[pdf](https://arxiv.org/abs/1911.10496)] [[torch](https://github.com/simpleshinobu/visdial-principles)] [[zhihu](https://zhuanlan.zhihu.com/p/363411361)]
+
+> 含老师团队**第一篇因果推理**方向的文章
+>
+> **一句话总结**：
+>
+> * 从因果图角度审视视觉对话任务，切断对话历史与答案的直接因果效应，添加混杂因子[用户偏好]构建描述真实世界的因果图。
+
+* 动机
+
+  * **VisDial本质上并非带有History的VQA**。作者以因果推断的角度入手，引入两条因果原则，将所有的VisDial基线模型提升到了SOTA。
+
+* 两个原则
+
+  * $P_1$: `H`对话历史记录，不应该直接影响`A`
+
+    ![image-20221124113615064](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221124113615064.png)
+
+  * $P_2$: **用户偏好**会导致回答的不一样
+
+    ![image-20221124113806608](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221124113806608.png)
+
+    * 由于用户偏好不可观测，因此作者通过三种方式来**近似采样**。
+
+      ![image-20221124114039418](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221124114039418.png)
+
+  * 构建两个原则的**因果图**：
+
+    ![image-20221124113458538](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221124113458538.png)
+
+* 具体后门调整及其概率运算公式，**详见论文及其附录**
+
+![image-20221124114137317](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221124114137317.png)
+
+![image-20221124114218219](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221124114218219.png)
+
 :fire: :hammer_and_wrench:  **Unbiased Scene Graph Generation from Biased Training**, in CVPR 2020. [[pdf](https://arxiv.org/abs/2002.11949)] [[torch](https://github.com/KaihuaTang/Scene-Graph-Benchmark.pytorch)] [[zhihu](https://zhuanlan.zhihu.com/p/109657521)]
 
 * 动机

@@ -1842,11 +1842,56 @@ $$
 
 
 
-## :world_map: Knowledge Graph
+## :world_map: Knowledge
 
 :fire: **[多模态知识图谱综述] Multi-Modal Knowledge Graph Construction and Application: A Survey**, in 2022. [[pdf](https://arxiv.org/pdf/2202.05786.pdf)] [[zhihu](https://zhuanlan.zhihu.com/p/484096631)]
 
+:fire: **:hammer_and_wrench:** **Leveraging Visual Knowledge in Language Tasks: An Empirical Study on Intermediate Pre-training for Cross-modal Knowledge Transfer**, in ACL 2022. [[pdf](https://aclanthology.org/2022.acl-long.196/)] [[torch]()]
 
+> 本文是一篇**实验性的文章**，实验的方法写得不错！
+>
+> 什么叫做：**intermediate pre-training**?
+>
+> * 在预训练好的模型上，补充一些数据集或者语料库继续预训练
+
+* 动机
+
+  * 目前的大规模语言模型在理解**日常物品属性**方面的能力还很缺乏，因为它们的预训练语料中**很少有这样的事实性知识**，即所谓的reporting bias，下图即是一个例子：
+
+  ![image-20221201194524047](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221201194524047.png)
+
+* 方法（以下两种方法来弥补PLM在这方面的缺陷）
+
+  * text knowledge transfer: 即使用image caption进行知识迁移，设计了如下两个训练目标：
+
+    * MLM：在image caption上进行MLM，相当于进行了domain adaptive的预训练，和Bert一样的设置
+    * Text Contrastive Learning (TCL): 采用和SimCSE一样的方式，进行对比学习，batch中的其他样本都是负样本
+
+  * cross-modal knowledge transfer: 即使用图片和文本以及`V&L`的训练来进行知识迁移，设计了如下几个训练目标：
+
+    * Voken Classification: voken采用token层面的text2image检索来迁移视觉知识，它假设每一个token都有一个视觉域的voken与其对应，训练目标就是在所有预先设定好的voken中将正确的voken检索出来
+
+    * Masked Language Modeling with Visual Clues: 给定图片作为线索，预测mask掉的token，比MLM多了图片作为输入，目标函数是一样的
+
+    * Cross-Modal Contrastive Learning (CMCL): 和CLIP一样（不同在于这里把**视觉网络给冻住**），是跨模态的对比学习
+
+      * 负样本构建方法（之一）（对抗性负样本）
+        * 同时要计算生成负样本和原来句子的语义相似度，**过滤掉一些生成的假负样本**
+
+      ![image-20221201195315054](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221201195315054.png)
+
+      * 这些过滤的假负样本，也可以作为正样本使用，作为正样本！
+
+    * Cross-Modal Knowledge Distillation (CMKD): 将在MSCOCO数据集上进行对比学习的多模态模型作为teacher model，将一个语言模型作为student，在纯文本语料Wiki103上进行知识蒸馏
+
+  * 模型示意图
+
+  ![image-20221201195203819](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221201195203819.png)
+
+* **结论**
+  * **简单在captions数据集**上继续预训练可以取得知识迁移的效果
+  * 跨模态的知识迁移在**很小的训练样本**情况下可以极大提高**下游任务**的性能
+  * **对比学习的方法**对视觉知识（对象属性等，如第一张图说的）的学习是最好的
 
 ## :framed_picture: Topic 
 

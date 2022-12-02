@@ -1726,9 +1726,9 @@ TDE（Total Direct Effect）方法**没有引入任何额外的参数**，也可
 :hammer_and_wrench: **Visual Semantics Allow for Textual Reasoning Better in Scene Text Recognition**, in AAAI 2022.  [[pdf]([https://arxiv.org/abs/2112.12916](https://link.zhihu.com/?target=https%3A//arxiv.org/abs/2112.12916))] [[torch]([https://github.com/adeline-cs/GTR](https://link.zhihu.com/?target=https%3A//github.com/adeline-cs/GTR))]
 * 加入一个GCN强化了视觉学习的过程，并且做了一个fusion
 
+## :old_key: Traditional NLP Task
 
-
-## :label: NER
+### :label: NER
 
 >  Named Entity Recognition
 
@@ -1842,11 +1842,28 @@ $$
 
 
 
+### :older_man: Text Classification
+
+:fire: :hammer_and_wrench: **Knowledgeable Prompt-tuning: Incorporating Knowledge into Prompt Verbalizer for Text Classifification**, in ACL 2022. [[pdf](https://arxiv.org/abs/2108.02035)] [[torch]](https://github.com/thunlp/KnowledgeablePromptTuning)] [[知乎博客](https://zhuanlan.zhihu.com/p/398009000)]
+
+> 将外部知识融入当prompt-tuning当中做TC任务
+
+* 什么是 Prompt-tuning
+  * 之前的Prompt-tuning方法可被用于文本分类任务，具体方式是通过构建标签词表，将分类问题转化为一个预测和标签相关词的问题。因此，这样的问题可以构建一个含有[MASK]的模板，然后让MLM（掩码语言模型）去预测[MASK]位置的单词。至此，分类任务被转化为了一个掩码语言建模问题。
+  * 下面给出一个例子，当我们要对一个句子进行分类时，可以尝试构建下面的模板：**A [MASK] question: x**
+  * 比如MLM预测出在[MASK]位置概率最高的词是science，那该句可以被分类为SCIENCE类别。
+* 动机
+  * 过去prompy-tuning方法，MLM在[MASK]位置可以预测出的单词是很多的，然而类别数只有特定数量的，因此该问题很重要的一个部分是如何==**构建一个单词表到类别标签的映射**==。这个映射能让MLM在预测到类别标签的相关词时，就可以被分到指定类别去。
+  * 这样的一个映射，过去通常是由人来手工编辑或使用梯度下降搜索。**但显然这样会带来覆盖范围不全导致的高偏差和高方差**。**知识库的组织结构，天然的带有范围关系**，在知识库的图结构中，相关联的实体会有边相连，不相关的实体可能要经过很多跳才能找到关联，或无关联。因此如果能将外部的知识库信息融入，构建一个映射器（本文称语言表达器），就可以一定程度上避免手工构造和梯度下降带来的高偏差和高方差问题。
+* 方法
+
+![image-20221202123732640](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221202123732640.png)
+
 ## :world_map: Knowledge
 
 :fire: **[多模态知识图谱综述] Multi-Modal Knowledge Graph Construction and Application: A Survey**, in 2022. [[pdf](https://arxiv.org/pdf/2202.05786.pdf)] [[zhihu](https://zhuanlan.zhihu.com/p/484096631)]
 
-:fire: **:hammer_and_wrench:** **Leveraging Visual Knowledge in Language Tasks: An Empirical Study on Intermediate Pre-training for Cross-modal Knowledge Transfer**, in ACL 2022. [[pdf](https://aclanthology.org/2022.acl-long.196/)] [[torch]()]
+:fire: **:hammer_and_wrench:** **Leveraging Visual Knowledge in Language Tasks: An Empirical Study on Intermediate Pre-training for Cross-modal Knowledge Transfer**, in ACL 2022. [[pdf](https://aclanthology.org/2022.acl-long.196/)] [[torch (2022.12.01未开源)](https://github.com/INK-USC/CMKT)]
 
 > 本文是一篇**实验性的文章**，实验的方法写得不错！
 >

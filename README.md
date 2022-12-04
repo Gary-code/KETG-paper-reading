@@ -655,6 +655,29 @@ $$
 
 
 
+:fire: **CLIP Models are Few-shot Learners: Empirical Studies on VQA and Visual Entailment**, in ACL 2022. [[pdf](https://arxiv.org/abs/2203.07190)]
+
+> 实验性的文章
+
+* 动机
+
+  * 为了验证CLIP做VQA任务还有Visual Entailment任务的zero-shot性能
+  * 提出VQA中few-shot下的微调策略
+
+* 方法
+
+  * Zero-shot VQA
+
+  ![image-20221204155946020](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221204155946020.png)
+
+  * Zero-shot Visual Entailment
+
+  ![image-20221204160041611](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221204160041611.png)
+
+  * **Few-shot VQA**
+    * 分成`question type` $\times$ `answer type` 路（如果按照词汇表来分就太多了）, $65 \times 3 = 195$ ways
+    * 微调细节详见论文（微调`CLIP`模型的一部分参数）
+
 :fire: :hammer_and_wrench: **A-OKVQA: A Benchmark for Visual Question Answering using World Knowledge**, in ECCV 2022. [[home page](https://allenai.org/project/a-okvqa/home)]
 
 > OK-VQA的升级版本

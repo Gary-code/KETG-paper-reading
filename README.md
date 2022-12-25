@@ -1345,6 +1345,23 @@ $$
 
 
 
+:hammer_and_wrench: :fire: **ClipCap: CLIP Prefix for Image Captioning**, on arXiv (2021). [[pdf](https://arxiv.org/abs/2111.09734)] [[torch](https://github.com/rmokady/CLIP_prefix_caption)]
+
+> 模型非常简单，跑起来也很简单。一台1080 Ti 就可以训练了！
+
+* 动机
+
+  * 过去decode句子的时候都是以前面生成的单词作为condition，同样的，我们可以使用图片信息来作为condition
+  * 对于images & captions $\{x^i, c^i\}^N_{i=1}$
+
+  $$
+  \max _\theta \sum_{i=1}^N \sum_{j=1}^{\ell} \log p_\theta\left(c_j^i \mid x^i, c_1^i, \ldots, c_{j-1}^i\right)
+  $$
+
+* 模型架构
+
+![image-20221225095940586](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221225095940586.png)
+
 
 
 ## :sunglasses: Video Understanding

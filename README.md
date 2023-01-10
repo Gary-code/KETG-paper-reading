@@ -1589,6 +1589,88 @@ $$
 
 ##  :apple: Causality Learning
 
+
+
+:hammer_and_wrench: **CauAIN: Causal Aware Interaction Network for Emotion Recognition in Conversations**, in IJCAI 2022. [[pdf](https://www.ijcai.org/proceedings/2022/0628.pdf)] [[torch](https://github.com/circle-hit/CauAIN)]
+
+> 在对话当中找**情感相关的因果线索**
+
+* 动机：
+
+  * 现有情感分析研究中，对情感的识别往往仅依据当前句子，而忽略了**对话历史中存在的能够帮助识别当前情感的深层线索**
+    * 对话某一方自身的话语中，存在可退里情感的因果联系 **(Intra-cause)**
+    * 对话双方的话语中，存在可以帮助推理对方情感的交互因果联系 **(Inter-cause)**
+  * 目前还没有相关的标注有情感线索的数据集，因此论文提出了一种利用常识知识自主**寻找线索**的方法来确定线索所在句子
+
+  ![img](https://img-blog.csdnimg.cn/ad9e9bbada84442795c3953952768e74.png)
+
+* 方法
+
+  * 利用 ATOMIC 常识知识语料库，获得对话历史每句的 6 种因果线索
+
+    * 3 种来自自身因果线索 (Intra-cause)，xEffect，xReact，xWant
+    * 3 种来自交互因果线索 (Inter-cause)，oEffect，oReact，oWant
+
+    ![image-20230104121326042](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230104121326042.png)
+
+  * 利用因果线索，建模对话历史
+
+    * RoBERTa + GRU 建模对话历史文本
+    * 利用因果线索，获取对话历史每句与当前句情感的相关程度分数
+    * 利用相关程度分数加权后的向量进行分类获取情感
+
+    ![image-20230104121406446](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230104121406446.png)
+
+
+
+:hammer_and_wrench: :fire: **Deconfounded Video Moment Retrieval with Causal Intervention**, in SIGIR 2021. [[pdf](https://arxiv.org/abs/2106.01534)] [[torch](https://github.com/Xun-Yang/Causal_Video_Moment_Retrieval)]
+
+* 动机
+
+  * 目前视频定位当中存在一些Bias
+    * 数据集**长尾分布**
+      * 某些Query动作出现频率太高了
+    * Query和locations之间存在**太强的依赖**
+      * open往往都是视频开头，close一般往往都是对应视频结束
+
+* 方法
+
+  ![image-20230110165317100](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230110165317100.png)
+
+  * 模型图
+
+  ![image-20230110165441609](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230110165441609.png)
+
+:fire: :hammer_and_wrench: **Interventional Video Grounding with Dual Contrastive Learning**, in CVPR 2021. [[pdf](https://arxiv.org/pdf/2106.11013.pdf)] [[torch](https://github.com/nanguoshun/IVG)] （2023年1月仍为开源）
+
+* 动机
+
+  * 和上面SIGIR那一篇论文有点类似，但是通过loss来进行因果推断
+  * 过去模型往往只理解实体，而没有关注到一些动作
+
+  ![image-20230110165932709](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230110165932709.png)
+
+* 方法
+
+  * 通过对比学习来进行更好交互
+
+  ![image-20230110170055802](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230110170055802.png)
+
+  * 因果推理模块（通过loss来调整）
+
+    * 因果图
+
+    ![image-20230110165959351](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230110165959351.png)
+
+    * 通过抽取三元组近似$z$，具体见论文
+    * loss计算
+
+    ![image-20230110170418014](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230110170418014.png)
+
+
+
+
+
 :fire: :hammer_and_wrench: **Two Causal Principles for Improving Visual Dialog**, in CVPR 2020. [[pdf](https://arxiv.org/abs/1911.10496)] [[torch](https://github.com/simpleshinobu/visdial-principles)] [[zhihu](https://zhuanlan.zhihu.com/p/363411361)]
 
 > 含老师团队**第一篇因果推理**方向的文章

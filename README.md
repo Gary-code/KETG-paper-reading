@@ -1705,7 +1705,33 @@ $$
 
 ![image-20221124114137317](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221124114137317.png)
 
-![image-20221124114218219](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221124114218219.png)
+![image-20221124114218219](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221124114218219.png):hammer_and_wrench: **[指代表达] **
+
+:hammer_and_wrench: **Deconfounded Visual Grounding**, in AAAI 2022. [[pdf](https://arxiv.org/abs/2112.15324)] [[torch](https://github.com/JianqiangH/Deconfounded_VG)] (2023.1.17未开源)
+
+* 动机
+
+  * visual grounding任务过去存在bias，比如说，羊往往都是出现在图片中间
+
+  ![image-20230117235029986](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230117235029986.png)
+
+  * 方法
+
+    * 构建因果图
+
+      ![image-20230117235128346](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230117235128346.png)
+
+      * 通过后门路径可以观察，主要bias来源与`R`语言信息，因为其实视觉上的bias其他一些方向论文都有所解决了
+
+    * 由于$G$不可观测，因此需要**近似采样**
+
+      * 通过**生成式模型采样**，这里有很丰富的理论依据具体见论文。$\hat{G}=Enc(R), R'=Dec(\hat{G})$
+      * 通过因果干预得到unbias的$R'$即可
+      * 模型图
+
+      ![image-20230117235726811](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230117235726811.png)
+
+
 
 :fire: :hammer_and_wrench:  **Unbiased Scene Graph Generation from Biased Training**, in CVPR 2020. [[pdf](https://arxiv.org/abs/2002.11949)] [[torch](https://github.com/KaihuaTang/Scene-Graph-Benchmark.pytorch)] [[zhihu](https://zhuanlan.zhihu.com/p/109657521)]
 

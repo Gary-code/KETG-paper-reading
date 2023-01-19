@@ -1591,6 +1591,10 @@ $$
 
 
 
+:fire: :star: **Causal Inference in Natural Language Processing: Estimation, Prediction, Interpretation and Beyond**, in TACL 2022. [[pdf](https://arxiv.org/abs/2109.00725)] [[blog](https://github.com/badbadcode/Causality-NLP-Reading-List/blob/master/notes/Feder%20et%20al_2021_Causal%20Inference%20in%20Natural%20Language%20Processing%20-%20Estimation%2C%20Prediction%2C%20Beyond.md)]
+
+* **关于NLP + Causality 的综述，写得非常详细非常好！！！**
+
 :hammer_and_wrench: **CauAIN: Causal Aware Interaction Network for Emotion Recognition in Conversations**, in IJCAI 2022. [[pdf](https://www.ijcai.org/proceedings/2022/0628.pdf)] [[torch](https://github.com/circle-hit/CauAIN)]
 
 > 在对话当中找**情感相关的因果线索**
@@ -1730,8 +1734,6 @@ $$
       * 模型图
 
       ![image-20230117235726811](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230117235726811.png)
-
-
 
 :fire: :hammer_and_wrench:  **Unbiased Scene Graph Generation from Biased Training**, in CVPR 2020. [[pdf](https://arxiv.org/abs/2002.11949)] [[torch](https://github.com/KaihuaTang/Scene-Graph-Benchmark.pytorch)] [[zhihu](https://zhuanlan.zhihu.com/p/109657521)]
 

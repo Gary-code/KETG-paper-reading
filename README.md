@@ -301,6 +301,28 @@ LSTM --oours--> 句子+段落的encoder输出
 
 ![截屏2022-10-15 21.54.35](https://raw.githubusercontent.com/Gary-code/pic/main/img/%E6%88%AA%E5%B1%8F2022-10-15%2021.54.35.png)
 
+:hammer_and_wrench: **Multi-VQG: Generating Engaging Questions for Multiple Images**, in EMNLP 2022. [[pdf](https://arxiv.org/abs/2211.07441)]] [[dataset](https://github.com/AcademiaSinicaNLPLab/MVQG-Dataset-of-Generating-Engaging-Questions-for-Multiple-Images)]
+
+> Baseline就是`VL-T5`，详见论文
+
+* 动机
+  * 过去的VQG主要是针对一张图片进行提问的，往往回答的都是**很简单的事实**。而人类通常在构造问题之前会**构造一个故事**，类似于发推特
+  * 过去的VQG减少了了参与者的**回答意愿**
+  * **单个图片**缺乏**事件信息**，缺乏对事件信息**时序**的理解
+
+<img src="https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230127235522552.png" alt="image-20230127235522552" />
+
+* dataset的特点
+  * 故事背后包含**故事信息**
+  * 五张图片 + 一个故事描述
+  * 数据集标注方法
+    * 写出top5对象和事件
+    * 给出一个描述
+    * 想想如果想将**这五张图片发上去推特**会问什么
+* 更多Cases
+
+![image-20230128205258419](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230128205258419.png)
+
 ### :video_camera: Video QG
 
 **Video Question Generation via Semantic Rich Cross-Modal Self-Attention Networks Learning**, in ICASSP 2020. [[pdf](https://ieeexplore.ieee.org/document/9053476)]
@@ -811,6 +833,30 @@ $$
   ![image-20221122112715645](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221122112715645.png)
 
 
+
+:hammer_and_wrench: **A Unified End-to-End Retriever-Reader Framework for Knowledge-based VQA**, in MM 2022. [[pdf]()] [[torch](https://github.com/guoyang9/UnifER)]
+
+> 这篇论文实验味道比较重，挺**严谨**的一个工作
+
+* 动机
+  * 过去的VQA模型主要是集中在利用**显示知识**还有**隐式知识**上面
+    * 过去的显示知识往往存在noisy，因为没有对应的标签来约束
+    * 隐式知识又大部分是利用了预训练的语言模型，而没有人探究**多模态预训练模型**是否也有隐式知识
+  * 模型上，传统的都是检索知识，再做predict answer。是两个单独的模块
+    * 本文将两个模块联系起来，用一个统一的模块解决
+
+* 方法
+
+![image-20230128223057226](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230128223057226.png)
+
+![image-20230128223221039](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230128223221039.png)
+
+* **推理**时候
+  * 直接**检索出来最好的那个知识**，然后去回答即可
+
+* 结论
+  * 预训练模型当中的**隐式知识更加重要**
+  * 具体见**论文的实验**
 
 ### :sunny: Textual
 

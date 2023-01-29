@@ -1635,8 +1635,6 @@ $$
 
 ##  :apple: Causality Learning
 
-
-
 :fire: :star: **Causal Inference in Natural Language Processing: Estimation, Prediction, Interpretation and Beyond**, in TACL 2022. [[pdf](https://arxiv.org/abs/2109.00725)] [[blog](https://github.com/badbadcode/Causality-NLP-Reading-List/blob/master/notes/Feder%20et%20al_2021_Causal%20Inference%20in%20Natural%20Language%20Processing%20-%20Estimation%2C%20Prediction%2C%20Beyond.md)]
 
 * **关于NLP + Causality 的综述，写得非常详细非常好！！！**
@@ -1909,6 +1907,24 @@ TDE（Total Direct Effect）方法**没有引入任何额外的参数**，也可
 
     ![img](https://pic4.zhimg.com/80/v2-05352bd30cf8d5f8373c2ae67c3203c3_720w.webp)
 
+:hammer_and_wrench: **[2023.01未开源] Disentangle and Remerge: Interventional Knowledge Distillation for Few-Shot Object Detection from A Conditional Causal Perspective**, in AAAI 2023. [[pdf](https://arxiv.org/abs/2208.12681)] [[torch](https://github.com/ZYN-1101/DandR)]
+
+> 本文**方法上和实验上**还有很多亮点，这里主要就说**因果推理**
+
+* 动机
+  * 知识蒸馏做Few-shot任务时候，往往大模型存在的知识**很难迁移**到下游任务当中
+* 因果图
+
+![image-20230129234912585](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230129234912585.png)
+
+* 模型
+
+![image-20230129235019260](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230129235019260.png)
+
+
+
+
+
 ## :abc: Scene Text Recognization
 
 :hammer_and_wrench: **From Two to One: A New Scene Text Recognizer with Visual Language Modeling Network**, in ICCV 2021. [[pdf](https://link.zhihu.com/?target=https%3A//arxiv.org/abs/2108.09661)] [[torch](https://link.zhihu.com/?target=https%3A//github.com/wangyuxin87/VisionLAN)]
@@ -2054,6 +2070,10 @@ $$
 * 方法
 
 ![image-20221202123732640](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221202123732640.png)
+
+
+
+
 
 ## :world_map: Knowledge
 

@@ -1669,7 +1669,25 @@ $$
 
     ![image-20230104121406446](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230104121406446.png)
 
+:hammer_and_wrench: **Knowledge-Bridged Causal Interaction Network for Causal Emotion Entailment**, in AAAI 2023. [[pdf](https://arxiv.org/abs/2212.02995)] [[torch](https://github.com/circle-hit/KBCIN)]
 
+> 这份工作和上面👆的[IJCAI 2022:CauAIN: Causal Aware Interaction Network for Emotion Recognition in Conversations](https://www.ijcai.org/proceedings/2022/0628.pdf)那个工作**idea是一样**的，只不过做了两个不同的任务而已
+
+* 主要动机都是找寻对话当中的**因果线索**
+
+  * 引入**常识知识**来弥补gap
+
+  ![image-20230130121710045](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230130121710045.png)
+
+* 方法模型
+
+  * 数据来源 （AOTMIC-2020）
+
+  ![image-20230130121639558](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230130121639558.png)
+
+  * 模型
+
+  ![image-20230130121841363](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230130121841363.png)
 
 :hammer_and_wrench: :fire: **Deconfounded Video Moment Retrieval with Causal Intervention**, in SIGIR 2021. [[pdf](https://arxiv.org/abs/2106.01534)] [[torch](https://github.com/Xun-Yang/Causal_Video_Moment_Retrieval)]
 
@@ -1922,6 +1940,24 @@ TDE（Total Direct Effect）方法**没有引入任何额外的参数**，也可
 ![image-20230129235019260](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230129235019260.png)
 
 
+
+**Learning to Imagine: Integrating Counterfactual Thinking in Neural Discrete Reasoning**, in ACL 2022. [[pdf](https://aclanthology.org/2022.acl-long.5/)]
+
+* 动机
+
+  * 当前神经离散推理在反事实推理上效果不佳
+  * 借用**因果推断**的理论可以做反事实推理
+
+  ![image-20230130170116064](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230130170116064.png)
+
+* 方法
+
+  * 两步走
+    * **识别事实**
+    * 通过离散的操作进行**干预**
+  * 模型
+
+  ![image-20230130170205387](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230130170205387.png)
 
 
 

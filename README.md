@@ -570,7 +570,7 @@ $$
 
   红色为小于0的值，都置为0，然后计算distance的平均值，**值越小，模型的Bias越小**
 
-**[Viisual Explanation]  Chunk-aware Alignment and Lexical Constraint for VisualEntailment with Natural Language Explanations**, in MM 2022. [[pdf](https://arxiv.org/abs/2207.11401)] [[Talk](https://www.youtube.com/watch?v=nAHIZOQSiXg)]
+:hammer_and_wrench: **[Viisual Explanation]  Chunk-aware Alignment and Lexical Constraint for VisualEntailment with Natural Language Explanations**, in MM 2022. [[pdf](https://arxiv.org/abs/2207.11401)] [[Talk](https://www.youtube.com/watch?v=nAHIZOQSiXg)] [[torch](https://github.com/HITsz-TMG/ExplainableVisualEntailment)]
 
 * 是上面一篇工作的进一步研究
 * 任务介绍
@@ -913,7 +913,26 @@ $$
 
   * 最后选择最合适的对，扔进去下一个LM进行推理，最后生成答案
 
-  
+
+
+
+:hammer_and_wrench: **GeoMLAMA: Geo-Diverse Commonsense Probing on Multilingual Pre-Trained Language Models**, in EMNLP Oral. [[pdf](https://arxiv.org/abs/2205.12247)] [[benchmark](https://github.com/WadeYin9712/GeoMLAMA)]
+
+> [Probe介绍博客](https://zhuanlan.zhihu.com/p/362385123)
+>
+> * Probe探究了神经网络的**内部机制**如何对auxiliary linguistic tasks (or probe tasks, or ancillary tasks)进行**分类**
+>
+> 具体地，以BERT举例，对于一个在训练在主任务上的大型神经网络，Probe是一个插入在其中间层的浅层神经网络，通常是一个分类器层。Probe有助于探查不同层捕获的信息。**使用辅助任务对Probe进行训练和验证**，**以发现是否捕获了此类辅助信息**。原文作者给了一个图片示例：
+>
+> ![img](https://pic2.zhimg.com/80/v2-726af6b149c175f13a931cc48cdbeb75_720w.webp)
+
+* 动机：**常识知识在不同的地理位置**中，会有所不一样
+
+![image-20230203111838400](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230203111838400.png)
+
+* 数据集标注方法
+
+![image-20230203111924641](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230203111924641.png)
 
 ## :book: Paraphrase
 

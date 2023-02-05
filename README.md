@@ -1878,6 +1878,8 @@ TDE（Total Direct Effect）方法**没有引入任何额外的参数**，也可
 
   * 对撞节点的存在使得模型对新数据会产生灾难性遗忘
 
+    * 当在一个数据集当中训练好的模型扔到一个新的数据当中微调时候会发生遗忘
+
   * 过去的方法当中
 
     ![image-20220918101920897](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20220918101920897.png)
@@ -1897,7 +1899,7 @@ TDE（Total Direct Effect）方法**没有引入任何额外的参数**，也可
 
 * **文章细节详见开头的博客链接**
 
-:fire: :hammer_and_wrench: **Causal Attention for Vision-Language Tasks**, in CVPR 2021. [[pdf](https://arxiv.org/pdf/2103.03493.pdf)] [[torch](https://github.com/yangxuntu/catt)]
+:fire: :hammer_and_wrench: **Causal Attention for Vision-Language Tasks**, in CVPR 2021. [[pdf](https://arxiv.org/pdf/2103.03493.pdf)] [[torch](https://github.com/yangxuntu/catt)] [[Blog](https://www.cnblogs.com/gongqk/p/14772297.html)]
 
 * 动机：解决当前`VL`模型当中训练数据集当中bias
 
@@ -1918,6 +1920,31 @@ TDE（Total Direct Effect）方法**没有引入任何额外的参数**，也可
 * 结果case
 
   ![截屏2022-10-11 11.13.42](https://raw.githubusercontent.com/Gary-code/pic/main/img/%E6%88%AA%E5%B1%8F2022-10-11%2011.13.42.png)
+
+:fire: :hammer_and_wrench: **Counterfactual VQA: A Cause-Effect Look at Language Bias**, in CVPR 2022. [[pdf](https://arxiv.org/pdf/2006.04315.pdf)] [[torch](https://github.com/yuleiniu/cfvqa)]
+
+* 动机
+
+  * 过去方法主要是消除VQA中语言先验信息的bias
+    * 数据增广
+    * 生成视觉或者文本的解释
+    * 反事实样本生成
+    * 集成方法
+  * 语言当中的Bias有好有坏，我们做的应该**分辨出好的bias和坏的bias**
+    * 坏的bias：香蕉🍌有可能是绿色的，但回答往往是黄色
+    * 好的bias：问 What Color的时候，往往模型都会想到视觉词汇，缩减了答案的空间，避免生成很离谱的答案
+
+* 方法（基于ensemble的`VQA`模型做的一个**推理框架**，相当简单）
+
+  ![image-20230205205153879](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230205205153879.png)
+
+  ![image-20230205205846733](/Users/gary/Library/Application Support/typora-user-images/image-20230205205846733.png)
+
+* 因果推理角度解释（具体见论文）
+
+![image-20230205205700958](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230205205700958.png)
+
+
 
 **Learning Causal Effects on Hypergraphs**, Best Paper of KDD 2022. [[pdf](https://arxiv.org/pdf/2207.04049.pdf)]
 

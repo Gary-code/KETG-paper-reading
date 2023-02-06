@@ -1870,6 +1870,41 @@ $$
 
 TDE（Total Direct Effect）方法**没有引入任何额外的参数**，也可以说没有针对模型的有偏训练进行任何改动，其使用原始SGG模型进行了两次预测，将两次预测的结果进行**差值运算**，最终得到无偏见的预测。所以**TDE方法是模型“不可见”的，广泛适用于各种SGG模型**。
 
+:fire: :hammer_and_wrench: **Interventional Few-Shot Learning**, in NIPS 2020. [[pdf](https://arxiv.org/pdf/2009.13000v2.pdf)] [[torch](https://github.com/yue-zhongqi/ifsl)] [[Blog](https://zhuanlan.zhihu.com/p/584951599)]
+
+> 博客讲得很全面，具体可以见博客对本文的讲解
+>
+> * 方法**挺会玩**！
+
+* 动机
+
+  * few-shot learning过去往往收到**预训练知识**confounder的影响
+
+  ![image-20230206215108229](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230206215108229.png)
+
+  * 过去few-shot learning 方法
+
+  ![image-20230206215028756](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230206215028756.png)
+
+  
+
+* 问题建模（探索Many-shot Learning 和 Few-shot在因果关系上的不一致地方）
+  * 有点难解释具体见论文
+
+![image-20230206215234701](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230206215234701.png)
+
+![image-20230206215302623](/Users/gary/Library/Application Support/typora-user-images/image-20230206215302623.png)
+
+* 问题核心
+
+$$
+P(Y \mid d o(X=\boldsymbol{x}))=\sum_d P(Y \mid X=\boldsymbol{x}, D=d, C=g(\mathbf{x}, d)) P(D=d)
+$$
+
+* **模型方法**（真会玩！）
+
+![img](https://pic1.zhimg.com/80/v2-7f68252d630d8d70b2bfd9562ea560d4_720w.webp)
+
 :fire: :hammer_and_wrench: **Distilling Causal Effect of Data in Class-Incremental Learning**, in CVPR 2021. [[pdf](https://arxiv.org/abs/2103.01737)] [[torch](https://github.com/JoyHuYY1412/DDE_CIL)]
 
 * [[模型公式解释](https://zhuanlan.zhihu.com/p/358340627)]  [[论文介绍](https://www.163.com/dy/article/G4OHT10U0511DPVD.html)]
@@ -1901,6 +1936,8 @@ TDE（Total Direct Effect）方法**没有引入任何额外的参数**，也可
 
 :fire: :hammer_and_wrench: **Causal Attention for Vision-Language Tasks**, in CVPR 2021. [[pdf](https://arxiv.org/pdf/2103.03493.pdf)] [[torch](https://github.com/yangxuntu/catt)] [[Blog](https://www.cnblogs.com/gongqk/p/14772297.html)]
 
+> 我的想法和博客最后说的类似，似乎本文**推理推得不是特别彻底**，但是仍然是一篇优秀的论文
+
 * 动机：解决当前`VL`模型当中训练数据集当中bias
 
   ![截屏2022-10-11 11.09.42](https://raw.githubusercontent.com/Gary-code/pic/main/img/%E6%88%AA%E5%B1%8F2022-10-11%2011.09.42.png)
@@ -1921,7 +1958,7 @@ TDE（Total Direct Effect）方法**没有引入任何额外的参数**，也可
 
   ![截屏2022-10-11 11.13.42](https://raw.githubusercontent.com/Gary-code/pic/main/img/%E6%88%AA%E5%B1%8F2022-10-11%2011.13.42.png)
 
-:fire: :hammer_and_wrench: **Counterfactual VQA: A Cause-Effect Look at Language Bias**, in CVPR 2022. [[pdf](https://arxiv.org/pdf/2006.04315.pdf)] [[torch](https://github.com/yuleiniu/cfvqa)]
+:fire: :hammer_and_wrench: **Counterfactual VQA: A Cause-Effect Look at Language Bias**, in CVPR 2021. [[pdf](https://arxiv.org/pdf/2006.04315.pdf)] [[torch](https://github.com/yuleiniu/cfvqa)]
 
 * 动机
 

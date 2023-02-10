@@ -934,11 +934,34 @@ $$
 
 ![image-20230203111924641](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230203111924641.png)
 
+
+
+
+
+:hammer_and_wrench: :fire: **Automatic Chain of Thought Prompting in Large Language Models**, in ICLR 2023. [[pdf](https://arxiv.org/abs/2210.03493)] [[torch](https://github.com/amazon-science/auto-cot)] [[rebuttal](https://openreview.net/forum?id=5NTt8GFjUHkr)]
+
+* 动机
+  * 过去`COT`主要是两种
+    * 完全`Zero-shot COT`，就简单说一句“Let’s think step by step” 就让GPT-3直接生成
+    * `Manual COT` 人为手动标定一些Q-C的`demonstration` 做 in-context learning
+  * `Zero-shot COT` 性能不够好，`Manual COT` 需要手工标注，并且对demonstration的领域很敏感（以往都是根据特定领域进行标注）
+
+![image-20230210172030892](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230210172030892.png)
+
+* 作者希望这些demonstration直接让`Zero-shot COT`生成，但是实验过程中发现，demonstration对**多样性的要求很高**，所以考虑使用**问题聚类**的方式来先分类
+  * **多样性高的demonstration**才会效果好，详见论文。做了详细的实验和说明
+  * 因为如果多样性不高，demonstration生成的chain的答案就是有错的，**如果都是同一类的话，基本上就是demonstration答案全是错的**，更别说后面生成目标问题的答案了
+
+![image-20230210172719091](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230210172719091.png)
+
+* 方法模型
+  * ⚠️注意人工筛选是指用一些规则进行筛选，详见论文
+
+![image-20230210172754187](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230210172754187.png)
+
+
+
 ## :book: Paraphrase
-
----
-
-
 
 :hammer_and_wrench: **[Sentence Discrimination] Learning Semantic Sentence Embeddings using Sequential Pair-wise Discriminator**,in COLING 2018. [[pdf](https://aclanthology.org/C18-1230/)] [[torch](https://github.com/badripatro/PQG)]
 

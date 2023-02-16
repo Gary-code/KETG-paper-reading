@@ -711,7 +711,7 @@ $$
   * 过去的数据集
     * FVQA：缺乏推理的过程，而且和图片不怎么相关
     * KVQA：通常是实体的知识，在维基百科上面的知识，而且主要是问任务方面的，没有常识的知识
-    * OK- VQA：有bias，知识太过简单（e.g., What is the capital of this country?）, 而且缺乏推理
+    * OK- VQA：有bias，知识太过简单（e.g., What is the capital of this country?）, 而且**缺乏推理**
     * VCR：重点是电影场景中人的意图
 
 * 数据集知识类型
@@ -1813,15 +1813,15 @@ $$
 
 ![image-20221124114137317](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221124114137317.png)
 
-![image-20221124114218219](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221124114218219.png):hammer_and_wrench: **[指代表达] **
+![image-20221124114218219](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221124114218219.png)
 
-:hammer_and_wrench: **Deconfounded Visual Grounding**, in AAAI 2022. [[pdf](https://arxiv.org/abs/2112.15324)] [[torch](https://github.com/JianqiangH/Deconfounded_VG)] (2023.1.17未开源)
+:hammer_and_wrench: **[指代表达] Deconfounded Visual Grounding**, in AAAI 2022. [[pdf](https://arxiv.org/abs/2112.15324)] [[torch](https://github.com/JianqiangH/Deconfounded_VG)] (2023.1.17未开源)
 
 * 动机
 
   * visual grounding任务过去存在bias，比如说，羊往往都是出现在图片中间
 
-  ![image-20230117235029986](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230117235029986.png)
+  ![](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230117235029986.png)
 
   * 方法
 
@@ -1863,7 +1863,7 @@ $$
 
 * 无偏的思想（**content：内因，context：外因**）
 
-  * **人类**在有偏见的大自然中生长，在拥抱好的context的同时，避免不好的context，并与content一起做出无偏见的决定。
+  * **人类**在有偏见的大自然中生长，在**拥抱好的context的同时，避免不好的context**，并与content一起做出无偏见的决定。
 
   * 其潜在的机制是**基于因果关系的（causality-based）：**决策是通过追求由**content引起的主要因果效应**，而不是追求由**context引起的副作用**来做出的。然而，**机器**是基于可能性的（likelihood-based），会产生有偏结果。
 
@@ -1883,7 +1883,7 @@ $$
 
 * 方法
 
-  * **有偏**训练架构
+  * **有偏&无偏**训练架构
 
   ![image-20221009153731849](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221009153731849.png)
 
@@ -1893,7 +1893,42 @@ $$
 
 TDE（Total Direct Effect）方法**没有引入任何额外的参数**，也可以说没有针对模型的有偏训练进行任何改动，其使用原始SGG模型进行了两次预测，将两次预测的结果进行**差值运算**，最终得到无偏见的预测。所以**TDE方法是模型“不可见”的，广泛适用于各种SGG模型**。
 
-:fire: :hammer_and_wrench: **Interventional Few-Shot Learning**, in NIPS 2020. [[pdf](https://arxiv.org/pdf/2009.13000v2.pdf)] [[torch](https://github.com/yue-zhongqi/ifsl)] [[Blog](https://zhuanlan.zhihu.com/p/584951599)]
+
+
+:fire: :hammer_and_wrench: **Long-Tailed Classification by Keeping the Good and Removing the Bad Momentum Causal Effect**, in NIPS 2020. [[pdf](https://arxiv.org/abs/2009.12991)] [[torch](https://github.com/KaihuaTang/Long-Tailed-Recognition.pytorch)] [[zhihu](https://zhuanlan.zhihu.com/p/259569655)]
+
+* 动机
+
+  * 提出了一种崭新的**长尾问题**的通用解决思路。而且**实现非常简单**，能够广泛适用于各种**不同类型的任务**
+  * 过去解决长尾分布的方法**存在的问题**
+    * 【**未卜先知**】虽然利用数据集分布的**re-sampling**和**re-weighting**训练方法可以一定程度上缓解长尾分布的问题。然而这种利用其实是违背现实学习场景的，他们都需要在训练/学习之前，了解“未来”将要看到的数据分布，这显然不符合人类的学习模式，也因此无法适用于各种动态的数据流。
+    * 【**两阶段**，不是end-to-end】目前长尾分类最优的[Decoupling](https://link.zhihu.com/?target=https%3A//arxiv.org/abs/1910.09217)算法依赖于**2-stage**的分步训练，这显然不符合深度学习end-to-end的训练传统，而论文本身也没有提出让人信服的理由解释**为什么特征提取backbone需要在长尾分布下学**，而偏偏classifier又需要re-balancing的学。
+    * 【**迁移能力**不足】长尾分布下简单的图片分类问题和其他复杂问题（诸如物体检测和实例分割）研究的割裂，目前长尾分布下图片分类问题的算法日趋复杂，**导致很难运用于本来框架就很繁琐的检测分割等任务**。而我觉得长尾问题的本质都是相似的，真正的解决方案一定是简洁的，可以通用的。
+  * **基于上面这些问题，也就最终诞生了我们的这篇工作。我们提出的[De-confound-TDE](https://link.zhihu.com/?target=https%3A//kaihuatang.github.io/Files/long-tail.pdf)的优势如下：**
+    1. 我们的训练过程**完全不依赖于提前获取的数据分布**，只需要在传统训练框架的基础上统计一个特征的移动平均向量，并且这个平均特征在训练中并不会参与梯度计算（只在测试时使用）。这也就解决了传统长尾分类方法依赖“提前获取未来数据分布”的问题。
+    2. 尽管我们的测试过程和训练过程有所不同，但我们的**模型是一次训练到位的**，并不需要依赖繁琐的多步训练，这大大简化了拓展至其他任务时的修改成本。
+    3. 并且，我们成功的将这个方法运用于图片分类（ImageNet-LT，Long-tailed CIFAR-10/-100）和物体检测/实例分割（LVIS dataset）等多个任务，均取得了最优的结果（截止至我们投稿也就是2020年5月）。**这证明了我们的方法可以作为继re-balancing之后又一个在长尾数据下通用的Strong Single-Stage Baseline**。
+
+* 核心思想
+
+  * 需要利用原始的长尾分布来学习特征提取的原因在于，大量的尾部类别其实不足以提供足够的样本来学习鲁棒的特征表达。人类描述罕见的物体时，往往是通过和已知常见类的比较，**比如会说狮鹫是有着狮子的身体，鹰的翅膀和头的生物，而不必要单独拿一堆狮鹫的图片出来，让你死记硬背住狮鹫的长相**。
+
+    ![img](https://pic2.zhimg.com/80/v2-d453e3a2168bc0085970561adb1f2b91_720w.webp)
+
+  * **发现优化器的动量项时，这货不就是在训练数据时引入数据分布，从而产生shortcut的元凶么**。
+
+  * 方法，详细的推到有点复杂，相近论文或者知乎
+
+    ![img](https://pic1.zhimg.com/80/v2-aeb0b5c18e021b302263ffd7e49587c4_720w.webp)
+
+  * **方法速成步骤**
+    * **基本只要改classifier**，不需要任何额外的训练步骤或复杂的采样算法
+
+  ![image-20230211224744104](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230211224744104.png)
+
+  
+
+:fire: :hammer_and_wrench: **Interventional Few-Shot Learning**, in NIPS 2020. [[pdf](https://arxiv.org/pdf/2009.13000v2.pdf)] [[torch](https://github.com/yue-zhongqi/ifsl)] [[blog](https://zhuanlan.zhihu.com/p/584951599)]
 
 > 博客讲得很全面，具体可以见博客对本文的讲解
 >
@@ -1927,6 +1962,17 @@ $$
 * **模型方法**（真会玩！）
 
 ![img](https://pic1.zhimg.com/80/v2-7f68252d630d8d70b2bfd9562ea560d4_720w.webp)
+
+:fire: :hammer_and_wrench: **Introspective Distillation for Robust Question Answering**, in NIPS 2021. [[pdf](https://arxiv.org/abs/2111.01026)] [[torch](https://github.com/yuleiniu/introd)] [[zhihu](https://zhuanlan.zhihu.com/p/445125531)]
+
+* 动机
+  * 希望模型可以同时在**ID（in-domain）和OOD场景下获得良好的表现**
+  * 通过对专门捕捉ID和OOD偏置的两位老师模型**进行知识融合**(内省)并蒸馏出一个学生模型来完成这种平衡
+* 方法
+
+![image-20230211230411971](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230211230411971.png)
+
+
 
 :fire: :hammer_and_wrench: **Distilling Causal Effect of Data in Class-Incremental Learning**, in CVPR 2021. [[pdf](https://arxiv.org/abs/2103.01737)] [[torch](https://github.com/JoyHuYY1412/DDE_CIL)]
 
@@ -1980,6 +2026,18 @@ $$
 * 结果case
 
   ![截屏2022-10-11 11.13.42](https://raw.githubusercontent.com/Gary-code/pic/main/img/%E6%88%AA%E5%B1%8F2022-10-11%2011.13.42.png)
+
+:fire: :hammer_and_wrench: **Counterfactual Zero-Shot and Open-Set Visual Recognition**, in CVPR 2021. [[pdf](https://arxiv.org/abs/2103.00887)] [[torch](https://github.com/yue-zhongqi/gcm-cf)] [[zhihu](https://zhuanlan.zhihu.com/p/365089242)]
+
+* **生成式的因果模型，博客很详细，详见知乎！**
+
+* 方法
+
+  * **样本特征和类别特征之间解耦**
+
+    ![img](https://pic2.zhimg.com/80/v2-d3135e2e7959fcbd10218d71db857e61_720w.webp)
+
+  ![img](https://pic4.zhimg.com/80/v2-2319bf19f8737e74ad7b7504903d78df_720w.webp)
 
 :fire: :hammer_and_wrench: **Counterfactual VQA: A Cause-Effect Look at Language Bias**, in CVPR 2021. [[pdf](https://arxiv.org/pdf/2006.04315.pdf)] [[torch](https://github.com/yuleiniu/cfvqa)]
 
@@ -2267,6 +2325,26 @@ $$
   * **简单在captions数据集**上继续预训练可以取得知识迁移的效果
   * 跨模态的知识迁移在**很小的训练样本**情况下可以极大提高**下游任务**的性能
   * **对比学习的方法**对视觉知识（对象属性等，如第一张图说的）的学习是最好的
+
+
+
+:star: **[MM-KG + CLIP] Contrastive Language-Image Pre-Training with Knowledge Graphs**, in NIPS 2022. [[pdf](https://arxiv.org/abs/2210.08901)] [[rebuttal](https://openreview.net/forum?id=4T3kbrzfeR)]
+
+* 动机
+
+  * 以前的CLIP模型对自然语言当中复杂的语义特征，比如**颜色和位置**等
+  * 将知识加入到**CLIP的预训练**过程当中，以**输入的形式**加进去的
+
+  ![image-20230213181225549](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230213181225549.png)
+
+  
+
+  * **预训练数据集来源具体见论文**
+  * 方法
+
+  ![image-20230213181333946](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230213181333946.png)
+
+  
 
 ## :framed_picture: Topic 
 

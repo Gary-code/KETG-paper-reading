@@ -231,7 +231,23 @@ LSTM --oours--> 句子+段落的encoder输出
 
   ![image-20221115155002446](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221115155002446.png)
 
-  
+
+
+
+:hammer_and_wrench: **[Meta Learning] DSM: Question Generation over Knowledge Base via Modeling Diverse Subgraphs with Meta-learner**, in EMNLP 2022. [[pdf](https://xiaojingzi.github.io/publications/EMNLP22-Guo-et-al-DSM.pdf)] [[torch](https://github.com/RUCKBReasoning/DSM)]
+
+> COLING 2022 也有一篇CQG使用**Meta Learning**做QG的，和这篇很像
+
+* 动机
+
+  * 不同的问题实际上有**不同的知识语义结构**
+  * 过去的模型往往都是使用**一个方法来拟合这些不同语义的问题**，但是这样子会导致模型训练困难（实际上还可以解决数据imbalance的问题，COLING2022 CQG中的动机就是这个）
+
+  ![image-20230218215343124](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230218215343124.png)
+
+* 方法模型
+
+![image-20230218215656301](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230218215656301.png)
 
 
 ****

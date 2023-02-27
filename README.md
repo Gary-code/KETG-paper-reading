@@ -236,7 +236,7 @@ LSTM --oours--> 句子+段落的encoder输出
 
 :hammer_and_wrench: **[Meta Learning] DSM: Question Generation over Knowledge Base via Modeling Diverse Subgraphs with Meta-learner**, in EMNLP 2022. [[pdf](https://xiaojingzi.github.io/publications/EMNLP22-Guo-et-al-DSM.pdf)] [[torch](https://github.com/RUCKBReasoning/DSM)]
 
-> COLING 2022 也有一篇CQG使用**Meta Learning**做QG的，和这篇很像
+> COLING 2022 也有一篇[CQG](https://aclanthology.org/2022.acl-long.475/)使用**Meta Learning**做QG的，和这篇很像
 
 * 动机
 
@@ -245,7 +245,7 @@ LSTM --oours--> 句子+段落的encoder输出
 
   ![image-20230218215343124](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230218215343124.png)
 
-* 方法模型
+* 方法模型，类似**MAML的元学习器**， [MAML简单解析](https://blog.csdn.net/weixin_42392454/article/details/109891791)
 
 ![image-20230218215656301](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230218215656301.png)
 
@@ -2141,18 +2141,70 @@ $$
 
 
 
-## :abc: Scene Text Recognization
 
-:hammer_and_wrench: **From Two to One: A New Scene Text Recognizer with Visual Language Modeling Network**, in ICCV 2021. [[pdf](https://link.zhihu.com/?target=https%3A//arxiv.org/abs/2108.09661)] [[torch](https://link.zhihu.com/?target=https%3A//github.com/wangyuxin87/VisionLAN)]
 
-* 过去的场景文本识别需要：视觉特征抽取器 + 语言模型
 
-* 本文直接在视觉空间进行语言建模（类似人类，语言信息是可以学习的）
-  * 对字符级别的Mask操作![image-20220701212346925](https://s2.loli.net/2022/07/01/ZLFUIkb41S782GD.png)
-    * 训练过程，采用弱监督互补学习![image-20220701212430601](https://s2.loli.net/2022/07/01/kc3K7XxAN6SfRut.png)
 
-:hammer_and_wrench: **Visual Semantics Allow for Textual Reasoning Better in Scene Text Recognition**, in AAAI 2022.  [[pdf]([https://arxiv.org/abs/2112.12916](https://link.zhihu.com/?target=https%3A//arxiv.org/abs/2112.12916))] [[torch]([https://github.com/adeline-cs/GTR](https://link.zhihu.com/?target=https%3A//github.com/adeline-cs/GTR))]
-* 加入一个GCN强化了视觉学习的过程，并且做了一个fusion
+:hammer_and_wrench: :star2: **Causality Inspired Representation Learning for Domain Generalization**, in CVPR 2022 **Oral**. [[pdf](https://arxiv.org/abs/2203.14237)] [[torch](https://github.com/BIT-DA/CIRL)]
+
+> **傅立叶变换结合因果推理**，超级solid的工作
+
+* 动机
+
+  * 过去领域泛化的方法都是**基于统计依赖**，没有学习到真正的**因果关系**
+  * 任务的数据表征往往可以分成**causal factors $S$ and uncausal factors $U$**
+  * 因果推断应用进来的三个原则
+    1. $S$ 和 $U$ 相互分离
+    2. $s_1, s_2,...,s_n$之间相互独立
+    3. $X \rightarrow Y$之间因果充分，因果的表征是充分的
+
+* 方法
+
+  * 前提：傅立叶变换当中
+
+    * 相位：高层的语义信息
+    * 振幅：低层的统计信息
+
+    ![image-20230222154015844](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230222154015844.png)
+
+  * 核心思想与流程概览，**具体见论文**
+
+    * 对振幅进行干预，使得干预前后的表征尽可能的相似
+    * 表征当中每个维度的表征$s_i$尽可能不相近
+    * 使用分类器和掩码器之间的对抗检测因果信息较少的维度，分别**最大化较好维度的分类器和最小化较好维度的分类器**
+
+    ![image-20230222154338573](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230222154338573.png)
+
+    * **总优化目标**：
+
+    $$
+    \min _{\hat{g}, \hat{h}_{1}, \hat{h}_{2}} \mathcal{L}_{c l s}^{s u p}+\mathcal{L}_{c l s}^{i n f}+\tau \mathcal{L}_{F a c}, \quad \min _{\hat{w}} \mathcal{L}_{c l s}^{s u p}-\mathcal{L}_{c l s}^{i n f},
+    $$
+
+
+
+**[领域泛化] GCISG: Guided Causal Invariant Learning for Improved Syn-to-real Generalization**, in ECCV 2022. [[pdf](https://arxiv.org/abs/2208.10024)]
+
+> 个人认为这篇论文写得有点夸张了，实际上就那么回事。
+
+* 动机
+
+  * 和上面论文一样，需要解耦出**任务无关的style特征**和**任务相关的style特征**
+
+* 因果发现
+
+  * CNN网络对**texture（纹理，如style）特征有偏见**， [参考文献](https://arxiv.org/abs/1811.12231)
+  * 因果图
+
+  ![image-20230227101118298](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230227101118298.png)
+
+* 方法（很简单）
+
+![image-20230227101000348](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230227101000348.png)
+
+
+
+
 
 ## :old_key: Traditional NLP Task
 
@@ -2289,6 +2341,18 @@ $$
 
 
 
+### :framed_picture: Topic 
+
+:fire: **[层次化主题] Deep Latent Dirichlet Allocation with Topic-Layer-Adaptive Stochastic Gradient Riemannian MCMC**, in ICML 2017. [[pdf](https://proceedings.mlr.press/v70/cong17a.html)]
+
+> 理论性非常强的论文
+>
+> * 详细的理论推导请见原文。
+
+* case展示
+
+![image-20221031220028391](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221031220028391.png)
+
 
 
 ## :world_map: Knowledge
@@ -2362,14 +2426,3 @@ $$
 
   
 
-## :framed_picture: Topic 
-
-:fire: **[层次化主题] Deep Latent Dirichlet Allocation with Topic-Layer-Adaptive Stochastic Gradient Riemannian MCMC**, in ICML 2017. [[pdf](https://proceedings.mlr.press/v70/cong17a.html)]
-
-> 理论性非常强的论文
->
-> * 详细的理论推导请见原文。
-
-* case展示
-
-![image-20221031220028391](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221031220028391.png)

@@ -1468,6 +1468,25 @@ $$
 
 
 
+**Controllable Image Captioning via Prompting**, in AAAI 2023. [[pdf](https://arxiv.org/abs/2212.01803)]
+
+* 动机
+
+  * 通过学习**不同的动态prompt**，生成不同风格的图像字幕
+
+  ![image-20230305214259376](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230305214259376.png)
+
+* 方法极其简单
+
+  * 预训练+微调结构
+  * **预训练都是BLIP的那一套**
+
+![image-20230305214515377](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230305214515377.png)
+
+
+
+
+
 ## :sunglasses: Video Understanding
 
 ### :video_camera: Features Fusion

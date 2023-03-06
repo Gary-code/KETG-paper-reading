@@ -2202,6 +2202,25 @@ $$
 
 
 
+:fire: **[CLIP] EI-CLIP: Entity-aware Interventional Contrastive Learning for E-commerce Cross-modal Retrieval**, in CVPR 2022. [[pdf](https://openaccess.thecvf.com/content/CVPR2022/papers/Ma_EI-CLIP_Entity-Aware_Interventional_Contrastive_Learning_for_E-Commerce_Cross-Modal_Retrieval_CVPR_2022_paper.pdf)]
+
+* 动机
+
+  * 在电商产品当中，language的semantic和general domain当中的不太一样
+  * 比如：Golden Goose在电商产品中可能是一个品牌
+
+  ![image-20230306100430190](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230306100430190.png)
+
+  * **产品中不同的metadata对最后检索的结果贡献不一样**
+
+  ![image-20230306100443859](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230306100443859.png)
+
+* 方法
+  * CLIP直接检索无法搞定那些电商领域的语义信息，所以do一下文本的embedding
+  * 过去的confounder设计都是直接考虑了全部文本数据，这里使用metadata进行考虑，同时加权选出**重要的confounder**
+
+![image-20230306102010632](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230306102010632.png)
+
 **[领域泛化] GCISG: Guided Causal Invariant Learning for Improved Syn-to-real Generalization**, in ECCV 2022. [[pdf](https://arxiv.org/abs/2208.10024)]
 
 > 个人认为这篇论文写得有点夸张了，实际上就那么回事。

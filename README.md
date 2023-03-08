@@ -14,13 +14,13 @@
 
 
 
+
+
+## :bookmark_tabs: Question Generation & Answering & Reasoning
+
 ---
 
-## :grey_question: Question Generation
-
----
-
-### :mountain_snow: **Textual Question Generating Crosstalk**
+### :mountain_snow: **Textual QG**
 
 **一、利用答案和语言特征**
 
@@ -54,6 +54,7 @@ de --> Copy-Mechanism,一样使用加性注意力 --> 计算出概率从source�
 
 
 :white_check_mark: :fire: :hammer_and_wrench: **Learning to Ask: Neural Question Generation for Reading Comprehension**, in ACL 2017. [[pdf]](https://arxiv.org/abs/1705.00106) [[official code (torch)](https://github.com/xinyadu/nqg)]
+
 * 将端到端训练的神经网络应用于问题生成
 * 采用seq2seq+attention模型架构
 * 摆脱了转换规则与模版的局限，取得了相比于传统方法更好的性能
@@ -77,6 +78,7 @@ LSTM --oours--> 句子+段落的encoder输出
 2. **答案编码**
 
 :white_check_mark: :fire: **Improving Neural Question Generation using Answer Separation**, in AAAI 2019.  [[pdf](https://arxiv.org/abs/1809.02393)] 
+
 * 很多基础操作
 * 在答案上做了简单高效的预处理
   * Mask 原文中的答案
@@ -223,7 +225,7 @@ LSTM --oours--> 句子+段落的encoder输出
     $$
     \operatorname{flag}_i^t= \begin{cases}0 & x_i \text { is not a constrain } \\ 1 & x_i \text { does not appear in } y_{1: t} \\ 2 & x_i \text { appear in } y_{1: t}\end{cases}
     $$
-    
+
 
     ![image-20221115112909494](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221115112909494.png)
 
@@ -274,7 +276,51 @@ LSTM --oours--> 句子+段落的encoder输出
 
 * Multi-feature Encoder: 使用了POS（词性标注）+ NER（关系抽取）
 
+
+
+:white_check_mark:  :hammer_and_wrench:  **Mixture Content Selection for Diverse Sequence Generation**, in EMNLP 2019.[[pdf](https://arxiv.org/abs/1909.01953)] [[torch](https://github.com/clovaai/FocusSeq2Seq)]
+
+:hammer_and_wrench: **Radial Graph Convolutional Network for Visual Question Generation**, in IEEE Transactions on Neural Networks and Learning Systems 2020. [[pdf](https://ieeexplore.ieee.org/document/9079208)] [[torch](https://github.com/Wangt-CN/VQG-GCN)]
+
+### :sunflower: VQA
+
+> 在2022年的今天，VQA任务不太可能从刷分的角度来入手了 [[Blog链接](https://www.zhihu.com/question/419828408/answer/1595386400)]
+>
+> - VQA任务是什么
+>
+> - 介绍之前的模型和方法
+>
+> - 欢迎来到Transformer的时代
+>
+> - - 2019：尝试多模态表征
+>   - 2020：拥抱多模态表征
+>   - 2021：统一构架的探索
+
+machine reading comprehension (**MRC**)和question answering (QA)的关系其实是相对独立的。Pure VQA任务一般是没有引入额外的**文本内容**，只是单纯的有$\{图， 问句， 回答\}$。而Multimodal MRC任务，实际上就只是引入了**额外的context**作为VQA任务的知识，并且更加注重于自然语言的理解。MRC的主要**任务类型**一共有四种，分别为:
+
+* 完形填空（Cloze Style）
+* 多项选择（Multiple Choice）
+* 片段抽取（Span Prediction）
+* 自由作答（Free-form Answer）
+
+**[非深度学习方法] Answer-Type Prediction for Visual Question Answering**，in CVPR 2016. [[pdf](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=7780907)]
+
+* 预测问题类别（人为标定）的概率再回答问题
+* 利用**贝叶斯算法**对目标的空间关系进行建模，计算出每个答案的概率
+* 其有效性不如简单的基线模型；部分原因在于其**依赖语义分割的结果**
+
+
+
+**Differential Attention for Visual Question Answering**, in CVPR 2018. [[pdf](https://arxiv.org/pdf/1804.00298.pdf)]
+
+* 解决为了让模型更加关注到**人类所关注**的区域
+
+![image-20220910151132747](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20220910151132747.png)
+
+
+
 :hammer_and_wrench: **Multiple Objects-Aware Visual Question Generation**, in ACM MM 2021. [[pdf](https://dl.acm.org/doi/abs/10.1145/3474085.3476969)]
+
 * **写作上写得很实在，很容易懂**，有很多承上启下的句子。
 * 首次将**对象**融入到问题生成任务当中
 
@@ -339,6 +385,10 @@ LSTM --oours--> 句子+段落的encoder输出
 
 ![image-20230128205258419](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230128205258419.png)
 
+---
+
+
+
 ### :video_camera: Video QG
 
 **Video Question Generation via Semantic Rich Cross-Modal Self-Attention Networks Learning**, in ICASSP 2020. [[pdf](https://ieeexplore.ieee.org/document/9053476)]
@@ -356,53 +406,6 @@ LSTM --oours--> 句子+段落的encoder输出
 
 * 引入一问一答的形式，生成问题和答案，然后测试答案是否正确
 * 硬件平台：NVIDIA DGX-1（8 * V100）
-
-### :sun_with_face: QG examples
-
-:white_check_mark:  :hammer_and_wrench:  **Mixture Content Selection for Diverse Sequence Generation**, in EMNLP 2019.[[pdf](https://arxiv.org/abs/1909.01953)] [[torch](https://github.com/clovaai/FocusSeq2Seq)]
-
-:hammer_and_wrench: **Radial Graph Convolutional Network for Visual Question Generation**, in IEEE Transactions on Neural Networks and Learning Systems 2020. [[pdf](https://ieeexplore.ieee.org/document/9079208)] [[torch](https://github.com/Wangt-CN/VQG-GCN)]
-
-## :bookmark_tabs: Question Answering & Reasoning
-
----
-
-### :sunflower: Visual
-
-> 在2022年的今天，VQA任务不太可能从刷分的角度来入手了 [[Blog链接](https://www.zhihu.com/question/419828408/answer/1595386400)]
->
-> - VQA任务是什么
->
-> - 介绍之前的模型和方法
->
-> - 欢迎来到Transformer的时代
->
-> - - 2019：尝试多模态表征
->   - 2020：拥抱多模态表征
->   - 2021：统一构架的探索
-
-machine reading comprehension (**MRC**)和question answering (QA)的关系其实是相对独立的。Pure VQA任务一般是没有引入额外的**文本内容**，只是单纯的有$\{图， 问句， 回答\}$。而Multimodal MRC任务，实际上就只是引入了**额外的context**作为VQA任务的知识，并且更加注重于自然语言的理解。MRC的主要**任务类型**一共有四种，分别为:
-
-* 完形填空（Cloze Style）
-* 多项选择（Multiple Choice）
-* 片段抽取（Span Prediction）
-* 自由作答（Free-form Answer）
-
-**[非深度学习方法] Answer-Type Prediction for Visual Question Answering**，in CVPR 2016. [[pdf](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=7780907)]
-
-* 预测问题类别（人为标定）的概率再回答问题
-* 利用**贝叶斯算法**对目标的空间关系进行建模，计算出每个答案的概率
-* 其有效性不如简单的基线模型；部分原因在于其**依赖语义分割的结果**
-
-
-
-**Differential Attention for Visual Question Answering**, in CVPR 2018. [[pdf](https://arxiv.org/pdf/1804.00298.pdf)]
-
-* 解决为了让模型更加关注到**人类所关注**的区域
-
-![image-20220910151132747](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20220910151132747.png)
-
-
 
 :fire: :hammer_and_wrench: **[因果关系] Visual Commonsense R-CNN**, in CVPR 2020. [[pdf](https://arxiv.org/abs/2002.12204)] [[torch](https://github.com/Wangt-CN/VC-R-CNN)] [[blog](https://zhuanlan.zhihu.com/p/111306353)]
 
@@ -874,7 +877,7 @@ $$
   * 预训练模型当中的**隐式知识更加重要**
   * 具体见**论文的实验**
 
-### :sunny: Textual
+### :sunny: Textual-QA
 
 :fire:  :hammer_and_wrench: **[Question Answering] Commonsense for Generative Multi-Hop Question Answering Tasks**, in EMNLP 2018. [[pdf]](https://arxiv.org/abs/1809.06309) [[tensorflow]](https://github.com/yicheng-w/CommonSenseMultiHopQA)
 
@@ -977,23 +980,19 @@ $$
 
 
 
-## :book: Paraphrase
+## :icecream: Vision-Language Text Generation
+
+### :book: Paraphrase
 
 :hammer_and_wrench: **[Sentence Discrimination] Learning Semantic Sentence Embeddings using Sequential Pair-wise Discriminator**,in COLING 2018. [[pdf](https://aclanthology.org/C18-1230/)] [[torch](https://github.com/badripatro/PQG)]
 
 :hammer_and_wrench: **[Hierarchical Sketch&Paraphrase Generation] Hierarchical Sketch Induction for Paraphrase Generation**, in ACL 2022.[[pdf](https://aclanthology.org/2022.acl-long.178.pdf)] [[torch](https://github.com/tomhosking/hrq-vae)]
 
-### :whale2: Related Big Model
-
-:fire: :hammer_and_wrench: **[Cross-Modal&Contrastive Learning] UNIMO: Towards Unified-Modal Understanding and Generation via Cross-Modal Contrastive Learning**, in ACL(long paper) 2021. [[pdf](https://aclanthology.org/2021.acl-long.202/)] [[project from Baidu](https://unimo-ptm.github.io/)]
-
-:hammer_and_wrench: **[MultiModal] UniT: Multimodal Multitask Learning with a Unified Transformer**, ICCV 2021. [[pdf](https://openaccess.thecvf.com/content/ICCV2021/papers/Hu_UniT_Multimodal_Multitask_Learning_With_a_Unified_Transformer_ICCV_2021_paper.pdf)] [[project from Fair](https://mmf.sh/)]
-
-## :framed_picture: Image Caption
-
 ---
 
 
+
+### :framed_picture: Image Caption
 
 :white_check_mark: :hammer_and_wrench: **[Image Caption] Generating Diverse and Descriptive Image Captions Using Visual Paraphrases**, in ICCV 2019. [[pdf](https://ieeexplore.ieee.org/document/9010984)] [[torch](https://github.com/pkuliu/visual-paraphrases-captioning)]
 
@@ -1551,6 +1550,8 @@ $$
 
 
 
+---
+
 
 
 ### :timer_clock: Temporal Grounding
@@ -1622,6 +1623,10 @@ $$
 
   
 
+---
+
+
+
 ### :man_student: Video Question Answer
 
 **Invariant Grounding for Video Question Answering**, in CVPR 2022 oral.  [[pdf](https://openaccess.thecvf.com/content/CVPR2022/papers/Li_Invariant_Grounding_for_Video_Question_Answering_CVPR_2022_paper.pdf)] [[torch](https://github.com/yl3800/IGV)]
@@ -1672,6 +1677,8 @@ $$
 
 * 详细细节见论文！
 
+---
+
 
 
 ### :writing_hand: Video Caption
@@ -1709,6 +1716,30 @@ $$
 **对比损失**$\mathcal{L}_{c a}=\sum_{(V, Y) \in \mathcal{D}} \sum_{t} \sum_{i}^{M_{t}}\left(-\log p_{c a}\left(s_{i, t}\right)\right)$, $p_{c a}\left(s_{i, t}\right)=\sum_{j=1}^{N} \alpha_{i, j, t}^{p o s}$    ($\alpha^{pos}$ 为正样本时候对齐注意力的权重) 
 
 
+
+## :eye: Grounding
+
+:fire: **Learning to Prompt for Open-Vocabulary Object Detection with Vision-Language Model**, in CVPR 2022. [[pdf](https://arxiv.org/abs/2203.14940)] [[torch](https://github.com/dyabel/detpro)]
+
+> 将CoOP（图像分类）论文思想放入OD当中
+
+* 动机
+  * 人工设计Prompt较为麻烦
+  * 前景和背景分离在OD中很重要
+  * 前景的上下文分级也很重要（通过IOU来判定）
+* 模型方法（具体见论文）
+  * IOU来分理处前景背景
+  * 损失函数设计
+    * **背景的损失和哪个class都不相似**
+  * 通过IOU来对前景分级处理
+
+* 连续型Prompt学习：
+
+![image-20230307224847531](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230307224847531.png)
+
+* 嵌入ViLD框架当中
+
+![image-20230307224949152](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230307224949152.png)
 
 ##  :apple: Causality Learning
 
@@ -1765,6 +1796,26 @@ $$
   * 模型
 
   ![image-20230130121841363](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230130121841363.png)
+
+:fire: :hammer_and_wrench: **Everything Has a Cause: Leveraging Causal Inference in Legal Text Analysis**, in NAACL 2021. [[pdf](https://aclanthology.org/2021.naacl-main.155/)]  [[torch](https://github.com/xxxiaol/GCI/)]
+
+* 动机
+  * 将因果推理应用到非结构化的文本数据当中，帮助法律从业者决策
+* 方法
+  * 概览：从事实描述文本中自动构建因果图，用因果推理来辅助法律决策的制定，本文中similar charge disambiguation任务上测试了该框架的效果。
+    1. 用关键词抽取（用YAKE+IDF计算单词对罪名的重要性），来识别出事实描述中的key factors。
+    2. 将相似的key factors聚类到组中，每个组视为一个独立节点。（图的节点的每个组和罪名）
+    3. 用对未识别变量鲁棒（无监督抽取可能导致关键词不完全，因果发现时有未识别confounder）的causal discovery algorithm（Greedy Fast Causal Inference (GFCI)）来构造因果图。（输出是Partial Ancestral Graph (PAG)）（在附录中可以看到，这种算法能够识别出隐factor）（限制：1. 禁止罪名节点出边。2. 以案例（事件描述文本）的时间顺序来限制因果关系）（抽样因果图）
+    4. 估算每条边的causal strength来减少不可靠边的影响。（保持Confounder不变）（方法：Average Treatment Effect (ATE)）（估算ATE的方法：Propensity Score Matching (PSM) 在treated/untreated group之间构建相似样本对）
+    5. 将**因果知识结合到NN**中：①在NN attention weights上加入causal strength限制（加损失函数）。②在因果图上抽取出的因果链上使用RNN。
+
+![image-20230308160457133](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230308160457133.png)
+
+* 两种方式将因果推理和神经网络相结合
+
+![image-20230308160530921](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230308160530921.png)
+
+
 
 :hammer_and_wrench: :fire: **Deconfounded Video Moment Retrieval with Causal Intervention**, in SIGIR 2021. [[pdf](https://arxiv.org/abs/2106.01534)] [[torch](https://github.com/Xun-Yang/Causal_Video_Moment_Retrieval)]
 
@@ -2358,6 +2409,8 @@ $$
 来源：知乎
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
+---
+
 
 
 ### :older_man: Text Classification
@@ -2377,6 +2430,8 @@ $$
 
 ![image-20221202123732640](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221202123732640.png)
 
+---
+
 
 
 ### :framed_picture: Topic 
@@ -2393,9 +2448,17 @@ $$
 
 
 
-## :world_map: Knowledge
+## :mailbox: Knowledge&PLM&VLM
 
-:fire: **[多模态知识图谱综述] Multi-Modal Knowledge Graph Construction and Application: A Survey**, in 2022. [[pdf](https://arxiv.org/pdf/2202.05786.pdf)] [[zhihu](https://zhuanlan.zhihu.com/p/484096631)]
+### :rainbow: VLM
+
+> 多模态预训练
+
+:fire: :hammer_and_wrench: **[Cross-Modal&Contrastive Learning] UNIMO: Towards Unified-Modal Understanding and Generation via Cross-Modal Contrastive Learning**, in ACL(long paper) 2021. [[pdf](https://aclanthology.org/2021.acl-long.202/)] [[project from Baidu](https://unimo-ptm.github.io/)]
+
+:hammer_and_wrench: **[MultiModal] UniT: Multimodal Multitask Learning with a Unified Transformer**, ICCV 2021. [[pdf](https://openaccess.thecvf.com/content/ICCV2021/papers/Hu_UniT_Multimodal_Multitask_Learning_With_a_Unified_Transformer_ICCV_2021_paper.pdf)] [[project from Fair](https://mmf.sh/)]
+
+
 
 :fire: **:hammer_and_wrench:** **Leveraging Visual Knowledge in Language Tasks: An Empirical Study on Intermediate Pre-training for Cross-modal Knowledge Transfer**, in ACL 2022. [[pdf](https://aclanthology.org/2022.acl-long.196/)] [[torch (2022.12.01未开源)](https://github.com/INK-USC/CMKT)]
 
@@ -2440,6 +2503,7 @@ $$
   ![image-20221201195203819](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221201195203819.png)
 
 * **结论**
+
   * **简单在captions数据集**上继续预训练可以取得知识迁移的效果
   * 跨模态的知识迁移在**很小的训练样本**情况下可以极大提高**下游任务**的性能
   * **对比学习的方法**对视觉知识（对象属性等，如第一张图说的）的学习是最好的
@@ -2463,4 +2527,14 @@ $$
   ![image-20230213181333946](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230213181333946.png)
 
   
+
+
+
+---
+
+
+
+### :world_map: Knowledge
+
+:fire: **[多模态知识图谱综述] Multi-Modal Knowledge Graph Construction and Application: A Survey**, in 2022. [[pdf](https://arxiv.org/pdf/2202.05786.pdf)] [[zhihu](https://zhuanlan.zhihu.com/p/484096631)]
 

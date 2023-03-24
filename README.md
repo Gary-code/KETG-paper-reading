@@ -943,6 +943,20 @@ machine reading comprehension (**MRC**)和question answering (QA)的关系其实
 
 
 
+
+
+**Iteratively Prompt Pre-trained Language Models for Chain of Thought**, in EMNLP 2022. [[pdf](https://arxiv.org/abs/2203.08383)] [[torch](https://github.com/sunlab-osu/IterPrompt)]
+
+* 动机
+
+  * `CoT`的其中一种实现方式
+
+  ![image-20230323172041557](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230323172041557.png)
+
+* 方法
+
+![image-20230323172136781](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230323172136781.png)
+
 ## :icecream: Vision-Language Text Generation
 
 ### :book: Paraphrase

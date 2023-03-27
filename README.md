@@ -957,6 +957,22 @@ machine reading comprehension (**MRC**)和question answering (QA)的关系其实
 
 ![image-20230323172136781](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230323172136781.png)
 
+
+
+**Inductive Relation Prediction with Logical Reasoning Using Contrastive Representations**, in EMNLP 2022. [[pdf](https://aclanthology.org/2022.emnlp-main.286/)
+
+* 动机
+
+![image-20230327110331795](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230327110331795.png)
+
+
+
+* 方法
+
+![image-20230327110354474](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230327110354474.png)
+
+
+
 ## :icecream: Vision-Language Text Generation
 
 ### :book: Paraphrase

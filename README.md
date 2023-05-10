@@ -226,8 +226,7 @@ LSTM --oours--> 句子+段落的encoder输出
     \operatorname{flag}_i^t= \begin{cases}0 & x_i \text { is not a constrain } \\ 1 & x_i \text { does not appear in } y_{1: t} \\ 2 & x_i \text { appear in } y_{1: t}\end{cases}
     $$
 
-
-    ![image-20221115112909494](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221115112909494.png)
+![image-20221115112909494](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20221115112909494.png)
 
   * 模型图
 
@@ -250,6 +249,17 @@ LSTM --oours--> 句子+段落的encoder输出
 * 方法模型，类似**MAML的元学习器**， [MAML简单解析](https://blog.csdn.net/weixin_42392454/article/details/109891791)
 
 ![image-20230218215656301](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230218215656301.png)
+
+
+
+:hammer_and_wrench: **Modeling What-to-ask and How-to-ask for Answer-unaware Conversational Question Generation**, in ACL 2023. [[pdf](https://arxiv.org/abs/2305.03088)] [[torch](https://github.com/dxlong2000/SG-CQG)]
+
+> 有点教育学 + AI的意思，但实际上还是比较简单的做法
+
+* 动机：What-to-ask and How-to-ask （**教育学**）
+* 方法（RoBERTa$_{large}$ 作为**QT classifier**， 预训练好的T5$_{base}$作为主干网络参数）
+
+![image-20230510163004578](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230510163004578.png)
 
 
 ****
@@ -840,6 +850,22 @@ machine reading comprehension (**MRC**)和question answering (QA)的关系其实
   * 预训练模型当中的**隐式知识更加重要**
   * 具体见**论文的实验** 
 
+:hammer_and_wrench: **A Multi-Modal Context Reasoning Approach for Conditional Inference on Joint Textual and Visual Clues**, in ACL 2023. [[pdf](https://arxiv.org/abs/2305.04530)] [[torch](https://github.com/YunxinLi/Multimodal-Context-Reasoning)]
+
+* 动机
+
+  * 过去这个多模态推理的任务都是用VLM的方式，很少考虑到multimodal context推理的能力（**缺少这种pre-context的机制来激活模型**）
+  * PMR数据集中的例子
+
+  ![image-20230510161851173](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230510161851173.png)
+
+* 贡献
+  * 多模态的in-context能力
+  * 激发P LM做多模态推理的能力
+* 方法
+
+![image-20230510162012719](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230510162012719.png)
+
 ### :sunny: Textual-QA
 
 :fire:  :hammer_and_wrench: **[Question Answering] Commonsense for Generative Multi-Hop Question Answering Tasks**, in EMNLP 2018. [[pdf]](https://arxiv.org/abs/1809.06309) [[tensorflow]](https://github.com/yicheng-w/CommonSenseMultiHopQA)
@@ -970,6 +996,21 @@ machine reading comprehension (**MRC**)和question answering (QA)的关系其实
 * 方法
 
 ![image-20230327110354474](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230327110354474.png)
+
+
+
+:hammer_and_wrench: **Plan-and-Solve Prompting: Improving Zero-Shot Chain-of-Thought Reasoning by Large Language Models**, in ACL 2023. [[pdf](https://arxiv.org/abs/2305.04091)] [[code](https://github.com/AGI-Edgerunners/Plan-and-Solve-Prompting[)]
+
+* 过去的`COT`存在的问题
+  * calculation errors
+  * missing-step error
+  * semantic misunderstanding errors
+
+![image-20230510163540908](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230510163540908.png)
+
+* 我们的方法和过去对比
+
+![image-20230510163605207](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230510163605207.png)
 
 
 
@@ -1492,7 +1533,7 @@ machine reading comprehension (**MRC**)和question answering (QA)的关系其实
 
 ## :sunglasses: Video Understanding
 
-### :video_camera: Features Fusion
+### :video_camera: Features Learning
 
 :white_check_mark: :fire: :hammer_and_wrench: **[TSN] Temporal Segment Networks: Towards Good Practices for Deep Action Recognition**, in ECCV 2016.  [[pdf](https://arxiv.org/abs/1608.00859)]  [[torch](https://github.com/yjxiong/temporal-segment-networks)]
 
@@ -1553,6 +1594,19 @@ machine reading comprehension (**MRC**)和question answering (QA)的关系其实
 > 同时，还有[关于多模态（视频-文本）Transformer模型的博客链接](https://zhuanlan.zhihu.com/p/388361095)
 
 
+
+:hammer_and_wrench: **[PEFT&动作识别] AIM: Adapting Image Models for Efficient Video Action Recognition**, in ICLR 2023. [[pdf](https://arxiv.org/abs/2302.03024)] [[torch](https://adapt-image-models.github.io/)]
+
+> **大模型时代**下很好的尝试`Parameter Effectient Fine-tuning`
+
+* 动机
+  * 到底可不可以直接**冻住一个很好的Image Model**，只是**加一些很少量的可学习的参数做视频理解**的任务呢？
+  
+  ![image-20230401174941604](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230401174941604.png)
+  
+* 方法（很巧妙很简单）
+
+![image-20230401175010208](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230401175010208.png)
 
 ---
 
@@ -2364,6 +2418,32 @@ $$
 
 
 
+:hammer_and_wrench: **Causality-aware Concept Extraction based on Knowledge-guided Prompting**, in ACL 2023. [[pdf](https://arxiv.org/abs/2305.01876)] [[torch](https://github.com/siyuyuan/KPCE)]
+
+> 方法极其简单
+
+* 动机
+
+  * PLM在概念抽取当中往往会存在Bias（概念抽取就是把某个span抽取出来）
+
+  ![image-20230505221541856](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230505221541856.png)
+
+  ![image-20230505221654869](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230505221654869.png)
+
+* 因果分析
+
+  * 由于语言模型里面的先验知识没办法观测，所以采用前门调整的机制（加多一个中介）
+
+  ![image-20230505221755518](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230505221755518.png)
+
+* 方法（极其简单，加多一个分类出来的Topic）
+
+  ![image-20230505221901782](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230505221901782.png)
+
+
+
+
+
 ## :old_key: Traditional NLP Task
 
 ### :label: NER
@@ -2517,7 +2597,104 @@ $$
 
 
 
-## :mailbox: Knowledge&PLM&VLM
+## :mailbox: Knowledge&LLM&VLM
+
+### :rocket: LLM
+
+:fire: :hammer_and_wrench: **Quark: Controllable Text Generation with Reinforced [Un]learning**, in NIPS 2022. [[pdf](https://arxiv.org/abs/2205.13636)] [[torch](https://github.com/GXimingLu/Quark)]
+
+* 动机
+  * 整体思路和`InstructGPT`很类似，但是不再训练奖励模型，而是使用prompt来取代（评判生成的是否是好句子）
+* 与Instruct GPT 不同的地方
+  1. **抛弃训练打分模型（reword model）这个步骤**，觉得训练一个打分模型过于繁琐，增加训练成本
+  2. 然而也要保证人工监督的信息（human feedback）传入生成模型中，论文提出使用一个==**打分标记**==（reward token）嵌入prompt中来控制生成，如此可以更为简洁地实现human feedback+reinforcement learning的训练技术策略。
+* 模型方法
+  1. **Exploration，**同样基于一个大规模预训练模型（GPT）产生一批prompt生成结果，接着对其评价打分，并存储一个数据池中（data pool）
+  2. **Quantization，**利用打分的结果，给数据池中中的数据进行排序，然后进行层级量化分类（如分好，中、差类似）
+  3. **Learning，**将已经分层的样本，给一个打分标记（图中[R3]）与prompt拼接在一起作为输入，对原始的预训练模型进行微调训练学习。
+
+![image-20230412090327306](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230412090327306.png)
+
+:fire: :hammer_and_wrench: **Large Language Models Are Human-Level Prompt Engineers**, in ICLR 2023. [[pdf](https://arxiv.org/abs/2211.01910)] [[torch](https://sites.google.com/view/automatic-prompt-engineer)] [[zhihu](https://zhuanlan.zhihu.com/p/619112790)]
+
+* 动机
+  * 一句话来概括本文的思路: 利用训练数据构造demonstration，要求LLM在指定描述的情境下，产生对应的prompt集合，然后评估选择出最佳的instruction。
+* 具体思路
+  1. 使用LLM作为推理模型，基于**输入和输出的描述集合**，产生**指令候选集**。
+  2. 对于候选集中的每个指令，计算输入和输出LLM下的得分。
+  3. 使用迭代蒙特卡洛的搜索方式，通过提出语义相似的指令变体来改进最佳的指令候选，增加指令的多样性。
+
+![image-20230508105808096](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230508105808096.png)
+
+:fire: **[2023.5.6未开源] SCOTT: Self-Consistent Chain-of-Thought Distillation**, in ACL 2023. [[pdf](https://arxiv.org/abs/2305.01879)]
+
+* 动机
+
+  * 只有比较大的LLM才有COT的能力，而且大的LLM也会产生很多幻觉信息，导致蒸馏出来的小模型在COT能力上会很差
+
+  ![image-20230506092740246](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230506092740246.png)
+
+* 方法【teacher：GPT-neox20B student：T5 3B】
+
+  * 大模型中采用Contrastive Decoding编码的策略（意味着你必须获得词概率的分布，模型可以frozen掉）
+  * 小模型当中利用大模型生成的数据进行训练（同时让teacher生成一些反事实的也一起丢进去fine-tuning）
+
+   ![image-20230506093023819](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230506093023819.png)
+
+  * 细节
+
+    * teacher的contrastive decoing的策略
+
+    ![image-20230506093124595](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230506093124595.png)
+
+    * student的反事实推理能力（都是由teacher产生的，具体来说就是把teacher中输入的答案换成错误的答案或者空的字符就可以了）
+
+    ![image-20230506093251574](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230506093251574.png)
+
+:fire: **Distilling Step-by-Step! Outperforming Larger Language Models with Less Training Data and Smaller Model Sizes**
+
+> 方法也太简单了，其实就是当前LLM的范式，用大语言模型生成的东西来蒸馏学习小模型
+
+* 方法
+
+![image-20230506095246261](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230506095246261.png)
+
+
+
+:fire: **Poisoning Language Models During Instruction Tuning**, in ICML 2023. [[pdf](https://arxiv.org/abs/2305.00944)] [[torch](https://github.com/AlexWan0/Poisoning-Instruction-Tuned-Models[)]
+
+* 动机
+
+  * 在训练时候加入脏数据攻击语言模型
+
+  ![image-20230508103121615](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230508103121615.png)
+
+
+
+:fire: :hammer_and_wrench: **Outline, Then Details: Syntactically Guided Coarse-To-Fine Code Generation**, in ICML 2023. [[pdf](https://arxiv.org/abs/2305.00909)] [[torch](https://github.com/VITA-Group/ChainCoder)]
+
+* 动机
+
+  * 过去的代码生成都是一次性的，效果并不好，应该COT那样子生成
+  * 忽略了句法结构作为先验
+
+* 最大贡献
+
+  * 提出基于句法树的Tokenizer（最重要的贡献）
+
+* 方法
+
+  * Tokenizer
+
+   ![image-20230508194557470](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230508194557470.png)
+
+  $S3$和$S4$是重点，tokenizer的encode伪代码如下：
+
+  ![image-20230508194659740](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230508194659740.png)
+
+* 模型（预训练+微调）
+
+![image-20230508194740606](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230508194740606.png)
 
 ### :rainbow: VLM
 

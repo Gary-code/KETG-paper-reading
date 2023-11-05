@@ -262,6 +262,19 @@ LSTM --oours--> 句子+段落的encoder输出
 ![image-20230510163004578](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230510163004578.png)
 
 
+
+:hammer_and_wrench: **Synthetic Question Value Estimation for Domain Adaptation of Question Answering**, in ACL 2023. [[pdf](https://aclanthology.org/2022.acl-long.95.pdf)] [[torch](https://github. com/xiangyue9607/QVE)]
+
+* 动机
+  * 目标领域的QA，需要生成目标领域的QG（设置有点复杂）
+
+![image-20230718215810631](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230718215810631.png)
+
+* 模型方法
+
+![image-20230718215838581](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230718215838581.png)
+
+
 ****
 
 ### :sunrise: Visual QG
@@ -394,6 +407,40 @@ machine reading comprehension (**MRC**)和question answering (QA)的关系其实
 * 更多Cases
 
 ![image-20230128205258419](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230128205258419.png)
+
+
+
+:hammer_and_wrench: **Why Did the Chicken Cross the Road? Rephrasing and Analyzing Ambiguous Questions in VQA**, in ACL 2023. [[pdf](https://arxiv.org/abs/2211.07516)] [[dataset&torch](https://github.com/esteng/ambiguous_vqa)]
+
+* 动机
+  * 标注一个新的VQA数据集（只有验证和测试时候的），因为这个工作是想用来评估当下VQG模型的性能
+  * 缓解一下VQG任务当中一些很ambiguity的问题
+    * 视觉信息没出现
+    * 问法不明确
+
+| ![image-20230621151706413](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230621151706413.png) | ![image-20230621151725513](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230621151725513.png) |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+
+
+
+* 方法模型
+  * Baseline验证一下而已
+  * 未来可以用来做**VQG改写**的任务
+
+
+
+:fire: :hammer_and_wrench: **Location-Aware Visual Question Generation with Lightweight Models**, in EMNLP 2023. [[pdf](https://arxiv.org/pdf/2310.15129v1.pdf)] [[torch](https://github.com/academiasinicanlplab/locavqg)]
+
+> 很搞的一个动机
+
+* 动机
+  * 避免司机的疲劳驾驶，让移动设备根据当前驾驶环境给司机提问
+
+![image-20231105103551827](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231105103551827.png)
+
+* 数据集构建过程（利用GPT-4）
+
+![image-20231105103601176](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231105103601176.png)
 
 ---
 
@@ -866,6 +913,132 @@ machine reading comprehension (**MRC**)和question answering (QA)的关系其实
 
 ![image-20230510162012719](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230510162012719.png)
 
+:fire: :hammer_and_wrench: **Combo of Thinking and Observing for Outside-Knowledge VQA**, in ACL 2023. [[pdf](https://arxiv.org/abs/2305.06407)] [[torch](https://github.com/PhoebusSi/Thinking-while-Observing)]
+
+* 动机
+  * 过去的知识性VQA要么忽视了textual knowledge in natural-language space
+  * 要么完全放弃了视觉信息
+  * 这里希望两者结合起来，约束多模态空间into语言空间当中
+
+![image-20230516111041254](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230516111041254.png)
+
+* 过去工作的汇总
+
+![image-20230516111123423](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230516111123423.png)
+
+* 方法：超级无敌大杂烩
+
+![image-20230516111152375](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230516111152375.png)
+
+
+
+:hammer_and_wrench: **[I-T Retrieval] CLIP for All Things Zero-Shot Sketch-Based Image Retrieval, Fine-Grained or Not**, in CVPR 2023. [[pdf](https://arxiv.org/abs/2303.13440)] [[torch](https://aneeshan95.github.io/Sketch_LVM/)]
+
+* 动机
+  * 第一次ZS的 Sketch-based 的图片检索
+  * 方法上设计了一些独特的loss（很低资源的显卡都可以跑起来）
+
+![image-20230724101958886](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230724101958886.png)
+
+* 方法
+  * 整体框架
+
+![image-20230724102027823](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230724102027823.png)
+
+* 领域迁移的loss
+
+![image-20230724102052645](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230724102052645.png)
+
+
+
+:hammer_and_wrench: **[T-I Retrieval] Pic2Word: Mapping Pictures to Words for Zero-shot Composed Image Retrieval**, in CVPR 2023. [[pdf](https://arxiv.org/abs/2302.03084)] [[torch](https://github.com/google-research/composed_image_retrieval)]
+
+* 动机
+  * Zero-shot的开放世界图文检索
+
+![image-20230724103100073](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230724103100073.png)
+
+* 方法
+
+![image-20230724103119337](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230724103119337.png)
+
+
+
+:hammer_and_wrench: **Symbolic Replay: Scene Graph as Prompt for Continual Learning on VQA Task**, in AAAI 2023. [[pdf](https://arxiv.org/abs/2208.12037)] [[Dataset&torch](https://github.com/showlab/CLVQA)]
+
+* 动机
+  * 和CVPR 2023的那一篇一样，都是VQA连续学习的
+  * 做法上为了保证数据隐私，memory要用生成的内容
+  * 提出benchmark主要分为场景图（6类场景） + 功能（6类功能）
+
+![image-20230725103249913](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230725103249913.png)
+
+![image-20230725103403996](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230725103403996.png)
+
+* 方法（个人还是觉得CVPR 2023的那个做法好一些）
+
+![image-20230725103420284](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230725103420284.png)
+
+![image-20230725103514264](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230725103514264.png)
+
+
+
+* 实验（不同的Task Order）
+
+![image-20230725103637538](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230725103637538.png)
+
+:hammer_and_wrench: :fire: **PROMPTCAP: Prompt-Guided Task-Aware Image Captioning**, in ICCV 2023. [[pdf](https://arxiv.org/abs/2211.09699)] [[torch](https://yushi-hu.github.io/promptcap_demo/)]
+
+> 这篇论文我关注很久了，估计是投CVPR没中，中了ICCV
+
+* 动机
+  * 如何用ChatGPT辅助知识性视觉问答
+
+![image-20230829205901778](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230829205901778.png)
+
+* 训练方法
+
+![image-20230829210040620](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230829210040620.png)
+
+* Prompt的设计
+
+![image-20230829210305089](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230829210305089.png)
+
+* 模型推理过程
+
+![image-20230829210335689](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230829210335689.png)
+
+* 实验结果
+
+![image-20230829210409210](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230829210409210.png)
+
+
+
+:hammer_and_wrench: **SlideVQA: A Dataset for Document Visual Question Answering on Multiple Images**, in AAAI 2023. [[pdf](https://arxiv.org/abs/2301.04883)] [[torch](https://github. com/nttmdlab-nlp/SlideVQA)]
+
+* 动机
+  * PPT VQA数据集：很好的解决了为什要进行多图像的QA或者QG的动机
+  * 过去的文档VQA往往也只是关注一张图片
+  * 目前模型的结果和人类的结果相比相差还非常大
+* 数据集样例
+  * 单跳，多跳，数据推到的问题
+
+![image-20230912151704417](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230912151704417.png)
+
+* 模型方法
+
+![image-20230912151818638](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230912151818638.png)
+
+
+
+:hammer_and_wrench: :fire: **Encyclopedic VQA: Visual questions about detailed properties of fine-grained categories**, in ICCV 2023. [[pdf](https://arxiv.org/abs/2306.09224)] [[dataset](https://github.com/google-research/google-research/tree/master/encyclopedic_vqa)]
+
+* 动机：提出一个开放世界超级难的VQA数据集
+
+![image-20231018210801188](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231018210801188.png)
+
+
+
 ### :sunny: Textual-QA
 
 :fire:  :hammer_and_wrench: **[Question Answering] Commonsense for Generative Multi-Hop Question Answering Tasks**, in EMNLP 2018. [[pdf]](https://arxiv.org/abs/1809.06309) [[tensorflow]](https://github.com/yicheng-w/CommonSenseMultiHopQA)
@@ -1011,6 +1184,19 @@ machine reading comprehension (**MRC**)和question answering (QA)的关系其实
 * 我们的方法和过去对比
 
 ![image-20230510163605207](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230510163605207.png)
+
+
+
+:fire: **Think Twice: Measuring the Effificiency of Eliminating Prediction Shortcuts of Question Answering Models**, in ACL 2023. [[pdf](https://arxiv.org/pdf/2305.06841.pdf)]
+
+* QA数据集中，LLM **bias和debias方法的研究**
+* debias的一些方法
+  * Resampling
+  * **LearnedMixin**
+    *  uses a biased model as a complement of the trained debiased model in a weighted composition.
+  * **Confifidence Regularization**
+    * aims to reduce the model’s confifidence, i.e. **the predicted score over samples marked as biased.**
+    * 本文实验中：use BERT-BASE for both the teacher and bias model.
 
 
 
@@ -1531,6 +1717,158 @@ machine reading comprehension (**MRC**)和question answering (QA)的关系其实
 
 
 
+**Incorporating Unlikely Negative Cues for Distinctive Image Captioning**, in IJCAI 2023. [[pdf](https://www.ijcai.org/proceedings/2023/0083.pdf)]
+
+* 动机
+  * 不要生成那么generic（通用）的Caption
+  * 使用unlikely Training的方法（就是避免让模型学习到负样本的行为）
+
+![image-20230829203433135](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230829203433135.png)
+
+* 模型方法
+
+![image-20230829203508036](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230829203508036.png)
+
+
+
+:hammer_and_wrench: **Transferable Decoding with Visual Entities for Zero-Shot Image Captioning**, in ICCV 2023. [[pdf](https://arxiv.org/abs/2307.16525)]] [[torch](https://github.com/FeiElysia/ViECap)]
+
+* 动机
+  * 减少没见过物体的**对象幻觉**现象和bias问题
+    * OOD问题
+  * 要让模型在in-domain和cross-domain都表现良好的性能
+  * **只用纯文本来进行训练**
+
+![image-20230829204925597](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230829204925597.png)
+
+
+
+* 模型方法（纯文本进行训练 + zero-shot inference）
+  * 加一个CLIP entity clsssifier来识别实体
+
+![image-20230829205102812](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230829205102812.png)
+
+* 主要对比的是之前两篇同样是纯文本训练的Caption论文（EMNLP Findings 2022 和 ICLR 2022）
+
+![image-20230829205237122](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230829205237122.png)
+
+
+
+:hammer_and_wrench: **With a Little Help from your own Past: Prototypical Memory Networks for Image Captioning**, in ICCV 2023. [[pdf](https://arxiv.org/abs/2308.12383)] [[torch](https://github.com/aimagelab/PMA-Net)]
+
+* 动机
+  * 过去的传统attention不会学习到别的样本当中的语义信息
+  * 提出原型网络来做Image Caption
+
+![image-20230829215053304](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230829215053304.png)
+
+* 模型方法
+
+![image-20230829215139441](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230829215139441.png)
+
+
+
+:hammer_and_wrench: **[多模态机器翻译] CLIPTrans: Transferring Visual Knowledge with Pre-trained Models for Multimodal Machine Translation**, in ICCV 2023. [[pdf](https://vcg.seas.harvard.edu/publications/cliptrans-transferring-visual-knowledge-with-pre-trained-models-for-multimodal-machine-translation/paper)] [[torch](https://github.com/devaansh100/CLIPTrans)]
+
+* 动机
+  * 多模态机器翻译推理的时候不需要使用到图片
+  * 过去的方法在低资源的语言上表现不好（本身标注就少）
+  * 究其原因可能是文本和图像的embedding没有很充分的对齐
+
+![image-20230905111542477](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230905111542477.png)
+
+* 模型方法
+  * 两阶段训练迁移学习（**caption -> 翻译**）
+
+![image-20230905111625639](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230905111625639.png)
+
+* 修改了Decoder
+
+![image-20230905111848743](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230905111848743.png)
+
+:hammer_and_wrench: **MultiCapCLIP: Auto-Encoding Prompts for Zero-Shot Multilingual Visual Captioning**, in ACL 2023. [[pdf](https://aclanthology.org/2023.acl-long.664/)] [[torch](https://github.com/yangbang18/MultiCapCLIP)]
+
+* 动机
+  * 多语言的Image Caption
+  * 多语言的Caption标注困难
+* 方法
+  * 在训练的时候只是使用文本数据，推理才使用图像推理
+
+![image-20230907213754699](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230907213754699.png)
+
+* 例子展示
+
+![image-20230907215730610](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230907215730610.png)
+
+
+
+:hammer_and_wrench: **[视觉信息增强LM文本生成能力] Learning to Imagine: Visually-Augmented Natural Language Generation**, in ACL 2023. [[pdf](https://aclanthology.org/2023.acl-long.526/)] [[torch](https://github.com/RUCAIBox/LIVE)]
+
+> ⚠️**事先声明：这篇论文实际上是做纯文本的，输入的是文本，输出的也是文本，只不过是想联想生成一些图片来增强模型文本生成的能力**
+
+* 动机
+  * 人类在写作的时候会联想一些画面来辅助写作，比如说滑雪，就会想到一些对应的场景
+  * 利用图片增强LM文本生成的能力
+* 模型（**Stable Diffusion来生成图片**）
+
+![image-20230918095120803](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230918095120803.png)
+
+
+
+:hammer_and_wrench: **[多模态摘要生成] CFSum: A Coarse-to-Fine Contribution Network for Multimodal Summarization**, in ACL 2023. [[pdf]()] [[torch](https://github.com/xiaomin418/CFSum)]
+
+* 动机
+  * 过去的模型没有很好或者有选择性的利用图像信息
+  * 无法关注到文本中的实体和图像之间的对应关系
+
+![image-20230918113933715](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230918113933715.png)
+
+* 模型方法
+
+![image-20230918114129452](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230918114129452.png)
+
+
+
+:fire: :hammer_and_wrench: **OxfordTVG-HIC: Can Machine Make Humorous Captions from Images?**, in ICCV 2023. [[pdf](https://arxiv.org/abs/2307.11636)] [[project](https://torrvision.com/tvghic/)]
+
+* 动机
+  * 创建了一个幽默的Caption数据集
+  * 发现是符合幽默的良性冲突理论的 [[知乎](https://zhuanlan.zhihu.com/p/400646267)]
+  * 而且本文不是用传统的BLEU等指标进行测评的！（具体见论文）
+
+![image-20231013113213641](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231013113213641.png)
+
+![image-20231013113317492](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231013113317492.png)
+
+* 方法：增加选择的多样性，因为本来数据就是很多样的 
+
+![image-20231013113230477](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231013113230477.png)
+
+:hammer_and_wrench: **ALIP: Adaptive Language-Image Pre-training with Synthetic Caption**, in ICCV 2023. [[pdf](https://arxiv.org/abs/2308.08428)]] [[torch](https://github.com/deepglint/ALIP)]
+
+* 动机
+  * 过去的Caption在海量数据生成时候，会存在I-T noise的情况
+
+![image-20231021160149360](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231021160149360.png)
+
+* 方法：用OFA生成合理的Caption，控制weight设计loss来训练（具体见论文）
+
+![image-20231021160251481](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231021160251481.png)
+
+
+
+:hammer_and_wrench: **Noise-aware Learning from Web-crawled Image-Text Data for Image Captioning**, in ICCV 2023. [[pdf](https://arxiv.org/abs/2212.13563)] [[torch](https://github.com/kakaobrain/noc)]
+
+* 动机
+  * 过去网上的数据存在noise的问题，图文不匹配
+  * 过去的方法需要filter再训练（类似BLIP），但是会让模型学不到丰富的知识
+
+![image-20231021160448062](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231021160448062.png)
+
+* 方法
+
+![image-20231021160523997](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231021160523997.png)
+
 ## :sunglasses: Video Understanding
 
 ### :video_camera: Features Learning
@@ -1607,6 +1945,25 @@ machine reading comprehension (**MRC**)和question answering (QA)的关系其实
 * 方法（很巧妙很简单）
 
 ![image-20230401175010208](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230401175010208.png)
+
+
+
+:hammer_and_wrench: **Mitigating and Evaluating Static Bias of Action Representations in the Background and the Foreground**, in ICCV 2023 Oral. [[pdf](https://arxiv.org/abs/2211.12883)] [[torch](https://github.com/lihaoxin05/StillMix)]
+
+* 动机 & 贡献
+  *  前景还有后景都有可能造成动作识别的bias
+    * 前景：衣服颜色
+    * 后景：背景，排球场
+  * 提出benchmark来评估bias
+
+![image-20230902181442456](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230902181442456.png)
+
+* debias的方法（做数据增强）- 从bank中采样一帧来插值
+  * bank里面都是要求某个action的概率要高，但是本身不包含动作信息的图像
+
+![image-20230902181709607](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230902181709607.png)
+
+
 
 ---
 
@@ -1735,6 +2092,45 @@ machine reading comprehension (**MRC**)和question answering (QA)的关系其实
 
 * 详细细节见论文！
 
+
+
+:hammer_and_wrench: :fire: **Discovering Spatio-Temporal Rationales for Video Question Answering**, in ICCV 2023. [[pdf](https://arxiv.org/abs/2307.12058)] [[torch](https://github.com/yl3800/TranSTR)]
+
+* 动机
+  * 解决长视频和复杂视频的QA
+  * 问题还有视频帧存在冗余信息
+
+![image-20230902182028333](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230902182028333.png)
+
+* 模型方法（**自适应采样帧**）
+  * 核心就是找到关键信息，不要冗余的信息
+
+![image-20230902182128865](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230902182128865.png)
+
+:fire: **Redundancy-aware Transformer for Video Question Answering**, in MM 2023. [[pdf](https://arxiv.org/abs/2308.03267)]
+
+> 和上一篇论文动机很类似的，都是同一个作者，CVPR 22最佳论文候选那个作者
+
+* 模型方法
+
+![image-20230902182900805](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230902182900805.png)
+
+:fire: :hammer_and_wrench: **Tem-adapter: Adapting Image-Text Pretraining for Video Question Answer**, in ICCV 2023. [[pdf](https://arxiv.org/abs/2308.08414)] [[torch](https://github.com/XLiu443/Tem-adapter)]
+
+* 动机
+  * 讲CLIP的图文预训练方法，适配到VideoQA领域
+  * 直接适配存在两个天然的gap
+
+![image-20230902182553786](/Users/gary/Library/Application Support/typora-user-images/image-20230902182553786.png)
+
+* 过去的方法
+
+![image-20230902182618433](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230902182618433.png)
+
+* 我们的方法
+
+![image-20230902182647169](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230902182647169.png)
+
 ---
 
 
@@ -1751,7 +2147,7 @@ machine reading comprehension (**MRC**)和question answering (QA)的关系其实
 
 :hammer_and_wrench: :fire: **[Video Caption] Semantic Grouping Network for Video Captioning**, in AAAI 2021. [[pdf](https://arxiv.org/pdf/2102.00831.pdf)] [[torch](https://github.com/hobincar/SGN)]
 
-* ![image-20220621204108736](https://s2.loli.net/2022/06/21/DMmzxs7dKwyU6BE.png)
+![image-20220621204108736](https://s2.loli.net/2022/06/21/DMmzxs7dKwyU6BE.png)
 
 :hammer_and_wrench: :fire: **Hierarchical Context-aware Network for Dense Video Event Captioning**, in ACL 2021. [[pdf](https://aclanthology.org/2021.acl-long.156/)] [[torch](https://github.com/KirkGuo/HCN)]
 
@@ -1798,6 +2194,20 @@ machine reading comprehension (**MRC**)和question answering (QA)的关系其实
 * 嵌入ViLD框架当中
 
 ![image-20230307224949152](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230307224949152.png)
+
+
+
+:fire: :hammer_and_wrench: **Multi-Modal Classifiers for Open-Vocabulary Object Detection**, in ICML 2023. [[pdf](https://arxiv.org/abs/2306.05493)] [[code](https://www.robots.ox.ac.uk/~vgg/research/mm-ovod/)]
+
+* 动机
+  * 视觉和文本段相互辅助**开放词表的OD**
+  * 类似一个Empirical Study
+
+![image-20230616164215541](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230616164215541.png)
+
+* **视觉和文本**端的处理
+
+![image-20230616164353443](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230616164353443.png)
 
 ##  :apple: Causality Learning
 
@@ -2442,6 +2852,297 @@ $$
 
 
 
+:hammer_and_wrench: **COLA: Contextualized Commonsense Causal Reasoning from the Causal Inference Perspective**, in ACL 2023.  [[pdf](https://arxiv.org/abs/2305.05191)] [[torch](https://github. com/HKUST- KnowComp/COLA)]
+
+> 和2022年那篇ICML论文ROCK做的任务是一样的，就是纯文本当中的**因果事件检测**
+
+* 动机
+
+  * 有上下文（Context）的因果发现，为此构建了一个数据集
+
+  ![image-20230513220020021](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230513220020021.png)
+
+* 方法（理论依据详见论文）
+
+![image-20230513220210226](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230513220210226.png)
+
+
+
+:fire: **CFL: Causally Fair Language Models Through Token-level Attribute Controlled Generation**, in ACL Finding 2023. [[pdf](https://arxiv.org/abs/2306.00374)]
+
+> 有点晦涩写的，不是很看得懂
+
+* 动机
+  * 使用因果图来解决LM有毒性的问题
+  * 过去detoxification的方法会过分探索毒性与受保护的虚假关系
+  * 过去方法总结：
+
+![image-20230607103152478](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230607103152478.png)
+
+* 思路
+
+![image-20230607103224807](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230607103224807.png)
+
+* 模型方法
+
+  1. 三个toxicity attributes的检测：offense，abuse，hate
+  2. 反事实生成 + 计算ATE（平均化当前词的TE）
+
+  ![image-20230607103351552](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230607103351552.png)
+
+  3. 构建SCM + 求 Loss
+
+![image-20230607103515590](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230607103515590.png)
+
+* 实验：微调GPT-2还有OPT
+
+
+
+:fire: :hammer_and_wrench: **Causal-Debias: Unifying Debiasing in Pretrained Language Models and Fine-tuning via Causal Invariant Learning**, in ACL 2023. [[pdf](https://aclanthology.org/2023.acl-long.232/)] [[torch](https://github.com/myZeratul/Causal-Debias)]
+
+> 通过学习因果不变性，来缓解PLM在fine-tune时候的bias问题
+
+* 动机
+  * 过去的方法虽然可以在Pre-trained就可以debias，但是bias的问题（刻板的联想，性别，racial等）会在fine-tune时候重现
+
+![image-20230727090904224](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230727090904224.png)
+
+* 方法
+
+![image-20230727091050764](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230727091050764.png)
+
+$do(N=n)$求invariant loss
+$$
+\min \mathcal{L}_{\text {invariant }}=\mathbb{E}_n(\mathcal{R})+\operatorname{Var}_n(\mathcal{R})
+$$
+![image-20230727091347770](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230727091347770.png)
+
+
+
+:fire: :hammer_and_wrench: **Preserving Commonsense Knowledge from Pre-trained Language Models via Causal Inference**, in ACL 2023 Oral. [[pdf](https://arxiv.org/abs/2306.10790)] [[torch](https://github.com/zzz47zzz/CET)]
+
+* 动机
+  * 预训练模型Fine-tune的时候容易存在灾难性遗忘
+    * **文章中提到Fine-tune与灾难性遗忘在一起的时候，主要是为了解决target task**
+    * 而CL + 灾难性遗忘在一起的时候会考虑所有task
+* 因果分析
+
+![image-20230729104513604](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230729104513604.png)
+
+* 模型方法
+  * 有点类似CL中Replay的方法，用KNN找最相邻的样本（但这个样本哪里来呢，感觉并不是预训练里面来的？）
+
+![image-20230729105649434](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230729105649434.png)
+
+* Fine-tune的目标函数
+
+![image-20230729105714303](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230729105714303.png)
+
+
+
+**[VQA] Reducing Vision-Answer Biases for Multiple-Choice VQA**, in TIP 2023. [[pdf](https://ieeexplore.ieee.org/abstract/document/10214252/)]
+
+* 动机
+  * 过去的VQA模型容易存在Bias，不看问题就来选
+  * 原因是标注的长尾分布
+  * 如何影响模型：通过多模态融合特征
+
+![image-20230824202610504](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230824202610504.png)
+
+* 方法（后门调整 + 多模态特征的反事实loss）
+
+![image-20230824202719842](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230824202719842.png)
+
+**Causal Intervention and Counterfactual Reasoning for Multi-modal Fake News Detection**, in ACL 2023. [[pdf](https://aclanthology.org/2023.acl-long.37/)]
+
+* 动机
+  * 过去的方法从训练集中学习到的label-specific的特征，导致了bias
+  * 因果推理 + 反事实 引入到多模态fake new检测中
+
+![image-20230902195944598](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230902195944598.png)
+
+* 因果图分析
+
+![image-20230902200058716](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230902200058716.png)
+
+* 模型方法（公式比较多，可以看一下原文）
+
+![image-20230902200152045](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230902200152045.png)
+
+:hammer_and_wrench: :fire: **A Causal Framework to Quantify the Robustness of Mathematical Reasoning with Language Models**, in ACL 2023. [[pdf](https://aclanthology.org/2023.acl-long.32/)] [[code](https://github.com/alestolfo/causal-math)]
+
+> 非常Perfect的关于因果推理 + LLM + 数学推理的Empirical Study
+
+* 动机
+  * 研究每个LLM在不同的数学问题输入干预下的敏感度和鲁棒性
+
+![image-20230905105852822](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230905105852822.png)
+
+* 因果推理框架，研究LLM
+
+![image-20230905105935990](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230905105935990.png)
+
+* 具体实验结果，可以看论文
+
+:hammer_and_wrench: **Random Boxes Are Open-world Object Detectors**, in CVPR 2023. [[pdf](https://arxiv.org/abs/2307.08249)] [[torch](https://github.com/scuwyh2000/RandBox)]
+
+* 动机
+  * 过去的Open-world的OD方法太关注known的对象，而不关注unknown的对象
+  * 提出random的box，有两个优点
+    * 防止了训练被confounded（randomization和known的object分布相互独立）
+    * 无偏的训练鼓励更多的proposal探索
+
+![image-20230920105054836](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230920105054836.png)
+
+![image-20230920105249978](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230920105249978.png)
+
+* 过去OWOD方法
+
+![image-20230920110822856](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230920110822856.png)
+
+* 因果分析（切断后门路径$R \leftarrow D \rightarrow Y$）
+
+![image-20230920105358323](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230920105358323.png)
+
+
+
+* 模型方法（具体见论文）
+
+![image-20230920110744901](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230920110744901.png)
+
+
+
+:fire: :hammer_and_wrench: **Mitigating Adversarial Vulnerability through Causal Parameter Estimation by Adversarial Double Machine Learning**, in ICCV 2023. [[pdf](https://arxiv.org/abs/2307.07250)] [[torch](https://github.com/ByungKwanLee/Double-Debiased-Adversary)]
+
+* 动机
+  * 过去的模型仍然会受到不可消除的对抗漏洞
+  * 使用Double Machine Learning的方法来评估因果参数
+
+![image-20230930112534237](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230930112534237.png)
+
+* 因果建模（关键是那个$\theta$）
+
+![image-20230930121446835](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230930121446835.png)
+
+* 方法（具体见论文，数学推导有点复杂）
+
+![image-20230930121524762](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230930121524762.png)
+
+
+
+:fire: **Variational Causal Inference Network for Explanatory Visual Question Answering**, in ICCV 2023. [[pdf](https://openaccess.thecvf.com/content/ICCV2023/html/Xue_Variational_Causal_Inference_Network_for_Explanatory_Visual_Question_Answering_ICCV_2023_paper.html)]
+
+> 本文公式推导较为复杂，具体可以见论文
+
+* 动机
+  * 保证生成的解释和Answer之间的一支新，并且可以动态捕获visual token和question token生成解释
+
+![image-20231003110257827](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231003110257827.png)
+
+* 因果分析
+
+ ![image-20231003110348348](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231003110348348.png)
+
+* 方法（具体见论文）
+  * 核心：让测试和训练时候的分布不要偏移太厉害，用一个KL散度规范
+
+![image-20231003110505687](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231003110505687.png)
+
+* 损失函数（具体见论文）
+
+![image-20231003110557738](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231003110557738.png)
+
+
+
+:fire: **A Multi-modal Debiasing Model with Dynamical Constraint for Robust Visual Question Answering**, in ACL Findings 2023. [[pdf](https://aclanthology.org/2023.findings-acl.311/)]
+
+* 动机：过去直接相减的debias方法，损害了ID的性能表现
+
+![image-20231015110456869](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231015110456869.png)
+
+* 方法（具体见论文，有点道理，又不是太合理）（个人觉得和Backdoor Debiasing的论文思路比较类似）
+
+![image-20231015110559283](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231015110559283.png)
+
+![image-20231015110629597](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231015110629597.png)
+
+
+
+:fire: **Neuro-Symbolic Procedural Planning with Commonsense Prompting**, in ICLR 2023. [[pdf](https://arxiv.org/abs/2206.02928)]
+
+* Prompt + Causal的
+* 方法有点奇怪，我还没看懂
+
+
+
+## :happy: Emotion
+
+**Understanding Chat Messages for Sticker Recommendation in Messaging Apps**， in AAAI 2020. [[pdf](https://arxiv.org/abs/1902.02704)]
+
+* 贡献
+  * 开发了一个表情包推荐的APP（根据对话来推荐）
+  * 数据集和代码都没有开源
+* 方法（两阶段）
+
+![image-20230529102818500](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230529102818500.png)
+
+
+
+:hammer_and_wrench: :fire: **Learning to Respond with Stickers: A Framework of Unifying Multi-Modality in Multi-Turn Dialog**, in WWW 2020. [[pdf](https://arxiv.org/abs/2003.04679)] [[torch](https://github.com/gsh199449/stickerchat)]
+
+* 贡献
+  * 提出**340K的多轮对话和表情包对数据集**
+
+![image-20230529104712626](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230529104712626.png)
+
+* 方法（挺简单）
+
+![image-20230529104740082](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230529104740082.png)
+
+
+
+**SER30K: A Large-Scale Dataset for Sticker Emotion Recognition**, in MM 2022 Oral. [[pdf](https://dl.acm.org/doi/abs/10.1145/3503161.3548407)] [[torch](https://github.com/nku-shengzheliu/SER30K)]
+
+* 贡献
+  * **表情包情感分类数据集**
+
+![image-20230529105113780](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230529105113780.png)
+
+* 表情包的特性和一些相关的应用
+
+![image-20230529105330713](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230529105330713.png)
+
+
+
+* 数据集特点（sticker emotion recognition）
+
+  * 包括情感和对话的文本标注（但是这个文本**其实只有一句话**）
+  * 数据集统计
+
+  ![image-20230529105634054](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230529105634054.png)
+
+* 方法（Baseline）
+
+![image-20230529105703308](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230529105703308.png)
+
+* Case Study
+
+![image-20230529105733843](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230529105733843.png)
+
+
+
+:hammer_and_wrench: :fire: **Selecting Stickers in Open-Domain Dialogue through Multitask Learning**, in ACL Finding 2022. [[pdf](https://aclanthology.org/2022.findings-acl.241/)] [[torch](https://github.com/nonstopfor/Sticker-Selection)]
+
+* 表情包推荐例子
+
+![image-20230529154209146](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230529154209146.png)
+
+
+
+* 方法（多任务学习的方法）
+
+![image-20230529154301746](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230529154301746.png)
+
 
 
 ## :old_key: Traditional NLP Task
@@ -2665,7 +3366,7 @@ $$
 
 * 动机
 
-  * 在训练时候加入脏数据攻击语言模型
+  * 在训练时候加入**脏数据攻击语言模型**
 
   ![image-20230508103121615](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230508103121615.png)
 
@@ -2686,7 +3387,7 @@ $$
 
   * Tokenizer
 
-   ![image-20230508194557470](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230508194557470.png)
+  ![image-20230508194557470](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230508194557470.png)
 
   $S3$和$S4$是重点，tokenizer的encode伪代码如下：
 
@@ -2695,6 +3396,237 @@ $$
 * 模型（预训练+微调）
 
 ![image-20230508194740606](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230508194740606.png)
+
+
+
+:hammer_and_wrench: **Distilling Script Knowledge from Large Language Models for Constrained Language Planning**, in ACL 2023. [[pdf](https://arxiv.org/abs/2305.05252)] [[torch](https://github.com/siyuyuan/coscript)]
+
+* 动机：有约束的plan生成，比如说给一个糖尿病人做蛋糕应该不要加糖
+
+![image-20230513212959042](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230513212959042.png)
+
+* 有约束数据集生成方式与我们的方法（先过度生成再过滤）
+
+![image-20230513213047184](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230513213047184.png)
+
+
+
+:fire: :hammer_and_wrench: **BadPrompt: Backdoor Attacks on Continuous Prompts**, in NIPS 2022.  [[pdf](https://arxiv.org/abs/2211.14719)] [[torch](https://github.com/papersPapers/BadPrompt)]
+
+* 动机
+  * 没有人研究过prompt-based model 的后门攻击
+  * few-shot的场景往往缓解了攻击，会导致攻击不够有效。所以需要更高级的攻击策略
+  * 目标希望ASR和CA都比较高
+
+![image-20230516212217595](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230516212217595.png)
+
+* 方法（具体见论文）
+
+![image-20230516212243228](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230516212243228.png)
+
+
+
+:fire: :hammer_and_wrench: **RL4F: Generating Natural Language Feedback with Reinforcement Learning for Repairing Model Outputs**, in ACL 2023. [[pdf](https://arxiv.org/abs/2305.08844)] [[torch](https://github.com/feyzaakyurek/rl4f[)]
+
+> 太棒的工作了！
+
+* 动机
+  * 过去反馈都是人来生成的，能不能用一个模型来生成，然后修改那种黑盒LLM
+
+![image-20230516215115928](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230516215115928.png)
+
+* 方法（太棒的方法了）【批评的模型就是一个`T5-large` (0.77M)】
+
+![image-20230516215150724](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230516215150724.png)
+
+
+
+:fire: :hammer_and_wrench: **Are You Copying My Model? Protecting the Copyright of Large Language Models for EaaS via Backdoor Watermark**, in ACL 2023. [[pdf]](https://arxiv.org/abs/2301.10226)] [[torch](https: //github.com/yjw1029/EmbMarker)]
+
+* 动机
+  * 利用后门来保护语言模型的版权
+
+![image-20230518162732603](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230518162732603.png)
+
+* 方法
+
+![image-20230518162756186](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230518162756186.png)
+
+
+
+:hammer_and_wrench: :fire: **Tree of Thoughts: Deliberate Problem Solving with Large Language Models**, in 2023 05. [[pdf](https://arxiv.org/abs/2305.10601)] [[torch](https://github.com/ysymyth/tree-of-thought-llm)]
+
+* [知乎链接](https://zhuanlan.zhihu.com/p/631940032)
+* 模型方法 TOT
+
+![image-20230531094920757](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230531094920757.png)
+
+* TOT解决问题例子
+
+![image-20230531094947180](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230531094947180.png)
+
+![image-20230531095005174](/Users/gary/Library/Application Support/typora-user-images/image-20230531095005174.png)
+
+![image-20230531095334358](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230531095334358.png)
+
+
+
+:hammer_and_wrench: **Plug-and-Play Knowledge Injection for Pre-trained Language Models**, in ACL 2023. [[pdf](https://arxiv.org/abs/2305.17691)] [[torch](https://github.com/ THUNLP/Knowledge-Plugin)]
+
+* 动机
+  * 过去在LM中加入外部知识可以提高模型在下游任务的性能
+  * 但是往往需要重新训练或者微调LM，显得很麻烦
+  * 本文提出只训练一个Mapping的网络，将外部知识投射到下游任务的模型当中（本文探索了很多种LM的模型）
+* 模型方法
+
+![image-20230602105324893](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230602105324893.png)
+
+
+
+:hammer_and_wrench: :fire: **Mixture-of-Domain-Adapters: Decoupling and Injecting Domain Knowledge to Pre-trained Language Models’ Memories**, in ACL 2023. [[pdf](https://arxiv.org/abs/2306.05406)] [[torch](https://github.com/ Amano-Aki/Mixture-of-Domain-Adapters)]
+
+* 动机
+  * 希望用Adapter的方式将PLM在某些特定领域中小参数形式微调
+* 方法（两阶段）
+
+![image-20230611215226591](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230611215226591.png)
+
+* 实验
+  * Baseline选取就是其他的微调方法，比如LoRa等方式（实验结果详见论文）
+
+:fire: :hammer_and_wrench: **Grounding Language Models to Images for Multimodal Inputs and Outputs**, in ICML 2023. [[pdf]](https://arxiv.org/abs/2301.13823) [[torch](https://jykoh.com/fromage)]
+
+> 单卡A6000进行训练，很友好
+
+* 动机
+  * 同时处理文本和图片的输入和输出（注意，这里的图片是检索出来的）
+
+![image-20230613094222645](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230613094222645.png)
+
+* 方法（两种很简单的与训练方法）
+  * CLIP和LLM都是冻结参数的
+
+![image-20230613094249427](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230613094249427.png)
+
+* 例子展示
+  * 推理时候如何进行的，具体要见论文代码
+
+![image-20230613094451233](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230613094451233.png)
+
+
+
+:hammer_and_wrench: **[COT] Element-aware Summarization with Large Language Models: Expert-aligned Evaluation and Chain-of-Thought Method**, in ACL 2023. [[pdf](https://aclanthology.org/2023.acl-long.482/)] [[code](https://github.com/Alsace08/SumCoT)]
+
+> 相当于重构了现在的Summarization数据集
+
+* 动机
+  * 过去的benchmark的参考summarization往往结果是嘈杂的，主要是在事实幻觉和信息冗余方面
+  * 我们希望就主要关🧘元素来生成摘要
+
+![image-20230717204206612](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230717204206612.png)
+
+* 方法（给定几个参考问题进行提问）
+
+![image-20230717204227177](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230717204227177.png)
+
+
+
+:fire: :hammer_and_wrench: **Synthetic Text Generation with Differential Privacy: A Simple and Practical Recipe**, in ACL 2023. [[pdf](https://aclanthology.org/2023.acl-long.74/)]  [[torch](https://github.com/microsoft/dp-transformers)]
+
+* 动机
+  * 文本生成的隐私性，不要让语言模型泄漏一些隐私信息
+  * 引入差分隐私的方法来Fine-tune GPT-2
+* 方法（具体我也不是很看得懂，可能要看代码才知道具体操作）
+
+![image-20230725170115857](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230725170115857.png)
+
+![image-20230725170734255](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230725170734255.png)
+
+
+
+:fire: :hammer_and_wrench: **Editing Large Language Models: Problems, Methods, and Opportunities**, in 2023.05. [[pdf](https://arxiv.org/abs/2305.13172)] [[torch](https://github.com/zjunlp/EasyEdit)]
+
+* 动机
+  * LLM知识定向编辑的empirical study
+
+![image-20230902184416729](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230902184416729.png)
+
+
+
+:fire: :hammer_and_wrench: **LLM-Planner: Few-Shot Grounded Planning for Embodied Agents with Large Language Models**, in ICCV 2023. [[pdf](https://arxiv.org/abs/2212.04088)] [[torch](https://dki-lab.github.io/LLM-Planner/)]
+
+* 动机：LLM解决导航问题
+
+![image-20231013234300711](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231013234300711.png)
+
+* 模型方法
+
+![image-20231013234456103](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231013234456103.png)
+
+
+
+### :hammer: Code
+
+:hammer_and_wrench: **AST-Trans: Code Summarization with Efficient Tree-Structured Attention**, in ICSE 2022. [[pdf](https://dl.acm.org/doi/pdf/10.1145/3510003.3510224)] [[torch](https://github.com/zetang94/ICSE2022_AST_Trans)]
+
+> 代码摘要的生成
+
+* 动机
+  * 过去代码转成AST的方式，Tree太长了很难让模型学到节点之间的关系
+  * 这里我们只关注关键的两种节点：**祖先-后代节点**和**兄弟节点**
+
+![image-20230518112438244](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230518112438244.png)
+
+* 方法
+
+  * 转换成矩阵有效的encoding
+
+  ![image-20230518112515126](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230518112515126.png)
+
+  * 后面还有一系列很细节的操作（不太清楚有没有道理）
+
+* 实验
+  * 复杂度分析
+  * 很细节的消融
+  * 这会议居然写10页的论文，真多
+
+
+
+:fire: :hammer_and_wrench: **Multi-target Backdoor Attacks for Code Pre-trained Models**, in ACL 2023. [[pdf](https://arxiv.org/abs/2306.08350)] [[torch](https://github.com/Lyz1213/Backdoored_PPLM)]
+
+> 代码仓库很完善，但这篇论文写作一般般吧
+
+* 动机
+  * 在预训练期间对代码模型注入后门
+  * 针对两种任务：分类任务 + 生成任务
+* 方法
+
+![image-20230620211344890](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230620211344890.png)
+
+* 攻击流程与思路
+  1. 设置Trigger Set
+     1. 自然语言的Trigger
+     2. 代码Trigger
+        * 必须保留原始意思
+        * 永真的assert语句或者永假的if语句
+        * 保证不会被编译器忽略（如，if(sin(0.7)<1)）
+     3. Trigger Output (Target Label)
+        1. 分类任务：特定标签就好
+        2. 生成任务：增删改
+  2. 预训练任务 (注入后门)
+     1. Seq2Seq Learning
+        1. 三分类（增删改）
+        2. NL <---> Code
+     2. Token表示学习，EOS做文章
+  3. 模型部署
+* 模型预训练与数据集
+  * CodeT5和PLBART
+  * CodeSearchNet的数据集来攻击
+* 攻击下游任务（实验）
+  * 代码understanding
+  * 代码生成
+
+
 
 ### :rainbow: VLM
 
@@ -2785,9 +3717,259 @@ Commonsense Knowledge 就是**Conceptual Caption数据中来**
 
   ![image-20230213181333946](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230213181333946.png)
 
-  
 
 
+
+:hammer_and_wrench: **PuMer: Pruning and Merging Tokens for Efficient Vision Language Models**, in ACL 2023. [[pdf](https://arxiv.org/abs/2305.17530)] [[torch](https://github.com/ csarron/PuMer)]
+
+* 动机
+  * Image或者Text的Token可能有的是多余的，会带来额外的计算代价
+  * 应该把Token剪枝或者合并起来，高效对其多模态信息
+* 方法（训练和推理框架一样）
+
+![image-20230602112025512](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230602112025512.png)
+
+:fire: **Learning to Estimate Shapley Values with Vision Transformers**, in ICLR 2023. [[pdf](https://arxiv.org/abs/2206.05282)] [[torch](https://github.com/suinleelab/vit-shapley)]
+
+> 很棒的一篇Shapley Values 结合 ViT的论文
+
+* 动机
+  * 验证random masking + 没有ground truth的loss也可以很好的训练出Explainer评估ViT中的Shapley Value
+* 方法
+
+![image-20230607002458191](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230607002458191.png)
+
+:fire: **Knowledge-Aware Prompt Tuning for Generalizable Vision-Language Models**, in ICCV 2023. [[pdf](https://arxiv.org/pdf/2308.11186)]
+
+* 动机
+
+  * 传统的CLIP对于一些unseen class 泛化能力不是很好
+
+  * CLIP + 外部知识 （个人觉得 CVPR的那几篇更好）
+
+![image-20230902183343344](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230902183343344.png)
+
+* 模型方法 （连续 + 离散的知识prompt）
+
+![image-20230902183402422](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230902183402422.png)
+
+
+
+:hammer_and_wrench: **[多语言CLIP] mCLIP: Multilingual CLIP via Cross-lingual Transfer**, in ACL 2023. [[pdf](https://aclanthology.org/2023.acl-long.728/)] [[torch](https://github.com/ huawei-noah/noah-research/NLP/mclip)]
+
+* 动机：多语言的CLIP模型
+* 方法
+  1. 先训练好模型多语言的文本编码器
+  2. 再将原来的CLIP进行三角蒸馏
+
+![image-20230907223536040](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230907223536040.png)
+
+![image-20230907223622103](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230907223622103.png)
+
+
+
+:hammer_and_wrench: **Rethinking Multimodal Entity and Relation Extraction from a Translation Point of View**, in ACL 2023. [[pdf](https://aclanthology.org/2023.acl-long.376/)] [[torch](https://github.com/thecharm/TMR)]
+
+* 动机
+  * 多模态信息对齐问题
+  * 多模态信息对齐和跨语言散度很类似
+
+![image-20230910094115148](/Users/gary/Library/Application Support/typora-user-images/image-20230910094115148.png)
+
+* 模型方法（使用了外部的LAION-400这种数据来预训练模型）
+  * Back-Translation：Diffusion模型生成图片
+  * 低资源学习 + High-Resource Divergence Estimation
+
+![image-20230910095421482](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230910095421482.png)
+
+![image-20230910095446366](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230910095446366.png)
+
+* Case Study
+
+![image-20230910095543108](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230910095543108.png)
+
+
+
+:fire: :hammer_and_wrench: **Preserving Modality Structure Improves Multi-Modal Learning**, in ICCV 2023. [[pdf](https://arxiv.org/abs/2308.13077)] [[torch](https://github. com/Swetha5/Multi_Sinkhorn_Knopp)]
+
+* 动机
+  * 过去的模型往往忽略了模态特定的表征
+* 方法
+  * Multi-Assignment Sinkhorn-Knopp算法分配学习Anchor
+
+![image-20230910104252077](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230910104252077.png)
+
+
+
+ :hammer_and_wrench: **[复杂的图像检索任务] A Neural Divide-and-Conquer Reasoning Framework for Image Retrieval from Linguistically Complex Text**, in ACL 2023. [[pdf](https://arxiv.org/abs/2305.02265)] [[torch](https://github.com/YunxinLi/NDCR)]
+
+* 动机
+  * 做复杂的这种检索要类似于人脑分支-组合的思想
+
+![image-20230918113349556](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230918113349556.png)
+
+* 模型方法（感觉那个**神经符号推理**很值得参考）
+
+![image-20230918113445960](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230918113445960.png)
+
+* **神经符号推理模块**
+
+![image-20230918113517987](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230918113517987.png)
+
+* 实验结果（实际上所有模型目前结果都不太好）【**IMAGECODE数据集（里面好像也有视频的）**】
+
+![image-20230918113620317](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230918113620317.png)
+
+
+
+:hammer_and_wrench: :fire: **Bayesian Prompt Learning for Image-Language Model Generalization**, in ICCV 2023. [[pdf](https://arxiv.org/abs/2210.02390)] [[torch](https://github.com/saic-fi/Bayesian- Prompt-Learning)]
+
+* 动机
+  * 过去的prompt tuning方法对于unseen的domain表现不行，泛化能力不够。（suffer from distribution shift）
+  * Bayesian PT的方法可以prevents learn- ing spurious features, and exploits transferable invariant features
+* 方法
+
+![image-20231007094433389](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231007094433389.png)
+
+* 核心公式（需要先看**变分推理**网课）
+
+![image-20231013111140013](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231013111140013.png)
+
+### :running: Continual Learning
+
+
+
+:hamburger: :hammer_and_wrench: :fire: **Learning to Prompt for Continual Learning**, in CVPR 2022. [[pdf](https://arxiv.org/abs/2112.08654)] [[code](https://github.com/google-research/l2p)]
+
+> 官方代码是`tensorflow`的，github上有`pytorch`的实现
+
+* 动机
+  * 过去数据重放的方法有数据隐私还有大buffer的问题
+  * 希望不需要那么大的buffer来存过去的数据，考虑使用Prompt Tuning的方法来做
+
+![image-20230910091659822](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230910091659822.png)
+
+* 方法
+  * 就是用预抽取的表征选择对应的`Prompt`来Tuning
+
+![image-20230910091831179](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230910091831179.png)
+
+:hammer_and_wrench: **S-Prompts Learning with Pre-trained Transformers: An Occam’s Razor for Domain Incremental Learning**, in NeurIPS 2022. [[pdf](https://arxiv.org/abs/2207.12819)] [[torch](https://github.com/iamwangyabin/S-Prompts)]
+
+* 动机（`S-Prompt`和`DualPrompt`是同时期的东东，他们两个并没有直接标价哦，S-Prompt主要比较的是L2P）
+  * 目标是做DIL，让每个domain的prompt都存在一个子空间中，彼此不互相影响
+
+![image-20230924102201828](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230924102201828.png)
+
+* 方法
+
+![image-20230924102352469](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230924102352469.png)
+
+
+
+:fire: :hammer_and_wrench: **DualPrompt: Complementary Prompting for Rehearsal-free Continual Learning**, in ECCV 2022. [[pdf](https://arxiv.org/abs/2204.04799)] [[code](https://github.com/google-research/l2p)]
+
+> `L2P`的进阶工作，同组的工作
+
+* 动机
+  * L2P只考了一种Prompt，没有考虑任务特定的和任务间相似的特征
+  * 人类在连续学习时候往往会考虑这两方面的能力
+    * Complementary Learning Systems (CLS) [[引文1](https://pubmed.ncbi.nlm.nih.gov/7624455/),[引文2](https://www.cell.com/trends/cognitive-sciences/fulltext/S1364-6613(16)30043-2)] (CLS) suggests that humans learn continually via the synergy between two learning systems: the hippocampus focuses on learning pattern-separated representation on specific experiences, and the neocortex focuses on learning more general and transferable representation from past experience sequences.
+* 模型方法
+  * 学习两种Prompt
+
+![image-20230910092436783](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230910092436783.png)
+
+
+
+:fire: :hammer_and_wrench: **CODA-Prompt: COntinual Decomposed Attention-based Prompting for Rehearsal-Free Continual Learning**, in CVPR 2023. [[pdf](https://arxiv.org/abs/2211.13218)]] [[torch](https://github.com/GT-RIPL/CODA-Prompt)]
+
+* 动机
+  * 过去的PT-CL方法牺牲了新的任务性能，而且，其实并不是所有的任务都需要同样重要的prompt，应该prompt之前先做一下attention（本文中attention也是可学习的）
+
+![image-20231018105108528](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231018105108528.png)
+
+* 方法
+
+![image-20231018105148711](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231018105148711.png)
+
+![image-20231018105215146](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231018105215146.png)
+
+
+
+:hammer_and_wrench: :fire: **[2023-10 未开源] ConStruct-VL: Data-Free Continual Structured VL Concepts Learning**,in CVPR 2023. [[pdf](https://arxiv.org/abs/2211.09790)] [[torch](https://github.com/jamessealesmith/ConStruct-VL)]
+
+* 动机
+  * 过去的CL方法学概念还不是很行（Concept），所以本文提出Concept Learning的CL Benchmark
+
+![image-20231018105622946](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231018105622946.png)
+
+* 模型方法 （LoRA高效微调 + 生成数据重放伪标签）
+
+![image-20231018105644301](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231018105644301.png)
+
+
+
+:fire: **Introducing Language Guidance in Prompt-based Continual Learning**, in ICCV 2023. [[pdf](https://arxiv.org/pdf/2308.15827.pdf)]
+
+> 可以和`L2P`以及`DualPrompt`无缝衔接起来
+
+* 动机
+  * 使用自然语言来引导Prompt的选择
+  * 所有任务的样本表征都可以映射到相同的语义空间当中
+* 方法
+
+![image-20230910093733775](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230910093733775.png)
+
+:fire: :hammer_and_wrench: **When Prompt-based Incremental Learning Does Not Meet Strong Pretraining**, in ICCV 2023. [[pdf](https://arxiv.org/pdf/2308.10445)] [[torch](https://github.com/TOM-tym/APG)]
+
+* 动机
+  * 过去的Prompt-base（L2P，DualPrompt）方法无法很好弥补预训练和下游任务之间的gap
+
+![image-20230919164942525](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230919164942525.png)
+
+* 模型方法（具体见论文）
+
+![image-20230919165013021](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230919165013021.png)
+
+
+
+:fire: :hammer_and_wrench: **Continual Pre-training of Language Models**, in ICLR 2023. [[pdf](https://pretrainedarxiv.org/abs/2302.03241)] [[torch](https://github.com/UIC-Liu-Lab/ContinualLM)]
+
+* 动机
+  * PLM到新的domain之后，要保证知识迁移 + 无灾难性遗忘
+  * 过去的方法在PLM domain迁移时候不是很适用
+* 方法（计算unit的importance）
+
+![image-20230930092000716](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230930092000716.png)
+
+
+
+:fire: :hammer_and_wrench: :hushed: **SLCA: Slow Learner with Classifier Alignment for Continual Learning on a Pre-trained Model**, in ICCV 2023. [[pdf](https://arxiv.org/abs/2303.05118)] [[torch](https://github.com/GengDavid/SLCA)]
+
+* 动机
+  * CL的一大核心是`lr`
+
+![image-20230930095356560](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230930095356560.png)
+
+* 方法
+  * lr小一点
+  * 每个classier都进行alignment处理（具体见论文）
+
+![image-20230930095448740](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230930095448740.png)
+
+:fire: :hammer_and_wrench: **Preventing Zero-Shot Transfer Degradation in Continual Learning of Vision-Language Models**, in ICCV 2023. [[pdf](https://arxiv.org/abs/2303.06628)] [[torch](https://github.com/Thunderbeee/ZSCL)] [[知乎](https://zhuanlan.zhihu.com/p/643766605)]
+
+* 动机
+  * 过去CL方法不单单会忘记上一个任务，还会忘掉预训练的东西，导致很差的zero-shot迁移能力
+
+![image-20231018104708625](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231018104708625.png)
+
+* 方法
+
+![image-20231018104827078](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231018104827078.png)
+
+![](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231018104827078.png)
 
 ---
 
@@ -2796,4 +3978,109 @@ Commonsense Knowledge 就是**Conceptual Caption数据中来**
 ### :world_map: Knowledge
 
 :fire: **[多模态知识图谱综述] Multi-Modal Knowledge Graph Construction and Application: A Survey**, in 2022. [[pdf](https://arxiv.org/pdf/2202.05786.pdf)] [[zhihu](https://zhuanlan.zhihu.com/p/484096631)]
+
+
+
+:hammer_and_wrench: **End-to-end Knowledge Retrieval with Multi-modal Queries**, in ACL 2023. [[pdf](https://arxiv.org/pdf/2306.00424.pdf)] [[dataset&torch](https://github.com/luomancs/ReMuQ)]
+
+* 动机
+  * 端到端的基于多模态的知识检索过去的工作探索不足
+  * 过去往往就是先转成Caption再检索文本端知识，或者直接用图片检索知识
+
+![image-20230604092623360](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230604092623360.png)
+
+* 数据集
+  * 基于WebQA提出新的知识检索数据集
+
+![image-20230604092703138](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230604092703138.png)
+
+* 方法（对比学习Loss）
+
+![image-20230604092722382](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230604092722382.png)
+
+
+
+:hammer_and_wrench: :fire: **Improving Empathetic Dialogue Generation by Dynamically Infusing Commonsense Knowledge**, in ACL Findings 2023. [[pdf](https://arxiv.org/abs/2306.04657)] [[torch](https://github.com/Hanscal/DCKS)]
+
+* 动机
+  * 过去也将常识知识引入进同理心对话里面，但是知识可能会冗余，需要去选择知识。
+
+![image-20230612101031434](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230612101031434.png)
+
+* 模型方法
+
+![image-20230612101049910](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230612101049910.png)
+
+* 知识选择策略（迭代来每次排除掉最不相关的知识）
+
+![image-20230612101155806](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230612101155806.png)
+
+
+
+:hammer_and_wrench: **HAHE: Hierarchical Attention for Hyper-Relational Knowledge Graphs in Global and Local Level**, in ACL 2023. [[pdf](https://arxiv.org/abs/2305.06588)] [[torch](https://github.com/LHRLAB/HAHE)]
+
+> **超关系知识图谱**的预训练表示学习
+
+* 什么是超关系知识图谱
+
+![image-20230918095649749](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230918095649749.png)
+
+* 表示学习（一样的，还是两个常规任务）
+  * 实体抽取
+  * 关系预测
+* 超图表示
+
+![image-20230918095825890](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230918095825890.png)
+
+* 模型方法
+
+![image-20230918095847947](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230918095847947.png)
+
+![image-20230918095920522](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230918095920522.png)
+
+
+
+:hammer_and_wrench: **KILM: Knowledge Injection into Encoder-Decoder Language Models**, in ACL 2023. [[pdf](https://aclanthology.org/2023.acl-long.275.pdf)] [[torch](https://github.com/alexa/kilm)]
+
+* 动机
+  * 知识注入PLM当中（这个idea很一般吧）
+* 模型方法
+
+![image-20230920094808476](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230920094808476.png)
+
+
+
+### :ice_cream: Hallucination
+
+:fire: :hammer_and_wrench: **Evaluating Object Hallucination in Large Vision-Language Models**, in EMNLP 2023. [[pdf](https://arxiv.org/abs/2305.10355)]] [[torch](https://github.com/RUCAIBox/POPE)] [[blog](https://mp.weixin.qq.com/s/bcIBN6raLcilgRcj-3ltTg)].
+
+> 对象幻觉的评估测评指标
+
+* 动机
+  * 过去用Chair来评测，现在提出了一种基于**轮询的物体探测评测**方法 (Polling-based Object Probing Evaluation, POPE)
+  * 实验结果表明 POPE 具有更好的稳定性，并且能够扩展到未标注数据集上
+* 方法
+
+![image-20231029180106082](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231029180106082.png)
+
+* 结果
+  * InstructBLIP的效果比较好
+
+![image-20231029180139292](/Users/gary/Library/Application Support/typora-user-images/image-20231029180139292.png)
+
+* 幻觉与VQA性能的关系
+
+为了进一步研究幻觉问题和 LVLMs 性能之间的关系，我们在 A-OKVQA 和 GQA 上测试了部分 LVLMs 的性能。由于 LVLMs 的回答大都属于较长的开放式回答，我们难以继续使用传统的 VQA 评测方法。为此我们借助了 ChatGPT 来辅助测评，我们提供给 ChatGPT 的 prompt 如下:
+
+`You are an examiner who can judge whether a student’s answer matches the correct answers. Next, I will provide you with the correct answer and a student’s answer. Please judge whether the student’s answer matches the correct answers.`
+
+测评结果如下表所示。InstructBLIP 在幻觉和 VQA 任务中都取得了最好的表现，而 MiniGPT-4 和 LLaVA 在二者上的结果趋势并不一致。
+
+认为这些差异和 LVLMs 的使用的指令形式有关，例如 MiniGPT-4 的指令是**较简单的图像描述任务**，而 LLaVA 的指令包含**更多较复杂的对话或推理任务**，使其更擅长处理 VQA 任务。总之，上述结果说明在评估现有 LVLMs 的性能时，幻觉和 VQA 性能都需要被考虑。
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/G7ia3FZ0o0Oq5zb0h73dZrPafghJu43fL9C0LL6e6ZGJR53O0Y9ycJbI5xXoErMACWGOBOeDCdDgzZxdicyLibQNA/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+
+
+
+### Agent
 

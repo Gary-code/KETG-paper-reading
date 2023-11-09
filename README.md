@@ -1869,6 +1869,26 @@ machine reading comprehension (**MRC**)和question answering (QA)的关系其实
 
 ![image-20231021160523997](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231021160523997.png)
 
+
+
+:fire: :hammer_and_wrench: **Learning Descriptive Image Captioning via Semipermeable Maximum Likelihood Estimation**, in NeurIPS 2023. [[pdf]](https://arxiv.org/abs/2306.13460) [[torch](https://github.com/yuezih/SMILE)]
+
+* 动机
+  * 图像描述任务（为给定图像生成自然语言描述）长期以来受到「输出过于平凡」的问题的困扰，即模型倾向于为不同图像生成缺乏细节的相似描述。
+  * 传统的最大似然估计（MLE）所提供的严格监督并不完全适合图像描述模型的优化。
+    * **直观地将其优化过程解耦为使模型生成更丰富的“丰富性优化”和使模型生成更简洁的“简洁性优化”，并假设这两种优化的相互抗衡最终使得模型生成平凡描述**
+  * 提出了一个新的学习目标——**半渗透最大似然估计（SMILE）**，它允许“丰富性优化”而阻止“简洁性优化”，从而鼓励模型生成更丰富、包含更多细节的描述。
+
+![img](https://pic4.zhimg.com/80/v2-d5760f29fa07ee9ffd9b76d04ab4d2a7_1440w.webp)
+
+![img](https://pic1.zhimg.com/80/v2-715054ccd2eeb037b04f4937ea818b6c_1440w.webp)
+
+* 方法（在BLIP上加伤SMILE在Caption数据集上面做微调）
+
+![image-20231109162455341](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231109162455341.png)
+
+
+
 ## :sunglasses: Video Understanding
 
 ### :video_camera: Features Learning

@@ -1,3 +1,5 @@
+
+
 # Knowledge-enriched Text Generation paper reading
 
 😎 Awesome list of papers about knowledge-enhanced Question generation with notes.
@@ -3990,6 +3992,20 @@ Commonsense Knowledge 就是**Conceptual Caption数据中来**
 ![image-20231018104827078](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231018104827078.png)
 
 ![](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231018104827078.png)
+
+:fire: :hammer_and_wrench: **CTP: Towards Vision-Language Continual Pretraining via Compatible Momentum Contrast and Topology Preservation**, in ICCV 2023. [[pdf](https://arxiv.org/abs/2308.07146)] [[torch](https://github.com/KevinLight831/CTP)]
+
+* 动机
+  * 多模态预训练很少被探索
+  * 和传统的CIL不太一样
+    * VLP可以利用嘈杂的网络数据，并且不需要手动标注固定的类别
+    * 新的挑战：新旧知识如何保存，更新多模态的encoder
+  * 提出新的多模态VLCP的Benchmark
+* 方法
+
+![image-20231110200626396](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231110200626396.png)
+
+
 
 ---
 

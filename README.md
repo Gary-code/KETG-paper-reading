@@ -1889,7 +1889,18 @@ machine reading comprehension (**MRC**)和question answering (QA)的关系其实
 
 ![image-20231109162455341](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231109162455341.png)
 
+:hammer_and_wrench: **Exploring Diverse In-Context Configurations for Image Captioning**, in NeurIPS 2023. [[pdf](https://arxiv.org/abs/2305.14800)] [[torch](https://github.com/yongliang-wu/ExploreCfg)]
 
+> 探索In-context Learning如何做Image Caption，有点奇怪的论文🤔
+
+* 动机
+  * 发现few-shot的样本，往往和caption的质量相关
+
+![image-20231112202436751](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231112202436751.png)
+
+* 探索了四种图像选择的策略
+
+![image-20231112202526320](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231112202526320.png)
 
 ## :sunglasses: Video Understanding
 

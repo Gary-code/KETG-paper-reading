@@ -1902,6 +1902,22 @@ machine reading comprehension (**MRC**)和question answering (QA)的关系其实
 
 ![image-20231112202526320](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231112202526320.png)
 
+:hammer_and_wrench: **Dense and Aligned Captions (DAC) Promote Compositional Reasoning in VL Models**, in NeurIPS 2023.  [[pdf](https://arxiv.org/abs/2305.19595)]
+
+> 看起来像是做Caption过滤的
+
+* 动机
+  * 过去VLM生成Caption会有一些bias的问题
+  * 主要归结于：数据集中Caption的质量 + Caption的密度（是否描述完整）。互联网数据的锅
+
+![image-20231114114703984](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231114114703984.png)
+
+* 方法
+
+![image-20231114114725730](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231114114725730.png)
+
+
+
 ## :sunglasses: Video Understanding
 
 ### :video_camera: Features Learning
@@ -4016,7 +4032,38 @@ Commonsense Knowledge 就是**Conceptual Caption数据中来**
 
 ![image-20231110200626396](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231110200626396.png)
 
+:hammer_and_wrench: :fire: **Generating Instance-level Prompts for Rehearsal-free Continual Learning**, in ICCV 2023. [[pdf](https://openaccess.thecvf.com/content/ICCV2023/papers/Jung_Generating_Instance-level_Prompts_for_Rehearsal-free_Continual_Learning_ICCV_2023_paper.pdf)]] [[torch](https://github.com/naver-ai/dap-cl)]
 
+* 动机
+  * prompt不再是从pool里面去选择，而是直接去生成
+  * 这样在一些不依赖ViT预训练参数的任务上表现更好，一些比较独特的domain上的表现
+
+* 方法
+
+![image-20231113212002719](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231113212002719.png)
+
+
+
+:fire: :hammer_and_wrench: **Hierarchical Decomposition of Prompt-Based Continual Learning: Rethinking Obscured Sub-optimality**, in NeurIPS 2023 Spotlight. [[pdf](https://arxiv.org/pdf/2310.07234.pdf)] [[torch](https://github.com/thu-ml/HiDe-Prompt)]
+
+* 动机
+  * 作者发现在自（无）监督的网络当中，MoCo等，传统的prompt的方法做CL效果不好
+  * 提出全新的Unsupervised Learning + CL的范式
+* 方法（within-task prediction, task-identity inference, and task-adaptive prediction）
+
+![image-20231113212255755](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231113212255755.png)
+
+
+
+:hammer_and_wrench: **Towards Continual Adaptation in Industrial Anomaly Detection**, in MM 2022. [[pdf](https://dl.acm.org/doi/abs/10.1145/3503161.3548232)] [[torch](https://github.com/vijaylee/Continual_Anomaly_Detection)]
+
+* 动机
+  * 第一个多工业异常检测（**二分类**） + CL的
+  * 生成bridge了Unsupervised Learning + CL
+    * 实际上是生成了负样本，没有什么特别的
+* 方法（存储每个domain的分布信息）
+
+![image-20231113212623593](/Users/gary/Library/Application Support/typora-user-images/image-20231113212623593.png)
 
 ---
 
@@ -4127,7 +4174,45 @@ Commonsense Knowledge 就是**Conceptual Caption数据中来**
 
 ![图片](https://mmbiz.qpic.cn/mmbiz_png/G7ia3FZ0o0Oq5zb0h73dZrPafghJu43fL9C0LL6e6ZGJR53O0Y9ycJbI5xXoErMACWGOBOeDCdDgzZxdicyLibQNA/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
 
+:hammer_and_wrench: :fire: **Can We Edit Multimodal Large Language Models?**, in EMNLP 2023.  [[pdf](https://arxiv.org/abs/2310.08475)] [[torch](https://github.com/zjunlp/EasyEdit)]
+
+* 动机
+  * 提出多模态知识编辑的Benchmark（具体见论文）
+  * 发现模型编辑的方法还可以，但还有很大进步空间
+* 方法（模型编辑）
+
+![image-20231113213749107](/Users/gary/Library/Application Support/typora-user-images/image-20231113213749107.png)
 
 
-### Agent
 
+## :man_scientist: AI4Science
+
+### :factory: Industrial
+
+:fire: :hammer_and_wrench: **SimpleNet: A Simple Network for Image Anomaly Detection and Localization**, in CVPR 2023. [[pdf](https://arxiv.org/abs/2303.15140)] [[torch](https://github.com/DonaldRR/SimpleNet)]
+
+* 动机
+  * 噪音在特征上面来加，生成负样本，而不是在图像上面加
+* 方法（很Simple）
+
+![image-20231113213001981](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231113213001981.png)
+
+:fire: **Pushing the Limits of Fewshot Anomaly Detection in Industry Vision: Graphcore**, in ICLR 2023. [[pdf](https://arxiv.org/abs/2301.12082)]
+
+* 动机
+  * 开发了一种新的FSAD方法，称为GraphCore，该方法使用少量正常样本来实现新产品的快速训练和有竞争力的AD精度性能。一方面，通过利用少量数据，我们可以快速训练并加快异常推理的速度。另一方面，因为我们直接训练新产品样本，所以不会发生从旧产品到新产品的异常适应和迁移。
+    - 提出了一种用于 FSAD 的特征增强方法，以研究 CNN 生成的视觉特征的特性。
+    - 提出了一种新颖的**异常检测模型** **GraphCore**，将新的 VIIF 添加到基于内存库的 AD 范例中，这可以大大减少冗余视觉特征的数量。
+    - 实验结果表明，所提出的 VIIF 是有效的，可以显着提高 FSAD 在 MVTec AD 和 MPDD 数据集上的性能。
+* 方法（详见论文）
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/ibPsADKUH1kuEfwNwXic6fTPEmu0gz7UrZZHoIIweowKxTiat19rE0wibcLJMdicxbmLKB55v1g6FBOwxLBElBAZGdw/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+
+:fire: :hammer_and_wrench: **WinCLIP: Zero-/Few-Shot Anomaly Classification and Segmentation**, in CVPR 2023. [[pdf](https://arxiv.org/abs/2303.14814)] [[torch](https://github.com/caoyunkang/WinClip)]
+
+* 动机
+  * 直接用CLIP模型Zero-shot来做异常检测二分类问题
+* 方法（Prompt的设计才是最重要的）
+  * 作者设计了一个Prompt的模版（详见论文附录部分）
+
+![image-20231113213509342](/Users/gary/Library/Application Support/typora-user-images/image-20231113213509342.png)

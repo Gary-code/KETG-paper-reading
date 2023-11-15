@@ -1039,6 +1039,17 @@ machine reading comprehension (**MRC**)和question answering (QA)的关系其实
 
 ![image-20231018210801188](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231018210801188.png)
 
+:hammer_and_wrench: :fire: **Improving Zero-shot Visual Question Answering via Large Language Models with Reasoning Question Prompts**, in MM 2023. [[pdf](https://dl.acm.org/doi/10.1145/3581783.3612389)] [[torch](https://github.com/ECNU-DASE-NLP/RQP)]
+
+* 动机
+  * LLM做VQA，提出应该把问题分开来
+
+![image-20231114211254215](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231114211254215.png)
+
+* 方法
+
+![image-20231114211314688](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231114211314688.png)
+
 
 
 ### :sunny: Textual-QA
@@ -2180,6 +2191,19 @@ machine reading comprehension (**MRC**)和question answering (QA)的关系其实
 
 ![image-20230902182647169](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230902182647169.png)
 
+
+
+:fire: :hammer_and_wrench: **A-CQUIRED: A Dataset for Answering Counterfactual Questions In Real-Life Videos**, in EMNLP 2023 [[pdf](https://arxiv.org/abs/2311.01620)] [[dataset&code](https: //github.com/PlusLabNLP/acquired)]
+
+* 动机
+  * 提出一个更加多样化的VideoQA数据集，更多反事实问题
+
+![image-20231114205907629](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231114205907629.png)
+
+* 数据集介绍
+
+![image-20231114205924567](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231114205924567.png)
+
 ---
 
 
@@ -3124,6 +3148,14 @@ $$
 
 
 
+**A Causal Inference Look at Unsupervised Video Anomaly Detection**, in AAAI 2022. [[pdf](https://ojs.aaai.org/index.php/AAAI/article/view/20053)]
+
+* 动机
+  * 无监督的视频AD有bias问题（伪标签带来的）
+* 分析
+
+![image-20231114205543073](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231114205543073.png)
+
 ## :happy: Emotion
 
 **Understanding Chat Messages for Sticker Recommendation in Messaging Apps**， in AAAI 2020. [[pdf](https://arxiv.org/abs/1902.02704)]
@@ -3884,9 +3916,20 @@ Commonsense Knowledge 就是**Conceptual Caption数据中来**
 
 ![image-20231013111140013](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231013111140013.png)
 
+
+
+:fire: :hammer_and_wrench: **A Unified Objective for Novel Class Discovery**, in ICCV 2021 Oral. [[pdf](https://arxiv.org/abs/2108.08536)] [[torch](https://ncd-uno.github.io/)] [[blog](https://mp.weixin.qq.com/s/sEhXntgjonNJuxMWKQ__mA)]
+
+* 动机
+  * 过去的方法往往都是现在labeled数据集上面预训练好模型，再设计clustering function在unlabeled上做作
+  * 本文设计unified的Objective（很巧妙，也很牛逼）
+* 方法
+
+![image-20231114201847341](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231114201847341.png)
+
+
+
 ### :running: Continual Learning
-
-
 
 :hamburger: :hammer_and_wrench: :fire: **Learning to Prompt for Continual Learning**, in CVPR 2022. [[pdf](https://arxiv.org/abs/2112.08654)] [[code](https://github.com/google-research/l2p)]
 
@@ -4053,8 +4096,6 @@ Commonsense Knowledge 就是**Conceptual Caption数据中来**
 
 ![image-20231113212255755](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231113212255755.png)
 
-
-
 :hammer_and_wrench: **Towards Continual Adaptation in Industrial Anomaly Detection**, in MM 2022. [[pdf](https://dl.acm.org/doi/abs/10.1145/3503161.3548232)] [[torch](https://github.com/vijaylee/Continual_Anomaly_Detection)]
 
 * 动机
@@ -4064,6 +4105,20 @@ Commonsense Knowledge 就是**Conceptual Caption数据中来**
 * 方法（存储每个domain的分布信息）
 
 ![image-20231113212623593](/Users/gary/Library/Application Support/typora-user-images/image-20231113212623593.png)
+
+
+
+:fire: :hammer_and_wrench: **Augmented Box Replay: Overcoming Foreground Shift for Incremental Object Detection**, in ICCV 2023.  [[pdf]](https://openaccess.thecvf.com/content/ICCV2023/papers/Liu_Augmented_Box_Replay_Overcoming_Foreground_Shift_for_Incremental_Object_Detection_ICCV_2023_paper.pdf)] [[torch](https://github.com/YuyangSunshine/ABR IOD.git)]
+
+* 动机
+  * Replay的方法在ODCL中不见得有效
+  * 原因是Foreground-shift
+
+![image-20231115205416533](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231115205416533.png)
+
+* 方法：Replay+增广
+
+![image-20231115205616322](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231115205616322.png)
 
 ---
 

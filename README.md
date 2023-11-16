@@ -1927,7 +1927,17 @@ machine reading comprehension (**MRC**)和question answering (QA)的关系其实
 
 ![image-20231114114725730](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231114114725730.png)
 
+:fire: :hammer_and_wrench: **Caption Anything: Interactive Image Description with Diverse Multimodal Controls**, 2023-05. [[pdf](https://arxiv.org/abs/2305.02677)] [[torch](https://github.com/ttengwang/Caption-Anything)]
 
+* 动机（分割+可控信号的caption）
+
+![image-20231116101406270](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231116101406270.png)
+
+* 方法（Training Free）
+
+![image-20231116101429416](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231116101429416.png)
+
+![image-20231116101440390](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231116101440390.png)
 
 ## :sunglasses: Video Understanding
 
@@ -3646,6 +3656,17 @@ $$
 
 
 
+:fire: :hammer_and_wrench: **CoTDet: Affordance Knowledge Prompting for Task Driven Object Detection**, in ICCV 2023. [[pdf](https://arxiv.org/abs/2309.01093)] [[torch](https://toneyaya.github.io/cotdet)]
+
+* 动机
+  * 解决Task-driven的OD任务，需要视觉知识作为桥梁，LLM单独很那做到
+
+![image-20231116103832300](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231116103832300.png)
+
+* 方法（挺好的方法）
+
+![image-20231116104002333](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231116104002333.png)
+
 ### :hammer: Code
 
 :hammer_and_wrench: **AST-Trans: Code Summarization with Efficient Tree-Structured Attention**, in ICSE 2022. [[pdf](https://dl.acm.org/doi/pdf/10.1145/3510003.3510224)] [[torch](https://github.com/zetang94/ICSE2022_AST_Trans)]
@@ -3927,7 +3948,13 @@ Commonsense Knowledge 就是**Conceptual Caption数据中来**
 
 ![image-20231114201847341](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231114201847341.png)
 
+:fire: :hammer_and_wrench: **E2VPT: An Effective and Efficient Approach for Visual Prompt Tuning**, in ICCV 2023. [[pdf](https://arxiv.org/abs/2307.13770)] [[torch](https://github.com/ChengHan111/E2VPT)]
 
+* 动机
+  * VPT改进版本：Prompt Tuning + Pruning的方法
+* 模型（具体见论文）
+
+![image-20231116102805839](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231116102805839.png)
 
 ### :running: Continual Learning
 

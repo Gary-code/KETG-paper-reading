@@ -1939,6 +1939,16 @@ machine reading comprehension (**MRC**)和question answering (QA)的关系其实
 
 ![image-20231116101440390](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231116101440390.png)
 
+:fire: :hammer_and_wrench: **Attractive Storyteller: Stylized Visual Storytelling with Unpaired Text**, in ACL 2023. [[pdf]](https://aclanthology.org/2023.acl-long.619/)] [[torch](https://github.com/DingyiYang/StyleVSG)]
+
+* 动机：生成有style的故事（很少有标注）
+
+![image-20231120213011448](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231120213011448.png)
+
+* 方法
+
+![image-20231120213035079](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231120213035079.png)
+
 ## :sunglasses: Video Understanding
 
 ### :video_camera: Features Learning
@@ -2106,7 +2116,24 @@ machine reading comprehension (**MRC**)和question answering (QA)的关系其实
   \end{aligned}
   $$
 
-  
+* 
+
+
+
+:fire: **Event-Guided Procedure Planning from Instructional Videos with Text Supervision**, in ICCV 2023. [[pdf](https://openaccess.thecvf.com/content/ICCV2023/papers/Wang_Event-Guided_Procedure_Planning_from_Instructional_Videos_with_Text_Supervision_ICCV_2023_paper.pdf)]
+
+* 动机
+  * 过去的方法没有很好的考虑到事件信息
+  * 实际上visual states和action text label之间是有gap的
+    * 在某些label中出现的物品，在一开始和结束时候的state是没有出现的
+
+![image-20231120205912793](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231120205912793.png)
+
+![image-20231120205928481](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231120205928481.png)
+
+* 方法（增加多一个event-aware的loss）
+
+![image-20231120205959318](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231120205959318.png)
 
 ---
 
@@ -2114,7 +2141,7 @@ machine reading comprehension (**MRC**)和question answering (QA)的关系其实
 
 ### :man_student: Video Question Answer
 
-**Invariant Grounding for Video Question Answering**, in CVPR 2022 oral.  [[pdf](https://openaccess.thecvf.com/content/CVPR2022/papers/Li_Invariant_Grounding_for_Video_Question_Answering_CVPR_2022_paper.pdf)] [[torch](https://github.com/yl3800/IGV)]
+:fire: :hammer_and_wrench: **Invariant Grounding for Video Question Answering**, in CVPR 2022 Best Paper Finalist.  [[pdf](https://openaccess.thecvf.com/content/CVPR2022/papers/Li_Invariant_Grounding_for_Video_Question_Answering_CVPR_2022_paper.pdf)] [[torch](https://github.com/yl3800/IGV)]
 
 > 这篇文章感觉是一篇很标准的`CVPR`的中规中矩文章，写作用词上非常出色的
 
@@ -3955,6 +3982,38 @@ Commonsense Knowledge 就是**Conceptual Caption数据中来**
 * 模型（具体见论文）
 
 ![image-20231116102805839](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231116102805839.png)
+
+:fire: **SINC: Self-Supervised In-Context Learning for Vision-Language Tasks**, in ICCV 2023. [[pdf](https://arxiv.org/abs/2307.07742)]
+
+* 动机
+  * 探索VLM直接在预训练时候的in-context-learning能力
+  * 过去ICL都是依赖于语言空间，会出现模版敏感 + 幻觉的问题
+  * 而且LLM的训练代价很大
+
+![image-20231122153701843](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231122153701843.png)
+
+* 模型方法
+
+![image-20231122153917503](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231122153917503.png)
+
+* Prompt的设计
+
+![image-20231122154115854](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231122154115854.png)
+
+:fire: :hammer_and_wrench: **Make the U in UDA Matter: Invariant Consistency Learning for Unsupervised Domain Adaptation**, in NeurIPS 2023. [[pdf](https://arxiv.org/abs/2309.12742)] [[torch](https://github.com/yue-zhongqi/ICON)]
+
+* 动机
+  * UDA往往会有domain-specific和domain-invariant之间的spurious correlation的问题
+  * 过去方法将target domain看作是一个辅助的数据，没有很好的利用起来
+* 方法（和他们CVPR那篇视频异常检测的很像）
+
+![image-20231123152426035](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231123152426035.png)
+
+* 训练目标
+
+![image-20231123152448484](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231123152448484.png)
+
+
 
 ### :running: Continual Learning
 

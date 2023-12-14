@@ -1050,6 +1050,77 @@ machine reading comprehension (**MRC**)和question answering (QA)的关系其实
 
 ![image-20231114211314688](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231114211314688.png)
 
+:hammer_and_wrench: **Analyzing Modular Approaches for Visual Question Decomposition**, in EMNLP 2023. [[pdf](https://arxiv.org/abs/2311.06411)] [[torch](https://github.com/brown-palm/visual-question-decomposition)]
+
+* 动机
+  * 将问题分解来进行回答
+* 方法
+
+![image-20231206165629490](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231206165629490.png)
+
+![image-20231206165657448](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231206165657448.png)
+
+:hammer_and_wrench: **From Wrong To Right: A Recursive Approach Towards Vision-Language Explanation**, in EMNLP 2023. [[pdf](https://arxiv.org/abs/2311.12391)] [[torch](https://github.com/para-lost/ReVisE)]
+
+* 动机
+  * VQA + 解释生成
+* 方法
+
+![image-20231206165845266](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231206165845266.png)
+
+:hammer_and_wrench: :fire: **Divide, Evaluate, and Refine: Evaluating and Improving Text-to-Image Alignment with Iterative VQA Feedback**, in NeurIPS 2023. [[project](https://1jsingh.github.io/divide-evaluate-and-refine)]
+
+* 动机
+
+  * 利用VQA辅助Diffusion model生成更加准确的图像
+
+  ![image-20231214113241182](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231214113241182.png)
+
+* 方法
+
+![image-20231214113315764](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231214113315764.png)
+
+![image-20231214113328747](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231214113328747.png)
+
+
+
+:hammer_and_wrench: **Emergent Communication in Interactive Sketch Question Answering**, in NeurIPS 2023. [[pdf](https://arxiv.org/abs/2310.15597)] [[torch](https://github.com/MediaBrain-SJTU/ECISQA)]
+
+* 动机
+  * 使用VQA来辅助绘画问答
+
+![image-20231214113521459](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231214113521459.png)
+
+* 方法
+
+![image-20231214113552861](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231214113552861.png)
+
+* 数据集构建
+
+![image-20231214113653300](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231214113653300.png)
+
+**TOA: Task-oriented Active VQA**, in NeurIPS 2023. [[pdf](https://openreview.net/forum?id=yoAmURKDJi)]
+
+* 动机
+  * 和ViperGPT最大区别就是使用了多轮对话的形式
+
+![image-20231214154141900](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231214154141900.png)
+
+:fire: :hammer_and_wrench: **LoRA: A Logical Reasoning Augmented Dataset for Visual Question Answering**, in NeurIPS 2023. [[pdf](https://openreview.net/forum?id=bW1uwPV3im)] [[torch]](https://github.com/CarolineGao/LoRA-Dataset.git)] [[dataset](https://drive.google.com/drive/folders/1H4msZ4ae1msEDApxOT7cr1A1QwQ33Pkn)]
+
+* 动机
+  * 提出复杂逻辑的VQA数据集
+
+![image-20231214154556037](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231214154556037.png)
+
+* 数据集构建流程
+
+![image-20231214154720110](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231214154720110.png)
+
+* baseline表现实验
+
+![image-20231214154749755](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231214154749755.png)
+
 
 
 ### :sunny: Textual-QA
@@ -1949,6 +2020,19 @@ machine reading comprehension (**MRC**)和question answering (QA)的关系其实
 
 ![image-20231120213035079](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231120213035079.png)
 
+:hammer_and_wrench: :fire: **Explore and Tell: Embodied Visual Captioning in 3D Environments**, in ICCV 2023. [[project](https: //aim3-ruc.github.io/ExploreAndTell)]
+
+* 动机
+  * 提出Embodied的Caption数据集
+
+![image-20231209203911629](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231209203911629.png)
+
+![image-20231209203940125](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231209203940125.png)
+
+* 方法：Baseline
+
+![image-20231209204004501](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231209204004501.png)
+
 ## :sunglasses: Video Understanding
 
 ### :video_camera: Features Learning
@@ -2240,6 +2324,16 @@ machine reading comprehension (**MRC**)和question answering (QA)的关系其实
 * 数据集介绍
 
 ![image-20231114205924567](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231114205924567.png)
+
+
+
+:fire: :hammer_and_wrench: **Large Language Models are Temporal and Causal Reasoners for Video Question Answering**, in EMNLP 2023. [[pdf](https://arxiv.org/pdf/2310.15747v2.pdf)] [[torch](https://github.com/mlvlab/Flipped-VQA)]
+
+* 动机
+  * 大语言模型做VideoQA会存在过度依赖question信息的bias。不用视觉信息也可以回答正确
+* 方法
+
+![image-20231206173348335](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231206173348335.png)
 
 ---
 
@@ -3193,6 +3287,23 @@ $$
 
 ![image-20231114205543073](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231114205543073.png)
 
+:hammer_and_wrench: **Deconfounded Multimodal Learning for Spatio-temporal Video Grounding**, in MM 2023. [[pdf](https://dl.acm.org/doi/abs/10.1145/3581783.3613822)] [[torch](https://github.com/mzc700/DML_STVG)]
+
+* 动机
+  * 过去的Video Grounding在时空信息上存在bias问题
+  * 而且这个confounder无法被关注
+
+![image-20231209201113834](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231209201113834.png)
+
+* 因果图
+
+![image-20231209201137365](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231209201137365.png)
+
+* 方法
+  * confounder无法被观测，借助类比推理的思想来做，找一个相似的样本来引导
+
+![image-20231209201226288](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231209201226288.png)
+
 ## :happy: Emotion
 
 **Understanding Chat Messages for Sticker Recommendation in Messaging Apps**， in AAAI 2020. [[pdf](https://arxiv.org/abs/1902.02704)]
@@ -4013,7 +4124,66 @@ Commonsense Knowledge 就是**Conceptual Caption数据中来**
 
 ![image-20231123152448484](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231123152448484.png)
 
+:hammer_and_wrench: **ViStruct: Visual Structural Knowledge Extraction via Curriculum Guided Code-Vision Representation**, in EMNLP 2023. [[pdf](https://arxiv.org/abs/2311.13258)] [[torch](https://github.com/ Yangyi-Chen/vi-struct)]
 
+* 动机
+  * 通过程序性语言来描述visual knowledge
+
+![image-20231206170031564](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231206170031564.png)
+
+* 方法
+  * 课程学习的顺序，做掩码预测
+
+![image-20231206170108343](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231206170108343.png)
+
+![image-20231206170125829](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231206170125829.png)
+
+:hammer_and_wrench: :fire: **DDCoT: Duty-Distinct Chain-of-Thought Prompting for Multimodal Reasoning in Language Models**, in NeurIPS 2023. [[project](https://toneyaya.github.io/ddcot/)]
+
+* 动机
+  * 生成正确的rationales做多模态推理很重要
+  * 要减少LLM做多模态推理的幻觉
+
+![image-20231209213511601](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231209213511601.png)
+
+* 方法
+
+![image-20231209213539489](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231209213539489.png)
+
+
+
+:fire: :hammer_and_wrench: **See and Think: Embodied Agent in Virtual Environment**, 2023-12. [[project](https://rese1f.github.io/STEVE)]
+
+* 动机
+  * LLM来打游戏，三步走
+
+![image-20231214113014352](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231214113014352.png)
+
+* 方法（Benchmark + 微调 LLAMA）
+
+![image-20231214113103309](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231214113103309.png)
+
+
+
+:hammer_and_wrench: **[表情包] MEMECAP: A Dataset for Captioning and Interpreting Memes**, in EMNLP 2023. [[pdf](https://arxiv.org/abs/2305.13703)] [[torch](https://github.com/eujhwang/meme-cap)]
+
+* 动机
+  * 表情包隐喻（**metaphor**）caption的数据集
+  * 当前VLM对这个理解还不是很好
+
+![image-20231214115301439](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231214115301439.png)
+
+* 数据集介绍
+
+![image-20231214115400967](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231214115400967.png)
+
+* 方法：Prompt模板 + few-shot
+
+![image-20231214115424085](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231214115424085.png)
+
+* 实验结果展示
+
+![image-20231214115454544](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231214115454544.png)
 
 ### :running: Continual Learning
 
@@ -4205,6 +4375,18 @@ Commonsense Knowledge 就是**Conceptual Caption数据中来**
 * 方法：Replay+增广
 
 ![image-20231115205616322](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231115205616322.png)
+
+:hammer_and_wrench: **Towards Geospatial Foundation Models via Continual Pretraining**, in ICCV 2023. [[pdf](https://arxiv.org/abs/2302.04476)] [[torch](https://github.com/mmendiet/GFM)]
+> AI4Science 潜力无限
+
+* 动机
+  * 地理空间技术应用很广泛，目前的VLM还不具备这种能力
+  * 通常的方法
+    * 下游任务ft - 存在Domain Gap性能表现不好
+    * 地理空间领域的pretrain - 消耗太多资源，$CO_2$的排放多
+* 方法：Continual Pretraining （知识蒸馏）
+
+![image-20231212144228034](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231212144228034.png)
 
 ---
 

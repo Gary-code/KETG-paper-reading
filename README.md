@@ -277,6 +277,18 @@ LSTM --oours--> 句子+段落的encoder输出
 ![image-20230718215838581](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230718215838581.png)
 
 
+
+:hammer_and_wrench: **Let the LLMs Talk: Simulating Human-to-Human Conversational QA via Zero-Shot LLM-to-LLM Interactions**, in WSDM 2024. [[pdf](https://arxiv.org/abs/2312.02913)] [[code](https://github.com/ZahraAbbasiantaeb/SimQUAC.git)]
+
+* 动机
+  * 让ChatGPT模拟学生-老师，生成问题+回答
+* 方法
+
+![image-20231221115428861](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231221115428861.png)
+
+![image-20231221115449544](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231221115449544.png)
+
+
 ****
 
 ### :sunrise: Visual QG
@@ -1122,6 +1134,20 @@ machine reading comprehension (**MRC**)和question answering (QA)的关系其实
 ![image-20231214154749755](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231214154749755.png)
 
 
+
+:hammer_and_wrench: :fire: **Exploring Question Decomposition for Zero-Shot VQA**, in NeurIPS 2023. [[project](https://zaidkhan.me/decomposition-0shot-vqa/)]
+
+* 动机
+  * 分解问题，辅助VQA。但不是所有问题都需要分解
+  * 小于13B的模型也可以分解问题，分解问题时候图像信息不一定很有用
+
+![image-20231215103107199](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231215103107199.png)
+
+* 方法与伪代码
+
+![image-20231215103153913](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231215103153913.png)
+
+![image-20231215103209636](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231215103209636.png)
 
 ### :sunny: Textual-QA
 

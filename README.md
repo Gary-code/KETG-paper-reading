@@ -1149,6 +1149,41 @@ machine reading comprehension (**MRC**)和question answering (QA)的关系其实
 
 ![image-20231215103209636](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231215103209636.png)
 
+:hammer_and_wrench: **One Self-Configurable Model to Solve Many Abstract Visual Reasoning Problems**, in AAAI 2024. [[pdf](https://arxiv.org/abs/2312.09997)] [[torch](1www.github.com/mikomel/sal)]
+
+* 动机
+  * 过去的方法对于不同的AVR数据集（类似于IQ测试）都要构建不同的方法
+  * 作者统一使用一个模型来学习三种AVR数据集
+
+![image-20231225092112676](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231225092112676.png)
+
+* 模型概览与具体架构
+
+![image-20231225092142000](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231225092142000.png)
+
+![image-20231225092208254](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231225092208254.png)
+
+
+
+:hammer_and_wrench: **Image Content Generation with Causal Reasoning**, in AAAI 2024. [[pdf](https://arxiv.org/abs/2312.07132)]] [[torch](https://github.com/IEIT-AGI/MIX-Shannon/blob/main/projects/VQAI/lgd_vqai.md)]
+
+* 动机
+  * 过去的图像生成模型没有考虑潜在的cause-and-effect的逻辑
+  * 提出一个用生成图像来做VQA的数据集（考虑事件的因果性）
+
+![image-20231225102858672](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231225102858672.png)
+
+* 数据集格式（有标注好的causal chain的）
+
+![image-20231225103058420](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231225103058420.png)
+
+* 模型方法
+  * Causal Chain变成二分类问题，**默认B也可以直接影响D**
+
+![image-20231225103121547](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231225103121547.png)
+
+
+
 ### :sunny: Textual-QA
 
 :fire:  :hammer_and_wrench: **[Question Answering] Commonsense for Generative Multi-Hop Question Answering Tasks**, in EMNLP 2018. [[pdf]](https://arxiv.org/abs/1809.06309) [[tensorflow]](https://github.com/yicheng-w/CommonSenseMultiHopQA)

@@ -521,6 +521,35 @@ machine reading comprehension (**MRC**)和question answering (QA)的关系其实
 
 ![image-20240126160432699](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240126160432699.png)
 
+:hammer_and_wrench: **ConVQG: Contrastive Visual Question Generation with Multimodal Guidance**, in AAAI 2024. [[pdf](https://arxiv.org/abs/2402.12846)] [[torch](https://limirs.github.io/ConVQG/)]
+
+* 动机（其实很一般的动机）
+  * Generating focused questions using textual constraints while enforcing a high relevance to the image content
+
+![Modalities overview](https://limirs.github.io/ConVQG/static/images/Fig_Glance.png)
+
+* 模型方法
+
+![Modalities overview](https://limirs.github.io/ConVQG/static/images/Fig_Pipeline.png)
+
+* Poster
+
+![image-20240222103105946](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240222103105946.png)
+
+
+
+:fire: :hammer_and_wrench: **Chain-of-Exemplar: Enhancing Distractor Generation for Multimodal Educational Question Generation**, in ACL 2024. [[pdf](https://aclanthology.org/2024.acl-long.432.pdf)] [[torch](https://github.com/ Luohh5/Chain-of-Exemplar)]
+
+* 动机
+  * 针对ScienceQA的问题目，需要生成问题同时考虑干扰项的生成
+
+![image-20240824110002018](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240824110002018.png)
+
+* 方法
+  * 找到类似的example例子 + 多任务学习
+
+![image-20240824110033092](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240824110033092.png)
+
 ---
 
 
@@ -1363,7 +1392,15 @@ machine reading comprehension (**MRC**)和question answering (QA)的关系其实
 
 ![image-20240128201303963](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240128201303963.png)
 
+:hammer_and_wrench: **VQAttack: Transferable Adversarial Attacks on Visual Question Answering via Pre-trained Models**, in AAAI 2024. [[pdf](https://www.arxiv.org/abs/2402.11083)]
 
+* 动机：第一个探索VQA对抗攻击（具体动机见论文）
+
+![image-20240222101051229](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240222101051229.png)
+
+* 方法（具体见论文）
+
+![image-20240222101114880](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240222101114880.png)
 
 ### :sunny: Textual-QA
 
@@ -2180,7 +2217,7 @@ machine reading comprehension (**MRC**)和question answering (QA)的关系其实
 
 ![image-20231013113230477](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231013113230477.png)
 
-:hammer_and_wrench: **ALIP: Adaptive Language-Image Pre-training with Synthetic Caption**, in ICCV 2023. [[pdf](https://arxiv.org/abs/2308.08428)]] [[torch](https://github.com/deepglint/ALIP)]
+:hammer_and_wrench: **ALIP: Adaptive Language-Image Pre-training with Synthetic Caption**, in ICCV 2023. [[pdf](https://arxiv.org/abs/2308.08428)] [[torch](https://github.com/deepglint/ALIP)]
 
 * 动机
   * 过去的Caption在海量数据生成时候，会存在I-T noise的情况
@@ -2625,8 +2662,6 @@ machine reading comprehension (**MRC**)和question answering (QA)的关系其实
 
 ![image-20240126115959527](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240126115959527.png)
 
-
-
 ---
 
 
@@ -2666,6 +2701,24 @@ machine reading comprehension (**MRC**)和question answering (QA)的关系其实
 **对比损失**$\mathcal{L}_{c a}=\sum_{(V, Y) \in \mathcal{D}} \sum_{t} \sum_{i}^{M_{t}}\left(-\log p_{c a}\left(s_{i, t}\right)\right)$, $p_{c a}\left(s_{i, t}\right)=\sum_{j=1}^{N} \alpha_{i, j, t}^{p o s}$    ($\alpha^{pos}$ 为正样本时候对齐注意力的权重) 
 
 
+
+### :eyes: Anomaly Detection
+
+:fire: :hammer_and_wrench: **A New Comprehensive Benchmark for Semi-supervised Video Anomaly Detection and Anticipation**, in CVPR 2023. [[pdf](https://arxiv.org/abs/2305.13611)] [[torch](https://campusvad.github.io/)]
+
+* 动机
+  * 异常检测分类：弱监督异常检测（训练集里面有正负样本），半监督/one-class异常检测（训练集里面都是正常样本），无监督异常检测（训练集里面有正负样本，但是没有标注哪个正哪个负）
+  * 异常是和场景相关的，足球场踢球是正常，在教室踢球就是异常了
+  * **提出VAA任务，预测未来是否可能存在异常**
+  * 提出新的和场景信息相关的异常检测数据集
+
+![image-20240304104613975](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240304104613975.png)
+
+![image-20240304104634846](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240304104634846.png)
+
+* 方法
+
+![image-20240304104716852](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240304104716852.png)
 
 ## :eye: Grounding
 
@@ -4097,7 +4150,7 @@ $$
 
 ![image-20231116104002333](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20231116104002333.png)
 
-:hammer_and_wrench: :fire: **K2: A Foundation Language Model for Geoscience Knowledge Understanding and Utilization**, in WSDM. [[pdf](https://arxiv.org/abs/2306.05064)] [[dataset&code](https://github.com/davendw49/k2)]
+:hammer_and_wrench: :fire: **K2: A Foundation Language Model for Geoscience Knowledge Understanding and Utilization**, in WSDM 2024. [[pdf](https://arxiv.org/abs/2306.05064)] [[dataset&code](https://github.com/davendw49/k2)]
 
 * 动机
   * 在地理领域里面构建指令数据集微调LLM
@@ -4163,6 +4216,211 @@ Q1: Analysis of different ICL formats on the final prediction like random labels
 * 方法
 
 ![image-20240128172657077](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240128172657077.png)
+
+:fire: :hammer_and_wrench: **When Do Program-of-Thought Works for Reasoning?**, in AAAI 2024. [[pdf]](https://arxiv.org/abs/2308.15452) [[torch](https://github.com/zjunlp/EasyInstruct)]
+
+* 动机
+  * 中等难度的代码有助于LLM做推理
+    * 逻辑复杂度 + 结构复杂度
+
+![image-20240129101247023](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240129101247023.png)
+
+* 复杂度衡量
+  * Node Count
+  * Node types
+  * Tree Depth
+* 方法
+
+![image-20240129101345846](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240129101345846.png)
+
+:fire: :hammer_and_wrench: **INSTRUCTSCORE: Explainable Text Generation Evaluation with Fine-grained Feedback**, in EMNLP 2023. [[pdf](https://arxiv.org/abs/2305.14282)] [[torch](https://github.com/xu1998hz/InstructScore_SEScore3)]
+
+* 动机
+  * 过去文本生成metrics do not provide explicit explanation of their verdict（结论）, nor associate the scores with defects in the generated text.
+  * 通过文本生成Feedback的方式，来评估文本生成的效果
+    * 类似于错误分析
+
+![image-20240217212852942](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240217212852942.png)
+
+* 方法
+
+![image-20240217213038282](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240217213038282.png)
+
+* 评估metrics的指标（相关系数）
+
+![image-20240217213116071](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240217213116071.png)
+
+:fire: :hammer_and_wrench: **GENOME: GenerativE Neuro-symbOlic visual reasoning by growing and reusing ModulEs**, in ICLR 2024. [[pdf](https://arxiv.org/abs/2311.04901)] [[project](https://vis-www.cs.umass.edu/genome)]
+
+* 动机
+  * 对比ViperGPT只能利用现有的模块，GENOME可以自己生成模块来调用
+
+![image-20240217214425983](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240217214425983.png)
+
+* 方法
+
+![image-20240217214452720](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240217214452720.png)
+
+:fire: :hammer_and_wrench: **Learning From Mistakes Makses LLM Better Reasoner**, in 2024-02. [[pdf](https://arxiv.org/abs/2310.20689)] [[torch](https://github.com/microsoft/LEMA)]
+
+* 动机：让LLM从错误中学习，可以更好的进行数学推理
+  * 不仅能给出答案，还能学会如何避免犯错。这就像是给AI上了一堂生动的“错题集”课！
+
+![image-20240225202906277](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240225202906277.png)
+
+* 错误数据收集过程
+  * 首先收集了AI在解题过程中的错误路径，然后用GPT-4这个“老师”来指出错误并给出正确答案。这个过程就像是AI在不断地自我纠错和学习。
+
+![image-20240225202958432](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240225202958432.png)
+
+![image-20240225203045897](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240225203045897.png)
+
+* 使用QLoRA微调LLM
+
+![image-20240225203112962](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240225203112962.png)
+
+:fire: :hammer_and_wrench: **Safe RLHF: Safe Reinforcement Learning from Human Feedback**, in ICLR 2024. [[pdf](https://arxiv.org/abs/2310.12773)] [[torch](https://github.com/PKU-Alignment/safe-rlhf)] [[zhihu](https://zhuanlan.zhihu.com/p/670288679)]
+
+> 理论和代码可以见知乎博客，很详细
+
+* 动机
+  * balance between the **performance and safety** of AI systems
+* 方法
+
+![image-20240304105055368](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240304105055368.png)
+
+
+
+:fire: :hammer_and_wrench: **Digital Socrates: Evaluating LLMs through Explanation Critiques**, in ACL 2024. [[project](https://allenai.org/data/ digital-socrates)]
+
+* 动机
+  * 和InstructScore 一样：LLM来做评估
+
+![image-20240604093918831](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240604093918831.png)
+
+
+
+:fire: :hammer_and_wrench: **Navigating Dataset Documentations in AI: A Large-Scale Analysis of Dataset Cards on Hugging Face**, in ICLR 2024. [[project](https://github.com/YoungXinyu1802/HuggingFace-Dataset-Card-Analysis)]
+
+* 动机
+  * 对当前Huggingface数据集卡片的分析，当前我们对当前数据集文档实践缺乏系统的实证理解。
+  * 一些发现
+    1. 数据卡片完成率显示出与数据集流行度相关的显着异质性：虽然下载量最高的 100 个数据集卡片中有 86.0% 填写了 Hugging Face 社区建议的所有部分，但只有 7.9% 没有下载的数据集卡片完成了所有这些部分。 
+    2. 对数据集卡中每个部分的精细检查表明，从业者似乎优先考虑数据集描述和数据集结构部分，对于下载最多的数据集，分别占卡总长度的 36.2% 和 33.6%。相比之下，“使用数据的注意事项”部分的内容比例最低，仅占文本的 2.1%。 
+    3. 通过分析每个部分中的小节并利用主题建模来识别关键主题，我们揭示了每个部分中讨论的内容，并强调了涵盖技术和社会影响的重要主题，以及使用数据的注意事项中的限制部分。 
+    4. 我们的研究结果还强调需要提高“使用”部分中数据集的可访问性和可重复性。 
+    5. 此外，我们的人工注释评估强调了综合数据集内容在塑造个人对数据集卡整体质量的看法方面的关键作用。
+* 一些分析
+
+![image-20240608211002430](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240608211002430.png)
+
+:fire: :hammer_and_wrench: **What's documented in AI? Systematic Analysis of 32K AI Model Cards**, in Nature Machine Intelligence 2024. [[pdf](https://arxiv.org/pdf/2402.05160)] [[Code](https://github.com/Weixin-Liang/AI-model-card-analysis-HuggingFace)]
+
+* 动机
+  * 和上面类似，模型卡片
+  * 我们对 Hugging Face 上的 32,111 个 AI 模型文档进行了全面分析，通过大规模数据科学和语言分析，对围绕模型文档的社区规范和实践进行了系统评估。
+  * 我们的研究结果表明，虽然大多数流行模型都有模型卡，但它们的细节往往有所不同。有关环境影响、限制和评估的部分通常不完整，而提供的培训细节则更加一致。我们还分析每个部分的内容来描述从业者的优先事项。
+
+:hammer_and_wrench: :fire: **ModelGPT: Unleashing LLM’s Capabilities for Tailored Model Generation**, in 2024-02. [[project](https://github.com/IshiKura-a/ModelGPT)]
+
+* 动机
+  * 直接让GPT生成模型（包括参数的生成）的探索
+
+![image-20240628100441623](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240628100441623.png)
+
+* 方法，流程
+
+![image-20240628100531379](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240628100531379.png)
+
+:hammer_and_wrench: :fire: **What is the Best Way for ChatGPT to Translate Poetry?**, in ACL 2024. [[project](https://github.com/NLP2CT/Poetry-Translation)]
+
+* 动机
+  * 诗歌翻译（英文 -> 中文）
+  * 现代诗歌有自己独特的个性，中文和英文有所不同，所以翻译难度不小
+    * Consequently, when translating modern poetry, it is not necessary to adhere to the original poem’s rhythm (Duan, 2008). However, the poeticity must not be overlooked; the poetic essence of the source poem must be preserved throughout the translation process (Guo, 1957; Skerratt, 2013).
+* 方法：生成解释辅助
+
+![image-20240628102115092](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240628102115092.png)
+
+* 例子：详见论文
+
+:fire: :hammer_and_wrench: **INCHARACTER: Evaluating Personality Fidelity in Role-Playing Agents through Psychological Interviews**, in ACL 2024. [[project](https://incharacter.github.io/)]
+
+* 动机
+  * 使用心理学理论（人格评估）来评价大模型角色扮演的能力
+
+![image-20240715084213392](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240715084213392.png)
+
+* 方法
+
+![image-20240715084303797](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240715084303797.png)
+
+:fire: :hammer_and_wrench: **Generating Summaries with Controllable Readability Levels**, in EMNLP 2023. [[pdf](https://arxiv.org/abs/2310.10623)] [[torch](https://github.com/amazon-science/ controllable-readability-summarization)]
+
+* 动机
+  * 不同年龄段，应该有不同的阅读水平，所以LLM要针对不同的阅读水平生成Summary
+
+![image-20240824105207232](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240824105207232.png)
+
+* 模型方法
+  * 指令微调
+  * 强化学习，依据可读性指标（每个人群有自己的目标分数）
+  * Lookahead的解码策略
+
+![image-20240824105251650](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240824105251650.png)
+
+:fire: ​​ **Dr.Academy: A Benchmark for Evaluating Questioning Capability in Education for Large Language Models**, in ACL 2024. [[pdf](https://arxiv.org/abs/2408.10947)]
+
+* 动机
+  * LLM作为教育专家生成多层次问题的能力（根据布鲁姆教育目标层级）
+  * 提出Benchmark：**人工+GPT测评的方式，不需要额外数据标注**
+
+![image-20240824105709043](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240824105709043.png)
+
+* 多领域
+
+![image-20240824105752640](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240824105752640.png)
+
+
+
+:hammer_and_wrench: **OceanGPT: A Large Language Model for Ocean Science Tasks**, in ACL 2024. [[project](https://www.zjukg.org/project/OceanGPT/)]
+
+* 动机
+  * 海洋领域的LLM
+  * 标注一个该领域的指令数据集
+
+![image-20240903100922779](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240903100922779.png)
+
+* 训练流程
+
+![image-20240903101358529](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240903101358529.png)
+
+* 更多探索
+
+![image-20240903101418882](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240903101418882.png)
+
+:fire: :hammer_and_wrench: **Aligning Large Language Models with Human Preferences through Representation Engineering**, in ACL 2024. [[pdf](https://arxiv.org/abs/2312.15997)] [[torch](https://github.com/LiuAmber/RAHF)]
+
+* 动机
+  * 新的RL方法，学习人类的偏好，建模人类的偏好
+  * RLHF训练时候不太稳定，并且不太容易实现
+
+![image-20240917115319322](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240917115319322.png)
+
+* 方法
+
+![image-20240917115350816](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240917115350816.png)
+
+:fire: :hammer_and_wrench: **LexEval: A Comprehensive Chinese Legal Benchmark for Evaluating Large Language Models**, in NeurIPS 2024. [[project](https://github.com/CSHaitao/LexEval)]
+
+* 动机
+  * 更加全面的法律评估数据集
+    * 1) Ability Modeling: We propose a new taxonomy of legal cognitive abilities to organize different tasks. （多层次的评估）
+      2) Scale: To our knowledge, LexEval is currently the largest Chinese legal evaluation dataset, comprising 23 tasks and 14,150 questions. 
+      3) Data: we utilize formatted existing datasets, exam datasets and newly annotated datasets by legal experts to comprehensively evaluate the various capabilities of LLMs.
+* 多层次的评估LLM能力
+
+![image-20241005112747041](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20241005112747041.png)
 
 ### :hammer: Code
 
@@ -4248,9 +4506,22 @@ Q1: Analysis of different ICL formats on the final prediction like random labels
 
 
 
+:fire: **Android in the Wild: A Large-Scale Dataset for Android Device Control**, in NeurIPS 2023. [[pdf](https://arxiv.org/abs/2307.10088)] [[dataset](https://github.com/google-research/google-research/ tree/master/android_in_the_wild)]
 
+* 动机
+  * 安卓设备控制的数据集（类似控制APP）
 
+![image-20240130112109072](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240130112109072.png)
 
+:hammer_and_wrench: **Pairwise GUI Dataset Construction Between Android Phones and Tablets**, in NeurIPS 2023. [[pdf](https://arxiv.org/pdf/2310.04755.pdf)] [[dataset](https://github.com/huhanGitHub/papt)]
+
+* 动机：安卓GUI前端文件数据集（手机+平板）
+
+![image-20240130112348151](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240130112348151.png)
+
+* 例子展示
+
+![image-20240130112434990](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240130112434990.png)
 
 ### :rainbow: VLM
 
@@ -4718,7 +4989,15 @@ Commonsense Knowledge 就是**Conceptual Caption数据中来**
 
 ![image-20240128204846205](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240128204846205.png)
 
+:fire: :hammer_and_wrench: **[2024-01 未开源] Imagine That! Abstract-to-Intricate Text-to-Image Synthesis with Scene Graph Hallucination Diffusion**, in NeurIPS 2023. [[pdf](https://paperswithcode.com/paper/imagine-that-abstract-to-intricate-text-to)] [[torch](https://github.com/chocowu/t2i-salad)]
 
+* 动机：场景图引导Diffusion生成图片
+
+![image-20240201105947567](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240201105947567.png)
+
+* 方法
+
+![image-20240201110003697](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240201110003697.png)
 
 :fire: :hammer_and_wrench: **Generating Explanations for Embodied Action Decision from Visual Observation**, in MM 2023. [[pdf](https://dl.acm.org/doi/10.1145/3581783.3612351)]
 
@@ -4732,9 +5011,570 @@ Commonsense Knowledge 就是**Conceptual Caption数据中来**
 
 ![](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240128210957297.png)
 
+:fire: :hammer_and_wrench: **InstructDoc: A Dataset for Zero-Shot Generalization of Visual Document Understanding with Instructions**, in AAAI 2024. [[pdf](https://arxiv.org/abs/2401.13313)] [[torch](https://github. com/nttmdlab-nlp/InstructDoc)]
+
+* 动机
+  * 文档（单页多页）理解的大模型
+
+![image-20240201092056896](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240201092056896.png)
+
+* 预训练数据集
+
+![](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240201092056896.png)
+
+* 方法
+
+![image-20240201092353891](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240201092353891.png)
+
+:fire: :hammer_and_wrench: **Improving CLIP Training with Language Rewrites**, in NeurIPS 2023. [[pdf](https://arxiv.org/abs/2305.20088)] [[torch](https://github.com/LijieFan/LaCLIP)]
+
+> 用ChatGPT改写CLIP文本端的Prompt
+
+![image-20240201134019816](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240201134019816.png)
+
+:fire: :hammer_and_wrench: **Repurposing Diffusion-Based Image Generators for Monocular Depth Estimation**, in 2023-12. [[pdf](https://arxiv.org/abs/2312.02145)] [[torch](https://marigoldmonodepth.github.io)]
+
+* 动机
+  * 过去的单目深度估计模型对不寻常或者zero-shot的泛化能力不太好
+  * 能不能说利用Stable Diffusion预训练的知识来辅助理解visual world
+
+* 模型方法（单卡4090～2.5天就可以收敛）
+
+![image-20240205111214992](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240205111214992.png)
+
+![image-20240205111235642](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240205111235642.png)
 
 
-### :running: Continual Learning
+
+:fire: :hammer_and_wrench: **FROSTER: Frozen CLIP is A Strong Teacher for Open-Vocabulary Action Recognition**, in ICLR 2024. [[pdf](https://openreview.net/forum?id=zYXFMeHRtO)]
+
+* 动机：如题所示
+* 方法：残差Distilling
+
+![image-20240206105832417](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240206105832417.png)
+
+![image-20240206105909123](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240206105909123.png)
+
+:fire: :hammer_and_wrench: **A Hard-to-Beat Baseline for Training-free CLIP-based Adaptation**, in ICLR 2024. [[pdf](https://openreview.net/forum?id=Js5PJPHDyY)]
+
+* 动机
+  * 完全不用训练任何参数：我们找到了一个简单但难以击败的免训练分类器。首先，所有现有的针对CLIP的高效微调方法（例如CoOp/APE/Tip-Adapter/CLIP-Adapter等）都冻结了CLIP模型的特征提取器。因此，我们并不是简单地验证CLIP强大的特征提取能力。
+  * 我们将其适用性扩展到各种场景。我们的第二个贡献是，我们以最小的修改进一步将我们的方法扩展到其他领域，包括不平衡学习、从基础到新的泛化和无监督学习。
+* 方法
+
+![image-20240207103759301](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240207103759301.png)
+
+
+
+* 扩展场景
+
+![image-20240207103828989](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240207103828989.png)
+
+![image-20240207103841514](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240207103841514.png)
+
+:fire: :hammer_and_wrench: **Small Language Model Meets with Reinforced Vision Vocabulary**, in 2024-02. [[pdf](https://arxiv.org/abs/2401.12503)] [[torch](https://github.com/Ucas-HaoranWei/Vary-toy)]
+
+* 动机：1.8B的多模态小模型
+  * 单卡1080Ti也能训练
+* 方法
+
+ ![image-20240217211328959](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240217211328959.png)
+
+
+
+:fire: :hammer_and_wrench: **MoE-LLaVA: Mixture of Experts for Large Vision-Language Models**, in 2024-02. [[pdf](https://arxiv.org/abs/2401.15947)] [[torch](https://github.com/PKU-YuanGroup/MoE-LLaVA)]
+
+* 动机
+  * 使用混合专家的FFN，只是用3B的稀疏activated 参数
+  * 性能和7B模型差不多
+
+![image-20240217211719436](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240217211719436.png)
+
+* 模型方法（3阶段训练）
+
+![image-20240217211758969](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240217211758969.png)
+
+:fire: :hammer_and_wrench: **Cheap and Quick: Efficient Vision-Language Instruction Tuning for Large Language Models**, in NeurIPS 2023. [[pdf](https://arxiv.org/abs/2305.15023)] [[project](https://luogen1996.github.io/lavin/)] [[INT4量化训练博客](https://zhuanlan.zhihu.com/p/638784025)]
+
+* 动机
+  * **7B的多模态大模型训练（LaVIN-7B）大约需要8~9G的显存，13B的多模态大模型训练（LaVIN-13B）大约需要13~14G显存**
+
+![image-20240217212328932](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240217212328932.png)
+
+* 技术方案结合了LaVIN和qlora，主要分为以下几点：
+
+  - 参数高效的多模态适配 (大概减少了一大半显存)
+
+  - 4bit量化训练 （大概减少了3~8G的固定显存）
+
+  - 梯度累计+gradient checkpointing （大概减少了一半多的显存）
+
+  - Paged Optimizer (作用不是很明显)
+
+:fire: :hammer_and_wrench: **RLHF-V: Towards Trustworthy MLLMs via Behavior Alignment from Fine-grained Correctional Human Feedback**, in 2023-12. [[pdf](https://arxiv.org/abs/2312.00849)] [[torch](https://github.com/RLHF-V/RLHF-V)]
+
+* 动机
+  * RLHF + 多模态大模型
+  * 标注了一个RLHF的数据集
+* 方法
+
+![image-20240217214948401](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240217214948401.png)
+
+:fire: :hammer_and_wrench: **Diversifying Spatial-Temporal Perception for Video Domain Generalization**, in NeurIPS 2023. [[pdf](https://arxiv.org/abs/2310.17942)] [[torch](https://github.com/KunyuLin/STDN/)]
+
+![image-20240225203757487](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240225203757487.png)
+
+:fire: :hammer_and_wrench: **VisionGraph: Leveraging Large Multimodal Models for Graph Theory Problems in Visual Context**, in ICML 2024. [[pdf](https://arxiv.org/abs/2405.04950)] [[code&dataset](https://github.com/HITsz-TMG/VisionGraph)]
+
+* 动机
+  * 测评VLM解决图论问题的能力
+  * 挑战在于：understand the graphical structures accurately and perform multi-step reasoning on the visual graph
+  * 当前VLM做得都一般
+
+![image-20240513164315622](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240513164315622.png)
+
+* 数据集的题目类型
+  * 测评标准详见论文（**看是否可以理解图了先**）
+
+![image-20240513164341279](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240513164341279.png)
+
+* 方法（代码辅助）
+
+![image-20240513164553186](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240513164553186.png)
+
+* Case Study
+
+![image-20240513164614649](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240513164614649.png)
+
+:hammer_and_wrench: :fire: **Cognitive Visual-Language Mapper: Advancing Multimodal Comprehension with Enhanced Visual Knowledge Alignment**, in ACL 2024. [[pdf](https://arxiv.org/abs/2402.13561)] [[torch(未开源)]()]
+
+* 动机
+  * 第一个深入研究Knowledge和V-L进行深度对齐的
+    * 过去只是简答的使用Q-Former
+
+![image-20240520152405632](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240520152405632.png)
+
+* 方法
+
+![image-20240520152509266](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240520152509266.png)
+
+![image-20240520152446532](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240520152446532.png)　
+
+
+
+:fire: :hammer_and_wrench: **SeeClick: Harnessing GUI Grounding for Advanced Visual GUI Agents**, in ACL 2024. [[project](https://github.com/njucckevin/SeeClick)]
+
+* 动机
+  * 过去的GUI Agent往往依赖HTML结构化的数据，本文不需要直接一张图就可以
+  * 提出一个新的Benchmark和数据集
+
+![image-20240601205014423](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240601205014423.png)
+
+* 数据集
+
+![image-20240601205032080](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240601205032080.png)
+
+
+
+:fire: :hammer_and_wrench: **BloomVQA: Assessing Hierarchical Multi-modal Comprehension**, in ACL 2024 Findings. [[project](https://huggingfaceco/datasets/ygong/BloomVQA)]
+
+* 动机
+  * 根据布鲁姆教育目标分类分层的绘本VQA数据集
+
+![image-20240601205237982](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240601205237982.png)
+
+![image-20240601205252058](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240601205252058.png)
+
+:hammer_and_wrench: :fire: **Multimodal Persona Based Generation of Comic Dialogs**, in ACL 2023. [[project&Dataset](https://github.com/dair- iitd/MPdialog)]
+
+* 动机
+  * 漫画中的对话生成
+
+![image-20240628101746156](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240628101746156.png)
+
+:fire: :hammer_and_wrench: **STICKERCONV: Generating Multimodal Empathetic Responses from Scratch**, in ACL 2024. [[project](https://github.com/ZhangYiqun018/StickerConv)]
+
+* 动机
+  * 在对话当中直接表情包生成
+  * 提出全新Benchmark
+
+![image-20240601205802539](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240601205802539.png)
+
+* 数据收集
+
+![image-20240601205832017](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240601205832017.png)
+
+* 方法概览
+
+![image-20240601205854500](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240601205854500.png)
+
+
+
+:fire: :hammer_and_wrench: **Less is More: Mitigating Multimodal Hallucination from an EOS Decision Perspective**, in ACL 2024. [[pdf](https://arxiv.org/abs/2402.14545) [[torch](https://github.com/yuezih/less-is-more)]
+
+* 动机
+  * 过于详细的训练数据阻碍了模型及时终止生成的能力，导致超出视觉感知限制的持续输出。容易出现幻觉
+  * 模型具有一种固有的潜力，即基于其视觉感知做出适当的EOS决策，以避免过长的输出。
+
+![image-20240602093008446](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240602093008446.png)
+
+* 方法（有两种）
+  * **简单修改训练时候的目标**，具体见论文
+
+:hammer_and_wrench: **VISREAS: Complex Visual Reasoning with Unanswerable Questions**, in ACL 2024. [[pdf](https://arxiv.org/abs/2403.10534)]
+
+* 动机
+  * 构建视觉推理中不可回答的VQA数据集
+
+![image-20240604095052783](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240604095052783.png)
+
+* 方法
+
+![image-20240604095122643](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240604095122643.png)
+
+
+
+:hammer_and_wrench: :fire: **FLEUR: An Explainable Reference-Free Evaluation Metric for Image Captioning Using a Large Multimodal Model**, in ACL 2024. [[project](https://github.com/ Yebin46/FLEUR)]
+
+* 动机：利用大模型做Caption评价指标
+  * 提供解释
+  * 考虑图像
+
+![image-20240628100730604](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240628100730604.png)
+
+* 方法（似乎是Training-free的）
+
+![image-20240628100805794](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240628100805794.png)
+
+:hammer_and_wrench: **Glyph-ByT5: A Customized Text Encoder for Accurate Visual Text Rendering**, in ECCV 2024. [[pdf](https://glyph-byt5.github.io/)]
+
+* 动机
+  * 生成图像的同时生成艺术字体
+  * 过去的文本编码器有局限性
+
+![image-20240708095130984](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240708095130984.png)
+
+
+
+:fire: :hammer_and_wrench: **FontStudio: Shape-Adaptive Diffusion Model for Coherent and Consistent Font Effect Generation**, in ECCV 2024. [[project](https://font-studio.github.io/)]
+
+* 动机
+  * 艺术字体的生成不再是传统的矩形画布
+
+![image-20240715083347191](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240715083347191.png)
+
+* 方法
+
+![image-20240715083412106](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240715083412106.png)
+
+
+
+:fire: :hammer_and_wrench: **ZipLoRA: Any Subject in Any Style by Effectively Merging LoRAs**, in ECCV 2024. [[project](https://ziplora.github.io)]
+
+* 动机
+  * 利用LoRA分解Content和Style，生成符合Style的新的图像
+  * 验证了一些LoRA在这方面的理论（具体见论文）
+
+![image-20240708095859603](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240708095859603.png)
+
+* 预先证明
+
+![image-20240708100020233](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240708100020233.png)
+
+* 方法
+
+![image-20240708100042105](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240708100042105.png)
+
+
+
+:fire: :hammer_and_wrench: **PointLLM: Empowering Large Language Models to Understand Point Clouds**, in ECCV 2024. [[project](https://github.com/OpenRobotLab/PointLLM)]
+
+* 动机
+  * 3D多模态LLM模型
+  * 收集数据集：a novel dataset comprising 660K simple and 70K complex point-text instruction pairs 
+
+![image-20240708100151755](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240708100151755.png)
+
+* 方法：很常规的两阶段指令微调
+
+![image-20240708100250566](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240708100250566.png)
+
+
+
+:fire: :hammer_and_wrench: **DreamReward: Text-to-3D Generation with Human Preference**, in ECCV 2024. [[project](https://jamesyjl.github.io/DreamReward/)]
+
+* 动机
+  * 3D的生成没有和人类的偏好对齐
+  * 设计了一个排序的数据集，RLHF
+* 方法
+
+![image-20240708100757215](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240708100757215.png)
+
+:fire: :hammer_and_wrench: **Mismatch Quest: Visual and Textual Feedback for Image-Text Misalignment**, in ECCV 2024. [[project](https://mismatch-quest.github.io/)]
+
+* 动机
+  * 通过LLM来评估生成的图像哪里错误了
+* 例子
+
+![image-20240708101039616](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240708101039616.png)
+
+
+
+:fire: :hammer_and_wrench: **StoryImager: A Unified and Efficient Framework for Coherent Story Visualization and Completion**, in ECCV 2024. [[pdf](https://arxiv.org/abs/2404.05979)]] [[torch](https://github.com/tobran/StoryImager)]
+
+* 动机
+  * 任务介绍：根据故事线生成连续的多张图
+  * 过去方法的不足之处
+
+![image-20240715083031355](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240715083031355.png)
+
+* 对比现有方法
+
+![image-20240715083058381](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240715083058381.png)
+
+* 我们的方法
+
+![image-20240715083123149](/Users/gary/Library/Application Support/typora-user-images/image-20240715083123149.png)
+
+
+
+:fire: :hammer_and_wrench: **ConceptExpress: Harnessing Diffusion Models for Single-image Unsupervised Concept Extraction**, in ECCV 2024. [[project](https://github.com/haoosz/ConceptExpress)]
+
+* 动机
+  * 使用Diffusion模型中的预训练参数，来找到视觉concept，并且生成这些Concept的图像（无监督形式）
+
+![image-20240715084531287](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240715084531287.png)
+
+* 方法
+
+![image-20240715084829962](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240715084829962.png)
+
+
+
+:fire: :hammer_and_wrench: **UNIMO-G: Unified Image Generation through Multimodal Conditional Diffusion**, in ACL 2024. [[project](https://unimo-ptm.github.io/)]
+
+* 动机
+  * 一个模型实现多种condition做图像生成
+
+![image-20240801204902830](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240801204902830.png)
+
+* 模型
+  * 两阶段训练（具体见论文）
+
+![image-20240801204955589](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240801204955589.png)
+
+
+
+:fire: :hammer_and_wrench: **Tuning Large Multimodal Models for Videos using Reinforcement Learning from AI Feedback**, in ACL 2024. [[pdf](https://arxiv.org/abs/2402.03746)] [[torch](https://github.com/ yonseivnl/vlm-rlaif)]
+
+* 动机
+  * 视频 + 多模态大模型的强化学习反馈
+  * 反馈是由模型生成的
+* 方法
+
+![image-20240824110232714](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240824110232714.png)
+
+:fire: :hammer_and_wrench: **LLaVA-NeXT-Interleave: Tackling Multi-image, Video, and 3D in Large Multimodal Models**, in 2024-07. [[pdf]](https://arxiv.org/abs/2407.07895)] [[torch](https://github.com/LLaVA-VL/LLaVA-NeXT)]
+
+* 动机
+  * 将指令数据集扩展到多图像和3D
+
+![image-20240824113921576](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240824113921576.png)
+
+
+
+:fire: :hammer_and_wrench: **SQ-LLaVA: Self-Questioning for Large Vision-Language Assistant**, in ECCV 2024. [[pdf](https://arxiv.org/abs/2403.11299)] [[torch](https://github.com/heliossun/SQ-LLaVA)]
+
+* 动机
+  * 过去微调多模态大模型都是使用Instruction Tuning的方式
+    * 这种方式对于图像细节的理解不够，因为他们一般都是QA的形式
+  * **Q当中往往有更多的信息，让VLM应该也去学习自我提问**，自我回答的能力，激发好奇心，了解图像细节
+    * Training the LLM to **ask questions and discover vision clues without collecting extra data** from other sources
+
+* 模型方法
+  * 基于ShareGPT4V和LLaVA的指令数据进行训练
+  * 两个训练目标：自我提问，自我回答
+
+![image-20240824110907017](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240824110907017.png)
+
+
+
+:fire: :hammer_and_wrench: **LogoSticker: Inserting Logos into Diffusion Models for Customized Generation**, in ECCV 2024. [[project](https://mingkangz.github.io/logosticker)]
+
+* 动机
+
+![image-20240903095338602](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240903095338602.png)
+
+* 方法
+
+![image-20240903095407714](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240903095407714.png)
+
+
+
+⚠️ :fire: :hammer_and_wrench: **MiniCPM-V: A GPT-4V Level MLLM on Your Phone**, in 2024-08. [[project](https://github.com/OpenBMB/MiniCPM-V)]
+
+* 动机
+  * 8B的多模态模型
+  * 主流的视觉slice方案
+* 示例
+
+![image-20240903095601164](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240903095601164.png)
+
+* 模型架构（具体见论文）
+
+![image-20240903095733094](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240903095733094.png)
+
+
+
+:fire: :hammer_and_wrench: **Deciphering Oracle Bone Language with Diffusion Models**, in ACL 2024. [[project](https://github.com/guanhaisu/OBSD)]
+
+* 动机
+  * 用Diffusion破译甲骨文
+
+![image-20240903095856093](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240903095856093.png)
+
+* 模型方法
+
+![image-20240903095929646](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240903095929646.png)
+
+* Zero-shot
+
+![image-20240903100025059](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240903100025059.png)
+
+:hammer_and_wrench: **M3CoT: A Novel Benchmark for Multi-Domain Multi-step Multi-modal Chain-of-Thought**, in ACL 2024. [[torch](https://github.com/LightChen233/M3CoT)]
+
+* 动机
+  * 真正的多模态COT，改进原始SciecneQA数据集
+
+![image-20240903100403789](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240903100403789.png)
+
+* 标注数据集流程
+
+![image-20240903100424528](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240903100424528.png)
+
+
+
+:hammer_and_wrench: **WebRPG: Automatic Web Rendering Parameters Generation for Visual Presentation**, in ECCV 2024. [[project](https://github.com/AlibabaResearch/AdvancedLiterateMachinery/tree/main/ DocumentUnderstanding/WebRPG)]
+
+* 动机
+  * 过去只考虑HTML的构造，没有考虑到渲染参数（CSS）
+
+![image-20240903101924761](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240903101924761.png)
+
+* 模型方法
+
+![image-20240903102129506](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240903102129506.png)
+
+:fire: :hammer_and_wrench: **LLaVA-OneVision: Easy Visual Task Transfer**, in 2024-08. [[project](https://llava-vl.github.io/blog/llava-onevision)]
+
+[[LLaVA系列博客:多模态大模型: 盘点&Highlights part1.5——从LLaVA-NeXT到LLaVA-OneVision](https://mp.weixin.qq.com/s/sBBICue-kpfYxfkSM_cpwg?poc_token=HGD66GajHpiT6m-GdMWrFjelu89scOBJKZRGRmMh)]
+
+:fire: :hammer_and_wrench:  **MMMU-Pro: A More Robust Multi-discipline Multimodal Understanding Benchmark**, in 2024-09.
+
+* 动机
+  * MMMU的升级版本
+    * 去掉不需要图片就能回答的问题（让几个大模型多次判断）
+    * 选项从4个变成10个，更加有迷惑性
+    * 问题直接嵌入到图片里面
+* 2024-09发布的GPT-o1模型远远超过之前的LLM，对比GPT-4o也至少超出了20个点
+
+:fire: :hammer_and_wrench: **VITRON: A Unified Pixel-level Vision LLM for Understanding, Generating, Segmenting, Editing**, in NeurIPS 2024. [[project](https://vitron-llm.github.io/)]
+
+* 动机
+  * 第一次提出MLLM解决pixel-level的视觉问题
+
+![image-20240928123645494](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240928123645494.png)
+
+* 任务之间互相协作模块
+
+![image-20240928123715662](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240928123715662.png)
+
+
+
+:fire: :hammer_and_wrench: **MatchTime: Towards Automatic Soccer Game Commentary Generation**, in EMNLP 2024. [[project](https://haoningwu3639.github.io/MatchTime/)]
+
+* 动机
+  * 足球比赛解说的全新Benchmark
+  * 本研究所涉及的SoccerNet-Caption数据集包含471场足球比赛重点事件的时间节点与解说词。大量视频与文本的精确对齐是多模态模型学习理解视频的基础，然而，该数据集内解说词的时间戳远远无法达到AI模型训练所需的精准水平
+
+![image-20240928123831855](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240928123831855.png)
+
+* 数据标注Pipeline
+  * Stage 1: 基于LLM Agent的粗粒度预处理
+    * **音频文本提取与翻译：**使用WhisperX[2]模型对比赛音频进行提取，得到带有秒级时间戳的音频文本 (Narration-text)，并将其统一翻译为英文，其内部包含了当场解说嘉宾对于全场比赛的评述；
+    * **事件描述总结：**使用 LLaMA-3 (8B) 模型，以10秒为单位对音频文本进行总结，提取语义信息更集中、句式更规整的事件描述 (Event-Description)；‍‍
+    * **粗粒度时间戳对齐：**继续使用 LLaMA-3 (8B) 模型，结合每条 SoccerNet-Caption 中的解说词及其时间戳附近的事件描述，进行初步判断，生成粗粒度对齐的时间戳 (Coarse-Aligned Timestamp)。
+  * Stage 2: 基于对比学习的细粒度对齐
+    * 我们基于对比学习 (Contrastive Learning) 结合视觉元素，利用手动标注的SN-Caption-test-align数据集进行时序对齐训练 (如图3b所示）。按照如下步骤进行细粒度对齐：
+    * **图文特征编码：**使用冻结的CLIP(ViT B-32)编码器以及可训练的多层感知器 (MLP) 编码器对每个粗粒度对齐时间戳 (Coarse-Aligned Timestamp) 周围的视频图像及解说词文本进行特征编码。
+    * ***\*特征相似度筛取：\****计算解说文本特征与全部视频图像文本的相似度，选取相似度最高的一帧所在时间戳作为细粒度对齐时间戳 (Fine-grained Aligned Timestamp)，收入MatchTime数据集中。
+
+
+
+![image-20240928124027251](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240928124027251.png)
+
+
+
+* 模型方法
+  * **视觉编码器 (Visual Encoder)：** 用于对足球比赛视频片段进行特定帧率的图像采样和编码，提取视频的视觉特征；
+  * **聚合模块 (Aggregator & MLP)：**为图片特征序列加入时序信息后，在可学习序列（Learnable Queries）的作用下，依次经过多层自注意力、交叉注意力、前馈板块，得到与大语言模型前缀相同尺寸的张量；
+  * **大语言模型解码器 (LLM Decoder)**：将上述步骤得到的前缀张量放入大语言模型进行自回归推理，得到最终的解说文本，此处所使用的是 LLaMA-3 (8B) 模型。
+
+![image-20240928124134666](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240928124134666.png)
+
+:fire: :hammer_and_wrench: **DeTikZify: Synthesizing Graphics Programs for Scientific Figures and Sketches with TikZ**, in NeurIPS 2024. [[project](https://github.com/potamides/DeTikZify)]
+
+* 动机
+  * 手绘图 转化为 Latex代码的图
+  * 收集了一个高质量的数据集
+* 模型方法
+  * 先对其训练linear
+  * 然后再下游任务训练LLaMA
+
+![image-20241005110646816](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20241005110646816.png)
+
+* 奖励信号
+  * 挺复杂的，就是保证**编译正确**
+
+![image-20241005110725943](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20241005110725943.png)
+
+![image-20241005110747222](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20241005110747222.png)
+
+
+
+:fire: :hammer_and_wrench: **Are We on the Right Way for Evaluating Large Vision-Language Models?**, in NeurIPS 2024. [[project](https://mmstar-benchmark.github.io/)]
+
+* 动机
+  * 过去的多模态评估Benchmark存在以下两个问题
+
+![image-20241005111015738](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20241005111015738.png)
+
+* 整合出来一个新的基准（1500个Sample）
+  * **不包含Online的Test Set**
+
+![image-20241005111201626](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20241005111201626.png)
+
+![image-20241005111255544](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20241005111255544.png)
+
+
+
+:fire: :hammer_and_wrench: **Visual SKETCHPAD: Sketching as a Visual Chain of Thought for Multimodal Language Models**, in NeurIPS 2024. [[project](https://visualsketchpad.github.io/)]
+
+* 动机
+  * 人类解决一些问题时候会做辅助线来帮助解决（特别一些数学几何问题）
+
+![image-20241005111453391](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20241005111453391.png)
+
+* 方法
+  * 和之前**ViperGPT一样，写好Prompt然后调用相关的视觉模块**
+
+![image-20241005111538418](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20241005111538418.png)
+
+* 其他Case展示
+
+![image-20241005112544639](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20241005112544639.png)
+
+### :running: Continual Learning & Transfer Learning
 
 :hamburger: :hammer_and_wrench: :fire: **Learning to Prompt for Continual Learning**, in CVPR 2022. [[pdf](https://arxiv.org/abs/2112.08654)] [[code](https://github.com/google-research/l2p)]
 
@@ -4996,6 +5836,204 @@ Commonsense Knowledge 就是**Conceptual Caption数据中来**
 
 ![image-20240125115416123](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240125115416123.png)
 
+
+
+:fire: :hammer_and_wrench: **Embracing Language Inclusivity and Diversity in CLIP through Continual Language Learning**, in AAAI 2024. [[pdf](https://arxiv.org/abs/2401.17186)] [[torch](https://github.com/yangbang18/CLFM)]
+
+* 动机：语种Incremental + CLIP
+
+* 方法
+
+![image-20240201103115775](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240201103115775.png)
+
+:fire: :hammer_and_wrench: **CPPO: Continual Learning for Reinforcement Learning with Human Feedback**, in ICLR 2024. [[pdf](https://openreview.net/forum?id=86zAUE80pP)]
+
+* 动机
+  * LLM做RLHF时候feedback可能来自不同的Domain
+  * 需要weighting strategy to decide which samples should be utilized for enhancing policy learning and which should be used for solidifying past experiences.
+* 方法：两个参数控制
+
+![image-20240208120343817](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240208120343817.png)
+
+:fire: **Prediction and Control in Continual Reinforcement Learning**, in NeurIPS 2023. [[pdf](https://arxiv.org/abs/2312.11669)]
+
+* 动机：RCL和RL一样，可以分开成两个loss
+  * 一个是transfer，另外一个是保留过去的记忆
+* Poster
+
+![image-20240217213334388](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240217213334388.png)
+
+:fire: :hammer_and_wrench: **COOM: A Game Benchmark for Continual Reinforcement Learning**, in NeurIPS 2023. [[pdf](https://paperswithcode.com/paper/coom-a-game-benchmark-for-continual)] [[Dataset](https://github.com/hyintell/coom)]
+
+![img](https://neurips.cc/media/PosterPDFs/NeurIPS%202023/73450.png?t=1701060532.7609744)
+
+:fire: :hammer_and_wrench: **PIVOT: Prompting for Video Continual Learning**, in CVPR 2022. [[pdf](https://arxiv.org/pdf/2212.04842.pdf)]
+
+* 动机
+  * 使用预训练模型 + PT做Video的CL
+* 方法
+
+![image-20240225203620207](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240225203620207.png)
+
+:hammer_and_wrench: **Space-time Prompting for Video Class-incremental Learning**, in ICCV 2023. [[pdf](https://openaccess.thecvf.com/content/ICCV2023/papers/Pei_Space-time_Prompting_for_Video_Class-incremental_Learning_ICCV_2023_paper.pdf)
+
+* 动机
+  * 第一个提出视频动作识别CL
+  * 时间+空间可学习prompt
+
+* 方法
+
+![image-20240217213752070](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240217213752070.png)
+
+⚠️ 下面我们介绍四篇Non-Transferable Learning的论文
+
+
+
+:hammer_and_wrench: **SAPT: A Shared Attention Framework for Parameter-Efficient Continual Learning of Large Language Models**, in ACL 2024. [[pdf](https://arxiv.org/abs/2401.08295)]
+
+* 动机
+  * LLM的连续学习问题：迁移 + 遗忘
+
+![image-20240602094328691](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240602094328691.png)
+
+* 方法
+
+![image-20240602094507513](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240602094507513.png)
+
+
+
+:fire: :hammer_and_wrench: **Prompt Gradient Projection for Continual Learning**, in ICLR 2024 Spotlight. [[pdf](https://openreview.net/pdf?id=EH2O3h7sBI)] [[torch](https://github.com/JingyangQiao/prompt-gradient-projection)]
+
+* 动机
+  * 通过正交prompt的梯度（直接修改Prompt）去做CL
+  * 避免Prompt之间互相干扰
+
+* 方法
+
+![image-20240617095744444](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240617095744444.png)
+
+:fire: :hammer_and_wrench: **Non-Transferable Learning: A New Approach for Model Ownership Verification and Applicability Authorization**, in ICLR 2022 Oral. [[pdf](https://arxiv.org/abs/2106.06916)] [[torch](https://github.com/conditionWang/NTL)] [[zhihu](https://zhuanlan.zhihu.com/p/470233635)]
+
+* 动机
+  * 利用Domain Generalization / Adaptation的反概念 -- 通过限制神经网络的跨域泛化性能来保护模型的知识版权（Intellectual Property），使用的两个手段分别为**模型归属验证**（Ownership Verification）和**应用授权**（Applicability Authorization）。
+
+![image-20240304092624447](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240304092624447.png)
+
+* 相关工作说明
+  * 当前保护神经网络的知识产权主要有两种手段
+
+1. 一种是ownership verification，其中最典型的代表技术就是模型水印（model watermarking），此类工作有很多，比如在神经网络的不重要的参数中嵌套水印，还有让神经网络学习专门的行为，以及从神经网络的训练过程中提取专属fingerprint。但这些工作都被测试出其嵌入的==**水印很容易被去除**==，经典的去除方法包括参数微调，模型重训练，水印重覆盖，以及模型剪枝。
+2. 另一种保护手段是usage authorization，属于这类的方法也有不少，比如通过一个预设的私钥来加密整个或部分的神经网络，只有被授权使用的用户才能得到该私钥，进而使用模型，私钥的生成有多种方式。但是这类方法有个严重的问题，就是==**合法授权的用户可以分享自己的私钥给任何人，然后得到私钥的人就可以在没有授权的情况下使用模型**==。我们注意到了这个问题，所以我们将usage的授权衍生至applicability的授权，因为**我们希望将模型的使用授权给特定的数据，而不是特定的用户**，这样前面所述的私钥分享导致的未授权使用问题会得到解决。**(以前只有一把钥匙，现在有很多钥匙)**
+
+在此问题上，我们提出了non-transferable learning（NTL），一般意义上来讲，NTL是域泛化和域迁移的反方向研究，NTL的目标是把模型在域之间的泛化范围变得更加清晰。
+
+* 更具体来讲，我们**考虑两个相似的数据域，源域（source）和目标域（target），NTL目的在于保证模型在源域性能不变的前提下尽可能降低模型在目标域上的表现**。对于目标域可获取的情况（对应domain adaptation场景），我们提出了Target-Specified NTL，在这种情况下，我们可以实现对深度神经网络模型的ownership verification。根据我们的实验，基于Target-Specified NTL的verification不会受到参数微调，重训练，水印重覆盖，模型剪枝，以及水印去除SOTA工作的影响。对于目标域不可获取的情况（对应domain generalization），我们提出了Source-Only NTL，其可以实现神经网络的applicability authorization。根据实验，我们能验证使用Source-Only NTL训练出的模型只会在source domain上有较好的性能，在其他相似domain上性能都会有巨大的下降。我们使用的数据集为来自5个不同domain的digits：MNIST，USPS，SVHN，MNIST-M，SYN-D，以及CIFAR10和STL10，还有VisDA。
+
+* 方法：详见论文或者知乎博客
+  * Target-Free其实就是生成一些Target Domain的数据来做训练
+
+* 应用
+  * **Ownership Verification.** 
+    * NTL可以被轻松用来验证某个模型的ownership。具体而言，我们可以在source domain data上贴上一个**特定的浅掩码**来作为auxiliary domain data，然后使用NTL去训练模型。经过NTL的训练，我们的模型在有掩码的数据上会有非常差的表现，但是在无掩码的源域数据上性能仍十分优秀。与之相对比的是，使用其他方法或者其他掩码的NTL训练得到的模型在有无该掩码的数据上表现并无明显差异。这样我们就可以利用模型对于相同数据不同的行为表现来验证ownership。
+  * **Applicability Authorization** 
+    * 对于该应用，我们希望NTL训练的模型只会在授权的源域上表现很好，在其他任何相似数据域上的表现都较差。我们使用与归属验证相似的掩码做为授权掩码，我们认定有授权掩码的源域数据为source domain，其他域（没有授权掩码的源域数据，有掩码的augmentation域数据，无掩码的augmentation域数据）做为auxiliary domain，然后进行NTL训练。经过训练后，模型只会在有掩码的源域数据上呈现优秀性能，在其他域上都会是较差的表现，这样，我们就实现了模型的应用授权。
+* 实验结果 （Target-free的实验结果详见论文也是一样的）
+
+Target-Specified NTL（泛化能力下降，证明Applicability Authorization！）：
+
+![img](https://raw.githubusercontent.com/Gary-code/pic/main/img/v2-10726b067d5b18c49670f23cb92938c5_1440w.webp)
+
+基于Target-Specified NTL的ownership verification，以及对NTL使用SOTA的模型水印去除方法的效果（抵御水印去除算法）：
+
+![image-20240304093021176](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240304093021176.png)
+
+:fire: :hammer_and_wrench: **Unsupervised Non-transferable Text Classification**, in EMNLP 2022. [[pdf](https://arxiv.org/abs/2210.12651)] [[torch](https://github.com/ ChaosCodes/UNTL)]
+
+* 动机
+
+![image-20240304092010684](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240304092010684.png)
+
+* 方法：基于Maximum Mean Discrepancy（详见论文）
+
+
+
+:fire: :hammer_and_wrench: **Model Barrier: A Compact Un-Transferable Isolation Domain for Model Intellectual Property Protection**, in CVPR 2023. [[pdf]](https://arxiv.org/abs/2303.11078)] [[torch](https://github.com/LyWang12/CUTI-Domain)]
+
+* 动机
+  * 本文本质上和ICLR2022年的没有太大区别
+    * However, the authors only considered using limited samples to increase the mean distribution difference of features between domains and ignored outliers. The convergence region of NTL is not tight enough. 
+    * Moreover, the calculation of the maximum mean difference is class-independent, which reduces the model’s feature recognition ability in the authorized domain to a certain extent.
+
+![image-20240304103523021](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240304103523021.png)
+
+* 方法（分离Style和Content）
+
+![image-20240304103710025](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240304103710025.png)
+
+:fire: **Domain Specified Optimization for Deployment Authorization**, in ICCV 2023. [[pdf](https://openaccess.thecvf.com/content/ICCV2023/papers/Wang_Domain_Specified_Optimization_for_Deployment_Authorization_ICCV_2023_paper.pdf)]
+
+* 动机
+  * 只用关心相似的domain就可以了，不相似的domain本来就没有泛化能力
+  * 不需要GAN生成target domain也可以了
+
+![image-20240601171708418](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240601171708418.png)
+
+* 具体方法见论文（太多公式）
+
+
+
+:fire: :hammer_and_wrench: **Improving Non-Transferable Representation Learning by Harnessing Content and Style**, in ICLR 2024 spotlight. [[pdf](https://openreview.net/forum?id=FYKVPOHCpE&referrer=%5Bthe%20profile%20of%20Mingming%20Gong%5D(%2Fprofile%3Fid%3D~Mingming_Gong2))] [[torch]()]
+
+* 动机
+  * 因果推断解决虚假关联，style的强相关
+
+![image-20240304103948997](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240304103948997.png)
+
+* 方法
+
+![image-20240304104027251](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240304104027251.png)
+
+* 模型优化目标
+
+![image-20240304104110255](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240304104110255.png)
+
+
+
+:fire: :hammer_and_wrench: **MAP: MAsk-Pruning for Source-Free Model Intellectual Property Protection**, in CVPR 2024. [[pdf](https://arxiv.org/abs/2403.04149)] [[torch](https://github.com/ispc-lab/map)]
+
+* 动机
+  * 过去的NTL并没有关注**Pre-trained模型**
+  * **实际上pre-trained模型的source domain是没办法获取的**，只有一个source上训练好的模型，本文研究在这个基础上如何实现IP保护。【生成Source就好了】
+  * 提出了两个场景
+    * Source-Free情况下，如何消除那些重叠的unauthorzed的domain
+    * Data-Free，什么数据集都不能访问，就是减少泛化能力
+
+![image-20240601172832700](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240601172832700.png)
+
+
+
+* 思路：彩票假说
+  *  We argue that well-trained models contain parameters exclusively associated with specific dmains. Through deliberate pruning of these parameters, we effectively eliminate the generalization capability to these domains while minimizing the impact on other domains.
+  * 我们freezes the source model and learns a target-specific binary mask to prevent unauthorized data usage while minimizing performance degradation on authorized data.
+* 方法
+  * **只需要训练那个Binary Mask**
+
+![image-20240601180756842](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240601180756842.png)
+
+
+
+:fire: :hammer_and_wrench: **SOPHON: Non-Fine-Tunable Learning to Restrain Task Transferability For Pre-trained Models**, in ISSP 2024. [[pdf](https://arxiv.org/abs/2404.12699)] [[torch](https://github.com/ChiangE/Sophon)]
+
+* 动机
+  * 过去的NTL方法其实在Target上面训练一下，就可以打破之前的壁垒了，本文希望研究一种可以抵御Fine-tuning的方式
+  * 同时本文也研究了图像生成的任务
+
+![image-20240601181156003](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240601181156003.png)
+
+* 方法
+
+![image-20240601181636637](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240601181636637.png)
+
 ---
 
 
@@ -5073,7 +6111,36 @@ Commonsense Knowledge 就是**Conceptual Caption数据中来**
 
 ![image-20230920094808476](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20230920094808476.png)
 
+:fire: :hammer_and_wrench: **Generative Multi-Modal Knowledge Retrieval with Large Language Models**, in AAAI 2024. [[pdf](https://arxiv.org/pdf/2401.08206.pdf)] [[torch](https://github.com/xinwei666/MMGenerativeIR)]
 
+* 动机
+  * 利用LLM做端到端的多模态知识检索
+  * 不需要多个retriver了
+
+![image-20240129103257243](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240129103257243.png)
+
+* 方法
+  * LLM 生成Knowledge Clue -> 检索知识库
+
+![image-20240129103355311](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240129103355311.png)
+
+
+
+:fire: :hammer_and_wrench: **Detoxifying Large Language Models via Knowledge Editing**, in ACL 2024. [[project](https://zjunlp.github.io/project/SafeEdit)]
+
+* 动机
+  * 提出知识编辑的Benchmark
+  * 提出一个baseline
+    * 证明了SFT and DPO may merely suppress the activations of toxic parameters
+    * 而baseline DINM mitigates the toxicity of the toxic parameters to a certain extent, making permanent adjust- ments.
+
+* Benchmark构建
+
+![image-20240604092846403](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240604092846403.png)
+
+* Baseline方法
+
+![image-20240604092905242](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240604092905242.png)
 
 ### :ice_cream: Hallucination
 
@@ -5155,6 +6222,22 @@ Commonsense Knowledge 就是**Conceptual Caption数据中来**
 
 ![image-20240125194537208](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240125194537208.png)
 
+
+
+:fire: :hammer_and_wrench: **[2024-1未开源] MuSc : Zero-Shot Anomaly Classification and Segmentation by Mutual Scoring of the Unlabeled Images**, in ICLR 2024. [[pdf](https://openreview.net/forum?id=AHgc5SMdtd)] [[code]()]
+
+* 动机
+  * Zero-shot + 使用**Unlabeled数据**
+    * the normal image patches could find a relatively large number of similar patches in other unlabeled images, while the abnormal ones only have a few sim- ilar patches.
+
+![image-20240131095310433](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240131095310433.png)
+
+* 模型方法（具体见论文）
+
+![image-20240131095349281](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240131095349281.png)
+
+
+
 :hammer_and_wrench: :fire:  **Automated Defect Report Generation for Enhanced Industrial Quality Control**, in AAAI 2024. 
 
 > 详见论文
@@ -5194,6 +6277,174 @@ Commonsense Knowledge 就是**Conceptual Caption数据中来**
 
 ![image-20240128195000804](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240128195000804.png)
 
+:fire: :hammer_and_wrench: **HA-ViD: A Human Assembly Video Dataset for Comprehensive Assembly Knowledge Understanding**, in NeurIPS 2023. [[pdf](https://arxiv.org/abs/2307.05721)] [[dataset&Code](https://iai-hrc.github.io/ha-vid)]
+
+* 动机
+  * 视频工业零件组装知识图谱
+    * subject, action verb, manipulated object, target object, and tool. We provide 3222 multi-view and multi-modality videos, 1.5M frames, 96K temporal labels and 2M spatial labels. We benchmark four foundational video understanding tasks: action recognition, action segmentation, object detection and multi-object tracking.
+
+![image-20240130110708355](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240130110708355.png)
+
+* 知识图谱标注
+
+![image-20240130110759805](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240130110759805.png)
+
+
+
+
+
+:hammer_and_wrench: **LithoBench: Benchmarking AI Computational Lithography for Semiconductor Manufacturing**, in NeurIPS 2023. [[pdf](https://openreview.net/forum?id=JqWtIIaS8n)] [[dataset](https://github.com/shelljane/lithobench)]
+
+* 动机：半导体制造的一个Benchmark，主要研究逆向光刻技术
+  * 场景够牛逼，数据独一无二
+
+![image-20240130111434449](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240130111434449.png)
+
+![](https://www.cse.cuhk.edu.hk/~byu/papers/C190-NeurIPS2023-LithoBench-poster.pdf)
+
+
+
+ :fire: :hammer_and_wrench: **Learning to Taste : A Multimodal Wine Dataset**, in NeurIPS 2023. [[pdf](https://arxiv.org/abs/2308.16900)] [[dataset](https://thoranna.github.io/learning_to_taste/)]
+
+* 动机：红酒数据集（味觉空间👅）
+  *  The dataset encompasses 897k images of wine labels and 824k reviews of wines curated from the Vivino platform. It has over 350k unique bottlings, annotated with year, region, rating, alcohol percentage, price, and grape composition.
+  * In this work we combine flavor annotations with other modalities, such as images and text reviews, to form a "flavor space" that describes the human perception of flavor. This opens exciting directions in grounding machines in the physical world.
+* 数据集
+  * More specifically, we conducted seven wine tastings, pairing the acquired data with text reviews and images from the [#Vivino](https://www.linkedin.com/feed/hashtag/?keywords=vivino&highlightedUpdateUrns=urn%3Ali%3Aactivity%3A7112496045946757121) platform, creating a comprehensive flavor space for wine 🥂 Introducing [#WineSensed](https://www.linkedin.com/feed/hashtag/?keywords=winesensed&highlightedUpdateUrns=urn%3Ali%3Aactivity%3A7112496045946757121), a large multimodal dataset and presenting FEAST, a novel algorithm for learning a latent space representation aligned with human perception of flavor.
+
+![image-20240131104004934](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240131104004934.png)
+
+* 模型方法
+
+![image-20240131104039592](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240131104039592.png)
+
+:fire: :hammer_and_wrench: **Real3D-AD: A Dataset of Point Cloud Anomaly Detection**, in NeurIPS 2023. [[pdf](https://arxiv.org/abs/2309.13226)] [[dataset](https://github.com/M-3LAB/Real3D-AD)]
+
+* 动机：第一个高分辨率的三维异常检测数据集
+  * 能够设计高分辨率的三维异常检测算法，并将其应用于公开可用的算法。Real3D-AD表现出三个主要属性，这使它有别于之前的3D研究 异常检测数据集。这些属性包括一个高水平的精度，没有盲点，和一个现实的，高精度的原型。
+
+* 数据集
+
+![image-20240201110404892](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240201110404892.png)
+
+:fire: :hammer_and_wrench: **PAD: A Dataset and Benchmark for Pose-agnostic Anomaly Detection**, in NeurIPS 2023. [[project](https://github.com/EricLee0224/PAD)]
+
+* 动机
+  * 多视角的异常检测
+
+![image-20240601210224880](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240601210224880.png)
+
+* 方法
+
+![image-20240601210258058](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240601210258058.png)
+
+:fire: :hammer_and_wrench: **Reconnecting the Broken Civilization: Patchwork Integration of Fragments from Ancient Manuscripts**, in MM 2023. [[pdf](https://dl.acm.org/doi/10.1145/3581783.3613804)]
+
+* 动机
+  * 破碎的文物重新拼接
+
+![image-20240608203300394](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240608203300394.png)
+
+
+
+:fire: :hammer_and_wrench: **Defect Spectrum: A Granular Look of Large-Scale Defect Datasets with Rich Semantics**, in ECCV 2024. [[project](https://envision-research.github.io/Defect_Spectrum/)]
+
+* 动机
+  * 过去的缺陷检测任务数据集没有很细粒度的标注
+
+![image-20240801204307478](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240801204307478.png)
+
+* 数据集对比
+
+![image-20240801204338810](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240801204338810.png)
+
+
+
+:fire: :hammer_and_wrench: **Can Large Language Models Understand Symbolic Graphics Programs?**, 2024-08. [[project](sgp-bench.github.io)]
+
+* 动机
+  * 探究LLM能不能理解图形化的代码（CAD + SVG）
+  * 提出一个超大的SVG、CAD指令数据集
+  * 结论：现在的LLM在这方面很差
+
+![image-20240903095004297](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240903095004297.png)
+
+* 数据标注方式：GPT-4看图来标注，测评LLM时候没有把图像给到LLM
+* 测评（四选一）
+
+![image-20240903095144990](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240903095144990.png)
+
+:fire: :hammer_and_wrench: **Rapid 3D Model Generation with Intuitive 3D Input**, in CVPR 2024. [[project](http://research.kokoni3d.com/Deep3DVRSketch)]
+
+* 动机
+  * 3D Sketch到3D模型的生成（**元宇宙**）
+  * 主要针对新手用户
+
+![image-20240917115002472](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240917115002472.png)
+
+* 方法
+
+![image-20240917114936185](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240917114936185.png)
+
+:hammer_and_wrench: :fire: **From Supervised to Generative: A Novel Paradigm for Tabular Deep Learning with Large Language Models**, in KDD 2024. [[project](https://github.com/microsoft/Industrial-Foundation-Models)]
+
+* 动机
+  * 表格数据对Science领域很重要，表格的数据在很多比赛当中是有的（Kaggle的社区）
+* 训练方法（连续预训练）
+  * 主要改了一下loss，在输入的某些token也要算loss
+
+![image-20240928122551231](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240928122551231.png)
+
+:fire: :hammer_and_wrench: **CAD-SIGNet: CAD Language Inference from Point Clouds using Layer-wise Sketch Instance Guided Attention**, in CVPR 2024 Spotlight. [[project](https://skazizali.com/cadsignet.github.io/)]
+
+* 动机
+  * 3D点云 -> CAD生成（B-Rep的形式）
+
+![image-20240928123325557](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240928123325557.png)
+
+* 方法
+
+![image-20240928123348854](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240928123348854.png)
+
+* B-Rep量化细节
+
+![image-20240928123422477](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240928123422477.png)
+
+
+
+:fire: :hammer_and_wrench: **Text2CAD: Generating Sequential CAD Models from Beginner-to-Expert Level Text Prompts**, in NeurIPS 2024 Spotlight. [[project](https://sadilkhan.github.io/text2cad-project/)]
+
+* 动机
+  * 从入门到专家prompt来做CAD序列的生成
+    * 这里的CAD是B-Rep的形式，类似DeepCAD
+  * 过去的模型（包括LLM）没办法生成CAD序列，最主要的原因就是缺少数据
+* 数据标注
+  * 基于DeepCAD标注了660K的指令数据集
+  * 标注流程（一些细节需要看附录）
+
+![image-20240928122833563](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240928122833563.png)
+
+* 方法
+  * 主要是在量化（具体见附录）
+  * 很小的Transformer就可以做生成了
+
+![image-20240928122923184](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240928122923184.png)
+
+* Case展示
+
+![image-20240928123026492](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240928123026492.png)
+
+![image-20240928123044212](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240928123044212.png)
+
+:hammer_and_wrench: **CableInspect-AD: An Expert-Annotated Anomaly Detection Dataset**, in NeurIPS 2024. [[project](https://mila-iqia.github.io/cableinspect-ad/)]
+
+* 动机
+  * Cable的缺陷检测，需要考虑实际情况。
+  * 做了更加详细的标注
+    * a high-quality, publicly available dataset created and annotated by domain experts from Hydro-Québec, a Canadian public utility. It features 4,798 high-resolution images and 6,023 annotated anomalies across three types of power line cables.
+
+![image-20240929105813807](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240929105813807.png)
+
 
 
 ### :hospital: Medical
@@ -5231,6 +6482,51 @@ Commonsense Knowledge 就是**Conceptual Caption数据中来**
 
 ![image-20240128202727869](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240128202727869.png)
 
+:fire: :hammer_and_wrench: **CARE-MI: Chinese Benchmark for Misinformation Evaluation in Maternity and Infant Care**, in NeurIPS 2023. [[pdf](https://arxiv.org/abs/2307.01458)] [[dataset](https://github.com/Meetyou-AI-Lab/CARE-MI)]
+
+* 动机
+  * 中文婴儿与产妇护理Benchmark
+* 数据集构建
+
+![image-20240131103530400](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240131103530400.png)
+
+* 评价实验
+
+![image-20240131103611823](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240131103611823.png)
+
+:fire: :hammer_and_wrench: **Mol-Instructions: A Large-Scale Biomolecular Instruction Dataset for Large Language Models**, in ICLR 2024. [[pdf](https://arxiv.org/abs/2306.08018)] [[project](https://github.com/zjunlp/Mol-Instructions)]
+
+* 动机
+  * 生物分子研究领域的特殊性—比如专用数据集的缺乏、数据标注的高复杂度、知识的多元化以及表示方式的不统一—仍旧是当前面临的关键挑战。
+  * 针对这些问题，本文提出Mol-Instructions，这是一个针对生物分子领域各项研究任务定制的指令数据集。
+
+![image-20240204165141272](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240204165141272.png)
+
+* 指令数据集构建
+  * 小分子指令：深度探索小分子的固有属性与行为，研究化学反应和分子设计的核心挑战。理解和预测小分子的化学特性，优化分子设计，提高化学反应预测的准确性和效率。其目标是在化学和药物设计领域加速药物的研发进程，同时降低研发成本。
+  * 蛋白质指令：主要解决蛋白质设计和功能相关的问题。旨在预测蛋白质结构域、功能及活性，通过文本指令推动蛋白质设计。对于疾病的诊断、治疗以及新药的研发工作具有一定的价值。
+  * 生物文本指令：侧重于生物信息学和化学信息学领域的自然语言处理任务。旨在从生物医学文献中提取和解析关键信息，支持研究人员快速获取知识、便于进行查询。
+
+![image-20240204165354754](/Users/gary/Library/Application Support/typora-user-images/image-20240204165354754.png)
+
+* 方法
+  * 本文对LLaMA-7B模型进行了指令微调，并从多个角度进行了定量实验分析。实验结果显示，经Mol-Instructions微调的LLM在多种任务上的表现超越了其他大型模型，证明了Mol-Instructions在提升LLMs处理生物分子信息能力方面的关键作用。
+
+:fire: :hammer_and_wrench: **LLaVA-Med: Training a Large Language-and-Vision Assistant for Biomedicine in One Day**, in NeurIPS 2023. [[pdf](https://arxiv.org/abs/2306.00890)] [[project](https://aka.ms/llava-med)]
+
+* 动机：医学报告
+* 方法（重点是通过prompt来给GPT生成QA对话作为训练数据）
+  * 先模态对齐
+  * 后利用指令数据微调
+
+![image-20240209152253086](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240209152253086.png)
+
+:fire: :hammer_and_wrench: **VTaC: A Benchmark Dataset of Ventricular Tachycardia Alarms from ICU Monitors**, in NeurIPS 2023. [[pdf](https://openreview.net/forum?id=qf4CWnrvZa&noteId=82F1KpDciL)]
+
+> 具体见论文
+
+* 动机：VTaC：ICU 监护仪室性心动过速警报的基准数据集
+
 ### :man_teacher: Education
 
 :hammer_and_wrench: **Class Prototypes based Contrastive Learning for Classifying Multi-Label and Fine-Grained Educational Videos**, in CVPR 2023.  [[pdf](https://openaccess.thecvf.com/content/CVPR2023/papers/Gupta_Class_Prototypes_Based_Contrastive_Learning_for_Classifying_Multi-Label_and_Fine-Grained_CVPR_2023_paper.pdf)] [[torch](https://nusci.csl.sri.com/project/APPROVE)]
@@ -5266,6 +6562,32 @@ Commonsense Knowledge 就是**Conceptual Caption数据中来**
 
 ![image-20240128205846872](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240128205846872.png)
 
+
+
+:fire: :hammer_and_wrench: **Towards Real-World Writing Assistance: A Chinese Character Checking Benchmark with Faked and Misspelled Characters**, in ACL 2024. [[pdf](https://arxiv.org/abs/2311.11268)] [[dataset&torch](https://github.com/THUKElab/Visual-C3)]
+
+* 动机
+  * 错别字纠正任务
+  * 过去方法：only focus on mis- spelled characters mainly caused by phonologi- cal or visual confusion, thereby ignoring faked characters which are more common and difficult.
+
+![image-20240715083756688](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240715083756688.png)
+
+* 数据集收集&方法（超级简单）
+
+![image-20240715083844656](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240715083844656.png)
+
+![image-20240715083909531](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240715083909531.png)
+
+* Case展示
+
+![image-20240715083950509](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240715083950509.png)
+
+
+
+
+
+
+
 ### :waning_gibbous_moon: Remote Sensing
 
 :fire: :hammer_and_wrench: **EarthVQA: Towards Queryable Earth via Relational Reasoning-Based Remote Sensing Visual Question Answering**, in AAAI 2024. [[pdf](https://arxiv.org/abs/2312.12222)] [[torch](https://junjue-wang.github.io/homepage/EarthVQA)]
@@ -5284,3 +6606,26 @@ EarthVQA数据集从LoveDA数据集（Wang et al. 2021）扩展而来，包括�
 * 方法：Baseline
 
 ![image-20240128203708238](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240128203708238.png)
+
+:fire: :hammer_and_wrench: **GeoCLIP: Clip-Inspired Alignment between Locations and Images for Effective Worldwide Geo-localization**, in NeurIPS 2023. [[pdf]](https://arxiv.org/abs/2309.16020) [[torch](https://vicentevivan.github.io/GeoCLIP)]
+
+* 动机
+  * 地理位置识别CLIP
+
+![image-20240201112034132](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240201112034132.png)
+
+* 模型方法
+
+![image-20240201112058128](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240201112058128.png)
+
+
+
+ :fire: :hammer_and_wrench: **DiffusionSat: A Generative Foundation Model for Satellite Imagery**, in ICLR 2024. [[pdf](https://arxiv.org/abs/2312.03606)] [[torch]()]
+
+* 动机
+  * Diffusion模型生成遥感图像
+    * single-image generation, conditioned on text and metadata, multi-spectral superresolution, temporal prediction, and temporal inpainting.
+* 方法
+
+![image-20240205103113351](https://raw.githubusercontent.com/Gary-code/pic/main/img/image-20240205103113351.png)
+
